@@ -1,0 +1,27 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "~element-ui/packages/theme-chalk/src/mixins/utils";
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+@import "~element-ui/packages/theme-chalk/src/common/popup";
+
+@include b(dialog) {
+    @include e(header) {
+        height: $--larger-height;
+        padding: 0px $--dialog-padding-primary;
+        padding-bottom: 0px;
+        border-bottom: 1px solid $--border-color-base;
+    }
+    @include e(headerbtn) {
+        top: $--dialog-padding-primary - 4;
+        .el-dialog__close {
+            color: $--color-text-placeholder;
+        }
+    }
+    @include e(title) {
+        white-space: nowrap;
+        font-weight: $--font-weight-primary;
+    }
+
+    @include e(footer) {
+        padding: 10px $--dialog-padding-primary;
+    }
+}

@@ -1,0 +1,16 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+
+@include b(page-header) {
+  @include e(left) {
+    .el-icon-back {
+      font-size: $--font-size-base;
+    }
+    @include e(title) {
+      font-size: $--font-size-base;
+    }
+  }
+  @include e(content) {
+    font-size: $--font-size-base;
+  }
+}

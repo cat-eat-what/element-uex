@@ -1,0 +1,67 @@
+@charset "UTF-8";
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "./mixins/button";
+@import "~element-ui/packages/theme-chalk/src/mixins/utils";
+
+@include b(checkbox) {
+    @include when(bordered) {
+        line-height: $--checkbox-bordered-height - 4;
+        vertical-align: middle;
+        @include e(input) {
+            vertical-align: inherit;
+        }
+    }
+
+    &.el-checkbox--medium {
+        line-height: $--checkbox-bordered-medium-height - 4;
+
+    }
+
+    &.el-checkbox--small {
+        line-height: $--checkbox-bordered-small-height - 4;
+    }
+
+    &.el-checkbox--mini {
+        line-height: $--checkbox-bordered-mini-height - 4;
+    }
+
+    @include e(input) {
+        @include when(indeterminate) {
+            .el-checkbox__inner {
+                &::before {
+                    top: 6px;
+                }
+            }
+        }
+    }
+
+    @include e(inner) {
+        &::after {
+            left: 5px;
+            top: 2px;
+        }
+    }
+}
+
+@include b(checkbox-button) {
+    @include e(inner) {
+        @include button-size($--button-padding-vertical, $--button-padding-horizontal, $--button-font-size, 0);
+
+    }
+    @include m(medium) {
+        .el-checkbox-button__inner {
+        @include button-size($--button-medium-padding-vertical, $--button-medium-padding-horizontal, $--button-medium-font-size, 0);
+        }
+    }
+    @include m(small) {
+        .el-checkbox-button__inner {
+            @include button-size($--button-small-padding-vertical, $--button-small-padding-horizontal, $--button-small-font-size, 0);
+        }
+    }
+    @include m(mini) {
+        .el-checkbox-button__inner {
+            @include button-size($--button-mini-padding-vertical, $--button-mini-padding-horizontal, $--button-mini-font-size, 0);
+        }
+    }
+}

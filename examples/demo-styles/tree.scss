@@ -1,0 +1,102 @@
+.demo-tree {
+    .main-demo {
+        width: 100%;
+        height: 300px;
+        overflow: auto;
+    }
+    .drag-tree {
+        /* height: 100%; */
+    }
+    .elx-tree {
+        width: 210px;
+        height: 100%;
+        overflow: auto;
+    }
+    .drag-tree .elx-tree {
+        float: left;
+    }
+    .drag-tree .elx-item-list {
+        width: calc(100% - 160px);
+        height: 100%;
+        overflow: auto;
+        float: left;
+    }
+    .elx-tree.elx-tree-1 span[class*="uex-icon"] {
+        color: #8A929F;
+    }
+    .elx-tree span[class*="uex-icon"].pink {
+        color: pink;
+    }
+    .elx-tree.elx-tree-1 span.el-tree-node__expand-icon:before {
+        content: "\E917";
+        margin-left: 4px;
+        width: 12px;
+        height: 12px;
+        border-radius: 12px;
+        background: #fff;
+    }
+    .elx-tree.elx-tree-1 span.el-tree-node__expand-icon.expanded:before {
+        content: "\E916";
+        margin-left: 4px;
+    }
+    .drag-tree>.elx-table {
+        width: -webkit-calc(100% - 160px) !important;
+        width: -moz-calc(100% - 160px) !important;
+        width: calc(100% - 160px) !important;
+        height: 100%;
+        float: left;
+    }
+    .drag-tree .elx-item-list {
+        background: #fff;
+    }
+    .drag-tree .elx-item-list>li {
+        background: #fff;
+    }
+    .elx-tree {
+        width: 160px;
+        height: 100%;
+        overflow: auto;
+    }
+    .drag-tree .elx-tree {
+        float: left;
+    }
+    .drag-tree .elx-item-list {
+        width: calc(100% - 160px);
+        height: 100%;
+        overflow: auto;
+        float: left;
+    }
+    .elx-tree.elx-tree-1 span[class*="uex-icon"] {
+        color: #8A929F;
+    }
+    .elx-tree span[class*="uex-icon"].pink {
+        color: pink;
+    }
+    .elx-tree.elx-tree-1 span.el-tree-node__expand-icon:before {
+        content: "\E917";
+        margin-left: 4px;
+        width: 12px;
+        height: 12px;
+        border-radius: 12px;
+        background: #fff;
+    }
+    .elx-tree.elx-tree-1 span.el-tree-node__expand-icon.expanded:before {
+        content: "\E916";
+        margin-left: 4px;
+    }
+    &>.elx-table {
+        width: -webkit-calc(100% - 160px) !important;
+        width: -moz-calc(100% - 160px) !important;
+        width: calc(100% - 160px) !important;
+        height: 100%;
+        float: left;
+    }
+    .drag-tree .elx-item-list {
+        background: #fff;
+    }
+    .drag-tree .elx-item-list>li {
+        background: #fff;
+    }
+}
+
+

@@ -1,0 +1,45 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-operate-param {
+    .operate-param-content {
+        display: inline-block;
+    }
+    .operate {
+        overflow: hidden;
+        width: 100%;
+        height: 30px;
+    }
+    &> div {
+        margin-bottom: 10px;
+    }
+    &> div .el-button {
+        margin-left: 10px;
+    }
+    .add-button,
+    .delete-button {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        line-height: 16px;
+        text-align: center;
+        padding: 0px;
+        color: #fff;
+        border: 0px;
+        font-size: $--font-size-small;
+    }
+    .add-button{
+        float: right;
+        background: $--color-primary;
+    }
+    .delete-button{
+        background: $--color-danger;
+    }
+    .el-input{
+        width: inherit;
+    }
+    label{
+        line-height: 34px;
+        color: $--color-font;;
+    }
+}

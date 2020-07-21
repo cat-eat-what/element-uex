@@ -1,0 +1,31 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+@import "~element-ui/packages/theme-chalk/src/common/transition";
+
+@include b(collapse-item) {
+    @include e(header) {
+        font-weight: normal;
+        position: relative;
+        padding-left: 20px;
+        @include e(arrow) {
+            font-weight: normal;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            line-height: $--large-height;
+            color: $--icon-color;
+            @include when(active) {
+                color: $--icon-color;
+            }
+        }
+        @include when(active) {
+            border-bottom-color: $--collapse-border-color;
+            font-weight: $--font-weight-primary;
+        }
+    }
+    @include e(content) {
+        padding-bottom: 0px;
+        padding: 10px 35px;
+    }
+
+}

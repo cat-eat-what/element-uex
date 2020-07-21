@@ -1,0 +1,32 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+
+@include b(table) {
+    font-size: $--font-size-base;
+    
+    @include e(expand-icon) {
+        font-size: $--font-size-base;
+    }
+
+    th, td {
+        padding: 0;
+    }
+
+    @include m(small) {
+        font-size: $--font-size-base;
+    }
+
+    @include m(mini) {
+        font-size: $--font-size-base;
+    }
+
+    .cell {
+        line-height: $--large-height;
+    }
+
+    @include e(column-filter-trigger) {
+        & i {
+            font-size: $--font-size-base;
+        }
+    }
+}

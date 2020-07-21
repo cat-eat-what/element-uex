@@ -1,0 +1,9 @@
+.flow-menu-demo {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    iframe {
+        flex: 1;
+    }
+}

@@ -1,0 +1,30 @@
+.demo-scroll-content {
+    .lay-bottom {
+        background: #ff0;
+    }
+    .main-demo.layout-demo {
+        background-color: #fafafa;
+        height: 300px;
+        text-align: center;
+        font-size: 16px;
+        .elx-main>.main-show.elx-row>div {
+            margin-bottom: 10px
+        }
+        .elx-main>.main-show.elx-row>div.elx-footer,
+        .elx-main>.main-show.elx-row>div:last-child {
+            margin-bottom: 0
+        }
+        .main-show div {
+            background: #fff;
+            border: 1px solid #d3d3d3;
+        }
+        .main-show .content-demo {
+            height: 600px;
+            background: #fafafa;
+            text-align: center;
+        }
+    }
+    .elx-slider-demo {
+        height: 100px;
+    }
+}

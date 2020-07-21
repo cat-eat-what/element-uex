@@ -1,0 +1,9 @@
+.demo-main {
+	.main-demo {
+		height: 300px;
+	}
+	.elx-main {
+		height: calc(100% - 40px);
+		background-color: green;
+	}
+}

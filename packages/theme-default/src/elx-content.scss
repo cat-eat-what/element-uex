@@ -1,0 +1,120 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-content {
+    height: 100%;
+    width: 100%;
+    .iframe-content {
+        height: calc(100% - 42px);
+        overflow: hidden;
+    }
+    #content {
+        overflow: auto;
+    }
+    &.elx-switch-ani-disabled .iframe-content{
+        &>div {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            &.list .elx-main,
+            &.create .elx-sub-content{
+                opacity: 1;
+                z-index: 10;
+            }
+            &.create .elx-main,
+            &.list .elx-sub-content{
+                opacity: 0;
+                z-index: 1;
+            }
+        }
+        div.elx-main {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        .elx-sub-content{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border: 0px;
+            top: 0px;
+            left: 0px;
+        }
+    }
+    &.elx-switch-ani .iframe-content{
+        &>div {
+            width: 200%;
+            height: 100%;
+            transition: all 500ms;
+            &.create {
+                margin-left: -100%
+            }
+            &.list {
+                margin-left: 0px
+            }
+            &.list .elx-main,
+            &.create .elx-sub-content{
+                opacity: 1;
+                transition: all 300ms linear 300ms;
+            }
+            &.create .elx-main,
+            &.list .elx-sub-content{
+                opacity: 0
+            }
+        }
+        .elx-main,
+        .elx-sub-content{
+            transition: all 300ms;
+        }
+        div.elx-main {
+            width: 50%;
+            height: 100%;
+            float: left;
+        }
+        .elx-sub-content{
+            float: left;
+            border:0px;
+            width:50%;
+            height: 100%
+        }
+    }
+    .content-header{
+        height: 42px;
+        background-color: white;
+        line-height: 42px;
+        font-size: 14px;
+        color: #A2B0C4;
+        box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+        .content-title{
+            margin-left: 15px;
+            color: $--color-font;
+            border-left: 2px solid $--color-font;
+            padding-left: 8px;
+        }
+        .content-title,
+        .content-back span.uex-icon-back{
+            margin-right: 5px;
+            vertical-align: baseline;
+        }
+        .content-back{
+            font-size: 13px;
+        }
+        .content-back,
+        .content-add-button{
+            cursor: pointer
+        }
+        .content-add-button{
+            background: $--color-primary;
+            width: 42px;
+            height: 42px;
+            text-align: center;
+            float: right;
+            i {
+                font-size: 18px;
+                color: white !important;
+            }
+        }
+    }
+}

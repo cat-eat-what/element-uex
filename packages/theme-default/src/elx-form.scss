@@ -1,0 +1,75 @@
+.el-form-item__content [class^="uex-icon-"] {
+    vertical-align: baseline;
+}
+span.label-help.uex-icon-help.el-tooltip {
+    margin: 0px 2px;
+    color: #ccd5e0;
+    line-height: inherit;
+}
+
+.elx-form {
+    .el-switch {
+        vertical-align: baseline;
+    }
+    .el-slider__button-wrapper {
+        top: -14px;
+    }
+    .el-form-item__label>span>span{
+        float: right;
+    }
+    .el-form-item.is-error .el-form-item .el-input__inner,
+    .el-form-item.is-error .el-form-item .el-textarea__inner {
+        border-color: #bfcbd9;
+    }
+    .el-form-item.is-error .el-form-item.is-error .el-input__inner,
+    .el-form-item.is-error .el-form-item.is-error .el-textarea__inner {
+        border-color: #ff4949;
+    }
+    .el-form-item__content .el-select.is-multiple {
+        display: inline-block;
+        width: 100%;
+    }
+    .el-cascader__label {
+        line-height: 30px;
+    }
+    form.el-form.inline {
+        .el-form-item {
+            display: inline-block;
+            vertical-align: top;
+        }
+        label.el-form-item__label {
+            text-align: right;
+        }
+        .elx-form-item .el-form-item__content {
+            width: 200px;
+        }
+        .elx-form-item {
+            &.paramForm,
+            &.formGroup,
+            &.operateParam,
+            &.cardForm,
+            &.remoteTransfer,
+            &.inputTextarea,
+            &.tableForm,
+            &.codeMirror {
+                display: block;
+            }
+            &.radioCard .el-form-item__content,
+            &.radio .el-form-item__content,
+            &.checkbox .el-form-item__content,
+            &.checkboxButton .el-form-item__content,
+            &.slider .el-form-item__content,
+            &.radioCard .el-form-item__content,
+            &.paramForm .el-form-item__content,
+            &.formGroup .el-form-item__content,
+            &.operateParam .el-form-item__content,
+            &.cardForm .el-form-item__content,
+            &.remoteTransfer .el-form-item__content,
+            &.inputTextarea .el-form-item__content,
+            &.tableForm .el-form-item__content,
+            &.codeMirror .el-form-item__content {
+                width: auto;
+            }
+        }
+    }
+}

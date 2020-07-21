@@ -1,0 +1,55 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-navbar {
+    li {
+        display: inline-block;
+        line-height: 50px;
+        font-size: 14px;
+        padding: 0px 10px;
+        position: relative;
+        .uex-icon-arrow-down {
+            display: inline-block;
+            margin-left: 5px;
+            transition: all 200ms linear 100ms;
+        }
+        &.open .uex-icon-arrow-down {
+            transform: rotate(-180deg);
+        }
+    }
+    .treeview-menu {
+        position: absolute;
+        top: 50px;
+        left: 0px;
+        width: 300px;
+        padding: 10px 20px;
+        background-color: white;
+        border: 1px solid #eaeaea;
+        border-radius: 5px;
+        transform-origin: 0% 0%;
+        &:before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            top: -7px;
+            background: white;
+            border: 1px solid #eaeaea;
+            border-right: 0px;
+            border-bottom: 0px;
+            transform: rotate(45deg);
+        }
+    }
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: all 200ms linear 100ms;
+    }
+    .fade-enter,
+    .fade-leave-to{
+        transform: scale(0);
+        opacity: 0
+    }
+    a {
+        color: $--color-font;
+    }
+}

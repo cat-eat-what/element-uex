@@ -1,0 +1,17 @@
+.elx-scroll-content {
+  	overflow: auto;
+  	height: 0px;
+  	padding: 10px;
+  	&.elx-row>div{
+  		margin-bottom: 10px;
+	}
+	&.elx-row>div:last-child {
+	  	margin-bottom: 0px;
+	}
+	&.elx-col>div{
+	  	margin-right: 10px;
+	}
+	&.elx-col>div:last-child {
+  		margin-right: 0px;
+	}
+}

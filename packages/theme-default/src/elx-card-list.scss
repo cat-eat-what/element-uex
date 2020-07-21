@@ -1,0 +1,132 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-card-list {
+    padding: 15px;
+    margin-top: 10px;
+    border: 1px solid $--color-zxb-9;
+    box-shadow: 1px 1px 4px $--color-zxb-9;
+    overflow: hidden;
+    background: white;
+    .card-content,
+    .card-image,
+    .card-right{
+        float: left;
+        position:relative;
+    }
+    .card-image {
+        width: 90px;
+        height: 100px;
+        text-align: center;
+        span {
+            font-size: 82px;
+            line-height: 95px;
+            display: inline-block;
+            width: 90px;
+            height: 100px;
+            color: $--color-descr;
+            border-radius: 5px;
+        }
+    }
+    .card-content {
+        width: calc(100% - 230px);
+        height: 100px;
+        color: $--color-font;
+        padding: 0px 5px;
+    }
+    .card-right {
+        width: 130px;
+        height: 100px;
+        text-align: right;
+    }
+    .card-title {
+        font-size: 16px;
+        color: $--color-dark-font;
+        font-weight: 500;
+        padding: 0px;
+        div {
+            padding: 0px;
+        }
+    }
+    .el-rate {
+        display: inline-block;
+        margin-left: 10px;
+    }
+    .el-rate__item {
+        vertical-align: baseline;
+    }
+    .el-rate__icon{
+      font-size:14px;
+    }
+    .card-desc {
+        color: $--color-text-placeholder;
+        margin: 6px 0px;
+    }
+    ul.base-data {
+        overflow: hidden;
+    }
+    .card-content li {
+        margin-right: 20px;
+        margin-top: 2px;
+        float: left;
+    }
+    .card-label {
+        color: $--color-text-secondary;
+    }
+    .card-base-data {
+        color: $--color-text-primary;
+    }
+    .card-top {
+        width: 100%;
+        position: absolute;
+        top: 0px;
+    }
+    .card-bottom {
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+    }
+    .card-operate {
+        .el-button{
+            height:24px;
+        }
+        .operate-group {
+            span {
+                margin: 0 2px;
+                width: 25px;
+                height: 20px;
+                text-align: right;
+                line-height: 20px;
+                border-radius: 3px;
+                color: $--color-descr;
+                font-size: 16px;
+                display: inline-block;
+                text-decoration: none;
+                a {
+                    color: $--color-descr;
+                }
+            }
+        }
+        i:hover {
+            color: $--color-primary !important;
+        }
+    }
+    .circle-icon {
+        height: 20px;
+        line-height: 20px;
+        padding: 0px 10px;
+        text-align: center;
+        border-radius: 18px;
+        font-size: 12px;
+        color: white;
+        margin-left: 8px;
+        display: inline-block;
+        vertical-align: bottom;
+    }
+    .development {
+        background-color: #9faec8;
+    }
+    .release {
+        background-color: #4eb0f6;
+    }
+}

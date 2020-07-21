@@ -1,0 +1,20 @@
+.demo-col-resize-layout {
+	.main-demo {
+		border: 1px solid #DADFE6;
+		width: 100%;
+	    height: 300px;
+	}
+	.lay-left {
+	    width: 100%;
+	    height: 100%;
+	    background: green;
+	}
+	.lay-right {
+	    width: 100%;
+	    height: 100%;
+	    background: yellow;
+	}
+	.drag iframe {
+	    pointer-events: none;
+	}
+}

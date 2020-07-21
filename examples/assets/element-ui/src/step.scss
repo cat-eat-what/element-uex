@@ -1,0 +1,24 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+
+@include b(step) {
+    @include e(head) {
+        @include e(icon) {
+            font-size: $--font-size-base;
+        }
+        @include e(title) {
+            font-size: $--font-size-base;
+        }
+        @include e(description) {
+            font-size: $--font-size-base;
+        }
+        @include when(center) {
+            @include e(icon) {
+                font-size: $--font-size-base;
+            }
+            @include e(title) {
+                font-size: $--font-size-base;
+            }
+        }
+    }
+}

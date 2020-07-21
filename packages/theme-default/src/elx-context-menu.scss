@@ -1,0 +1,67 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-context-menu {
+    min-width: 80px;
+    position: fixed;
+    z-index: 999;
+    cursor: pointer;
+    transition: all 100ms linear;
+    &.fade-enter-active, &.fade-leave-active {
+        transition: all 100ms linear 100ms;
+    }
+    &.fade-enter, &.fade-leave-to {
+        transform: scale(0);
+        opacity: 0
+    }
+    ul {
+        width: 100%;
+        background: white;
+        box-shadow: 0px 0px 5px #c3c3c3;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: all 100ms linear;
+    }
+    li {
+        width: 100%;
+        line-height: 30px;
+        color: $--color-font;
+        padding: 0px;
+        text-align: left;
+        font-weight: 300;
+        float: initial;
+        margin: 0px;
+        height: auto;
+        position: relative;
+        padding: 0px 6px;
+        .elx-context-menu-title {
+            width: 100%;
+            display: flex;
+            &>span {
+                display: inline-block;
+                &:first-child {
+                    width: calc(100% - 14px);
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+                &:last-child {
+                    margin-right: 0px;
+                    line-height: 32px;
+                }
+            }
+        }
+        &>ul {
+            left: 100%;
+            position: absolute;
+        }
+    }
+    span[class*="uex-icon"] {
+        margin-right: 10px;
+        vertical-align: baseline;
+        color: $--color-font;
+    }
+    span {
+        vertical-align: middle;
+    }
+}

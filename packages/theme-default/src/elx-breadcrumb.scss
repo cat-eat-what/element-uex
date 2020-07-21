@@ -1,0 +1,33 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-breadcrumb {
+    height: $--larger-height;
+    line-height: $--larger-height;
+    padding-left: 10px;
+    font-size: $--font-size-base;
+}
+.elx-breadcrumb-item{
+    a {
+        color: $--color-text-regular;
+        text-decoration: none;
+        padding: 0px 5px;
+        &:first-child {
+            border-left: 0px;
+        }
+        &:last-child {
+            border-right: 0px;
+            .split {
+                display: none
+            }
+        }
+        &.active {
+            color: $--color-text-primary;
+            font-weight: $--font-weight-primary;
+        }
+    }
+    span {
+        font-size: $--font-size-base;
+        vertical-align: baseline;
+    }
+}

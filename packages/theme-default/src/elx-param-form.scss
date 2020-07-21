@@ -1,0 +1,73 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-param-form {
+    max-height: 340px;
+    overflow-y: auto;
+    color: $--color-font;
+    .param-content {
+        display: inline-block;
+        padding: 5px;
+        border-bottom: 1px solid #e5e5e5;
+        width: 100%;
+        min-width: 740px;
+    }
+    .api-info-left {
+        width: 130px;
+        float: left;
+        border-right: 1px dashed #e5e5e5;
+        li {
+            line-height: 30px;
+            margin-bottom: 10px;
+        }
+    }
+    .panel-right .el-switch {
+        margin-top: 5px;
+    }
+    .api-info-right {
+        width: calc(100% - 130px);
+        float: left;
+        .el-select,
+        .el-input {
+            display: inline-block;
+            width: 100px;
+        }
+        .el-input.regExp{
+            width: 210px;
+        }
+        .label{
+            width: 50px;
+            line-height: 30px;
+            text-align: right;
+            margin-right: 10px;
+            display: inline-block;
+        }
+    }
+    .input-item {
+        display: inline-block;
+        margin-bottom: 15px;
+        margin-right: 5px;
+        .el-switch {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+    .select-control {
+        height: 30px;
+        line-height: 30px;
+        padding: 0px;
+        padding-left: 4px;
+        width: 100px;
+        padding: 3px 12px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        display: inline-block;
+        background-image: none;
+        &.disabled {
+            background: #EFF2F7;
+        }
+    }
+}

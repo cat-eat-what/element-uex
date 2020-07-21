@@ -1,0 +1,70 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-col-resize-layout {
+    height: 100%;
+    position: relative;
+    &.move:before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        z-index: 999;
+    }
+    .elx-layout-left {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        bottom: 0px;
+        background: #fff;
+    }
+    .elx-layout-right {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        background: #fff;
+    }
+    .col-resize-split {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        background: $--split-color;
+        cursor: col-resize;
+        text-align: center;
+        line-height: 10px;
+        width: 10px;
+        overflow: hidden;
+        color: $--color-text-secondary;
+        z-index: 1001;
+        &.narrow {
+            background: transparent;
+            border-right: 0px;
+            border-left: 0px;
+            z-index: 1001;
+            &:after {
+                content: "";
+                position: absolute;
+                left: calc((100% - 2px) / 2);
+                top: 0px;
+                height: 100%;
+                border-left: 0px solid #E0E6ED;
+                z-index: 1000;
+            }
+            &:hover {
+                background: transparent;
+                border-right: 0px;
+                border-left: 0px;
+            }
+        }
+        span {
+            position: absolute;
+            left: 0px;
+            top: calc(50% - 12px);
+            font-size: 10px;
+        }
+    }
+}
