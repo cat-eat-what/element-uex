@@ -1,0 +1,25 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "./mixins/button";
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+
+@include b(radio-button) {
+    @include e(inner) {
+        @include button-size($--button-padding-vertical, $--button-padding-horizontal, $--button-font-size, 0);
+    }
+
+    @include m(medium) {
+        & .el-radio-button__inner {
+            @include button-size($--button-medium-padding-vertical, $--button-medium-padding-horizontal, $--button-medium-font-size, 0);
+        }
+    }
+    @include m(small) {
+        & .el-radio-button__inner {
+            @include button-size($--button-small-padding-vertical, $--button-small-padding-horizontal, $--button-small-font-size, 0);
+        }
+    }
+    @include m(mini) {
+        & .el-radio-button__inner {
+            @include button-size($--button-mini-padding-vertical, $--button-mini-padding-horizontal, $--button-mini-font-size, 0);
+        }
+    }
+}

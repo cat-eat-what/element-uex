@@ -1,0 +1,73 @@
+[{
+    "menuId": "a1",
+    "menuName": "内容管理",
+    "menuIcon": "uex-icon-task",
+    "url": "",
+    "children": [{
+        "menuId": "a1-1",
+        "menuName": "文章管理",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }, {
+        "menuId": "a1-2",
+        "menuName": "评论管理",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }, {
+        "menuId": "a1-3",
+        "menuName": "举报管理",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }]
+}, {
+    "menuId": "a2",
+    "menuName": "用户管理",
+    "menuIcon": "uex-icon-review-yes",
+    "url": "",
+    "children": [{
+        "menuId": "a2-1",
+        "menuName": "新增用户",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }, {
+        "menuId": "a2-2",
+        "menuName": "活跃用户",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }, {
+        "menuId": "a2-3",
+        "menuName": "冒泡用户",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }]
+}, {
+    "menuId": "a3",
+    "menuName": "统计分析",
+    "menuIcon": "uex-icon-share",
+    "url": "",
+    "children": [{
+        "menuId": "a3-1",
+        "menuName": "活跃分析",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }, {
+        "menuId": "a3-2",
+        "menuName": "时段分析",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }, {
+        "menuId": "a3-3",
+        "menuName": "流失用户",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }]
+}]

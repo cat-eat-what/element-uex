@@ -1,0 +1,19 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+
+@include b(tag) {
+    height: $--height;
+    line-height: $--line-height;
+    @include m(medium) {
+        height: $--medium-height;
+        line-height: $--medium-line-height;
+    }
+    @include m(small) {
+        height: $--small-height;
+        line-height: $--small-line-height;
+    }
+    @include m(mini) {
+        height: $--mini-height;
+        line-height: $--mini-line-height;
+    }
+}

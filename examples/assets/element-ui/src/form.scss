@@ -1,0 +1,36 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "~element-ui/packages/theme-chalk/src/mixins/utils";
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+
+@include b(form-item) {
+    @include m(medium) {
+        .el-form-item__label {
+            line-height: $--medium-height;
+        }
+        .el-form-item__content {
+            line-height: $--medium-height;
+        }
+    }
+    @include m(small) {
+        .el-form-item__label {
+            line-height: $--small-height;
+        }
+        .el-form-item__content {
+            line-height: $--small-height;
+        }
+    }
+    @include m(mini) {
+        .el-form-item__label {
+            line-height: $--mini-height;
+        }
+        .el-form-item__content {
+            line-height: $--mini-height;
+        }
+    }
+    @include e(label) {
+        line-height: $--height;
+    }
+    @include e(content) {
+        line-height: $--height;
+    }
+}

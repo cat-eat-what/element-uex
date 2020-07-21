@@ -1,0 +1,29 @@
+.elx-slider-vertical {
+    &.el-slider {
+        height: 100%;
+    }
+    .el-slider__runway {
+        width: 4px;
+        height: 100%;
+        margin: 8px 13px;
+    }
+    .el-slider__stop {
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    .el-slider__button-wrapper {
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        left:-16px;
+    }
+    .el-slider__bar {
+        width: 4px;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+        display: none;
+    }
+    .el-slider__button {
+        width: 10px;
+        height: 10px;
+    }
+}

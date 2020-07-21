@@ -1,0 +1,28 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "~element-ui/packages/theme-chalk/src/mixins/utils";
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+
+@include b(transfer) {
+    @include e(button) {
+        i, span {
+            font-size: $--font-size-base;
+        }
+    }
+}
+@include b(transfer-panel) {
+    @include e(filter) {
+        .el-input__inner {
+            font-size: $--font-size-base;
+        }
+    }
+    .el-transfer-panel__header {
+        .el-checkbox {
+            .el-checkbox__label {
+                font-size: $--font-size-base;
+                span {
+                    font-size: $--font-size-base;
+                }
+            }
+        }
+    }
+}

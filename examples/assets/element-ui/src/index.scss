@@ -1,0 +1,28 @@
+@import "~element-uex/packages/theme-default/src/common/element-var.scss";
+
+/* 改变主题色变量 */
+// $--color-primary: teal;
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";
+
+@import "./breadcrumb.scss";
+@import "./button.scss";
+@import "./checkbox.scss";
+@import "./collapse.scss";
+@import "./dialog.scss";
+@import "./drawer.scss";
+@import "./form.scss";
+@import "./input.scss";
+@import "./notification.scss";
+@import "./page-header.scss";
+@import "./radio-button.scss";
+@import "./radio.scss";
+@import "./step.scss";
+@import "./table.scss";
+@import "./tabs.scss";
+@import "./tag.scss";
+@import "./tooltip.scss";
+@import "./transfer.scss";

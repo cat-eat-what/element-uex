@@ -1,0 +1,8 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+
+@include b(notification) {
+    @include e(icon) {
+        margin-top: 4px;
+    }
+}

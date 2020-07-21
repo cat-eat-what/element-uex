@@ -1,0 +1,74 @@
+[{
+    "modelcode": "a1",
+    "modelname": "内容管理",
+    "images": "uex-icon-task",
+    "url": "",
+    "children": [{
+        "modelcode": "a1-1",
+        "modelname": "文章管理",
+        "images": "",
+        "url": "https://www.baidu.com",
+        "isOuter": true,
+        "children": []
+    }, {
+        "modelcode": "a1-2",
+        "modelname": "评论管理",
+        "images": "",
+        "url": "",
+        "children": []
+    }, {
+        "modelcode": "a1-3",
+        "modelname": "举报管理",
+        "images": "",
+        "url": "",
+        "children": []
+    }]
+}, {
+    "modelcode": "a2",
+    "modelname": "用户管理",
+    "images": "uex-icon-review-yes",
+    "url": "",
+    "children": [{
+        "modelcode": "a2-1",
+        "modelname": "新增用户",
+        "images": "",
+        "url": "",
+        "children": []
+    }, {
+        "modelcode": "a2-2",
+        "modelname": "活跃用户",
+        "images": "",
+        "url": "",
+        "children": []
+    }, {
+        "modelcode": "a2-3",
+        "modelname": "冒泡用户",
+        "images": "",
+        "url": "",
+        "children": []
+    }]
+}, {
+    "modelcode": "a3",
+    "modelname": "统计分析",
+    "images": "uex-icon-share",
+    "url": "",
+    "children": [{
+        "modelcode": "a3-1",
+        "modelname": "活跃分析",
+        "images": "",
+        "url": "",
+        "children": []
+    }, {
+        "modelcode": "a3-2",
+        "modelname": "时段分析",
+        "images": "",
+        "url": "",
+        "children": []
+    }, {
+        "modelcode": "a3-3",
+        "modelname": "流失用户",
+        "images": "",
+        "url": "",
+        "children": []
+    }]
+}]

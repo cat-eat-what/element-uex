@@ -1,0 +1,22 @@
+.elx-input-transfer {
+    height: 30px;
+    .el-input-group button.el-button {
+        text-align: center;
+        line-height: 30px;
+    }
+    .el-input-group__append,
+    .el-input-group__prepend {
+        padding: 0px 12px;
+    }
+    .el-dialog__wrapper .el-dialog__footer .el-button {
+        width: 80px;
+    }
+    &.el-dialog {
+        width: 80%;
+        height: 70%;
+        .el-dialog__body {
+            height: calc(100% - 100px);
+            overflow: auto;
+        }
+    }
+}

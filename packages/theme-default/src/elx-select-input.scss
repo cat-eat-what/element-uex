@@ -1,0 +1,31 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-select-input {
+    width: 100%;
+	display: table;
+	border-collapse: separate;
+    &>.select-input-group {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .icon-button {
+        display: table-cell;
+        vertical-align: middle;
+        width: 30px;
+        text-align: center;
+        background: #fff;
+        color: $--color-zxb-25;
+        cursor: pointer;
+        span {
+            display: block;
+            width: 100%;
+            padding: 0 7px;
+            height: 30px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid $--color-zxb-15;
+            border-left: 0;
+        }
+    }
+}

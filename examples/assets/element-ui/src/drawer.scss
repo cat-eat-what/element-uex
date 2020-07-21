@@ -1,0 +1,23 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+
+@include b(drawer) {
+
+  &__header {
+    color: $--color-text-primary;
+    font-weight: $--font-weight-primary;
+    padding: 0px $--dialog-padding-primary;
+    height: $--larger-height;
+    line-height: $--larger-height;
+    border-bottom: 1px solid $--border-color-base;
+    font-size: $--font-size-large;
+    & > :first-child {
+      outline: none;
+    }
+  }
+
+  &__close-btn {
+    color: $--color-text-placeholder;
+    outline: none;
+  }
+}

@@ -1,0 +1,25 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+
+@include b(textarea) {
+    @include e(inner) {
+        padding: 5px 10px;
+    }
+    & .el-input__count {
+        color: $--color-text-placeholder;
+    }
+}
+
+@include b(input) {
+    & .el-input__count {
+        color: $--color-text-placeholder;
+    }
+    @include e(inner) {
+        padding: 0 10px;
+    }
+}
+@include b(input-group) {
+    @include e((append, prepend)) {
+        color: $--color-text-placeholder;
+    }
+}

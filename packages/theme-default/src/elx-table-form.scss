@@ -1,0 +1,319 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-form.is-error {
+    width: calc(100% - 20px);
+    display: inline-block;
+}
+.elx-table-form {
+    .operate-button {
+        overflow: hidden;
+        width: 100%;
+        height: 30px;
+    }
+    span.uex-icon-plus {
+        float: right;
+        line-height: 30px;
+        font-size: 14px;
+        color: $--color-font;
+    }
+    span.uex-icon-minus {
+        font-size: 14px;
+        margin-left: 5px;
+    }
+    span.elx-table-cell-drag {
+        display: block;
+        width: 100%;
+        height: 100%;
+        cursor: move;
+    }
+    .elx-drag-item .elx-table-cell-drag span {
+        display: none;
+    }
+    .el-switch__label * {
+        top: 5px;
+    }
+    .el-switch__label,
+    .el-switch__label * {
+        font-size: 12px;
+    }
+    .el-table .el-input__inner {
+        height: 24px;
+    }
+    .el-table__body-wrapper {
+        overflow: auto;
+        height: calc(100% - 32px);
+    }
+    .el-table th,
+    .el-table td {
+        height: 30px;
+        line-height: 24px;
+    }
+    .el-table td {
+        padding: 4px 0px;
+    }
+    .el-table tr>td>.cell {
+        width: 100%;
+        line-height: 24px;
+        height: 24px;
+        margin: 0px;
+        vertical-align: top;
+    }
+    .el-table .cell,
+    .el-table th>div {
+        padding: 0px 5px;
+    }
+    .el-table .cell .item {
+        display: inline-block;
+        cursor: pointer;
+    }
+    .cell .is-error .el-input,
+    .cell .is-error .el-select{
+        width: calc(100% - 20px);
+    }
+    .cell .el-input,
+    .cell .el-select {
+        display: inline-block;
+        width: calc(100%);
+    }
+    .cell .el-input__icon {
+        width: 20px;
+        height: 20px;
+    }
+    .cell .el-input__icon+.el-input__inner {
+        padding-right: 20px;
+    }
+    .cell .el-select .el-input {
+        width: 100%;
+    }
+    .cell .uex-icon-warning{
+        display: none
+    }
+    .cell .is-error .uex-icon-warning{
+        display: inline-block
+    }
+    .el-dropdown .el-button-group,
+    .el-table .el-tooltip,
+    .el-table .el-tooltip__rel {
+        display: inline-block;
+    }
+    .uex-icon-warning,
+    .required span:last-child {
+        color: red;
+    }
+    tr>td>.cell .el-form {
+        margin-bottom: 0px;
+    }
+    tr>td>.cell .el-form .el-form-item {
+        width: 100%;
+        margin-bottom: 0px;
+    }
+    tr>td>.cell .el-form .el-form-item .el-form-item__content {
+        line-height: 24px;
+    }
+    .cell .el-form-item__error {
+        font-size: 12px;
+        line-height: 1;
+        padding-top: 4px;
+        position: absolute;
+        top: 100%;
+        z-index: 999;
+        display: 100px;
+        background: rgba(0,0,0,0.6);
+        padding: 10px;
+        color: white;
+        border-radius: 3px;
+        display:none;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        transition: opacity 500ms ease;
+        white-space: nowrap;
+    }
+    tr:last-child .cell .el-form-item__error {
+        top: -4px;
+        left: 100%;
+        width: max-content;
+        height: 30px;
+    }
+    .el-table .cell,
+    .el-table__header-wrapper {
+        overflow: visible;
+    }
+    .el-form-item__content:after {
+        display:none;
+        margin-left: 5px;
+        content: "\E919";
+        color: red;
+        display: none;
+        font-family: 'uex-icon' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -ms-font-smoothing: antialiased;
+        -moz-font-smoothing: antialiased;
+        -o-font-smoothing: antialiased;
+    }
+    .el-form-item.is-error .el-form-item__content:after {
+        display: inline-block;
+    }
+    .cell .el-form-item.is-error:hover .el-form-item__error{
+        display:block;
+        opacity: 1;
+        filter: alpha(opacity=1);
+    }
+    .el-input.is-disabled .el-input__inner {
+        color: $--color-font;
+    }
+    .el-table__header-wrapper {
+        overflow: hidden;
+    }
+    .el-table th>.cell {
+        white-space: nowrap;
+        overflow: initial;
+    }
+    .el-table__expand-icon {
+        height: 24px;
+        font-size: 14px;
+        text-align: left;
+    }
+    .el-table__expanded-cell {
+        padding: 10px;
+    }
+    .el-table__expand-icon>.el-icon {
+        display: none;
+    }
+    .el-table__expand-icon--expanded {
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    td.el-table__expand-column .el-table__expand-icon:before {
+        content: "\E901";
+        width: 30px;
+        display: block;
+        line-height: 24px;
+    }
+    td.el-table__expand-column .el-table__expand-icon.el-table__expand-icon--expanded:before {
+        content: "\E902";
+    }
+    td.el-table__expand-column .el-table__expand-icon,
+    td.el-table__expand-column .el-table__expand-icon.el-table__expand-icon--expanded {
+        font-family: 'uex-icon' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        vertical-align: baseline;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    th.el-table__expand-column>.cell:after {
+        content: "\5c55\5f00";
+    }
+    .el-table__expanded-cell .info {
+        margin-bottom: 10px;
+    }
+    .el-table__expanded-cell .info span.label {
+        color: #a2b0c4;
+    }
+    .el-table__expanded-cell .info span.value {
+        color: $--color-font;
+    }
+    .el-table__expanded-cell .info,
+    .el-table__expanded-cell .el-table th>.cell,
+    .el-table__expanded-cell .el-table td>.cell {
+        -webkit-transform: scale(0.95);
+        -webkit-transform-origin: top left;
+        -moz-transform: scale(0.95);
+        -moz-transform-origin: top left;
+    }
+    .el-table__expanded-cell .el-table td,
+    .el-table__expanded-cell .el-table th {
+        height: 24px;
+    }
+    .el-table__expanded-cell .el-table td>.cell,
+    .el-table__expanded-cell .el-table th>.cell {
+        line-height: 24px
+    }
+    .el-table .el-table__expanded-cell {
+        padding: 4px 6px;
+    }
+    .el-table .el-table__expanded-cell form.el-form.el-form--inline.inline {
+        margin-bottom: 0px;
+    }
+    .el-table__expanded-cell .elx-form form.el-form.inline .elx-form-item .el-form-item__content {
+        width: auto;
+    }
+    .el-table__expanded-cell .elx-form .elx-form-item .el-form-item__content {
+        width: auto;
+    }
+    .el-table__expanded-cell .el-form-item__content .el-switch {
+        line-height: 24px;
+        height: 24px;
+    }
+    .el-table td.edit-all.string .el-tooltip.cell,
+    .el-table td.edit-single .el-tooltip.cell {
+        width: 100%;
+        min-width: 50px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+    }
+    .el-table td.edit-all.string .el-tooltip.cell>span,
+    .el-table td.edit-single .el-tooltip.cell>span {
+        display: inline-block;
+    }
+    .el-table .current-row td.edit-single.form .el-tooltip.cell{
+        overflow: visible;
+    }
+    .el-table__body tr.current-row>td {
+        background: #eef1f6;
+    }
+    .elx-table-form-cell {
+        .text {
+            width: 100%;
+            display: inline-block;
+            vertical-align: top;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-all;
+        }
+        &.error {
+            .text{
+                width: calc(100% - 20px);
+            }
+            .uex-icon-warning {
+                display: inline-block;
+            }
+            &:hover .el-form-item__error {
+                display: block;
+                opacity: 1;
+            }
+        }
+        .uex-icon-warning {
+            color: red;
+            margin-left: 5px;
+            display: none;
+            vertical-align: baseline;
+        }
+    }
+    .operate-button {
+        span[class^="uex-icon-"] {
+            cursor: pointer;
+        }
+        span.uex-icon-clear {
+            float: right;
+            line-height: 30px;
+            font-size: 14px;
+            margin-right: 10px;
+            color: $--color-font;
+        }
+    }
+}

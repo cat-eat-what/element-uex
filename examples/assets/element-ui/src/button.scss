@@ -1,0 +1,59 @@
+@charset "UTF-8";
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+@import "./mixins/button";
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "~element-ui/packages/theme-chalk/src/mixins/utils";
+
+@include b(button) {
+    @include button-size($--button-padding-vertical, $--button-padding-horizontal, $--button-font-size, $--button-border-radius);
+
+    &:hover,
+    &:focus {
+        color: $--color-text-primary;
+        border-color: $--color-text-regular;
+        background-color: $--split-color;
+    }
+
+    @include when(plain) {
+        &:hover,
+        &:focus {
+            color: $--color-text-primary;
+            border-color: $--color-text-regular;
+            background-color: $--split-color;
+        }
+    }
+
+    @include when(round) {
+        padding: 0px $--button-padding-horizontal;
+    }
+
+    @include when(circle) {
+        padding: 0px $--button-padding-horizontal - 8;
+    }
+
+    @include m(primary) {
+        @include button-variant(primary);
+    }
+    @include m(success) {
+        @include button-variant(success);
+    }
+    @include m(warning) {
+        @include button-variant(warning);
+    }
+    @include m(danger) {
+        @include button-variant(danger);
+    }
+    @include m(info) {
+        @include button-variant(info);
+    }
+
+    @include m(medium) {
+        @include button-size($--button-medium-padding-vertical, $--button-medium-padding-horizontal, $--button-medium-font-size, $--button-medium-border-radius);
+    }
+    @include m(small) {
+        @include button-size($--button-small-padding-vertical, $--button-small-padding-horizontal, $--button-small-font-size, $--button-small-border-radius);
+    }
+    @include m(mini) {
+        @include button-size($--button-mini-padding-vertical, $--button-mini-padding-horizontal, $--button-mini-font-size, $--button-mini-border-radius);
+    }
+}

@@ -1,0 +1,26 @@
+.demo-context-menu {
+    .main-demo {
+        height: 300px;
+    }
+    .elx-context-menu li .elx-context-menu-title {
+        input.el-input__inner {
+            height: 20px;
+            padding: 3px;
+        }
+        .el-input {
+            width: auto;
+            margin-right: -14px;
+            display: block;
+            margin-top: 5px;
+        }
+        span.input-content {
+            overflow: visible;
+        }
+        i.el-input__icon.el-icon-search {
+            width: 20px;
+            &+input.el-input__inner {
+                padding-right: 20px;
+            }
+        }
+    }
+}

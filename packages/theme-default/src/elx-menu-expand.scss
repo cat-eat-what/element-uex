@@ -1,0 +1,71 @@
+@charset "UTF-8";
+@import "./common/var";
+
+
+.elx-menu-expand-title {
+    line-height: $--larger-height;
+    background: $--menu-show-more;
+    padding-left: 14px;
+    font-weight: 900;
+}
+.elx-menu-expand {
+    width: 180px;
+    background: $--menu-bg-color;
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    color: $--color-font;
+    &:hover {
+        overflow-y: auto;
+    }
+    a{
+        color: $--color-font;
+    }
+    &>ul{
+        width: 180px;
+        &>li {
+            overflow: hidden;
+            margin: 0px 8px;
+            padding: 0px 1px;
+            border-bottom: 1px solid $--color-zxb-9;
+            &>a {
+                display: block;
+                line-height: $--height;
+                margin-top: 9px;
+                padding: 0px 4px;
+                background: $--menu-bg-color;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            &>ul {
+                padding: 5px 0px;
+                &>li {
+                    display: inline-block;
+                    line-height: $--height;
+                    padding: 0px 4px;
+                    cursor: pointer;
+                    transition: all 200ms linear;
+                    &.active {
+                        color: $--menu-active-font-color;
+                        background-color: $--menu-active-bg-color;
+                        border-radius: 4px;
+                    }
+                }
+            }
+        }
+    }
+    i.uex-icon-arrow-right {
+        float: right;
+        line-height: 40px;
+    }
+    [class^="uex-icon-"] {
+        vertical-align: baseline;
+    }
+    .icon {
+        display: inline-block;
+        margin-right: 8px;
+    }
+    .open i.uex-icon-arrow-right {
+        transform: rotate(90deg);
+    }
+}

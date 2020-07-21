@@ -1,0 +1,220 @@
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+%primary {
+  border-color: $--button-primary-border-color;
+  color: $--button-primary-font-color;
+  background-color: $--button-primary-background-color;
+}
+%primary-hover {
+  border-color: $--button-primary-hover-border-color;
+  color: $--button-primary-hover-font-color;
+  background-color: $--button-primary-hover-background-color;
+}
+%primary-disabled {
+  border-color: $--button-primary-disabled-border-color;
+  color: $--button-primary-disabled-font-color;
+  background-color: $--button-primary-disabled-background-color
+}
+%success {
+  border-color: $--button-success-border-color;
+  color: $--button-success-font-color;
+  background-color: $--button-success-background-color;
+}
+%success-hover {
+  border-color: $--button-success-hover-border-color;
+  color: $--button-success-hover-font-color;
+  background-color: $--button-success-hover-background-color;
+}
+%success-disabled {
+  border-color: $--button-success-disabled-border-color;
+  color: $--button-success-disabled-font-color;
+  background-color: $--button-success-disabled-background-color
+}
+%warning {
+  border-color: $--button-warning-border-color;
+  color: $--button-warning-font-color;
+  background-color: $--button-warning-background-color;
+}
+%warning-hover {
+  border-color: $--button-warning-hover-border-color;
+  color: $--button-warning-hover-font-color;
+  background-color: $--button-warning-hover-background-color;
+}
+%warning-disabled {
+  border-color: $--button-warning-disabled-border-color;
+  color: $--button-warning-disabled-font-color;
+  background-color: $--button-warning-disabled-background-color
+}
+%danger {
+  border-color: $--button-danger-border-color;
+  color: $--button-danger-font-color;
+  background-color: $--button-danger-background-color;
+}
+%danger-hover {
+  border-color: $--button-danger-hover-border-color;
+  color: $--button-danger-hover-font-color;
+  background-color: $--button-danger-hover-background-color;
+}
+%danger-disabled {
+  border-color: $--button-danger-disabled-border-color;
+  color: $--button-danger-disabled-font-color;
+  background-color: $--button-danger-disabled-background-color
+}
+%info {
+  border-color: $--button-info-border-color;
+  color: $--button-info-font-color;
+  background-color: $--button-info-background-color;
+}
+%info-hover {
+  border-color: $--button-info-hover-border-color;
+  color: $--button-info-hover-font-color;
+  background-color: $--button-info-hover-background-color;
+}
+%info-disabled {
+  border-color: $--button-info-disabled-border-color;
+  color: $--button-info-disabled-font-color;
+  background-color: $--button-info-disabled-background-color
+}
+
+%plain-primary {
+  border-color: $--button-plain-primary-border-color;
+  color: $--button-plain-primary-font-color;
+  background-color: $--button-plain-primary-background-color;
+}
+%plain-primary-hover {
+  border-color: $--button-plain-primary-hover-border-color;
+  color: $--button-plain-primary-hover-font-color;
+  background-color: $--button-plain-primary-hover-background-color;
+}
+%plain-primary-disabled {
+  border-color: $--button-plain-primary-disabled-border-color;
+  color: $--button-plain-primary-disabled-font-color;
+  background-color: $--button-plain-primary-disabled-background-color
+}
+%plain-success {
+  border-color: $--button-plain-success-border-color;
+  color: $--button-plain-success-font-color;
+  background-color: $--button-plain-success-background-color;
+}
+%plain-success-hover {
+  border-color: $--button-plain-success-hover-border-color;
+  color: $--button-plain-success-hover-font-color;
+  background-color: $--button-plain-success-hover-background-color;
+}
+%plain-success-disabled {
+  border-color: $--button-plain-success-disabled-border-color;
+  color: $--button-plain-success-disabled-font-color;
+  background-color: $--button-plain-success-disabled-background-color
+}
+%plain-warning {
+  border-color: $--button-plain-warning-border-color;
+  color: $--button-plain-warning-font-color;
+  background-color: $--button-plain-warning-background-color;
+}
+%plain-warning-hover {
+  border-color: $--button-plain-warning-hover-border-color;
+  color: $--button-plain-warning-hover-font-color;
+  background-color: $--button-plain-warning-hover-background-color;
+}
+%plain-warning-disabled {
+  border-color: $--button-plain-warning-disabled-border-color;
+  color: $--button-plain-warning-disabled-font-color;
+  background-color: $--button-plain-warning-disabled-background-color
+}
+%plain-danger {
+  border-color: $--button-plain-danger-border-color;
+  color: $--button-plain-danger-font-color;
+  background-color: $--button-plain-danger-background-color;
+}
+%plain-danger-hover {
+  border-color: $--button-plain-danger-hover-border-color;
+  color: $--button-plain-danger-hover-font-color;
+  background-color: $--button-plain-danger-hover-background-color;
+}
+%plain-danger-disabled {
+  border-color: $--button-plain-danger-disabled-border-color;
+  color: $--button-plain-danger-disabled-font-color;
+  background-color: $--button-plain-danger-disabled-background-color
+}
+%plain-info {
+  border-color: $--button-plain-info-border-color;
+  color: $--button-plain-info-font-color;
+  background-color: $--button-plain-info-background-color;
+}
+%plain-info-hover {
+  border-color: $--button-plain-info-hover-border-color;
+  color: $--button-plain-info-hover-font-color;
+  background-color: $--button-plain-info-hover-background-color;
+}
+%plain-info-disabled {
+  border-color: $--button-plain-info-disabled-border-color;
+  color: $--button-plain-info-disabled-font-color;
+  background-color: $--button-plain-info-disabled-background-color
+}
+@mixin set-collor($arg) {
+    @extend %#{$arg};
+}
+
+@mixin button-plain($type) {
+  @include set-collor('plain-' + $type);
+
+  &:hover,
+  &:focus {
+    @include set-collor('plain-' + $type + '-hover');
+  }
+
+  &:active {
+    @include set-collor('plain-' + $type);
+    outline: none;
+  }
+
+  &.is-disabled {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      @include set-collor('plain-' + $type + '-disabled');
+    }
+  }
+}
+
+@mixin button-variant($type) {
+  @include set-collor($type);
+
+  &:hover,
+  &:focus {
+   @include set-collor($type + '-hover');
+  }
+
+  &:active {
+    @include set-collor($type);
+    outline: none;
+  }
+
+  &.is-active {
+    @include set-collor($type);
+  }
+
+  &.is-disabled {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      @include set-collor($type + '-disabled');
+    }
+  }
+
+  &.is-plain {
+    @include button-plain($type);
+  }
+}
+
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $border-radius) {
+  padding: 0px $padding-horizontal;
+  height: $padding-vertical;
+  line-height: $padding-vertical - 2;
+  font-size: $font-size;
+  border-radius: $border-radius;
+  &.is-round {
+    padding: 0px $padding-horizontal;
+  }
+}

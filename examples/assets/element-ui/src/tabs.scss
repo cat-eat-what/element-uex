@@ -1,0 +1,52 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+
+@include b(tabs) {
+    @include e(active-bar) {
+         height: 3px;
+    }
+
+    @include e(new-tab) {
+        font-size: $--font-size-base;
+    }
+    @include e((nav-next, nav-prev)) {
+        font-size: $--font-size-base;
+    }
+    @include e(item) {
+        height: $--large-height;
+        line-height: $--large-height;
+        font-size: $--font-size-base;
+        font-weight: 400;
+        cursor: pointer;
+        @include when(active) {
+            color: $--color-text-primary;
+            font-weight: $--font-weight-primary;
+        }
+        &:hover {
+            color: $--color-text-primary;
+            font-weight: $--font-weight-primary;
+        }
+    }
+    @include e(nav-wrap) {
+        &::after {
+            content: none;
+        }
+    }
+
+
+    @include m(card) {
+        >.el-tabs__header .el-tabs__item .el-icon-close {
+            font-size: $--font-size-base;
+        }
+    }
+    @include m((left, right)) {
+        .el-tabs__nav-wrap.is-left,
+        .el-tabs__nav-wrap.is-right {
+            > .el-tabs__nav-prev,
+            > .el-tabs__nav-next {
+                height: $--large-height;
+                line-height: $--large-height;
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "~element-uex/packages/theme-default/src/common/var.scss";
+
+@include b(tooltip) {
+    @include e(popper) {
+        border-radius: $--border-radius-base;
+
+        @include when(light) {
+            background: $--tooltip-color;
+            border: 1px solid $--border-color-base;
+            color: $--color-text-primary;
+
+            &[x-placement^="top"] .popper__arrow {
+                border-top-color: $--border-color-base;
+                &::after {
+                    border-top-color: $--tooltip-color;
+                }
+            }
+            &[x-placement^="bottom"] .popper__arrow {
+                border-bottom-color: $--border-color-base;
+                &::after {
+                    border-bottom-color: $--tooltip-color;
+                }
+            }
+            &[x-placement^="left"] .popper__arrow {
+                border-left-color: $--border-color-base;
+                &::after {
+                    border-left-color: $--tooltip-color;
+                }
+            }
+            &[x-placement^="right"] .popper__arrow {
+                border-right-color: $--border-color-base;
+                &::after {
+                    border-right-color: $--tooltip-color;
+                }
+            }
+        }
+    }
+}

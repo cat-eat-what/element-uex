@@ -1,0 +1,44 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-card-form {
+    [class^="uex-icon-"], .elx-card-form [class*=" uex-icon-"] {
+        color: $--color-font;
+    }
+    span.uex-icon-plus {
+        float: right;
+        line-height: 30px;
+        font-size: 14px;
+        color: $--color-font;
+        display: inline-block;
+    }
+    &>.header {
+        height: 30px;
+        background: transparent;
+    }
+    &>.form {
+        background: #fff;
+        padding: 15px 10px;
+        padding-bottom: 0px;
+        border: 1px solid #e7e7e7;
+        box-shadow: 1px 1px 4px #e7e7e7;
+        margin-bottom: 10px;
+        position: relative;
+        &:last-child {
+            margin-bottom: 0px;
+        }
+        .elx-form {
+            width: calc(100% - 50px);
+        }
+        .operate {
+            width: 50px;
+            text-align: center;
+            position: absolute;
+            top: 15px;
+            right: 10px;
+        }
+    }
+    .el-form-item .el-form-item .el-form-item__content {
+        margin-left: 80px!important;
+    }
+}
