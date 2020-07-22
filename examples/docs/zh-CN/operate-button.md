@@ -1,0 +1,98 @@
+<script>
+  export default {
+    data: function(){
+      return {
+        form: {
+          name: null,
+          name1: []
+        },
+        formShow1: false,
+        formShow2: false,
+        options: [
+            {value: '选项1', label: '黄金糕'}, 
+            {value: '选项2', label: '双皮奶'}
+        ]
+      }
+    },
+    methods: {
+      hello() {
+        alert('Hello World!');
+      },
+      test: function(){
+        this.formShow1 = !this.formShow1;
+      },
+      test2: function(){
+        this.formShow2 = !this.formShow2;
+      }
+    }
+  }
+</script>
+
+## 可收缩按钮组
+
+可收缩按钮组。
+
+### 基本用法
+
+
+::: demo 可收缩按钮组
+```html
+<template>
+  <elx-operate-button ref="test1" :operate-show="true">
+    <elx-operate-expand-item>
+        <el-button slot="operate-button" @click="test($event)">
+            <span class="uex-icon uex-icon-tick"></span>
+            提交提交提交提交
+        </el-button>
+        <div slot="operate-expand" v-show="formShow1">
+          <el-form ref="form" :model="form">
+            <el-form-item label="">
+              <el-input type="textarea" v-model="form.name" placeholder="请输入内容"></el-input>
+            </el-form-item>
+          </el-form>
+          <el-button @click="test($event)"></el-button>
+        </div>
+    </elx-operate-expand-item>
+    <elx-operate-expand-item>
+        <el-button slot="operate-button" @click="test2($event)">
+          <span class="uex-icon uex-icon-tick"></span>
+          下一步
+        </el-button>
+        <div slot="operate-expand" v-show="formShow2">
+          <el-form ref="form" :model="form">
+            <el-form-item label="">
+              <el-select v-model="form.name1" multiple placeholder="请选择">
+                <el-option
+                  v-for="item in options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value">
+                </el-option>
+              </el-select>
+            </el-form-item>
+          </el-form>
+        </div>
+    </elx-operate-expand-item>
+    <elx-operate-item><span class="uex-icon uex-icon-save"></span>保存</elx-operate-item>
+    <elx-operate-item><span class="uex-icon uex-icon-caret-right"></span>下一步</elx-operate-item>
+  </elx-operate-button>
+</template>
+```
+:::
+
+
+
+
+
+
+
+
+
+### Attributes
+| 参数      | 说明          | 类型      | 可选值                           | 默认值  |
+|---------- |-------------- |---------- |--------------------------------  |-------- |
+|operate-show | 是否展开 | Boolean |－|true|
+
+### Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |

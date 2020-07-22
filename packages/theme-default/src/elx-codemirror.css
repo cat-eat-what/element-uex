@@ -1,0 +1,73 @@
+.elx-codemirror {
+    border: 1px solid #dfe6ec;
+    line-height: 14px;
+}
+.elx-codemirror .CodeMirror-gutters {
+    border-right: 1px solid #dfe6ec;
+    background-color: #eef1f6;
+    color: #475669;
+}
+.elx-codemirror .CodeMirror {
+	color: #1f2d3d;
+	height: 100%;
+}
+.elx-codemirror .elx-codemirror-content {
+	height: 100%;
+}
+.elx-codemirror-search-content {
+	display: flex;
+	padding-top: 12px;
+	position: relative;
+	box-shadow: 0px -2px 5px #d3d3d3;
+}
+.elx-codemirror-search-content.search {
+	height: 46px;
+}
+.elx-codemirror-search-content.replace {
+	height: 78px;
+}
+.elx-codemirror-search-content .form {
+    width: calc(100% - 150px);
+}
+.elx-codemirror-search-content .button-group {
+    width: 130px;
+}
+.elx-codemirror-search-content .el-form .el-form-item {
+	margin-bottom: 0px;
+}
+.elx-codemirror-search-content .el-textarea__inner {
+	padding: 2px 5px;
+}
+.elx-codemirror-search-content .button-group button.el-button {
+    width: 60px;
+    height: 24px;
+    margin-left: 4px;
+    margin-bottom: 8px;
+    color: #475669;
+}
+.elx-codemirror-search-content .el-textarea {
+    vertical-align: inherit;
+}
+.elx-codemirror-search-content .el-form-item__label, .elx-codemirror-search-content .el-form-item__content {
+    line-height: 24px;
+}
+.elx-codemirror-search-content span.uex-icon-cross {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: #eaeaea;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    line-height: 16px;
+    text-align: center;
+    padding-left: 1px;
+    z-index: 100;
+    font-size: 14px;
+    color: #475669;
+    border: 1px solid white;
+}
+.el-form-item .elx-codemirror .el-form-item .el-form-item__content {
+    margin-left: 70px !important;
+}

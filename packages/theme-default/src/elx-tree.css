@@ -1,0 +1,82 @@
+.elx-tree {
+    color: #475669;
+    position: relative;
+    height:100%;
+}
+.elx-tree .el-tree{
+    overflow: auto;
+    height: calc(100% - 29px);
+}
+.elx-tree .el-tree-node{
+    display: table;
+    min-width: 100%;
+}
+.elx-tree .el-tree-node__content {
+    min-width: 100%;
+    line-height: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: inline-block;
+}
+.elx-tree>.el-input {
+    margin-bottom: 5px;
+}
+.elx-tree span[class*="uex-icon"] {
+    margin-right: 10px;
+    vertical-align: baseline;
+    color: #a2b0c4;
+}
+.elx-tree input[type="text"] {
+    height: 24px;
+}
+.elx-tree input[disabled="disabled"] {
+    border: 0px;
+    background: white
+}
+.el-tree-node__content:hover input[disabled="disabled"] {
+    background: #e4e8f1
+}
+.elx-tree .el-tree-node.is-current:not(.is-expanded)>.el-tree-node__content, .elx-tree .el-tree-node.is-current:not(.is-expanded)>.el-tree-node__content input[disabled="disabled"]{
+    background: #e4e8f1;
+}
+.elx-tree .el-tree-node.is-expanded.is-current>.el-tree-node__content {
+    background: #e4e8f1;
+}
+.elx-tree .elx-content-menu {
+    width: 100px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0px 0px 5px #c3c3c3;
+    border-radius: 3px;
+    position: fixed;
+    cursor: pointer;
+    z-index: 10000;
+}
+.elx-tree .elx-content-menu li {
+    line-height: 20px;
+}
+.elx-tree .node {
+    display: inline-block;
+    height: 30px;
+    margin-right: 4px;
+}
+.elx-tree .fade-enter-active, .elx-tree .fade-leave-active {
+    transition: all 100ms linear 100ms;
+}
+.elx-tree .fade-enter, .elx-tree .fade-leave-to{
+    transform: scale(0);
+    opacity: 0
+}
+.elx-tree .elx-content-menu{
+    transition: all 100ms linear;
+}
+.elx-tree .node>span {
+    display: block;
+    height: 100%;
+}
+.elx-tree .node>span span:first-child {
+    line-height: 30px;
+}
+.elx-tree span.el-tree-node__expand-icon {
+    margin-top: -2px;
+}

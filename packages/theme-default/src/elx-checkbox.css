@@ -1,0 +1,55 @@
+.elx-checkbox.active {
+    color: #47b2fb;
+    border: 1px solid #47b2fb;
+}
+.elx-checkbox {
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    border: 1px solid #d9d9d9;
+    color: #666;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    background: white;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+.elx-checkbox-item {
+    padding: 0px 16px;
+}
+.elx-checkbox .lay {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    background: rgba(0,0,0,0.3);
+    z-index: 11;
+    cursor: not-allowed;
+}
+.elx-checkbox .uex-icon-tick {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+}
+.elx-checkbox span.uex-icon-tick:before {
+    position: absolute;
+    z-index: 10;
+    top: 6px;
+    left: 5px;
+    color: white;
+}
+.elx-checkbox span.uex-icon-tick:after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-bottom: 8px solid #47b2fb;
+    border-right: 8px solid #47b2fb;
+    border-left: 8px solid transparent;
+    border-top: 8px solid transparent;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+}

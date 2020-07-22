@@ -1,0 +1,8 @@
+.el-select-dropdown__search.el-input {
+    margin: 2px;
+    width: calc(100% - 4px);
+}
+.elx-select-dropdown>.el-select-dropdown__list{
+	max-height: 200px;
+	overflow: auto;
+}

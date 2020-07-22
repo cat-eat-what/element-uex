@@ -1,0 +1,79 @@
+div.elx-operate-button {
+    height: 40px;
+    position: fixed;
+    bottom: 10px;
+    right: 0px;
+    z-index: 100;
+}
+.elx-button-group {
+    display: inline-block;
+}
+#back-top{
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    overflow: hidden;
+    bottom: 60px;
+    right: 5px;
+    z-index: 100;
+    background: rgba(255,255,255,0.7);
+    color: #8D9AAD;
+    border-radius: 20px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    box-shadow: 0px 1px 5px #8d9aad;  
+}
+div.elx-operate-button .elx-button-group {
+    height: 40px;
+    display: table;
+}
+.elx-button-group button.el-button.elx-hide {
+    width: 0px;
+}
+.elx-operate-button span.uex-icon {
+    margin-right: 5px;
+    color: #fff;
+}
+.elx-operate-button .operate-show span.uex-icon{
+    margin-right: 0px;
+}
+
+.elx-operate-button .el-button, .elx-operate-button button{
+    color: #fff;
+    background-color: rgba(48,54,67,0.6);
+    border: 0px;
+    height:40px;
+    transition: width 200ms linear;
+}
+.elx-operate-button .elx-button-group .el-button:not(:first-child):not(:last-child) {
+    border-left: 1px solid #8f929b;
+    border-right: 1px solid #72757c;
+}
+.elx-operate-button .elx-button-group .elx-operate-item>.el-button {
+    border-right: 1px solid #72757c;
+}
+.elx-operate-button .elx-button-group .elx-operate-item>.el-button{
+    border-left: 1px solid #8f929b;
+    border-radius: 0px;
+    width:100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.elx-operate-button .operate-show{
+    width:24px; 
+    background-color: rgba(48,54,67,0.7);
+}
+.elx-operate-button .elx-button-group>.el-button {
+    border-radius: 4px 0px 0px 4px !important;
+    display: table-cell;
+}
+.elx-operate-group {
+    display: table-cell;
+    font-size: 0px;
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+}

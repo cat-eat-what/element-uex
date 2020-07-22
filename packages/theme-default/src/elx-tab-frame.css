@@ -1,0 +1,104 @@
+.elx-tab-frame .title span {
+  line-height: 30px;
+  border-left: 2px solid #475669;
+  padding-left: 10px;
+  font-weight: 800;
+  font-size: 14px;
+  color: #475669;
+}
+.el-tabs__content>div {
+    height: 100%;
+}
+.el-tabs__header .title {
+  float: left;
+  width: 80px;
+  cursor: pointer;
+  margin-top: -5px;
+}
+.elx-tab-frame .el-tree-node__label {
+  font-size: 12px;
+}
+.elx-tab-frame .el-tree-node__content {
+  line-height: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.elx-tab-frame .el-tabs__item{
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+  padding-left: 5px;
+  padding-right: 2px;
+}
+.elx-tab-frame .el-tabs__nav-next, .elx-tab-frame .el-tabs__nav-prev {
+  line-height: 30px;
+  font-size: 12px;
+}
+.elx-tab-frame .el-tabs--border-card>.el-tabs__header {
+  overflow: hidden;
+  padding: 0px 16px;
+  padding-top: 10px;
+  height: 40px;
+}
+.elx-tab-frame .el-tabs__item:hover {
+  color: #1f2d3d;
+  cursor: pointer;
+  background: #f9fafc;
+  border-top: 2px solid #20a0ff !important;
+}
+.elx-tab-frame .el-tabs--border-card>.el-tabs__header .el-tabs__item {
+  transition: initial;
+  border: 0;
+  border-left: 1px solid #d3d3d3;
+  border-top: 1px solid #d3d3d3;
+  color: #465769;
+  margin-right: 0px; 
+  margin-left: 0px; 
+}
+.elx-tab-frame .el-tabs--border-card>.el-tabs__header .el-tabs__item:last-child {
+  border-right: 1px solid #d3d3d3;
+}
+.elx-tab-frame .el-tree {
+  width: 160px;
+  height: 100%;
+  float: left;
+  overflow: auto;
+}
+.elx-tab-frame .el-tab-pane iframe {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #d1dbe5;
+}
+.elx-tab-frame .el-tabs.el-tabs--border-card {
+  height: 100%;
+  border: 0px;
+}
+.elx-tab-frame .el-tabs--border-card>.el-tabs__content {
+    padding: 15px;
+    height: calc(100% - 40px);
+}
+.elx-tab-frame .el-tab-pane {
+    height: 100%;
+}
+.elx-tab-frame .el-tree-node.is-current {
+    background: #eaeaea;
+}
+.elx-tab-frame .el-tree-node.is-expanded.is-current {
+    background: white;
+}
+.elx-tab-frame .el-tabs--border-card>.el-tabs__header {
+    background-color: #f9fafc;
+}
+.elx-tab-frame .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active{
+  border-top: 2px solid #20a0ff!important;
+}
+.el-tabs__item .uex-icon-cross {
+    border-radius: 50%;
+    text-align: center;
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
+    vertical-align: baseline;
+}
+.el-tabs__item .uex-icon-cross:hover {
+    background-color: #97a8be;
+    color: #fff;
+}

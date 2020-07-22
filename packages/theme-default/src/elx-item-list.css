@@ -1,0 +1,92 @@
+.elx-item-list>ul {
+    overflow: hidden;
+}
+.elx-item-list>ul li {
+    width: 120px;
+    text-align: center;
+    float: left;
+    padding: 20px 0px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.elx-item-list>ul>li {
+    margin: 5px 0px;
+    position:relative;
+    transition: all 200ms linear;
+}
+.elx-item-list>ul .image {
+    width: 38px;
+    color: #A2B0C4;
+    display: inline-block;
+    font-size: 38px;
+}
+.elx-item-list>ul .title {
+    width: 120px;
+    height: 40px;
+    margin-top: 10px;
+    padding: 0px 5px;
+    word-break: break-all;
+    overflow: hidden;
+    color: #475669;
+}
+.elx-item-list>ul .title span {
+    border: 0px;
+    color: #475669;
+    font-size: 12px;
+    font-weight: 400;
+    padding-left: 0px;
+    line-height: 20px;
+}
+.elx-item-list>ul li:hover, .elx-item-list>ul li.activeItem {
+    box-shadow: 0px 0px 5px #A2B0C4;
+}
+.elx-item-list .fade-enter-active, .elx-item-list .fade-leave-active {
+    transition: all 100ms linear 100ms;
+}
+.elx-item-list .fade-enter, .elx-item-list .fade-leave-to{
+    transform: scale(0);
+    opacity: 0
+}
+.elx-item-list .elx-content-menu {
+    width: 100px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0px 0px 5px #c3c3c3;
+    border-radius: 3px;
+    position: fixed;
+    cursor: pointer;
+    transition: all 100ms linear;
+}
+.elx-item-list .elx-content-menu li {
+    line-height: 20px;
+    color: #475669;
+    padding: 0px;
+    text-align: left;
+    font-weight: 300;
+    float: initial;
+    margin: 0px;
+    height: auto;
+}
+.elx-item-list .elx-content-menu span[class*="uex-icon"] {
+    margin-right: 10px;
+    vertical-align: baseline;
+    color: #475669;
+}
+.elx-item-list .elx-content-menu li.disabled span {
+    color: #ccd5e0;
+    cursor: not-allowed;
+}
+.elx-item-list li {
+    height: auto;
+}
+.elx-item-list>ul li .check {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 14px;
+    height: 14px;
+    box-shadow: 0px 0px 5px #d3d3d3;
+    border-radius: 14px;
+    background: white;
+    color: #20a0ff;
+}

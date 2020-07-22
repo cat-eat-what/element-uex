@@ -1,0 +1,13 @@
+.elx-col {
+    overflow: hidden;
+}
+.elx-col>div {
+    float: left;
+}
+.elx-aside{
+	overflow: auto;
+	height: 0px;
+}
+elx-aside div {
+	display: none;
+}

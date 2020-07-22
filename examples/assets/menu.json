@@ -1,0 +1,640 @@
+[
+    {
+        "url": "",
+        "children": [
+            {
+                "url": "",
+                "children": [],
+                "menuId": "data-directory",
+                "parentId": "use-home",
+                "menuName": "数据目录",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-fr-icon-obj-basic-standards"
+            },
+            {
+                "url": "",
+                "children": [],
+                "menuId": "data-atlas",
+                "parentId": "use-home",
+                "menuName": "数据图谱",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            }
+        ],
+        "menuId": "use-home",
+        "parentId": "console",
+        "menuName": "数据门户",
+        "menuType": "2",
+        "hasright": "1",
+        "menuIcon": "uex-icon-obj-basic-standards"
+    },
+    {
+        "url": "",
+        "children": [
+            {
+                "url": "",
+                "children": [],
+                "menuId": "data-dev-summary",
+                "parentId": "dev-home",
+                "menuName": "数据开发总览",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "",
+                "children": [
+                    {
+                        "url": "ftl/dps/mteam/teamResource?TEAM_CODE=T001",
+                        "children": [],
+                        "menuId": "resource-query",
+                        "parentId": "team-data-mgr",
+                        "menuName": "资源查询",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "",
+                        "children": [],
+                        "menuId": "resource-apply",
+                        "parentId": "team-data-mgr",
+                        "menuName": "资源申请",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    }
+                ],
+                "menuId": "team-data-mgr",
+                "parentId": "dev-home",
+                "menuName": "数据资源管理",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "",
+                "children": [],
+                "menuId": "data-dev",
+                "parentId": "dev-home",
+                "menuName": "数据开发",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "",
+                "children": [
+                    {
+                        "url": "ftl/dps/fetch/home?TEAM_CODE=T001",
+                        "children": [],
+                        "menuId": "data-fetch-tool",
+                        "parentId": "data-fetch",
+                        "menuName": "自助取数",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    }
+                ],
+                "menuId": "data-fetch",
+                "parentId": "dev-home",
+                "menuName": "自助取数",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "ftl/dps/dispatch/dispatchHome?TEAM_CODE=T001",
+                "children": [],
+                "menuId": "team-tasks-monitor",
+                "parentId": "dev-home",
+                "menuName": "任务监控",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "",
+                "children": [
+                    {
+                        "url": "ftl/dps/mteam/mgrDevTeam?TEAM_CODE=T001",
+                        "children": [],
+                        "menuId": "computing-resource",
+                        "parentId": "team-mgr",
+                        "menuName": "计算资源",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "ftl/dps/mteam/mgrDevTeam?TEAM_CODE=T001",
+                        "children": [],
+                        "menuId": "storage-resource",
+                        "parentId": "team-mgr",
+                        "menuName": "存储资源",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    }
+                ],
+                "menuId": "team-mgr",
+                "parentId": "dev-home",
+                "menuName": "团队管理",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            }
+        ],
+        "menuId": "dev-home",
+        "parentId": "console",
+        "menuName": "开发门户",
+        "menuType": "0",
+        "hasright": "1",
+        "menuIcon": "uex-icon-obj-basic-standards"
+    },
+    {
+        "url": "ftl/dps/blank",
+        "children": [
+            {
+                "url": "ftl/dataos/data_map",
+                "children": [],
+                "menuId": "data-mgr-summary",
+                "parentId": "data-mgr",
+                "menuName": "数据管理总览",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "ftl/dps/blank",
+                "children": [
+                    {
+                        "url": "ftl/dps/blank",
+                        "children": [],
+                        "menuId": "data-mgr-meta-list",
+                        "parentId": "data-mgr-meta",
+                        "menuName": "元数据查询",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "ftl/dps/blank",
+                        "children": [],
+                        "menuId": "data-mgr-meta-quality",
+                        "parentId": "data-mgr-meta",
+                        "menuName": "元数据质量",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "ftl/dps/blank",
+                        "children": [],
+                        "menuId": "data-mgr-meta-version",
+                        "parentId": "data-mgr-meta",
+                        "menuName": "历史版本管理",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    }
+                ],
+                "menuId": "data-mgr-meta",
+                "parentId": "data-mgr",
+                "menuName": "元数据管理",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "ftl/dps/blank",
+                "children": [
+                    {
+                        "url": "ftl/dps/blank",
+                        "children": [],
+                        "menuId": "data-mgr-standard-list",
+                        "parentId": "data-mgr-standard",
+                        "menuName": "数据标准查询",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "ftl/dps/blank",
+                        "children": [],
+                        "menuId": "data-mgr-standard-input",
+                        "parentId": "data-mgr-standard",
+                        "menuName": "数据标准录入",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "ftl/dps/blank",
+                        "children": [],
+                        "menuId": "data-mgr-standard-publish",
+                        "parentId": "data-mgr-standard",
+                        "menuName": "数据标准发布",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "ftl/dps/blank",
+                        "children": [],
+                        "menuId": "data-mgr-standard-update",
+                        "parentId": "data-mgr-standard",
+                        "menuName": "数据标准维护",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    }
+                ],
+                "menuId": "data-mgr-standard",
+                "parentId": "data-mgr",
+                "menuName": "数据标准管理",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "ftl/dps/blank",
+                "children": [
+                    {
+                        "url": "ftl/dps/blank",
+                        "children": [],
+                        "menuId": "data-mgr-quality-rule",
+                        "parentId": "data-mgr-quality",
+                        "menuName": "质量规则配置",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "ftl/dps/blank",
+                        "children": [],
+                        "menuId": "data-mgr-quality-monitor",
+                        "parentId": "data-mgr-quality",
+                        "menuName": "数据质量监控",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "ftl/dps/blank",
+                        "children": [],
+                        "menuId": "data-mgr-quality-report",
+                        "parentId": "data-mgr-quality",
+                        "menuName": "数据质量报告",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "ftl/dps/blank",
+                        "children": [],
+                        "menuId": "data-mgr-quality-question",
+                        "parentId": "data-mgr-quality",
+                        "menuName": "问题管理",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    }
+                ],
+                "menuId": "data-mgr-quality",
+                "parentId": "data-mgr",
+                "menuName": "数据质量管理",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "ftl/dps/blank",
+                "children": [
+                    {
+                        "url": "ftl/dps/blank",
+                        "children": [],
+                        "menuId": "data-mgr-storge-rule",
+                        "parentId": "data-mgr-storge",
+                        "menuName": "存储规则配置",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "ftl/dps/blank",
+                        "children": [],
+                        "menuId": "data-mgr-storge-monitor",
+                        "parentId": "data-mgr-storge",
+                        "menuName": "存储情况监控",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "ftl/dps/blank",
+                        "children": [],
+                        "menuId": "data-mgr-storge-report",
+                        "parentId": "data-mgr-storge",
+                        "menuName": "存储情况报告",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    }
+                ],
+                "menuId": "data-mgr-storge",
+                "parentId": "data-mgr",
+                "menuName": "存储周期管理",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "ftl/dps/blank",
+                "children": [
+                    {
+                        "url": "ftl/dps/blank",
+                        "children": [],
+                        "menuId": "data-mgr-save-define",
+                        "parentId": "data-mgr-save",
+                        "menuName": "敏感数据定义",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "ftl/dps/blank",
+                        "children": [],
+                        "menuId": "data-mgr-save-rule",
+                        "parentId": "data-mgr-save",
+                        "menuName": "敏感规则配置",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    }
+                ],
+                "menuId": "data-mgr-save",
+                "parentId": "data-mgr",
+                "menuName": "数据安全管理",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            }
+        ],
+        "menuId": "data-mgr",
+        "parentId": "console",
+        "menuName": "数据管理",
+        "menuType": "0",
+        "hasright": "1",
+        "menuIcon": "uex-icon-obj-basic-standards"
+    },
+    {
+        "url": "",
+        "children": [
+            {
+                "url": "",
+                "children": [],
+                "menuId": "distribute-monitor",
+                "parentId": "opt-home",
+                "menuName": "分发监控",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "",
+                "children": [],
+                "menuId": "dispatcher-monitor",
+                "parentId": "opt-home",
+                "menuName": "调度监控",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "",
+                "children": [],
+                "menuId": "data-operation-summary",
+                "parentId": "opt-home",
+                "menuName": "数据运维总览",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "",
+                "children": [],
+                "menuId": "data-monitor",
+                "parentId": "opt-home",
+                "menuName": "数据监控",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "",
+                "children": [],
+                "menuId": "platform-monitor",
+                "parentId": "opt-home",
+                "menuName": "平台监控",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "",
+                "children": [],
+                "menuId": "collect-monitor",
+                "parentId": "opt-home",
+                "menuName": "采集监控",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            }
+        ],
+        "menuId": "opt-home",
+        "parentId": "console",
+        "menuName": "运维门户",
+        "menuType": "0",
+        "hasright": "1",
+        "menuIcon": "uex-icon-obj-basic-standards"
+    },
+    {
+        "url": "",
+        "children": [
+            {
+                "url": "",
+                "children": [
+                    {
+                        "url": "",
+                        "children": [],
+                        "menuId": "component-auth",
+                        "parentId": "dev-tools-mgr",
+                        "menuName": "能力组件的授权",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    }
+                ],
+                "menuId": "dev-tools-mgr",
+                "parentId": "pmg-home",
+                "menuName": "开发工具管理",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "",
+                "children": [
+                    {
+                        "url": "",
+                        "children": [],
+                        "menuId": "dev-flow-config",
+                        "parentId": "dev-flow-mgr",
+                        "menuName": "开发流程定制",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    }
+                ],
+                "menuId": "dev-flow-mgr",
+                "parentId": "pmg-home",
+                "menuName": "开发流程管理",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "",
+                "children": [
+                    {
+                        "url": "",
+                        "children": [],
+                        "menuId": "middleware-mgr",
+                        "parentId": "resource-mgr",
+                        "menuName": "中间件",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "",
+                        "children": [],
+                        "menuId": "dokcer-mgr",
+                        "parentId": "resource-mgr",
+                        "menuName": "docker",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "",
+                        "children": [],
+                        "menuId": "storage-resource-mgr",
+                        "parentId": "resource-mgr",
+                        "menuName": "存储管理",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "",
+                        "children": [],
+                        "menuId": "computing-resource-mmgr",
+                        "parentId": "resource-mgr",
+                        "menuName": "计算资源",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    }
+                ],
+                "menuId": "resource-mgr",
+                "parentId": "pmg-home",
+                "menuName": "资源管理",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "",
+                "children": [
+                    {
+                        "url": "",
+                        "children": [],
+                        "menuId": "sys-flow-register",
+                        "parentId": "platform-base-mgr",
+                        "menuName": "系统工作流注册",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "",
+                        "children": [],
+                        "menuId": "base-component-register",
+                        "parentId": "platform-base-mgr",
+                        "menuName": "系统基础能力注册",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "",
+                        "children": [],
+                        "menuId": "tools-register",
+                        "parentId": "platform-base-mgr",
+                        "menuName": "工具注册",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    }
+                ],
+                "menuId": "platform-base-mgr",
+                "parentId": "pmg-home",
+                "menuName": "平台基础管理",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            },
+            {
+                "url": "",
+                "children": [
+                    {
+                        "url": "",
+                        "children": [],
+                        "menuId": "tenant-mgr",
+                        "parentId": "multi-tenant-mgr",
+                        "menuName": "租户管理",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    },
+                    {
+                        "url": "",
+                        "children": [],
+                        "menuId": "member-mgr",
+                        "parentId": "multi-tenant-mgr",
+                        "menuName": "成员管理",
+                        "menuType": "0",
+                        "hasright": "1",
+                        "menuIcon": "uex-icon-obj-basic-standards"
+                    }
+                ],
+                "menuId": "multi-tenant-mgr",
+                "parentId": "pmg-home",
+                "menuName": "多租户管理",
+                "menuType": "0",
+                "hasright": "1",
+                "menuIcon": "uex-icon-obj-basic-standards"
+            }
+        ],
+        "menuId": "pmg-home",
+        "parentId": "console",
+        "menuName": "平台管理",
+        "menuType": "0",
+        "hasright": "1",
+        "menuIcon": "uex-icon-obj-basic-standards"
+    }
+]

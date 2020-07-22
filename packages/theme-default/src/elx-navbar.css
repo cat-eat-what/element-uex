@@ -1,0 +1,48 @@
+.elx-navbar li {
+    display: inline-block;
+    line-height: 50px;
+    font-size: 14px;
+    padding: 0px 10px;
+    position: relative;
+}
+.elx-navbar li .uex-icon-arrow-down {
+    display: inline-block;
+    margin-left: 5px;
+    transition: all 200ms linear 100ms;
+}
+.elx-navbar li.open .uex-icon-arrow-down {
+    transform: rotate(-180deg);
+}
+.elx-navbar .treeview-menu {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    width: 300px;
+    padding: 10px 20px;
+    background-color: white;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    transform-origin: 0% 0%;
+}
+.elx-navbar .treeview-menu:before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: -7px;
+    background: white;
+    border: 1px solid #eaeaea;
+    border-right: 0px;
+    border-bottom: 0px;
+    transform: rotate(45deg);
+}
+.elx-navbar .fade-enter-active, .elx-navbar .fade-leave-active {
+    transition: all 200ms linear 100ms;
+}
+.elx-navbar .fade-enter, .elx-navbar .fade-leave-to{
+    transform: scale(0);
+    opacity: 0
+}
+.elx-navbar a {
+    color: #475669;
+}

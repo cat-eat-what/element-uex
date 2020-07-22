@@ -1,0 +1,44 @@
+[
+    
+    {
+        "url": "ftl/dps/blank",
+        "children": [],
+        "menuId": "data-mgr-quality-rule",
+        "parentId": "data-mgr-quality",
+        "menuName": "质量规则配置",
+        "menuType": "0",
+        "hasright": "1",
+        "menuIcon": "uex-icon-obj-basic-standards"
+    },
+    {
+        "url": "ftl/dps/blank",
+        "children": [],
+        "menuId": "data-mgr-quality-monitor",
+        "parentId": "data-mgr-quality",
+        "menuName": "数据质量监控",
+        "menuType": "0",
+        "hasright": "1",
+        "menuIcon": "uex-icon-obj-basic-standards"
+    },
+    {
+        "url": "ftl/dps/blank",
+        "children": [],
+        "menuId": "data-mgr-quality-report",
+        "parentId": "data-mgr-quality",
+        "menuName": "数据质量报告",
+        "menuType": "0",
+        "hasright": "1",
+        "menuIcon": "uex-icon-obj-basic-standards"
+    },
+    {
+        "url": "ftl/dps/blank",
+        "children": [],
+        "menuId": "data-mgr-quality-question",
+        "parentId": "data-mgr-quality",
+        "menuName": "问题管理",
+        "menuType": "0",
+        "hasright": "1",
+        "menuIcon": "uex-icon-obj-basic-standards"
+    }
+                
+]

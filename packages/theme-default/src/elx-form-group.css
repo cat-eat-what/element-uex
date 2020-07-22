@@ -1,0 +1,13 @@
+.elx-form-group .elx-form .el-form {
+    display: table;
+    width: 100%;
+    margin-bottom: 0px;
+}
+.elx-form-group .elx-form .el-form .el-form-item.elx-form-item {
+	display: table-cell;
+    padding-right: 5px;
+    margin-bottom: 0px;
+}
+.elx-form-group .elx-form .el-form .el-form-item.elx-form-item:last-child {
+    padding-right: 0px;
+}

@@ -1,0 +1,23 @@
+.elx-operate-param > div {
+  margin-bottom: 10px;
+}
+.elx-operate-param > div .el-button {
+  margin-left: 10px;
+  min-width: 80px;
+  width: auto;
+}
+.elx-operate-param .main-control{
+  display: block;
+  margin-bottom: 10px;
+  min-width: 80px;
+  width: auto;
+}
+.elx-operate-param .el-button i {
+  margin-right: 2px;
+}
+.elx-operate-param .el-input{
+  width: inherit;
+}
+.elx-operate-param label{
+  line-height: 34px;
+}

@@ -1,0 +1,41 @@
+<script>
+  export default {
+  }
+</script>
+
+## 占位模版
+
+用于页面中无数据时占位。
+
+### 基本用法
+
+
+::: demo 占位模版
+```html
+<template>
+  <elx-placeholder text="占位占位占位！！！"></elx-placeholder>
+</template>
+<script>
+  export default {
+  }
+</script>
+```
+:::
+
+
+
+
+
+
+
+
+
+### Attributes
+| 参数      | 说明          | 类型      | 可选值                           | 默认值  |
+|---------- |-------------- |---------- |--------------------------------  |-------- |
+|text | 占位文字 |String |－|'暂无数据'|
+
+
+### Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |

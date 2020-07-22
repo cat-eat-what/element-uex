@@ -1,0 +1,483 @@
+{
+    "step": {
+        "labelWidth": "80px",
+        "fields": [
+            {
+                "label": "节点名", 
+                "name": "label", 
+                "type": "inputText", 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "描述", 
+                "name": "descr", 
+                "type": "inputText", 
+                "isShow": true, 
+                "defaultValue": ""
+            }
+        ],
+        "rules": {
+            "label": [
+              { "required": true, "message": "请输入节点名"}
+            ]
+        }
+     },
+    "ftpreader": {
+        "labelWidth": "120px",
+        "fields": [
+            {
+                "label": "FTP服务器名称", 
+                "name": "ftpId", 
+                "type": "select", 
+                "options": "{{ds.ftp}}", 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "文件路径", 
+                "name": "path", 
+                "type": "inputText", 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "文件名", 
+                "name": "sourceFiles", 
+                "type":"inputText", 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "文件编码", 
+                "name": "encoding", 
+                "type":"select", 
+                "options":[
+                    {"label": "UTF-8", "value": "UTF-8"}, 
+                    {"label": "UTF-81", "value": "UTF-81"}
+                ], 
+                "isShow": true, 
+                "defaultValue": "UTF-8"
+            },
+            {
+                "label": "文件列", 
+                "name": "column", 
+                "type":"tableForm", 
+                "config": {
+                    "fields": [
+                        {
+                            "name": "index", 
+                            "columnLabel": "序号", 
+                            "label": "", 
+                            "width": "50", 
+                            "type": "index"
+                        },
+                        {
+                            "name": "type", 
+                            "columnLabel": "类型", 
+                            "label": "", 
+                            "type": "select", 
+                            "options": [
+                                {"label": "string", "value": "string"}, 
+                                {"label": "long", "value": "long"}, 
+                                {"label": "boolean", "value": "boolean"}, 
+                                {"label": "double", "value": "double"}, 
+                                {"label": "date", "value": "date"}
+                            ], 
+                            "isShow": true, 
+                            "defaultValue": "string" 
+                        },
+                        {
+                            "name": "format", 
+                            "columnLabel": "格式", 
+                            "label": "", 
+                            "type": "inputText", 
+                            "isShow": true, 
+                            "defaultValue": ""
+                        }
+                    ]
+                },
+                "isShow": true
+            },
+            {
+                "label": "文件压缩类型", 
+                "name": "compress", 
+                "type": "select", 
+                "options": [
+                    {"label": "lzo_deflate", "value": "lzo_deflate"}, 
+                    {"label": "lzo", "value": "lzo"}, 
+                    {"label": "gzip", "value": "gzip"}, 
+                    {"label": "bzip2", "value": "bzip2"}, 
+                    {"label": "zip", "value": "zip"}
+                ], 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "是否跳过首行", 
+                "name": "skipHeader", 
+                "type": "radio", 
+                "options": [
+                    {"label":"是", "value": "1"},
+                    {"label":"否", "value": "0"}
+                ], 
+                "isShow": true, 
+                "defaultValue": "0"
+            },
+            {
+                "label": "NULL格式", 
+                "name": "nullFormat", 
+                "type": "inputText", 
+                "isShow": true, 
+                "defaultValue": "\\N"
+            },
+            {
+                "label": "字段分割符", 
+                "name": "fieldDelimiter", 
+                "type": "inputText", 
+                "isShow": true, 
+                "defaultValue": ", "
+            }
+        ]
+    },
+    "mysqlreader": {
+        "labelWidth": "120px",
+        "fields": [
+            {
+                "label": "JDBC数据源", 
+                "name": "jdbcDataSourceId", 
+                "type": "select", 
+                "options": "{{ds.mysql}}", 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "表名", 
+                "name": "table", 
+                "type": "inputText", 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "切分主键", 
+                "name": "splitPk", 
+                "type": "inputText", 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "是否按表抽取", 
+                "name": "isTableMode", 
+                "type": "radio", 
+                "options": [
+                    {"label":"是", "value": "1"},
+                    {"label":"否", "value": "0"}
+                ], 
+                "isShow": true, 
+                "defaultValue": "0"
+            },
+            {
+                "label": "WHERE条件", 
+                "name": "where", 
+                "type": "inputText", 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "抽取列", 
+                "name": "column", 
+                "type": "inputText", 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "抽取SQL", 
+                "name": "querySql", 
+                "type": "inputText", 
+                "isShow": true, 
+                "defaultValue": ""
+            }
+        ]
+    },
+    "mysqlwriter": {
+        "labelWidth": "150px",
+        "fields": [
+            {
+                "label": "JDBC数据源", 
+                "name": "jdbcDataSourceId", 
+                "type": "select", 
+                "options": "{{ds.mysql}}", 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "表名",
+                "name": "table", 
+                "type":"inputText", 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "加载列",
+                "name": "column",
+                "type":"inputText", 
+                "isShow": true,
+                "defaultValue": ""
+            },
+            {
+                "label": "加载前执行SQL",
+                "name": "preSql",
+                "type":"inputText", 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "加载后执行SQL",
+                "name": "postSql",
+                "type":"inputText", 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "空值是否转换为NULL", 
+                "name": "emptyAsNull",
+                "type":"radio", 
+                "options": [
+                    {"label": "是", "value": "1"}, 
+                    {"label": "否", "value": "0"}
+                ], 
+                "isShow": true, 
+                "defaultValue": "0"
+            }
+        ]
+    },
+    "hdfsreader": {
+        "labelWidth": "120px",
+        "fields": [
+            {
+                "label": "HDFS数据源", 
+                "name": "hdfsId", 
+                "type":"select", 
+                "options": "{{ds.hadoop}}", 
+                "isShow":"true",
+                "defaultValue": ""
+            },
+            {
+                "label": "文件路径", 
+                "name": "path", 
+                "type": "inputText", 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "文件名", 
+                "name": "sourceFiles", 
+                "type": "inputText", 
+                "isShow": true,
+                "defaultValue": ""
+            },
+            {
+                "label": "文件类型", 
+                "name": "fileType", 
+                "type": "select", 
+                "options": [
+                    {"label": "ORC", "value": "ORC"}, 
+                    {"label": "TEXT", "value": "TEXT"}, 
+                    {"label": "CSV", "value": "CSV"}, 
+                    {"label": "SEQUENCE", "value": "SEQUENCE"}, 
+                    {"label": "RC", "value": "RC"}
+                ],
+                "isShow":"true",
+                "defaultValue": "UTF-8"
+            },
+            {
+                "label": "文件编码", 
+                "name": "encoding", 
+                "type": "select", 
+                "options": [
+                    {"label": "UTF-8", "value": "UTF-8"}, 
+                    {"label": "UTF-81", "value": "UTF-81"}
+                ],
+                "isShow": true,
+                "defaultValue": "UTF-8"
+            },
+            {
+                "label": "文件压缩类型", 
+                "name": "compress", 
+                "type": "select", 
+                "options": [
+                    {"label": "lzo_deflate", "value": "lzo_deflate"}, 
+                    {"label": "lzo", "label": "lzo"}, 
+                    {"label": "gzip", "value": "gzip"}, 
+                    {"label": "bzip2", "value": "bzip2"}, 
+                    {"label": "hadoop-snappy", "value": "hadoop-snappy"}, 
+                    {"label": "zip", "value": "zip"}
+                ], 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "文件列", 
+                "name": "column", 
+                "type": "tableForm", 
+                "config": {
+                    "fields": [
+                        {
+                            "name": "index", 
+                            "columnLabel": "序号", 
+                            "label": "", 
+                            "width": "50", 
+                            "type": "index"
+                        },
+                        {
+                            "name": "type", 
+                            "columnLabel": "类型", 
+                            "label": "", 
+                            "type": "select", 
+                            "options": [
+                                {"label": "string", "value": "string"}, 
+                                {"label": "long", "value": "long"}, 
+                                {"label": "boolean", "value": "boolean"}, 
+                                {"label": "double", "value": "double"}, 
+                                {"label": "date", "value": "date"}
+                            ], 
+                            "isShow": true, 
+                            "defaultValue": "string" 
+                        },
+                        {
+                            "name": "format", 
+                            "columnLabel": "格式", 
+                            "label": "", 
+                            "type": "inputText", 
+                            "isShow": true, 
+                            "defaultValue": "" 
+                        }
+                    ]
+                },
+                "isShow": true
+            },
+            {
+                "label": "是否跳过首行", 
+                "name": "skipHeader", 
+                "type": "radio", 
+                "options": [
+                    {"label":"是", "value": "1"}, 
+                    {"label":"否", "value": "0"}
+                ], 
+                "isShow": true, 
+                "defaultValue": "0"
+            },
+            {
+                "label": "NULL格式", 
+                "name": "nullFormat", 
+                "type": "inputText", 
+                "isShow": true, 
+                "defaultValue": "\\N"
+            },
+            {
+                "label": "字段分割符", 
+                "name": "fieldDelimiter", 
+                "type": "inputText", 
+                "isShow": true, 
+                "defaultValue": ", "
+            }
+        ]
+    },
+    "hdfswriter": {
+        "labelWidth": "120px",
+        "fields": [
+            {
+                "label": "HDFS数据源", 
+                "name": "hdfsId", 
+                "type": "select", 
+                "options": "{{ds.hadoop}}", 
+                "isShow": true,
+                "defaultValue": ""
+            },
+            {
+                "label": "文件名", 
+                "name": "sourceFiles", 
+                "type": "inputText", 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "文件类型", 
+                "name": "fileType", 
+                "type": "select", 
+                "options": [
+                    {"label": "ORC", "value": "ORC"}, 
+                    {"label": "TEXT", "value": "TEXT"}
+                ], 
+                "isShow": true, 
+                "defaultValue": "TEXT"
+            },
+            {
+                "label": "字段分割符", 
+                "name": "fieldDelimiter", 
+                "type": "inputText", 
+                "isShow": true, 
+                "defaultValue": ", "
+            },
+            {
+                "label": "文件压缩类型", 
+                "name": "compress", 
+                "type": "select", 
+                "options": [
+                    {"label": "gzip", "value": "gzip"}, 
+                    {"label": "bzip2", "value": "bzip2"}, 
+                    {"label": "snappy", "value": "snappy"}
+                ], 
+                "isShow": true, 
+                "defaultValue": ""
+            },
+            {
+                "label": "文件列", 
+                "name": "column", 
+                "type": "tableForm", 
+                "config": {
+                    "fields": [
+                        {
+                            "name": "index", 
+                            "columnLabel": "序号", 
+                            "label": "", 
+                            "width": "50", 
+                            "type": "index"
+                        },
+                        {
+                            "name": "type", 
+                            "columnLabel": "类型", 
+                            "label": "", 
+                            "type": "select", 
+                            "options": [
+                                {"label": "TINYINT", "value": "TINYINT"},
+                                {"label": "SMALLINT", "value": "SMALLINT"},
+                                {"label": "INT", "value": "INT"},
+                                {"label": "BIGINT", "value": "BIGINT"},
+                                {"label": "FLOAT", "value": "FLOAT"},
+                                {"label": "DOUBLE", "value": "DOUBLE"},
+                                {"label": "TIMESTAMP", "value": "TIMESTAMP"},
+                                {"label": "DATE", "value": "DATE"},
+                                {"label": "STRING", "value": "STRING"},
+                                {"label": "VARCHAR", "value": "VARCHAR"},
+                                {"label": "CHAR", "value": "CHAR"},
+                                {"label": "BOOLEAN", "value": "BOOLEAN"}
+                            ], 
+                            "isShow": true, 
+                            "defaultValue": "string" 
+                        },
+                        {
+                            "name": "format", 
+                            "columnLabel": "格式", 
+                            "label": "", 
+                            "type": "inputText", 
+                            "isShow": true, 
+                            "defaultValue": "" 
+                        }
+                    ]
+                },
+                "isShow": true
+            }
+        ]
+    }
+}

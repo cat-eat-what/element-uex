@@ -1,0 +1,285 @@
+{
+  "zh-CN": [
+    {
+      "name": "开发指南",
+      "children": [
+        {
+          "path": "/quickstart",
+          "name": "快速上手"
+        }
+      ]
+    },
+    {
+      "name": "基础组件",
+      "groups": [
+        {
+          "groupName": "业务组件",
+          "list": [
+            {
+              "path": "/icon",
+              "title": "Icon 图标"
+            },
+            {
+              "path": "/scroll-content",
+              "title": "layout布局"
+            },
+            {
+              "path": "/placeholder",
+              "title": "Placeholder 占位"
+            },
+            {
+              "path": "/menu",
+              "title": "menu 菜单"
+            },
+            {
+              "path": "/select",
+              "title": "select 下拉框"
+            },
+            {
+              "path": "/date-picker-group",
+              "title": "date-picker-group 日期组合"
+            },
+            {
+              "path": "/operate-param",
+              "title": "operate-param 参数操作"
+            },
+            {
+              "path": "/param-form",
+              "title": "param-form 参数表单"
+            },
+            {
+              "path": "/card-list",
+              "title": "card-list 卡片列表"
+            },
+            {
+              "path": "/slider-vertical",
+              "title": "slider-vertical 垂直滑块"
+            },
+            {
+              "path": "/main",
+              "title": "main-loading 防止页面闪烁"
+            },
+            {
+              "path": "/breadcrumb",
+              "title": "breadcrumb 面包屑"
+            },
+            {
+              "path": "/table",
+              "title": "table 可拖拽表格"
+            },
+            {
+              "path": "/operate-button",
+              "title": "operate-button 可收缩按钮组"
+            },
+            {
+              "path": "/sidebar",
+              "title": "sidebar 侧边栏"
+            },
+            {
+              "path": "/navbar",
+              "title": "navbar 导航栏"
+            },
+            {
+              "path": "/content",
+              "title": "content 模拟单页面应用"
+            },
+            {
+              "path": "/progress",
+              "title": "progress 进度条"
+            },
+            {
+              "path": "/form",
+              "title": "form 表单"
+            },
+            {
+              "path": "/sidebar-p",
+              "title": "sidebar-p sidebar-p"
+            },
+            {
+              "path": "/tree",
+              "title": "tree 树"
+            },
+            {
+              "path": "/item-list",
+              "title": "item-list 可操作列表"
+            },
+            {
+              "path": "/filter",
+              "title": "filter 筛选"
+            },
+            {
+              "path": "/menu-expand",
+              "title": "menu-expand 菜单"
+            },
+            {
+              "path": "/cascader",
+              "title": "cascader 级连"
+            },
+            {
+              "path": "/radio",
+              "title": "radio 单选"
+            },
+            {
+              "path": "/checkbox",
+              "title": "checkbox 多选"
+            },
+            {
+              "path": "/table-form",
+              "title": "table-form 表格表单"
+            },
+            {
+              "path": "/context-menu",
+              "title": "context-menu"
+            },
+            {
+              "path": "/codemirror",
+              "title": "codemirror"
+            },
+            {
+              "path": "/card-form",
+              "title": "card-form"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "en-US": [
+    {
+      "name": "Development",
+      "children": [
+        {
+          "path": "/quickstart",
+          "name": "Quick Start"
+        }
+      ]
+    },
+    {
+      "name": "Components",
+      "groups": [
+        
+        {
+          "groupName": "Others",
+          "list": [
+            {
+              "path": "/icon",
+              "title": "Icon"
+            },
+            {
+              "path": "/scroll-content",
+              "title": "layout"
+            },
+            {
+              "path": "/placeholder",
+              "title": "Placeholder"
+            },
+            {
+              "path": "/menu",
+              "title": "menu"
+            },
+            {
+              "path": "/select",
+              "title": "select"
+            },
+            {
+              "path": "/date-picker-group",
+              "title": "date-picker-group"
+            },
+            {
+              "path": "/operate-param",
+              "title": "operate-param"
+            },
+            {
+              "path": "/param-form",
+              "title": "param-form"
+            },
+            {
+              "path": "/card-list",
+              "title": "card-list"
+            },
+            {
+              "path": "/slider-vertical",
+              "title": "slider-vertical"
+            },
+            {
+              "path": "/main",
+              "title": "main-loading"
+            },
+            {
+              "path": "/breadcrumb",
+              "title": "breadcrumb"
+            },
+            {
+              "path": "/table",
+              "title": "table"
+            },
+            {
+              "path": "/operate-button",
+              "title": "operate-button"
+            },
+            {
+              "path": "/sidebar",
+              "title": "sidebar"
+            },
+            {
+              "path": "/navbar",
+              "title": "navbar"
+            },
+            {
+              "path": "/content",
+              "title": "content"
+            },
+            {
+              "path": "/progress",
+              "title": "progress"
+            },
+            {
+              "path": "/form",
+              "title": "form"
+            },
+            {
+              "path": "/sidebar-p",
+              "title": "sidebar-p"
+            },
+            {
+              "path": "/tree",
+              "title": "tree"
+            },
+            {
+              "path": "/item-list",
+              "title": "item-list"
+            },
+            {
+              "path": "/filter",
+              "title": "filter"
+            },
+            {
+              "path": "/radio",
+              "title": "radio"
+            },
+            {
+              "path": "/checkbox",
+              "title": "checkbox"
+            },
+            {
+              "path": "/table-form",
+              "title": "table-form"
+            },
+            {
+              "path": "/context-menu",
+              "title": "context-menu"
+            },
+            {
+              "path": "/codemirror",
+              "title": "codemirror"
+            },
+            {
+              "path": "/card-form",
+              "title": "card-form"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

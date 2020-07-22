@@ -1,0 +1,822 @@
+@font-face {
+  font-family: 'uex-icon';
+  src:  url('fonts/uex-icon.eot?ukxsdi');
+  src:  url('fonts/uex-icon.eot?ukxsdi#iefix') format('embedded-opentype'),
+    url('fonts/uex-icon.ttf?ukxsdi') format('truetype'),
+    url('fonts/uex-icon.woff?ukxsdi') format('woff'),
+    url('fonts/uex-icon.svg?ukxsdi#uex-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="uex-icon-"], [class*=" uex-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'uex-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: baseline;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.uex-icon-logout:before {
+  content: "\e9f4";
+}
+.uex-icon-link:before {
+  content: "\e9f5";
+}
+.uex-icon-arrow-left:before {
+  content: "\e900";
+}
+.uex-icon-arrow-right:before {
+  content: "\e901";
+}
+.uex-icon-arrow-down:before {
+  content: "\e902";
+}
+.uex-icon-arrow-up:before {
+  content: "\e903";
+}
+.uex-icon-d-caret:before {
+  content: "\e908";
+}
+.uex-icon-caret-bottom:before {
+  content: "\e906";
+}
+.uex-icon-caret-top:before {
+  content: "\e907";
+}
+.uex-icon-caret-left:before {
+  content: "\e904";
+}
+.uex-icon-caret-right:before {
+  content: "\e905";
+}
+.uex-icon-pause:before {
+  content: "\e909";
+}
+.uex-icon-stop:before {
+  content: "\e9e0";
+}
+.uex-icon-stop-all:before {
+  content: "\e9e1";
+}
+.uex-icon-start-all:before {
+  content: "\e9e2";
+}
+.uex-icon-d-arrow-left:before {
+  content: "\e90a";
+}
+.uex-icon-d-arrow-right:before {
+  content: "\e90b";
+}
+.uex-icon-swap-left:before {
+  content: "\e90c";
+}
+.uex-icon-swap-right:before {
+  content: "\e90d";
+}
+.uex-icon-swap-down:before {
+  content: "\e90e";
+}
+.uex-icon-swap-up:before {
+  content: "\e90f";
+}
+.uex-icon-tick:before {
+  content: "\e910";
+}
+.uex-icon-cross:before {
+  content: "\e911";
+}
+.uex-icon-lessen:before {
+  content: "\e912";
+}
+.uex-icon-add:before {
+  content: "\e913";
+}
+.uex-icon-correct:before {
+  content: "\e914";
+}
+.uex-icon-error:before {
+  content: "\e915";
+}
+.uex-icon-minus:before {
+  content: "\e916";
+}
+.uex-icon-plus:before {
+  content: "\e917";
+}
+.uex-icon-help:before {
+  content: "\e918";
+}
+.uex-icon-warning:before {
+  content: "\e919";
+}
+.uex-icon-forbidden:before {
+  content: "\e91a";
+}
+.uex-icon-enlarge:before {
+  content: "\e91b";
+}
+.uex-icon-reduce:before {
+  content: "\e91c";
+}
+.uex-icon-search:before {
+  content: "\e91d";
+}
+.uex-icon-back:before {
+  content: "\e91e";
+}
+.uex-icon-experiment:before {
+  content: "\e978";
+}
+.uex-icon-computer:before {
+  content: "\e91f";
+}
+.uex-icon-cellphone:before {
+  content: "\e920";
+}
+.uex-icon-move:before {
+  content: "\e921";
+}
+.uex-icon-copy:before {
+  content: "\e922";
+}
+.uex-icon-move-to:before {
+  content: "\e923";
+}
+.uex-icon-edit:before {
+  content: "\e924";
+}
+.uex-icon-key:before {
+  content: "\e9e3";
+}
+.uex-icon-delete:before {
+  content: "\e925";
+}
+.uex-icon-attachment:before {
+  content: "\e926";
+}
+.uex-icon-position:before {
+  content: "\e927";
+}
+.uex-icon-message:before {
+  content: "\e928";
+}
+.uex-icon-notice:before {
+  content: "\e9ec";
+}
+.uex-icon-heart-on:before {
+  content: "\e929";
+}
+.uex-icon-star-on:before {
+  content: "\e92a";
+}
+.uex-icon-setting:before {
+  content: "\e92b";
+}
+.uex-icon-tel:before {
+  content: "\e92c";
+}
+.uex-icon-shopping:before {
+  content: "\e92d";
+}
+.uex-icon-sum:before {
+  content: "\e92e";
+}
+.uex-icon-top:before {
+  content: "\e92f";
+}
+.uex-icon-image:before {
+  content: "\e930";
+}
+.uex-icon-view:before {
+  content: "\e931";
+}
+.uex-icon-share:before {
+  content: "\e932";
+}
+.uex-icon-time:before {
+  content: "\e933";
+}
+.uex-icon-calendar:before {
+  content: "\e934";
+}
+.uex-icon-home:before {
+  content: "\e935";
+}
+.uex-icon-group:before {
+  content: "\e936";
+}
+.uex-icon-user:before {
+  content: "\e937";
+}
+.uex-icon-tenant2:before {
+  content: "\e9fa";
+}
+.uex-icon-tenant1:before {
+  content: "\e9fb";
+}
+.uex-icon-agree:before {
+  content: "\e9ea";
+}
+.uex-icon-disagree:before {
+  content: "\e9eb";
+}
+.uex-icon-lock:before {
+  content: "\e938";
+}
+.uex-icon-unlock:before {
+  content: "\e939";
+}
+.uex-icon-export:before {
+  content: "\e93a";
+}
+.uex-icon-import:before {
+  content: "\e93b";
+}
+.uex-icon-to-front:before {
+  content: "\e9ff";
+}
+.uex-icon-to-back:before {
+  content: "\e9fd";
+}
+.uex-icon-upload:before {
+  content: "\e93c";
+}
+.uex-icon-download:before {
+  content: "\e93d";
+}
+.uex-icon-folder-open:before {
+  content: "\e93e";
+}
+.uex-icon-folder:before {
+  content: "\e93f";
+}
+.uex-icon-document:before {
+  content: "\e940";
+}
+.uex-icon-save:before {
+  content: "\e941";
+}
+.uex-icon-task:before {
+  content: "\e9e4";
+}
+.uex-icon-email:before {
+  content: "\e942";
+}
+.uex-icon-menu-card:before {
+  content: "\e943";
+}
+.uex-icon-menu-list:before {
+  content: "\e944";
+}
+.uex-icon-menu-column:before {
+  content: "\e945";
+}
+.uex-icon-menu-row:before {
+  content: "\e946";
+}
+.uex-icon-topic:before {
+  content: "\e9f3";
+}
+.uex-icon-full-screen:before {
+  content: "\e9fc";
+}
+.uex-icon-inter:before {
+  content: "\e962";
+}
+.uex-icon-more-col:before {
+  content: "\e947";
+}
+.uex-icon-more-row:before {
+  content: "\e948";
+}
+.uex-icon-flow:before {
+  content: "\e949";
+}
+.uex-icon-clear:before {
+  content: "\e94a";
+}
+.uex-icon-data-chart1:before {
+  content: "\e94b";
+}
+.uex-icon-data-chart2:before {
+  content: "\e94c";
+}
+.uex-icon-data-chart3:before {
+  content: "\e94d";
+}
+.uex-icon-data-chart4:before {
+  content: "\e94e";
+}
+.uex-icon-table:before {
+  content: "\e94f";
+}
+.uex-icon-database:before {
+  content: "\e950";
+}
+.uex-icon-empower:before {
+  content: "\e951";
+}
+.uex-icon-main-unit:before {
+  content: "\e952";
+}
+.uex-icon-recommit:before {
+  content: "\e953";
+}
+.uex-icon-refresh:before {
+  content: "\e954";
+}
+.uex-icon-rerun:before {
+  content: "\e955";
+}
+.uex-icon-reset:before {
+  content: "\e956";
+}
+.uex-icon-restart:before {
+  content: "\e957";
+}
+.uex-icon-top1:before {
+  content: "\e958";
+}
+.uex-icon-top2:before {
+  content: "\e959";
+}
+.uex-icon-top3:before {
+  content: "\e95a";
+}
+.uex-icon-api:before {
+  content: "\e95b";
+}
+.uex-icon-data-open:before {
+  content: "\ea03";
+}
+.uex-icon-data-basic-competency:before {
+  content: "\ea04";
+}
+.uex-icon-gather-manage:before {
+  content: "\ea05";
+}
+.uex-icon-AI:before {
+  content: "\ea06";
+}
+.uex-icon-operation-support:before {
+  content: "\ea07";
+}
+.uex-icon-tab-field:before {
+  content: "\e9ef";
+}
+.uex-icon-open-no:before {
+  content: "\ea01";
+}
+.uex-icon-open-al:before {
+  content: "\ea02";
+}
+.uex-icon-ES:before {
+  content: "\e9fe";
+}
+.uex-icon-http:before {
+  content: "\ea00";
+}
+.uex-icon-postgresql:before {
+  content: "\e9f7";
+}
+.uex-icon-vertica:before {
+  content: "\e9f9";
+}
+.uex-icon-kafka:before {
+  content: "\e9f6";
+}
+.uex-icon-redis:before {
+  content: "\e9f8";
+}
+.uex-icon-result:before {
+  content: "\e9e5";
+}
+.uex-icon-data:before {
+  content: "\e9e6";
+}
+.uex-icon-binary-forecast:before {
+  content: "\e9e7";
+}
+.uex-icon-kpi-correlation:before {
+  content: "\e9e8";
+}
+.uex-icon-find-group:before {
+  content: "\e9e9";
+}
+.uex-icon-app-timeliness:before {
+  content: "\e95c";
+}
+.uex-icon-data-flow:before {
+  content: "\e95d";
+}
+.uex-icon-data-model:before {
+  content: "\e95e";
+}
+.uex-icon-data-redundancy:before {
+  content: "\e95f";
+}
+.uex-icon-data-standard:before {
+  content: "\e960";
+}
+.uex-icon-data-usage:before {
+  content: "\e961";
+}
+.uex-icon-efficiency-fluctuation:before {
+  content: "\e92";
+}
+.uex-icon-Service-call:before {
+  content: "\e963";
+}
+.uex-icon-space-usage:before {
+  content: "\e964";
+}
+.uex-icon-storage-pecification:before {
+  content: "\e965";
+}
+.uex-icon-system-load:before {
+  content: "\e966";
+}
+.uex-icon-tenant-view:before {
+  content: "\e967";
+}
+.uex-icon-individual-privacy:before {
+  content: "\e9ed";
+}
+.uex-icon-enterprise-privacy:before {
+  content: "\e9ee";
+}
+.uex-icon-enterprise-operation:before {
+  content: "\e9f0";
+}
+.uex-icon-api-mgr:before {
+  content: "\e968";
+}
+.uex-icon-asynchronous:before {
+  content: "\e969";
+}
+.uex-icon-csv-plain:before {
+  content: "\e96a";
+}
+.uex-icon-data-mgr:before {
+  content: "\e96b";
+}
+.uex-icon-default:before {
+  content: "\e96c";
+}
+.uex-icon-log-stat:before {
+  content: "\e96d";
+}
+.uex-icon-monitor-config:before {
+  content: "\e96e";
+}
+.uex-icon-pipe-massage:before {
+  content: "\e96f";
+}
+.uex-icon-protocol-deafult:before {
+  content: "\e970";
+}
+.uex-icon-rest-json:before {
+  content: "\e971";
+}
+.uex-icon-rest-xml:before {
+  content: "\e972";
+}
+.uex-icon-sec-mgr:before {
+  content: "\e973";
+}
+.uex-icon-soap-ws:before {
+  content: "\e974";
+}
+.uex-icon-subscribe:before {
+  content: "\e975";
+}
+.uex-icon-synchronous:before {
+  content: "\e976";
+}
+.uex-icon-sys-mgr:before {
+  content: "\e977";
+}
+.uex-icon-key-model:before {
+  content: "\e9f1";
+}
+.uex-icon-upsurge:before {
+  content: "\e9f2";
+}
+.uex-icon-add-all-preabolish:before {
+  content: "\e979";
+}
+.uex-icon-add-all-prepublish:before {
+  content: "\e97a";
+}
+.uex-icon-add-all:before {
+  content: "\e97b";
+}
+.uex-icon-add-mapping:before {
+  content: "\e97c";
+}
+.uex-icon-add-more:before {
+  content: "\e97d";
+}
+.uex-icon-add-preabolish:before {
+  content: "\e97e";
+}
+.uex-icon-add-prepublish:before {
+  content: "\e97f";
+}
+.uex-icon-add-to:before {
+  content: "\e980";
+}
+.uex-icon-blood-analyse:before {
+  content: "\e981";
+}
+.uex-icon-build-abolish-task:before {
+  content: "\e982";
+}
+.uex-icon-build-mapping:before {
+  content: "\e983";
+}
+.uex-icon-build-publish-task:before {
+  content: "\e984";
+}
+.uex-icon-delete-mapping:before {
+  content: "\e985";
+}
+.uex-icon-difference-analyse:before {
+  content: "\e986";
+}
+.uex-icon-fallback-all-preabolish:before {
+  content: "\e987";
+}
+.uex-icon-fallback-all-prepublish:before {
+  content: "\e988";
+}
+.uex-icon-fallback-preabolish:before {
+  content: "\e989";
+}
+.uex-icon-fallback-prepublish:before {
+  content: "\e98a";
+}
+.uex-icon-field-blood-analyse:before {
+  content: "\e98b";
+}
+.uex-icon-field-impact-analyse:before {
+  content: "\e98c";
+}
+.uex-icon-impact-analyse:before {
+  content: "\e98d";
+}
+.uex-icon-max-wx:before {
+  content: "\e98e";
+}
+.uex-icon-repository:before {
+  content: "\e98f";
+}
+.uex-icon-review-no:before {
+  content: "\e990";
+}
+.uex-icon-review-yes:before {
+  content: "\e991";
+}
+.uex-icon-view-changed:before {
+  content: "\e992";
+}
+.uex-icon-view-detail:before {
+  content: "\e993";
+}
+.uex-icon-view-mapping:before {
+  content: "\e994";
+}
+.uex-icon-view-preabolish:before {
+  content: "\e995";
+}
+.uex-icon-view-prepublish:before {
+  content: "\e996";
+}
+.uex-icon-obj-app:before {
+  content: "\e997";
+}
+.uex-icon-obj-basic-standards:before {
+  content: "\e998";
+}
+.uex-icon-obj-business-rules:before {
+  content: "\e999";
+}
+.uex-icon-obj-dimension-table:before {
+  content: "\e99a";
+}
+.uex-icon-obj-inter:before {
+  content: "\e99b";
+}
+.uex-icon-obj-knowledge-base:before {
+  content: "\e99c";
+}
+.uex-icon-obj-management-problem:before {
+  content: "\e99d";
+}
+.uex-icon-obj-program:before {
+  content: "\e99f";
+}
+.uex-icon-obj-quota-standard:before {
+  content: "\e9a1";
+}
+.uex-icon-obj-quota:before {
+  content: "\e9a2";
+}
+.uex-icon-obj-service:before {
+  content: "\e9a3";
+}
+.uex-icon-obj-table:before {
+  content: "\e9a5";
+}
+.uex-icon-obj-technical-rules:before {
+  content: "\e9a6";
+}
+.uex-icon-obj-quality:before {
+  content: "\e9a0";
+}
+.uex-icon-obj-metadata:before {
+  content: "\e99e";
+}
+.uex-icon-obj-standards:before {
+  content: "\e9a4";
+}
+.uex-icon-agent-config:before {
+  content: "\e9a7";
+}
+.uex-icon-basic-information-registration:before {
+  content: "\e9a8";
+}
+.uex-icon-command-config:before {
+  content: "\e9a9";
+}
+.uex-icon-data-allocation:before {
+  content: "\e9aa";
+}
+.uex-icon-data-approval:before {
+  content: "\e9ab";
+}
+.uex-icon-data-assets-direct:before {
+  content: "\e9ac";
+}
+.uex-icon-data-developed:before {
+  content: "\e9ad";
+}
+.uex-icon-data-dictionary:before {
+  content: "\e9ae";
+}
+.uex-icon-data-download:before {
+  content: "\e9af";
+}
+.uex-icon-data-log-query:before {
+  content: "\e9b0";
+}
+.uex-icon-data-monitoring:before {
+  content: "\e9b1";
+}
+.uex-icon-data-open-approval:before {
+  content: "\e9b2";
+}
+.uex-icon-data-platform-reg:before {
+  content: "\e9b3";
+}
+.uex-icon-data-query:before {
+  content: "\e9b4";
+}
+.uex-icon-data-resource-direct:before {
+  content: "\e9b5";
+}
+.uex-icon-data-sharing:before {
+  content: "\e9b6";
+}
+.uex-icon-data-upload:before {
+  content: "\e9b7";
+}
+.uex-icon-db2:before {
+  content: "\e9b8";
+}
+.uex-icon-dispatch-monitoring:before {
+  content: "\e9b9";
+}
+.uex-icon-dispatch:before {
+  content: "\e9ba";
+}
+.uex-icon-distribute:before {
+  content: "\e9bb";
+}
+.uex-icon-distribution-monitoring:before {
+  content: "\e9bc";
+}
+.uex-icon-file-upload:before {
+  content: "\e9bd";
+}
+.uex-icon-ftp:before {
+  content: "\e9be";
+}
+.uex-icon-gather-monitoring:before {
+  content: "\e9bf";
+}
+.uex-icon-gather:before {
+  content: "\e9c0";
+}
+.uex-icon-gbase:before {
+  content: "\e9c1";
+}
+.uex-icon-hadoop-monitoring:before {
+  content: "\e9c2";
+}
+.uex-icon-hadoop:before {
+  content: "\e9c3";
+}
+.uex-icon-hbase:before {
+  content: "\e9c4";
+}
+.uex-icon-hdfs:before {
+  content: "\e9c5";
+}
+.uex-icon-hive-database:before {
+  content: "\e9c6";
+}
+.uex-icon-hive-resource:before {
+  content: "\e9c7";
+}
+.uex-icon-hive:before {
+  content: "\e9c8";
+}
+.uex-icon-host-configuration:before {
+  content: "\e9c9";
+}
+.uex-icon-host-platform-reg:before {
+  content: "\e9ca";
+}
+.uex-icon-model-developed:before {
+  content: "\e9cb";
+}
+.uex-icon-mysql:before {
+  content: "\e9cc";
+}
+.uex-icon-operat-para-config:before {
+  content: "\e9cd";
+}
+.uex-icon-oracle:before {
+  content: "\e9ce";
+}
+.uex-icon-platform-monitoring:before {
+  content: "\e9cf";
+}
+.uex-icon-platform-resource-allocation:before {
+  content: "\e9d0";
+}
+.uex-icon-private-database-registry:before {
+  content: "\e9d1";
+}
+.uex-icon-program-developed:before {
+  content: "\e9d2";
+}
+.uex-icon-provisional-statistics:before {
+  content: "\e9d3";
+}
+.uex-icon-quota-monitoring:before {
+  content: "\e9d4";
+}
+.uex-icon-resource-allocation:before {
+  content: "\e9d5";
+}
+.uex-icon-script-developed:before {
+  content: "\e9d6";
+}
+.uex-icon-sftp:before {
+  content: "\e9d7";
+}
+.uex-icon-spark:before {
+  content: "\e9d8";
+}
+.uex-icon-ssh:before {
+  content: "\e9d9";
+}
+.uex-icon-system-configuration:before {
+  content: "\e9da";
+}
+.uex-icon-tenant-allocation:before {
+  content: "\e9db";
+}
+.uex-icon-to-do-list:before {
+  content: "\e9dc";
+}
+.uex-icon-tool-allocation:before {
+  content: "\e9dd";
+}
+.uex-icon-tool-reg:before {
+  content: "\e9de";
+}
+.uex-icon-yarn:before {
+  content: "\e9df";
+}

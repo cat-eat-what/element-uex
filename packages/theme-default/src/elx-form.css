@@ -1,0 +1,11 @@
+.el-form-item__content [class^="uex-icon-"] {
+    vertical-align: baseline;
+    color: #48576a;
+}
+.elx-form .el-slider__button-wrapper {
+    top: -14px;
+}
+.elx-form .el-input-number__decrease, 
+.elx-form .el-input-number__increase {
+	line-height: 28px;
+}
