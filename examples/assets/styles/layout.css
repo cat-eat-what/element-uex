@@ -1,0 +1,185 @@
+html {
+    height: 100%;
+}
+body{
+    font-size:12px;
+    height: 100%;
+}
+.layout{
+    padding: 15px 20px;
+    height: 100%;
+}
+.layout .el-form{
+	text-align: left;
+	margin-bottom: 15px;
+}
+/* 表格 */
+.el-table .table-drag-area {
+    display: table-row-group;
+}
+.el-table .elx-drag-item {
+    position: absolute;
+    display: table-row-group;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    box-shadow: 0px 0px 5px #d3d3d3;
+    z-index: 100;
+}
+.el-table .elx-drag-item td {
+    background: #eaeaea;
+}
+.el-table tr.sortable-chosen.sortable-ghost td{
+    opacity:1 !important;
+}
+.el-table td, .el-table th {
+    height: 32px;
+}
+.el-table, .el-table__fixed-header-wrapper thead div, .el-table__header-wrapper thead div {
+    color: #475669;
+    font-size: 12px;
+}
+.card_table .el-table__fixed-header-wrapper thead div, .card_table .el-table__header-wrapper thead div {
+    font-size: 14px;
+}
+.el-table button.el-button.el-button--mini {
+    width: 25px;
+    height: 25px;
+}
+.el-table .cell, .el-table th>div {
+    padding: 0px 12px;
+}
+.el-table__body-wrapper button.el-button {
+    height: 26px;
+    font-size: 12px;
+}
+.card_table.el-table button.el-button.el-button--mini {
+    width: auto;
+    padding: 0px 10px;
+}
+.card_table .title{
+	font-size:14px;
+	margin-bottom: 10px;
+}
+.el-table .el-checkbox__inner {
+    width: 15px;
+    height: 15px;
+}
+.el-table .el-checkbox__inner::after {
+    width: 3px;
+    height: 7px;
+    left: 4px;
+}
+.el-table label {
+    margin-bottom: 0px; 
+}
+.el-tooltip__rel,.el-table td, .el-table th {
+    vertical-align: middle;
+}
+
+/* 表单 */
+.el-form-item__content {
+    line-height: 30px;
+}
+.el-form--inline .el-form-item__content, .el-date-editor.is-have-trigger, .el-date-editor__editor{
+    width: 120px;	
+}
+.el-date-editor,.el-date-editor__editor, .el-time-panel__footer {
+    height: 30px;
+    border-radius: 0px;
+}
+.el-date-editor__trigger.el-icon {
+    font-size: 16px;
+    line-height: 30px;
+}
+.el-input__inner {
+    height: 30px;
+}
+.el-input,.el-textarea__inner,.el-input__inner,.el-input-group__append, .el-input-group__prepend{
+    border-radius: 0px;	
+}
+.el-select{
+	display:block;
+}
+.el-button {
+    height: 30px;
+    width: 80px;
+    border-radius: 4px;
+    padding: 0px 5px;
+}
+.el-button--info, .el-button--info:hover, .el-button--info:active,.el-button--info:focus{
+    color: #fff;	
+}
+.el-button--info{
+    background-color: #147BD1;
+    border-color: #147BD1;	
+}
+.el-button--info:hover {
+    background-color: #82cafb;
+    border-color: #82cafb;
+}
+.el-button--info:active,.el-button--info:focus{
+    background-color: #168dde;
+    border-color: #168dde;
+}
+.el-form .el-form-item{
+	margin-bottom: 16px
+}
+.el-form--inline  .el-form-item {
+    margin-bottom: 0px;
+}
+.el-form--inline  .separate{
+    text-align: left;
+    margin-bottom: 10px;
+}
+.el-form--inline .el-form-item__label{
+    text-align: left;	
+}
+.el-form-item__label {
+    line-height: 30px;
+    padding: 0px;
+    margin-bottom: 0px; 
+    text-align: right;
+    padding-right: 10px;
+}
+.button-group .el-form-item__content {
+    width: auto;
+    margin-left: 10px !important;
+}
+.el-input,.el-form-item__label,.el-button,.el-radio__label,.el-form-item__content {
+    font-size: 12px;
+}
+#toolbar .el-form-item__label {
+    text-align: right;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+.el-input-number--small .el-input-number__decrease, .el-input-number--small .el-input-number__increase{
+    line-height: 28px;
+}
+.el-slider__input {
+    margin-top: 0px;
+}
+.el-slider__runway {
+    margin: 13px 0;
+}
+.el-slider__button-wrapper {
+    height: 30px;
+    top: -13px;
+}
+/* 分页 */
+.paginationCommon {
+    text-align: center;
+    margin: 10px 0px;
+}
+.el-pagination {
+    display: inline-block;
+    padding: 0px;
+}
+.el-pagination button, .el-pagination span,.el-select-dropdown__item,.el-pagination__sizes .el-input .el-input__inner ,.el-pager li{
+    font-size: 12px;
+}
+.el-pager li.active {
+    background-color: #147BD1;
+    border-color: #147BD1;
+}

@@ -1,0 +1,321 @@
+[
+    {
+        "url": null,
+        "children": [
+            {
+                "url": null,
+                "children": [
+                    {
+                        "url": "metaflow/flow/inst/creator",
+                        "children": [],
+                        "modelcode": "flow-creator",
+                        "parentId": "dev-flow",
+                        "menuType": "1",
+                        "hasright": "1",
+                        "menuIcon": null,
+                        "sidebarType": "drop-down",
+                        "descr": null,
+                        "extendConf": null,
+                        "modelname": "发起需求"
+                    },
+                    {
+                        "url": "metaflow/flow/handle/inst",
+                        "children": [],
+                        "modelcode": "my-task",
+                        "parentId": "dev-flow",
+                        "menuType": "1",
+                        "hasright": "1",
+                        "menuIcon": null,
+                        "sidebarType": "drop-down",
+                        "descr": null,
+                        "extendConf": null,
+                        "modelname": "我的待办"
+                    },
+                    {
+                        "url": "metaflow/flow/inst",
+                        "children": [],
+                        "modelcode": "task-list",
+                        "parentId": "dev-flow",
+                        "menuType": "1",
+                        "hasright": "1",
+                        "menuIcon": null,
+                        "sidebarType": "drop-down",
+                        "descr": null,
+                        "extendConf": null,
+                        "modelname": "任务查询"
+                    }
+                ],
+                "modelcode": "dev-flow",
+                "parentId": "developer-center",
+                "menuType": "1",
+                "hasright": "1",
+                "menuIcon": "uex-icon-command-config",
+                "sidebarType": "drop-down",
+                "descr": null,
+                "extendConf": null,
+                "modelname": "开发流程"
+            },
+            {
+                "url": "dataps/data/res",
+                "children": [],
+                "modelcode": "developer-center-my-data",
+                "parentId": "developer-center",
+                "menuType": "1",
+                "hasright": "1",
+                "menuIcon": null,
+                "sidebarType": "drop-down",
+                "descr": null,
+                "extendConf": null,
+                "modelname": "我的数据"
+            }
+        ],
+        "modelcode": "developer-center",
+        "parentId": "dev-home",
+        "menuType": "1",
+        "hasright": "1",
+        "menuIcon": "uex-icon-command-config",
+        "sidebarType": "drop-down",
+        "descr": null,
+        "extendConf": null,
+        "modelname": "开发者中心"
+    },
+    {
+        "url": null,
+        "children": [
+            {
+                "url": "metamodel/devops/model",
+                "children": [],
+                "modelcode": "model-dev",
+                "parentId": "data-dev",
+                "menuType": "1",
+                "hasright": "1",
+                "menuIcon": null,
+                "sidebarType": "drop-down",
+                "descr": null,
+                "extendConf": null,
+                "modelname": "模型开发"
+            },
+            {
+                "url": "dataps/devops/proc",
+                "children": [],
+                "modelcode": "proc-dev",
+                "parentId": "data-dev",
+                "menuType": "1",
+                "hasright": "1",
+                "menuIcon": null,
+                "sidebarType": "drop-down",
+                "descr": null,
+                "extendConf": null,
+                "modelname": "程序开发"
+            }
+        ],
+        "modelcode": "data-dev",
+        "parentId": "dev-home",
+        "menuType": "1",
+        "hasright": "1",
+        "menuIcon": "uex-icon-data-developed",
+        "sidebarType": "drop-down",
+        "descr": "数据开发模块参考DevOps理念面向开发者集成开发环境，开发者可以完成从建模、开发、测试、发布调度、数据查询、任务监控等完整操作",
+        "extendConf": null,
+        "modelname": "数据开发"
+    },
+    {
+        "url": null,
+        "children": [
+            {
+                "url": "dataaccess/access_tool",
+                "children": [],
+                "modelcode": "access-tool",
+                "parentId": "data-query-mgr",
+                "menuType": "1",
+                "hasright": "1",
+                "menuIcon": null,
+                "sidebarType": "drop-down",
+                "descr": null,
+                "extendConf": null,
+                "modelname": "数据操作IDE"
+            },
+            {
+                "url": "dataquery/dataQueryLog",
+                "children": [],
+                "modelcode": "sql-query-log",
+                "parentId": "data-query-mgr",
+                "menuType": "1",
+                "hasright": "1",
+                "menuIcon": null,
+                "sidebarType": "drop-down",
+                "descr": null,
+                "extendConf": null,
+                "modelname": "SQL查询日志"
+            },
+            {
+                "url": "dataps/offline/offlineQueryList",
+                "children": [],
+                "modelcode": "offline-data-query",
+                "parentId": "data-query-mgr",
+                "menuType": "1",
+                "hasright": "1",
+                "menuIcon": null,
+                "sidebarType": "drop-down",
+                "descr": null,
+                "extendConf": null,
+                "modelname": "离线查询"
+            }
+        ],
+        "modelcode": "data-query-mgr",
+        "parentId": "dev-home",
+        "menuType": "1",
+        "hasright": "1",
+        "menuIcon": null,
+        "sidebarType": "drop-down",
+        "descr": null,
+        "extendConf": null,
+        "modelname": "数据查询"
+    },
+    {
+        "url": null,
+        "children": [
+            {
+                "url": "dataflow/jobs",
+                "children": [],
+                "modelcode": "task-dispatch-conf",
+                "parentId": "task-dispatch",
+                "menuType": "1",
+                "hasright": "1",
+                "menuIcon": null,
+                "sidebarType": "drop-down",
+                "descr": null,
+                "extendConf": null,
+                "modelname": "任务编辑"
+            },
+            {
+                "url": "dataflow/jobMonitor",
+                "children": [],
+                "modelcode": "task-dispatch-monitor",
+                "parentId": "task-dispatch",
+                "menuType": "1",
+                "hasright": "1",
+                "menuIcon": null,
+                "sidebarType": "drop-down",
+                "descr": null,
+                "extendConf": null,
+                "modelname": "任务监控"
+            }
+        ],
+        "modelcode": "task-dispatch",
+        "parentId": "dev-home",
+        "menuType": "1",
+        "hasright": "1",
+        "menuIcon": null,
+        "sidebarType": "drop-down",
+        "descr": null,
+        "extendConf": null,
+        "modelname": "任务调度"
+    },
+    {
+        "url": null,
+        "children": [
+            {
+                "url": "dataps/task/procGeneralView",
+                "children": [],
+                "modelcode": "proc-overview",
+                "parentId": "program-mgr",
+                "menuType": "1",
+                "hasright": "1",
+                "menuIcon": "",
+                "sidebarType": "drop-down",
+                "descr": null,
+                "extendConf": null,
+                "modelname": "程序总览(系统)"
+            },
+            {
+                "url": "dataps/task/teamProcGeneralView",
+                "children": [],
+                "modelcode": "proc-overview-team",
+                "parentId": "program-mgr",
+                "menuType": "1",
+                "hasright": "1",
+                "menuIcon": "",
+                "sidebarType": "drop-down",
+                "descr": null,
+                "extendConf": null,
+                "modelname": "程序总览（团队）"
+            },
+            {
+                "url": "dataps/devops/procTransfer",
+                "children": [],
+                "modelcode": "proc-transfer",
+                "parentId": "program-mgr",
+                "menuType": "1",
+                "hasright": "1",
+                "menuIcon": null,
+                "sidebarType": "drop-down",
+                "descr": null,
+                "extendConf": null,
+                "modelname": "跨团队移交"
+            },
+            {
+                "url": "dataps/devops/procGlobalVar",
+                "children": [],
+                "modelcode": "proc-dev-global-var",
+                "parentId": "program-mgr",
+                "menuType": "1",
+                "hasright": "1",
+                "menuIcon": null,
+                "sidebarType": "drop-down",
+                "descr": null,
+                "extendConf": null,
+                "modelname": "程序开发全局变量"
+            }
+        ],
+        "modelcode": "program-mgr",
+        "parentId": "dev-home",
+        "menuType": "1",
+        "hasright": "1",
+        "menuIcon": "uex-icon-command-config",
+        "sidebarType": "drop-down",
+        "descr": null,
+        "extendConf": null,
+        "modelname": "程序管理"
+    },
+    {
+        "url": null,
+        "children": [
+            {
+                "url": "dataps/team/team_resource/sys_team_resource",
+                "children": [],
+                "modelcode": "dev-team-res-sys",
+                "parentId": "my-team-mgr",
+                "menuType": "1",
+                "hasright": "1",
+                "menuIcon": "",
+                "sidebarType": "drop-down",
+                "descr": null,
+                "extendConf": null,
+                "modelname": "团队资源监控(系统)"
+            },
+            {
+                "url": "metamodel/myteam",
+                "children": [],
+                "modelcode": "dev-team-mgr",
+                "parentId": "my-team-mgr",
+                "menuType": "1",
+                "hasright": "1",
+                "menuIcon": "uex-icon-find-group",
+                "sidebarType": "drop-down",
+                "descr": "适用于本团队的成员、租户账号、数据资源管理",
+                "extendConf": null,
+                "modelname": "团队管理"
+            }
+        ],
+        "modelcode": "my-team-mgr",
+        "parentId": "dev-home",
+        "menuType": "1",
+        "hasright": "1",
+        "menuIcon": "uex-icon-find-group",
+        "sidebarType": "drop-down",
+        "descr": "适用于本团队的成员、租户账号、数据资源管理",
+        "extendConf": null,
+        "modelname": "我的团队"
+    }
+]

@@ -1,0 +1,18 @@
+@import "./common/var";
+
+.elx-placeholder{
+    min-height: 100px;
+    font-size: 12px;
+    color: $--elx-place-empty-text;
+    text-align: center;
+    border: 1px dashed $--elx-radio-border-bg;
+    box-sizing: border-box;
+    position:relative;
+    background-color: white;
+}
+.elx-placeholder-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

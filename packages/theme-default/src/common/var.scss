@@ -1,0 +1,93 @@
+$--color-primary: #147BD1;
+
+$--color-success: #52C41A;
+$--color-warning: #FAAD14;
+$--color-danger: #F5222D;
+$--color-info: #2471FF;
+$--color-white: #ffffff;
+$--color-black: #000000;
+
+
+/* P0----Colors
+  -------------------------- */
+
+$--color-pp-5: #f3f8fc;
+$--color-pp-10: #e7f1fa;
+$--color-pp-l: #48b1FB;
+$--color-pp-b: #0058A7;
+
+
+$--color-zxh-0: rgb(0, 0, 0);
+$--color-zxh-4: rgb(10, 10, 10);
+$--color-zxh-9: rgb(23, 23, 23);
+$--color-zxh-15: rgb(38, 38, 38);
+$--color-zxh-25: rgb(64, 64, 64);
+$--color-zxh-45: rgb(115, 115, 115);
+$--color-zxh-65: rgb(166, 166, 166);
+$--color-zxh-85: rgb(217, 217, 217);
+$--color-zxh-100: rgb(255, 255, 255);
+
+$--color-zxb-0: rgb(255, 255, 255);
+$--color-zxb-2: rgb(250, 250, 250);
+$--color-zxb-4: rgb(245, 245, 245);
+$--color-zxb-9: rgb(232, 232, 232);
+$--color-zxb-15: rgb(217, 217, 217);
+$--color-zxb-25: rgb(191, 191, 191);
+$--color-zxb-45: rgb(140, 140, 140);
+$--color-zxb-65: rgb(89, 89, 89);
+$--color-zxb-85: rgb(38, 38, 38);
+
+$--color-primary-active: rgb(17, 105, 178);
+$--color-primary-hover: rgb(55, 143, 216);
+$--color-primary-focus: rgb(55, 143, 216);
+
+$--color-success-active: rgb(70, 167, 22);
+$--color-success-hover: rgb(108, 205, 60);
+$--color-success-focus: rgb(108, 205, 60);
+
+$--color-warning-active: rgb(213, 147, 17);
+$--color-warning-hover: rgb(251, 185, 55);
+$--color-warning-focus: rgb(251, 185, 55);
+
+$--color-danger-active: rgb(208, 29, 38);
+$--color-danger-hover: rgb(247, 67, 77);
+$--color-danger-focus: rgb(247, 67, 77);
+
+$--color-info-active: rgb(31, 96, 217);
+$--color-info-hover: rgb(69, 134, 255);
+$--color-info-focus: rgb(69, 134, 255);
+
+$--color-font: $--color-zxb-65;
+$--color-dark-font: $--color-zxb-85;
+$--color-descr: $--color-zxb-45;
+
+
+/* Menu
+--------------------------*/
+// $--menu-bg-color: #191919;
+// $--menu-font-color: $--color-zxh-85;
+// $--menu-active-font-color: $--color-primary;
+// $--menu-active-bg-color: $--color-primary;
+// $--menu-hover-font-color: $--color-primary-hover;
+// $--menu-hover-bg-color: $--color-primary-hover;
+// $--menu-show-more: #232323;
+
+/* Flow-Menu
+--------------------------*/
+$--menu-bg-color: #191919;
+$--menu-font-color: $--color-zxh-85;
+$--menu-active-font-color: $--color-white;
+$--menu-active-bg-color: $--color-primary;
+$--menu-hover-font-color: $--color-primary-hover;
+$--menu-hover-bg-color: $--color-primary-hover;
+$--menu-show-more: #232323;
+
+$--elx-flow-menu-bg:rgba(255,255,255,0.04);
+$--elx-flow-menu-white-line-bg:rgba(255,255,255,0.25);
+$--elx-flow-menu-black-line-bg:rgba(0, 0, 0, 0.09);
+$--elx-card-img:rgba(20,123,209,0.1);
+$--elx-tree-icon-color:rgba(0,0,0,0.45);
+
+$--elx-radio-bg:rgba(0,0,0,0.04);
+$--elx-radio-border-bg:rgba(0,0,0,0.09);
+$--elx-place-empty-text:rgba(0,0,0,0.45);

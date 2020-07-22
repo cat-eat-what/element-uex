@@ -1,0 +1,293 @@
+{
+  "zh-CN": [
+    {
+      "name": "开发指南",
+      "children": [
+        {
+          "path": "/quickstart",
+          "name": "快速上手"
+        }
+      ]
+    },
+    {
+      "name": "基础组件",
+      "groups": [
+        {
+          "groupName": "图标",
+          "list": [
+            {
+              "path": "/icon",
+              "title": "Icon 图标"
+            }
+          ]
+        },
+        {
+          "groupName": "布局",
+          "list": [
+            {
+              "path": "/scroll-content",
+              "title": "layout布局"
+            },
+            {
+              "path": "/row-resize-layout",
+              "title": "row-resize-layout 可拖动行布局"
+            },
+            {
+              "path": "/col-resize-layout",
+              "title": "col-resize-layout 可拖动列布局"
+            },
+            {
+              "path": "/main",
+              "title": "main-loading 防止页面闪烁"
+            },
+            {
+              "path": "/content",
+              "title": "content 模拟单页面应用"
+            },
+            {
+              "path": "/placeholder",
+              "title": "Placeholder 占位"
+            }
+          ]
+        },
+        {
+          "groupName": "菜单",
+          "list": [
+            {
+              "path": "/flow-menu",
+              "title": "flow-menu 浮动型菜单"
+            },  
+            {
+              "path": "/navbar-console",
+              "title": "navbar-console 控制台顶部导航"
+            },
+            {
+              "path": "/navbar",
+              "title": "navbar 导航栏"
+            },
+            {
+              "path": "/menu",
+              "title": "menu 菜单"
+            },
+            {
+              "path": "/menu-expand",
+              "title": "menu-expand 菜单"
+            },
+            {
+              "path": "/sidebar",
+              "title": "sidebar 侧边栏"
+            },
+            {
+              "path": "/sidebar-p",
+              "title": "sidebar-p sidebar-p"
+            },
+            {
+              "path": "/breadcrumb",
+              "title": "breadcrumb 面包屑"
+            }
+          ]
+        },
+        {
+          "groupName": "特色组件",
+          "list": [
+            {
+              "path": "/tree",
+              "title": "tree 树"
+            },
+            {
+              "path": "/filter",
+              "title": "filter 筛选"
+            },
+            {
+              "path": "/card-list",
+              "title": "card-list 卡片列表"
+            },
+            {
+              "path": "/item-list",
+              "title": "item-list 可操作列表"
+            },
+            {
+              "path": "/tab",
+              "title": "tab  tab页"
+            },
+            {
+              "path": "/table",
+              "title": "table 可拖拽表格"
+            },
+            {
+              "path": "/operate-button",
+              "title": "operate-button 可收缩按钮组"
+            },
+            {
+              "path": "/context-menu",
+              "title": "context-menu 右键菜单"
+            },
+            {
+              "path": "/progress",
+              "title": "progress 进度条"
+            },
+            {
+              "path": "/slider-vertical",
+              "title": "slider-vertical 垂直滑块"
+            }
+          ]
+        },
+        {
+          "groupName": "表单组件",
+          "list": [
+            {
+              "path": "/table-form",
+              "title": "table-form 可编辑表格"
+            },
+            {
+              "path": "/select",
+              "title": "select 下拉框"
+            },
+            {
+              "path": "/select-input",
+              "title": "select-input 选择输入框"
+            },
+            {
+              "path": "/date-picker-group",
+              "title": "date-picker-group 日期组合"
+            },
+            {
+              "path": "/operate-param",
+              "title": "operate-param 参数操作"
+            },
+            {
+              "path": "/param-form",
+              "title": "param-form 参数表单"
+            },
+            {
+              "path": "/cascader",
+              "title": "cascader 级连"
+            },
+            {
+              "path": "/radio",
+              "title": "radio 单选"
+            },
+            {
+              "path": "/checkbox",
+              "title": "checkbox 多选"
+            },
+            {
+              "path": "/codemirror",
+              "title": "codemirror 代码编辑器"
+            },
+            {
+              "path": "/card-form",
+              "title": "card-form 卡片表单"
+            },
+            {
+              "path": "/cron",
+              "title": "cron 表达式生成器"
+            },
+            {
+              "path": "/remote-transfer",
+              "title": "remote-transfer 远程穿梭框"
+            },
+            {
+              "path": "/input-transfer",
+              "title": "input-transfer input远程穿梭框"
+            },
+            {
+              "path": "/form",
+              "title": "form 表单"
+            }
+          ]
+        },
+        {
+          "groupName": "Form field 详细配置",
+          "list": [
+            {
+              "path": "/form-input",
+              "title": "form-input 输入框"
+            },
+            {
+              "path": "/form-radio",
+              "title": "form-radio 单选"
+            },
+            {
+              "path": "/form-checkbox",
+              "title": "form-checkbox 多选"
+            },
+            {
+              "path": "/form-select",
+              "title": "form-select 选择器"
+            },
+            {
+              "path": "/form-inputNumber",
+              "title": "form-input-number 计数器"
+            },
+            {
+              "path": "/form-switch",
+              "title": "form-switch 开关"
+            },
+            {
+              "path": "/form-slider",
+              "title": "form-slider 滑块"
+            },
+            {
+              "path": "/form-cascader",
+              "title": "form-cascader 及联"
+            },
+            {
+              "path": "/form-transfer",
+              "title": "form-transfer 远程穿梭框"
+            },
+            {
+              "path": "/form-tableForm",
+              "title": "form-tableForm 表格表单"
+            },
+            {
+              "path": "/form-codemirror",
+              "title": "form-codemirror 代码编辑器"
+            },
+            {
+              "path": "/form-cron",
+              "title": "form-cron cron表达式"
+            },
+            {
+              "path": "/form-formGroup",
+              "title": "form-formGroup 表单组合"
+            },
+            {
+              "path": "/form-cardForm",
+              "title": "form-cardForm 卡片表单元素"
+            },
+            {
+              "path": "/form-button",
+              "title": "form-button 按钮"
+            },
+            {
+              "path": "/form-complex",
+              "title": "form-complex 表单关联元素"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "en-US": [
+    {
+      "name": "Development",
+      "children": [
+        {
+          "path": "/quickstart",
+          "name": "Quick Start"
+        }
+      ]
+    },
+    {
+      "name": "Components",
+      "groups": [
+        {
+          "groupName": "Others",
+          "list": [
+          ]
+        }
+      ]
+    }
+  ]
+}

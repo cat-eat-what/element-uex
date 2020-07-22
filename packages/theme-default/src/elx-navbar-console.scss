@@ -1,0 +1,92 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-navbar-console {
+	width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: $--menu-bg-color;
+    color: $--menu-font-color;
+    font-size: 12px;
+    white-space: nowrap;
+}
+.elx-navbar-console ul {
+    overflow: hidden;
+    height: 100%;
+}
+.elx-navbar-console-collapse {
+    width: 36px;
+	height: 100%;
+    text-align: center;
+    font-size: 14px;
+    border-right: 1px solid #2A303C;
+}
+.elx-navbar-console-content {
+    width: 100%;
+    height: 100%;
+}
+.elx-navbar-console-content [class^="uex-icon-"],
+.elx-navbar-console-content [class*=" uex-icon-"] {
+	color: $--menu-font-color;
+}
+.elx-navbar-console-content ul li {
+	cursor: pointer;
+	height: 100%;
+    color: $--menu-font-color;
+}
+.elx-navbar-console-content>ul>li {
+    height: 100%;
+}
+.elx-navbar-console-content>ul>li>.nav-title {
+	padding: 0px 10px;
+}
+.elx-navbar-console-content>ul>li>.nav-title>span.nav-name {
+    padding: 0px 2px;
+}
+.elx-navbar-console-content span.nav-name {
+    padding: 0 6px;
+    width: 75px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.elx-navbar-console-collapse,
+.elx-navbar-console-content,
+.elx-navbar-console-content>ul>li,
+.elx-navbar-console-content>ul>li>.nav-title,
+.elx-navbar-console-content .nav-expand-nav,
+.elx-navbar-console-content .nav-expand-nav>ul>li,
+.elx-navbar-console-content>ul>li.open .split {
+	display: inline-block;
+	vertical-align: top;
+}
+.elx-navbar-console .nav-expand-nav, .elx-navbar-console .nav-name{
+    transition: all .2s;
+}
+.elx-navbar-console .nav-name, .elx-navbar-console .nav-icon, .elx-navbar-console .nav-expand, .elx-navbar-console .nav-collapse {
+    transition: all .1s;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 50px;
+}
+.elx-navbar-console .elx-navbar-console-content>ul>li.open .split {
+	border-right: 1px solid #1D232F;
+	border-left: 1px solid #293042;
+    height: 100%;
+}
+.elx-navbar-console-content ul li:hover {
+    color: $--color-primary;
+}
+.elx-navbar-console .nav-expand-nav li.active>.nav-title {
+    color: $--menu-active-font-color;
+    [class^="uex-icon-"], [class*=" uex-icon-"] {
+        color: $--menu-active-font-color;
+    }
+}
+.elx-navbar-console-content>ul>li.active>.nav-title {
+    color: $--menu-active-font-color;
+    [class^="uex-icon-"], [class*=" uex-icon-"] {
+        color: $--menu-active-font-color;
+    }
+}

@@ -1,0 +1,130 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-card-list {
+    padding: 15px;
+    margin-top: 10px;
+    border: 1px solid $--color-zxb-9;
+    box-shadow: 1px 1px 4px $--color-zxb-9;
+    overflow: hidden;
+    background: white;
+}
+.elx-card-list .card-content,.card-image,.card-right{
+    float: left;
+    position:relative;
+}
+.elx-card-list .card-image {
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    border-radius: 40px;
+    margin: 20px;
+    background: $--elx-card-img;
+}
+.elx-card-list .card-content {
+    width: calc(100% - 230px);
+    height: 90px;
+    color: $--color-font;
+    padding: 0px 5px;
+}
+.elx-card-list .card-right {
+    width: 130px;
+    height: 90px;
+    text-align: right;
+}
+
+.elx-card-list .card-image span {
+    font-size: 30px;
+    line-height: 75px;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    color: $--color-primary;
+    border-radius: 5px;
+}
+.elx-card-list .card-title {
+    font-size: 16px;
+    color: $--color-dark-font;
+    font-weight: 500;
+    padding: 0px;
+}
+.elx-card-list .card-title div {
+    padding: 0px;
+}
+.elx-card-list .el-rate {
+    display: inline-block;
+    margin-left: 10px;
+}
+.elx-card-list .el-rate__item {
+    vertical-align: baseline;
+}
+.elx-card-list .el-rate__icon{
+  font-size:14px;
+}
+.elx-card-list .card-desc {
+    color: $--color-descr;
+    margin: 4px 0px;
+}
+.elx-card-list ul.base-data {
+    overflow: hidden;
+}
+.elx-card-list .card-content li {
+    margin-right: 20px;
+    margin-top: 2px;
+    float: left;
+}
+.elx-card-list .card-label {
+    color: $--color-descr;
+}
+.elx-card-list .card-base-data {
+    color: $--color-font;
+}
+.elx-card-list .card-top {
+  width: 100%;
+    position: absolute;
+    top: 0px;
+}
+.elx-card-list .card-bottom {
+  width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+.elx-card-list .card-operate .el-button{
+    height:24px;
+}
+.elx-card-list .card-operate .operate-group span {
+    margin: 0 2px;
+    width: 25px;
+    height: 20px;
+    text-align: right;
+    line-height: 20px;
+    border-radius: 3px;
+    color: $--color-descr;
+    font-size: 16px;
+    display: inline-block;
+    text-decoration: none;
+}
+.elx-card-list .card-operate .operate-group span a {
+    color: $--color-descr;
+}
+.elx-card-list .card-operate i:hover {
+    color: $--color-primary !important;
+}
+.elx-card-list .circle-icon {
+    height: 20px;
+    line-height: 20px;
+    padding: 0px 10px;
+    text-align: center;
+    border-radius: 18px;
+    font-size: 12px;
+    color: white;
+    margin-left: 8px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+.elx-card-list .development {
+    background-color: #9faec8;
+}
+.elx-card-list .release {
+    background-color: $--color-primary;
+}

@@ -1,0 +1,116 @@
+@charset "UTF-8";
+@import "./common/var";
+
+div.elx-content {
+    height: 100%;
+    width: 100%;
+}
+.elx-content .iframe-content {
+    height: calc(100% - 40px);
+    overflow: hidden;
+}
+.elx-content div#content {
+    overflow: auto;
+}
+.elx-content.elx-switch-ani-disabled .iframe-content>div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.elx-content.elx-switch-ani-disabled .iframe-content>div.list .elx-main,
+.elx-content.elx-switch-ani-disabled .iframe-content>div.create .elx-sub-content{
+    opacity: 1;
+    z-index: 10;
+}
+.elx-content.elx-switch-ani-disabled .iframe-content>div.create .elx-main,
+.elx-content.elx-switch-ani-disabled .iframe-content>div.list .elx-sub-content{
+    opacity: 0;
+    z-index: 1;
+}
+.elx-content.elx-switch-ani-disabled .iframe-content div.elx-main {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.elx-content.elx-switch-ani-disabled .iframe-content .elx-sub-content{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 0px;
+    top: 0px;
+    left: 0px;
+}
+.elx-content.elx-switch-ani .iframe-content>div {
+    width: 200%;
+    height: 100%;
+    transition: all 500ms;
+}
+.elx-content.elx-switch-ani .iframe-content>div.create {
+    margin-left: -100%
+}
+.elx-content.elx-switch-ani .iframe-content>div.list {
+    margin-left: 0px
+}
+.elx-content.elx-switch-ani .iframe-content>div .elx-main, 
+.elx-content.elx-switch-ani .iframe-content>div .elx-sub-content{
+    transition: all 300ms;
+}
+.elx-content.elx-switch-ani .iframe-content>div.list .elx-main, 
+.elx-content.elx-switch-ani .iframe-content>div.create .elx-sub-content{
+    opacity: 1;
+    transition: all 300ms linear 300ms;
+}
+.elx-content.elx-switch-ani .iframe-content>div.create .elx-main, 
+.elx-content.elx-switch-ani .iframe-content>div.list .elx-sub-content{
+    opacity: 0
+}
+.elx-content.elx-switch-ani .iframe-content div.elx-main {
+    width: 50%;
+    height: 100%;
+    float: left;   
+}
+.elx-content.elx-switch-ani .iframe-content .elx-sub-content{
+    float: left;
+    border:0px;
+    width:50%;
+    height: 100%
+}
+.elx-content .content-header{
+    height: 40px;
+    background-color: white;
+    line-height: 40px;
+    font-size: 14px;
+    color: $--color-zxb-85;
+    border-bottom: 1px solid $--elx-flow-menu-black-line-bg;
+    // box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+}
+.elx-content .content-header .content-title{
+    margin-left: 25px;
+    color: $--color-font;
+}
+.elx-content .content-header .content-title, .elx-content .content-header .content-back span.uex-icon-back{
+    margin-right: 5px
+}
+.elx-content .content-header .content-back span.uex-icon-back {
+    vertical-align: baseline;
+}
+.elx-content .content-header .content-back{
+    font-size: 14px;
+    margin-left: 25px;
+}
+.elx-content .content-header .content-back, .elx-content .content-header .content-add-button{
+    cursor: pointer
+}
+.elx-content .content-header .content-add-button{
+    background: #147BD1;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    float: right;
+}
+.elx-content .content-header .content-add-button i {
+    font-size: 18px;
+    color: white !important;
+}

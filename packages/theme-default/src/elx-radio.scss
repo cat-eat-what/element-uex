@@ -1,0 +1,66 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-radio.active {
+    color: $--color-font;
+    // border: 1px solid $--color-primary;
+}
+.elx-radio:hover{
+    border: 1px solid $--color-primary;
+}
+.elx-radio .lay:hover{
+    border: 1px solid $--color-zxb-15;
+}
+.elx-radio {
+    height: 30px;
+    line-height: 28px;
+    display: inline-block;
+    border: 1px solid $--color-zxb-15;
+    color: $--color-font;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    background: white;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+.elx-radio-item {
+    padding: 0px 16px;
+}
+.elx-radio .lay {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    background:$--elx-radio-bg;
+    border-color: $--elx-radio-border-bg;
+    z-index: 11;
+    cursor: not-allowed;
+}
+.elx-radio .uex-icon-tick {
+    position: absolute;
+    top: calc(30px - 1.48em);
+    right: 1.45em;
+}
+.elx-radio span.uex-icon-tick:before {
+    position: absolute;
+    z-index: 10;
+    top: 0.55em;
+    left: 0.55em;
+    color: white;
+}
+.elx-radio span.uex-icon-tick:after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-bottom: 0.65em solid #147BD1;
+    border-right: 0.75em solid #147BD1;
+    border-left: 0.75em solid transparent;
+    border-top: 0.75em solid transparent;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+}

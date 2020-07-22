@@ -1,0 +1,13 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-operate-expand label.el-form-item__label {
+    color: #fff;
+}
+.elx-operate-expand button.el-button {
+    background: #fff;
+    color: $--color-font;
+    width: auto;
+    height: 30px;
+    padding: 0px 20px;
+}

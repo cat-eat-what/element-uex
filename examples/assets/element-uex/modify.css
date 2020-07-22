@@ -1,0 +1,12 @@
+.fs0{
+	display:none;
+}
+.glyph, .pbs{
+	display: inline-block;
+}
+.pbs{
+    color: gray;	
+}
+.pbs span:first-child{
+	margin-right: 20px;
+}

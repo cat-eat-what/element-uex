@@ -1,0 +1,232 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-tree {
+    color: $--color-font;
+    position: relative;
+    height:100%;
+    border: 1px solid $--color-zxb-15;
+}
+.elx-tree .elx-el-tree.el-tree{
+    overflow: auto;
+    height: calc(100% - 34px);
+    border: 0px;
+}
+.elx-tree .el-tree-node{
+    display: table;
+    min-width: 100%;
+    overflow: hidden;
+}
+.elx-tree .el-tree-node__content {
+    min-width: 100%;
+    line-height: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: inline-block;
+}
+.elx-tree>.el-input {
+    margin: 5px;
+    width: calc(100% - 10px);
+}
+.elx-tree span[class*="uex-icon"] {
+    margin-right: 10px;
+    vertical-align: top;
+    color: $--color-font;
+}
+.elx-tree input[type="text"] {
+    height: 24px;
+}
+.elx-tree input[disabled="disabled"] {
+    border: 0px;
+    background: white
+}
+.el-tree-node__content:hover input[disabled="disabled"] {
+    background: $--color-pp-10;
+}
+.elx-tree .el-tree-node.is-current:not(.is-expanded)>.el-tree-node__content,
+.elx-tree .el-tree-node.is-current:not(.is-expanded)>.el-tree-node__content input[disabled="disabled"]{
+    background: $--color-pp-10;
+}
+.elx-tree .el-tree-node.is-expanded.is-current>.el-tree-node__content {
+    background: $--color-pp-10;
+    color: $--color-primary;
+}
+.elx-tree .elx-content-menu {
+    width: 100px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0px 0px 5px #c3c3c3;
+    border-radius: 3px;
+    position: fixed;
+    cursor: pointer;
+    z-index: 10000;
+}
+.elx-tree .elx-content-menu li {
+    line-height: 20px;
+}
+.elx-content-menu span[class*="uex-icon"] {
+    margin-right: 10px;
+    vertical-align: baseline;
+    color: $--color-font;
+}
+.elx-tree .node {
+    display: inline-block;
+    height: 30px;
+    margin-right: 4px;
+    position: relative;
+}
+.elx-tree .fade-enter-active, .elx-tree .fade-leave-active {
+    transition: all 100ms linear 100ms;
+}
+.elx-tree .fade-enter, .elx-tree .fade-leave-to{
+    transform: scale(0);
+    opacity: 0
+}
+.elx-tree .elx-content-menu{
+    transition: all 100ms linear;
+}
+.elx-tree .node>span {
+    display: block;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+}
+.elx-tree .node>span span:first-child {
+    line-height: 30px;
+}
+.elx-tree .node>span span:first-child:before{
+    color:$--elx-tree-icon-color;
+}
+.elx-tree span.el-tree-node__expand-icon {
+    margin-top: -2px;
+}
+.elx-tree .el-tree-node__content>span.el-tree-node__expand-icon {
+    width: 30px;
+    height: 30px;
+    border: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    vertical-align: initial;
+    text-align: center;
+    line-height: 30px;
+    font-family: 'uex-icon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: $--color-font;
+    position: relative;
+    z-index: 10;
+}
+.elx-tree .el-tree-node__content>.el-tree-node__expand-icon.is-leaf {
+    visibility: hidden;
+}
+.elx-tree span.el-tree-node__expand-icon:before {
+    content: "\E905";
+}
+.elx-tree.elx-tree-line span.el-tree-node__expand-icon:before {
+    position: relative;
+    z-index: 10;
+    margin-left: 4px;
+}
+.elx-tree.elx-tree-line .node:after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: -14px;
+    width: 20px;
+    height: 15px;
+    z-index: 0;
+}
+.elx-tree.elx-tree-line .node.has-pre:after,
+.elx-tree.elx-tree-line .node.has-parent:after {
+    border-left: 1px dashed $--color-zxb-15;
+}
+.elx-tree.elx-tree-line .node.has-pre:after,
+.elx-tree.elx-tree-line .node.has-next:after,
+.elx-tree.elx-tree-line .node.has-child:after,
+.elx-tree.elx-tree-line .node.has-parent:after,
+.elx-tree.elx-tree-line .node.is-not-leaf:after {
+    border-bottom: 1px dashed $--color-zxb-15;
+}
+
+.elx-tree.elx-tree-line .node:before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: -14px;
+    width: 20px;
+    height: 15px;
+    z-index: 0;
+}
+.elx-tree.elx-tree-line .el-tree-node>.el-tree-node__content>.node.has-next:before {
+    border-left: 1px dashed $--color-zxb-15;
+}
+.elx-tree.elx-tree-line .el-tree-node.is-expanded>.el-tree-node__content>.node.has-child:before {
+    border-right: 1px dashed $--color-zxb-15;
+}
+.elx-tree.elx-tree-line .el-tree-node.is-expanded>.el-tree-node__content>.node.has-next:before {
+    border-left: 1px dashed $--color-zxb-15;
+}
+.elx-tree.elx-tree-line .el-tree-node.is-expanded>.el-tree-node__content>.node.child-0:before {
+    border-right: 0px;
+}
+.elx-tree.elx-tree-line .elx-el-tree.el-tree>.el-tree-node:first-child>.el-tree-node__content>.node:after {
+    border-left: 0px;
+}
+.elx-tree.elx-tree-line .el-tree-node:last-child>.el-tree-node__content>.node:before {
+    border-left: 0px;
+}
+.elx-tree.elx-tree-line .el-tree-node.is-expanded:last-child>.el-tree-node__content>.node:before {
+    border-left: 0px;
+}
+.elx-tree.elx-tree-line .el-tree-node:first-child>.el-tree-node__content>.node.has-next:before {
+    border-left: 1px dashed $--color-zxb-15;
+}
+.elx-tree.elx-tree-line>.elx-el-tree.el-tree>.el-tree-node:last-child>.el-tree-node__content>.node:before {
+    border-left: 0px;
+}
+.elx-tree.elx-tree-line>.elx-el-tree.el-tree>.el-tree-node:nth-last-child(2)>.el-tree-node__content>.node:before {
+    border-left: 0px;
+}
+.elx-tree.elx-tree-line .elx-el-tree.el-tree>.el-tree-node:first-child:last-child>.el-tree-node__content>.node.child-0:after {
+    border-bottom: 0px;
+}
+.elx-tree.elx-tree-line>.elx-el-tree.el-tree>.el-tree-node:first-child:nth-last-child(2)>.el-tree-node__content>.node.child-0:after {
+    border-bottom: 0px;
+}
+.elx-tree.elx-tree-line .el-tree-node:first-child:last-child>.el-tree-node__content>.node.child-0:before {
+    border-left: 0px;
+}
+.elx-tree.elx-tree-line span[class*="line"] {
+    position: absolute;
+    content: "";
+    border-left: 1px dashed $--color-zxb-15;
+    height: 30px;
+}
+.elx-tree.elx-tree-line span.el-tree-node__expand-icon.expanded:before {
+    margin-left: -2px;
+}
+.elx-tree .elx-el-tree.el-tree .el-tree-node__content>.el-tree-node__expand-icon {
+    padding: 0px;
+}
+
+.elx-tree .elx-el-tree.el-tree .el-tree-node.is-drop-inner>.el-tree-node__content span span:last-child {
+    background-color: #409eff;
+    color: #fff
+}
+.elx-tree .elx-el-tree.el-tree .el-tree__drop-indicator {
+    z-index: 12;
+    background-color: #409eff
+}
+.elx-tree span.el-tree-node__expand-icon.expanded:before {
+    content: "\E906";
+}
+.elx-tree .node>span span.filter {
+    background: red;
+    color: #fff;
+}

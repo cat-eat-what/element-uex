@@ -1,0 +1,22 @@
+.elx-input-transfer {
+    height: 30px;
+}
+.elx-input-transfer .el-input-group button.el-button {
+    width: 30px;
+    padding: 0px;
+    text-align: center;
+    line-height: 30px;
+}
+.elx-input-transfer .el-dialog__wrapper .el-dialog__footer .el-button {
+    width: 80px;
+}
+.elx-input-transfer.el-dialog {
+    width: 80%;
+    height: 70%;
+}
+.elx-input-transfer.el-dialog .el-dialog__body {
+    height: calc(100% - 100px);
+    overflow: auto;
+}
+.elx-input-transfer button.el-button.is-disabled {
+}

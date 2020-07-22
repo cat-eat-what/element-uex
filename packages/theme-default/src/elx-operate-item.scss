@@ -1,0 +1,74 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-operate-item {
+    display: inline-block;
+    transform-origin: 0% 0%;
+}
+.elx-operate-item button {
+    width: 100%;
+}
+.elx-operate-item.fade-enter-active, .elx-operate-item.fade-leave-active {
+    transition: all 200ms linear;
+    width: 80px;
+}
+.elx-operate-item.fade-enter, .elx-operate-item.fade-leave-to{
+    width: 0px;
+}
+.elx-operate-item .elx-operate-expand {
+    width: 100%;
+    font-size: 12px;
+    color: white;
+    border-radius: 5px;
+    right: 0px;
+    top: 0px;
+    border-radius: 5px 0px 0px 5px;
+    background: $--color-zxb-65;
+    transform: translateY(-100%);
+    position: absolute;
+}
+.elx-operate-item .elx-operate-expand>div{
+    margin: 10px;
+}
+.elx-operate-expand .el-form-item {
+    margin: 0px;
+    margin-bottom: 5px;
+}
+.elx-operate-button .el-form-item:last-child {
+    margin-bottom: 0px;
+}
+.elx-operate-button .elx-button-group .el-button:last-child>button {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border:0px;
+} 
+.elx-operate-button .el-button:after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    opacity: 1;
+    z-index: auto;
+    background: not specified;
+}
+.elx-operate-expand textarea.el-textarea__inner, .elx-operate-expand input.el-input__inner {
+    background: transparent;
+    border: 1px solid #E0E6ED;
+    border-radius: 5px;
+    color: #fff;
+}
+.elx-operate-expand  .el-tag--primary {
+    background-color: rgba(224,230,237,.1);
+    border-color: rgba(224,230,237,.6);
+    color: #fff;
+}
+.elx-operate-button .elx-button-group button.el-button.active {
+    border-radius: 0px;
+    background-color: $--color-zxb-65;
+}
