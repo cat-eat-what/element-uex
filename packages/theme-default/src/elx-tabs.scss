@@ -1,0 +1,24 @@
+.elx-tab-frame .el-tabs--border-card>.el-tabs__header .el-tabs__item>span:first-child {
+    max-width: 85px;
+    min-width: 70px;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 28px;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+.elx-tab-frame .el-tabs--border-card>.el-tabs__header .el-tabs__item>span:last-child {
+    height: 12px;
+    width: 12px;
+    transform: scale(.8);
+    display: inline-block;
+    margin-top: 8px;
+    vertical-align: top;
+}
+.elx-tab-frame .el-tabs__item {
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    padding: 0 5px;
+    padding-right: 2px;
+}

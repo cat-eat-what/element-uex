@@ -1,0 +1,49 @@
+[
+{
+    "id": "paas_proc",
+    "label": "程序",
+    "children": [
+        {
+            "id": "paas_proc_2",
+            "label": "流量经营",
+            "children": [
+                {
+                    "id": "paas_proc_21",
+                    "label": "流量经营3",
+                    "children": null
+                }
+            ]
+        },
+        {
+            "id": "paas_proc_3",
+            "label": "一经程序",
+            "children": null
+        },
+        {
+            "id": "paas_proc_4",
+            "label": "话单统计",
+            "children": []
+        },
+        {
+            "id": "paas_proc_5",
+            "label": "短彩信",
+            "children": []
+        },
+        {
+            "id": "paas_proc_6",
+            "label": "营销活动",
+            "children": []
+        },
+        {
+            "id": "paas_proc_7",
+            "label": "人均收入",
+            "children": []
+        },
+        {
+            "id": "paas_proc_tmp",
+            "label": "临时文件夹",
+            "children": []
+        }
+    ]
+}
+]

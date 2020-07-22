@@ -1,0 +1,1 @@
+#content,.elx-main,.elx-main>div{width:100%;height:100%;overflow:auto}#content,.elx-main>div:first-child{opacity:0;-webkit-transition:opacity .3s linear;transition:opacity .3s linear}.elx-main .main-show #content{opacity:1}.elx-main>div{overflow:hidden}.elx-main>.main-show.elx-col>div{margin-right:10px}.elx-main>.main-show.elx-col>div:last-child{margin-right:0}

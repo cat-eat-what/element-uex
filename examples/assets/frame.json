@@ -1,0 +1,59 @@
+{
+	"sidebarType": "2",
+	"title": "团队管理",
+	"descr": "团队管理是站在企业管理流程中对于偏向使用者的逻辑概念，主要包含团队与成员的新增，团队与租户（偏向平台的逻辑概念）的绑定，数据资源的授权等",
+	"menuActive":"",
+    "menuOpen":"",
+    "children": [
+		{
+		    "url": "",
+		    "children": [],
+		    "modelcode": "model-dev",
+		    "parentcode": "data-dev",
+		    "modelname": "模型开发",
+		    "modeltype": null,
+		    "hasright": "1",
+		    "images": ""
+		},
+		{
+		    "url": "",
+		    "children": [],
+		    "modelcode": "proc-dev",
+		    "parentcode": "data-dev",
+		    "modelname": "程序开发",
+		    "modeltype": null,
+		    "hasright": "1",
+		    "images": ""
+		},
+		{
+		    "url": "",
+		    "children": [],
+		    "modelcode": "api-tools-dev",
+		    "parentcode": "data-dev",
+		    "modelname": "服务开发",
+		    "modeltype": null,
+		    "hasright": "1",
+		    "images": ""
+		},
+		{
+		    "url": "",
+		    "children": [],
+		    "modelcode": "data-query",
+		    "parentcode": "data-dev",
+		    "modelname": "数据查询",
+		    "modeltype": null,
+		    "hasright": "1",
+		    "images": ""
+		},
+		{
+		    "url": "",
+		    "children": [],
+		    "modelcode": "data-query-log",
+		    "parentcode": "data-dev",
+		    "modelname": "数据查询日志",
+		    "modeltype": null,
+		    "hasright": "1",
+		    "images": ""
+		}
+    ]
+}

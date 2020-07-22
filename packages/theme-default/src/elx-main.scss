@@ -1,0 +1,25 @@
+.elx-main, .elx-main>div, #content{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+.elx-main>div:first-child, #content{
+    opacity: 0;
+    transition: opacity 300ms linear;
+}
+.elx-main .main-show #content{
+    opacity: 1;
+}
+.elx-main>.elx-row>*{
+    /*display: inline-block;
+    width: 100%;*/
+}
+.elx-main>div {
+    overflow: hidden;
+}
+.elx-main>.main-show.elx-col>div{
+    margin-right: 10px;
+}
+.elx-main>.main-show.elx-col>div:last-child {
+    margin-right: 0px;
+}

@@ -1,0 +1,61 @@
+.elx-context-menu.fade-enter-active, .elx-context-menu.fade-leave-active {
+  transition: all 100ms linear 100ms;
+}
+.elx-context-menu.fade-enter, .elx-context-menu.fade-leave-to{
+  transform: scale(0);
+  opacity: 0
+}
+.elx-context-menu {
+  min-width: 80px;
+  position: fixed;
+  z-index: 999;
+  cursor: pointer;
+  transition: all 100ms linear;
+}
+.elx-context-menu ul {
+  width: 100%;
+  background: white;
+  box-shadow: 0px 0px 5px #c3c3c3;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 100ms linear;
+}
+.elx-context-menu li {
+  width: 100%;
+  line-height: 20px;
+  color: #475669;
+  padding: 0px;
+  text-align: left;
+  font-weight: 300;
+  float: initial;
+  margin: 0px;
+  height: auto;
+  position: relative;
+  padding: 0px 6px;
+}
+.elx-context-menu li .elx-context-menu-title {
+  width: 100%;
+  display: flex;
+}
+.elx-context-menu li .elx-context-menu-title>span {
+  display: inline-block;
+}
+.elx-context-menu li .elx-context-menu-title>span:first-child {
+  width: calc(100% - 14px);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.elx-context-menu span[class*="uex-icon"] {
+  margin-right: 10px;
+  vertical-align: baseline;
+  color: #475669;
+}
+.elx-context-menu li .elx-context-menu-title>span:last-child {
+  margin-right: 0px;
+  line-height: 20px;
+}
+.elx-context-menu li>ul {
+  left: 100%;
+  position: absolute;
+}

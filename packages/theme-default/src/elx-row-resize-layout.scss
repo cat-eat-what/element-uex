@@ -1,0 +1,51 @@
+.elx-row-resize-layout {
+    width: 100%;
+    position: relative;
+}
+.elx-row-resize-layout .elx-layout-top {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background: #fff;
+}
+.elx-row-resize-layout .elx-layout-bottom {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: #fff;
+}
+.elx-row-resize-layout .row-resize-split {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    background: #F9FAFC;
+    cursor: row-resize;
+    text-align: center;
+    line-height: 10px;
+    color: #A2B0C4;
+    border-top: 1px solid #E0E6ED;
+    border-bottom: 1px solid #E0E6ED;
+}
+.elx-row-resize-layout .row-resize-split.narrow {
+    background: transparent;
+    border-bottom: 0px;
+    border-top: 0px;
+    z-index: 10;
+}
+.elx-row-resize-layout .row-resize-split.narrow:after {
+    content: "";
+    position: absolute;
+    top: calc((100% - 2px) / 2);
+    left: 0px;
+    width: 100%;
+    border-top: 1px solid #E0E6ED;
+    z-index: 1;
+}
+
+.elx-row-resize-layout .row-resize-split.narrow:hover {
+    background: transparent;
+    border-top: 0px;
+    border-bottom: 0px;
+}
