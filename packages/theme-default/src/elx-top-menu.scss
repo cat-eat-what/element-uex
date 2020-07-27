@@ -41,9 +41,10 @@
         width:100%;
         top: 50px;
         left: 0px;
-        padding: 10px 0;
-        background-color: $--background-color-base;
+        padding: 10px 0 20px 0;
+        background-color: $--color-white;
         box-shadow:0px 6px 6px 0px rgba(0, 0, 0, 0.15), 0px 3px 3px 0px rgba(0, 0, 0, 0.1) inset;
+        //visibility:hidden;
         >ul{
             width: 100%;
             display: flex;
@@ -51,6 +52,9 @@
             >dd:hover{
                 background-color: $--menu-active-bg-color;
             }
+        }
+        &.show{
+            visibility:visible;
         }
     }
     li {
