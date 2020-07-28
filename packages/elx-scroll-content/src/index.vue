@@ -25,7 +25,7 @@
         default: 'row'
       }
     },
-    data: function() {
+    data() {
       return {
         width: 0,
         height: 0,
@@ -35,7 +35,7 @@
       };
     },
     computed: {
-      size: function() {
+      size() {
         return {
           width: this.width,
           height: this.height,
@@ -45,15 +45,15 @@
       }
     },
     methods: {
-      parseInt: function(val) {
+      parseInt(val) {
         val = window.parseInt(val);
         return window.isNaN(val) ? 0 : val;
       },
-      parseFloat: function(val) {
+      parseFloat(val) {
         val = window.parseFloat(val);
         return window.isNaN(val) ? 0 : val;
       },
-      getCss: function(el) {
+      getCss(el) {
         var css;
         if (window.getComputedStyle) {
           css = window.getComputedStyle(el);
@@ -62,14 +62,14 @@
         }
         return css;
       },
-      judgeElLocation: function(el) {
+      judgeElLocation(el) {
         var css = this.getCss(el);
         if (css.position === 'fixed' || css.position === 'absolute') {
           return false;
         }
         return true;
       },
-      getRealHeight: function(el, height) {
+      getRealHeight(el, height) {
         var realHeight = 0;
         var css = this.getCss(el);
         if (css.boxSizing === 'border-box') {
@@ -87,7 +87,7 @@
         }
         return realHeight;
       },
-      getInnerHeight: function(el) {
+      getInnerHeight(el) {
         var innerHeight = 0;
         var css = this.getCss(el);
         innerHeight = this.formatVal(css.height, el.offsetHeight, -1) -
@@ -97,7 +97,7 @@
           this.parseFloat(css.borderBottomWidth);
         return innerHeight;
       },
-      getOuterHeight: function(el) {
+      getOuterHeight(el) {
         var outerHeight = 0;
         var css = this.getCss(el);
         outerHeight = this.parseFloat(css.marginTop) +
@@ -105,7 +105,7 @@
           this.parseFloat(css.marginBottom);
         return outerHeight;
       },
-      getRealWidth: function(el, width) {
+      getRealWidth(el, width) {
         var realWidth = 0;
         var css = this.getCss(el);
         if (css.boxSizing === 'border-box') {
@@ -123,13 +123,13 @@
         }
         return realWidth;
       },
-      getOffsetWidth: function(el, type) {
+      getOffsetWidth(el, type) {
         var rect = el.getBoundingClientRect();
         var xOffsetWidth = Math.round(rect.right - rect.left);
         var offsetWidth = el.offsetWidth;
         return type === 'inner' ? Math.min(xOffsetWidth, offsetWidth) : Math.max(xOffsetWidth, offsetWidth);
       },
-      getInnerWidth: function(el) {
+      getInnerWidth(el) {
         var innerWidth = 0;
         var css = this.getCss(el);
         innerWidth = this.formatVal(css.width, this.getOffsetWidth(el, 'inner'), -1) -
@@ -140,7 +140,7 @@
         return innerWidth;
       },
 
-      getOuterWidth: function(el) {
+      getOuterWidth(el) {
         var outerWidth = 0;
         var css = this.getCss(el);
         outerWidth = this.parseFloat(css.marginLeft) +
@@ -148,7 +148,7 @@
           this.parseFloat(css.marginRight);
         return outerWidth;
       },
-      formatVal: function(realVal, offsetVal, gap) {
+      formatVal(realVal, offsetVal, gap) {
         realVal = this.parseFloat(realVal);
         if (realVal.toString().split('.').length > 1) {
           var point = this.parseFloat('0.' + realVal.toString().split('.')[1]);
@@ -161,7 +161,7 @@
         }
         return this.parseFloat(offsetVal);
       },
-      refreshHeight: function() {
+      refreshHeight() {
         var self = this;
         var parentEl = this.$el.parentNode;
         if (!parentEl) {
@@ -194,7 +194,7 @@
           });
         }
       },
-      refreshWidth: function() {
+      refreshWidth() {
         var self = this;
         var parentEl = this.$el.parentNode;
         if (!parentEl) {
@@ -227,7 +227,7 @@
           });
         }
       },
-      resize: function() {
+      resize() {
         var self = this;
         this.overflow = 'hidden';
         var parentEl = this.$el.parentNode;
@@ -255,14 +255,14 @@
       }
     },
     watch: {
-      size: function() {
+      size() {
         this.$emit('resize', this.size);
       }
     },
-    mounted: function() {
+    mounted() {
       window.addEventListener('resize', this.resize);
     },
-    beforeDestroy: function() {
+    beforeDestroy() {
       window.removeEventListener('resize', this.resize);
     }
   };

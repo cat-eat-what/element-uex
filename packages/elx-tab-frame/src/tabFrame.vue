@@ -51,7 +51,7 @@
       },
       defaultProps: {
         type: Object,
-        default: function() {
+        default() {
           return {
             children: 'children',
             label: 'label'
@@ -59,23 +59,23 @@
         }
       }
     },
-    data: function() {
+    data() {
       return {
         currentActiveIndex: this.tabActiveIndex,
         currentTabData: this.tabData
       };
     },
     methods: {
-      'tabClick': function(tab) {
+      tabClick(tab) {
         this.$emit('tab-click', tab);
       },
-      'tabEdit': function(name, action) {
+      tabEdit(name, action) {
         this.$emit('edit', name, action);
       },
-      'addTab': function() {
+      addTab() {
         this.$emit('tab-add');
       },
-      'removeTab': function(name) {
+      removeTab(name) {
         var _self = this;
         this.currentTabData = this.currentTabData.filter(function(tab) {
           if (tab.name === name) {
@@ -87,7 +87,7 @@
         });
         this.$emit('tab-remove', name);
       },
-      handleNodeClick: function(data) {
+      handleNodeClick(data) {
         var _self = this;
         if (data.children.length === 0) {
           var _filterTabData = this.currentTabData.filter(function(tab) {
@@ -106,20 +106,20 @@
       }
     },
     watch: {
-      'tabActiveIndex': function(val) {
+      tabActiveIndex(val) {
         this.currentActiveIndex = val;
       },
-      'currentActiveIndex': function(val) {
+      currentActiveIndex(val) {
         this.$emit('update:tabActiveIndex', val);
       },
-      'tabData': function(val) {
+      tabData(val) {
         this.currentTabData = val;
       },
-      'currentTabData': function(val) {
+      currentTabData(val) {
         this.$emit('update:tabData', val);
       }
     },
-    created: function() {
+    created() {
     }
   };
 </script>

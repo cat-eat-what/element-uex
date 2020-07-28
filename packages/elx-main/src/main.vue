@@ -34,14 +34,14 @@
         default: 'row'
       }
     },
-    data: function() {
+    data() {
       return {
         currentFullscreenLoading: this.fullscreenLoading,
         overflow: 'hidden'
       };
     },
     methods: {
-      resize: function() {
+      resize() {
         var self = this;
         if (typeof self.$children === 'object') {
           self.$children.map(function(item) {
@@ -53,10 +53,10 @@
       }
     },
     watch: {
-      fullscreenLoading: function(val, oldVal) {
+      fullscreenLoading(val, oldVal) {
         this.currentFullscreenLoading = val;
       },
-      currentFullscreenLoading: function(val, oldVal) {
+      currentFullscreenLoading(val, oldVal) {
         var self = this;
         this.$emit('update:fullscreenLoading', val);
         if (!val) {
@@ -66,7 +66,7 @@
         }
       }
     },
-    mounted: function() {
+    mounted() {
       var self = this;
       window.addEventListener('resize', this.resize);
       this.$nextTick(function() {
@@ -77,7 +77,7 @@
         }, 800);
       });
     },
-    beforeDestroy: function() {
+    beforeDestroy() {
       window.removeEventListener('resize', this.resize);
     }
   };

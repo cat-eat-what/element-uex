@@ -80,17 +80,17 @@
         default: true
       }
     },
-    data: function() {
+    data() {
       return {
         menuAni: null,
         currentMenu: []
       };
     },
     methods: {
-      openMenu: function(item) {
+      openMenu(item) {
         item.open = !item.open;
       },
-      selectMenu: function(item) {
+      selectMenu(item) {
         for (var i in this.currentMenu) {
           var _children = this.currentMenu[i].children;
           for (var j in _children) {
@@ -103,19 +103,19 @@
         item.active = true;
         this.$emit('menu-change', item);
       },
-      expandAll: function() {
+      expandAll() {
         if (this.expand) {
           for (var i in this.currentMenu) {
             this.currentMenu[i].open = true;
           }
         }
       },
-      postMessage: function() {
+      postMessage() {
         if (this.isPost) {
           cMessage.postMessage(this.message, this.locationOrigin, parent);
         }
       },
-      bindPostMessage: function() {
+      bindPostMessage() {
         var _self = this;
         cMessage.receiveMessage(function(message) {
           if (typeof message.data === 'object' && !Array.isArray(message.data)) {
@@ -130,7 +130,7 @@
           _self.$emit('receive-message', message);
         }, _self.locationOrigin);
       },
-      getClass: function(item) {
+      getClass(item) {
         var _class = '';
         if (item.open) {
           _class = _class + 'open ';
@@ -140,7 +140,7 @@
         }
         return _class;
       },
-      formatData: function() {
+      formatData() {
         var self = this;
         var fun = function(node) {
           if (!('open' in node)) {
@@ -162,21 +162,21 @@
       }
     },
     watch: {
-      'isPost': function(val, oldVal) {
+      'isPost'(val, oldVal) {
         this.postMessage();
       },
-      'menuData': function(val, oldVal) {
+      'menuData'(val, oldVal) {
         this.currentMenu = val;
         this.formatData();
       },
-      'currentMenu': function(val, oldVal) {
+      'currentMenu'(val, oldVal) {
         this.$emit('updata:menuData', val);
       },
-      'expand': function(val, oldVal) {
+      'expand'(val, oldVal) {
         this.expandAll();
       }
     },
-    created: function() {
+    created() {
       this.currentMenu = this.menuData;
       this.formatData();
       this.postMessage();

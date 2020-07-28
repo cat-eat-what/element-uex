@@ -82,7 +82,7 @@
         default: []
       }
     },
-    data: function() {
+    data() {
       return {
         currentMenuData: [],
         isOpen: false,
@@ -94,7 +94,7 @@
       };
     },
     methods: {
-      openMenu: function() {
+      openMenu() {
         this.isOpen = !this.isOpen;
         setTimeout(()=>{
           this.menuWidth = this.$refs.menuDiv.clientWidth;
@@ -102,10 +102,10 @@
           this.getUlMargin();
         }, 50);
       },
-      closeMenu: function() {
+      closeMenu() {
         this.isOpen = false;
       },
-      getLiMaxHeight: function() {
+      getLiMaxHeight() {
         this.getLineNum();
         this.liMaxHeight = [];
         for (var i = 0; i <= this.lineNum; i++) {
@@ -119,17 +119,17 @@
           this.liMaxHeight.push(lineHeight);
         }
       },
-      getLineNum: function() {
+      getLineNum() {
         // var w = document.body.clientWidth;
         this.eveLineNum = parseInt((this.menuWidth - 40) / 240, 10);
         this.lineNum = parseInt(this.currentMenuData.length / this.eveLineNum, 10);
       },
-      changeMenu: function(item, index, child) {
+      changeMenu(item, index, child) {
         var menuData = this.menuData[index];
         this.$emit('change-menu', menuData, child);
         this.isOpen = false;
       },
-      transMenuData: function(data) {
+      transMenuData(data) {
         for (var i in data) {
           if (data[i].children.length > 4) {
             data[i].children = data[i].children.slice(0, 4);
@@ -137,19 +137,19 @@
         }
         this.currentMenuData = data;
       },
-      getUlMargin: function() {
+      getUlMargin() {
         // var w = document.body.clientWidth;
         this.getLineNum();
         this.ulMargin = parseInt((this.menuWidth - 240 * this.eveLineNum) / (this.eveLineNum + 1), 10);
       }
     },
     watch: {
-      menuData: function(val) {
+      menuData(val) {
         this.transMenuData(val);
         // this.getLiMaxHeight();
       }
     },
-    created: function() {
+    created() {
       this.transMenuData(this.menuData);
       // this.getLiMaxHeight();
     }

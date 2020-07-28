@@ -19,15 +19,16 @@
 
     props: {
       label: {},
-      disabled: Boolean
+      disabled: Boolean,
+      size: String
     },
-    data: function() {
+    data() {
       return {
       };
     },
     computed: {
-      focus: function() {
-        var value = this.$parent.value;
+      focus() {
+        const value = this.$parent.value;
         if (!Array.isArray(value)) {
           return false;
         } else {
@@ -36,9 +37,9 @@
       }
     },
     methods: {
-      select: function() {
-        var value = this.$parent.value;
-        var index = -1;
+      select() {
+        let value = this.$parent.value;
+        let index = -1;
         if (!Array.isArray(value)) {
           value = [];
         }

@@ -33,17 +33,17 @@
           default: 0
         }
       },
-      data: function() {
+      data() {
         return {
           liClass: this.model.children.length !== 0 ? 'hasChild' : '',
           formatName: (this.model.modelname.length > 4 ? this.model.modelname.substring(0, 3) + '..' : this.model.modelname).split('')
         };
       },
       methods: {
-        menuChange: function() {
+        menuChange() {
           this.$emit('menu-change', this.model);
         },
-        changeClass: function() {
+        changeClass() {
           var _str = '';
           if (this.model.open) {
             _str = _str + ' open';
@@ -58,13 +58,13 @@
         }
       },
       watch: {
-        'model.open': function(val, oldVal) {
+        'model.open'(val, oldVal) {
           this.changeClass();
           if (val) {
             this.$emit('emitopen', [this.model], false);
           }
         },
-        'model.active': function(val, oldVal) {
+        'model.active'(val, oldVal) {
           this.changeClass();
           if (val) {
             if (this.model.children.length === 0) {
@@ -74,7 +74,7 @@
           }
         }
       },
-      created: function() {
+      created() {
         this.changeClass();
         if (this.model.open) {
           this.$emit('emitopen', [this.model], false);

@@ -92,12 +92,12 @@
       },
       actionData: {
         type: Array,
-        default: function() {
+        default() {
           return [];
         }
       }
     },
-    data: function() {
+    data() {
       return {
         currentShow: this.show,
         menuAni: null,
@@ -105,7 +105,7 @@
       };
     },
     methods: {
-      getCurDesc: function(str) {
+      getCurDesc(str) {
         var realLength = 0;
         var len = str.length;
         var charCode = -1;
@@ -123,11 +123,11 @@
         }
         return sub !== -1 ? this.descr.substring(0, sub) + '..' : this.descr;
       },
-      menuChange: function(model) {
+      menuChange(model) {
         this.$emit('menu-change', model);
         this.$emit('update:menuActive', model.modelcode);
       },
-      operateSidebar: function(judge) {
+      operateSidebar(judge) {
         var _self = this;
         this.currentShow = typeof judge === 'boolean' ? judge : !this.currentShow;
         setTimeout(function() {
@@ -135,12 +135,12 @@
         }, 200);
         this.$emit('sidebar-open', this.currentShow);
       },
-      postMessage: function() {
+      postMessage() {
         if (this.isPost) {
           cMessage.postMessage(this.message, this.locationOrigin, parent);
         }
       },
-      bindPostMessage: function() {
+      bindPostMessage() {
         var _self = this;
         cMessage.receiveMessage(function(message) {
           if (typeof message.data === 'object' && !Array.isArray(message.data)) {
@@ -161,15 +161,15 @@
           _self.$emit('receive-message', message);
         }, _self.locationOrigin);
       },
-      changeSidebarHeight: function() {
+      changeSidebarHeight() {
         var el = document.querySelector('.elx-siderbar');
         var introEl = document.querySelector('.elx-siderbar .elx-sidebar-intro');
         this.height = (window.parseFloat(el.offsetHeight) - window.parseFloat(introEl.offsetHeight) - 10) + 'px';
       },
-      contextmenuAction: function(action, model) {
+      contextmenuAction(action, model) {
         this.$emit('contextmenu-action', action, model);
       },
-      addEvent: function(element, type, handler) {
+      addEvent(element, type, handler) {
         if (element.addEventListener) {
           element.addEventListener(type, handler, false);
         } else if (element.attachEvent) {
@@ -182,30 +182,30 @@
       }
     },
     watch: {
-      'isPost': function(val, oldVal) {
+      isPost(val, oldVal) {
         this.postMessage();
       },
-      'currentShow': function(val, oldVal) {
+      currentShow(val, oldVal) {
         this.$emit('update:show', val);
       },
-      'show': function(val, oldVal) {
+      show(val, oldVal) {
         this.currentShow = val;
       },
-      'descr': function() {
+      descr() {
         this.changeSidebarHeight();
       }
     },
-    mounted: function() {
+    mounted() {
       this.$nextTick(function() {
         this.changeSidebarHeight();
         window.addEventListener('resize', this.changeSidebarHeight);
       });
     },
-    created: function() {
+    created() {
       this.postMessage();
       this.bindPostMessage();
     },
-    beforeDestroy: function() {
+    beforeDestroy() {
       window.removeEventListener('resize', this.changeSidebarHeight);
     }
   };

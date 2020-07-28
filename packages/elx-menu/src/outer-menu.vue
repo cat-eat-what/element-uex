@@ -15,7 +15,7 @@
         @click.prevent="menuActive">
           <span
             v-if="lvl == 0"
-            :class="model.images != '' && model.images && model.images != null ? model.images : 'uex-icon-default'"></span> 
+            :class="model.images != '' && model.images && model.images != null ? model.images : 'uex-icon-default'"></span>
           <span
             :class="'name lvl' + lvl"
             :style="{
@@ -24,7 +24,7 @@
             }"
             v-text="model.modelname">
           </span>
-          <!-- <span class="exportWin" 
+          <!-- <span class="exportWin"
             v-if="lvl > 0"
             :class="model.images != '' && model.images && model.images != null ? model.images : 'uex-icon-export'"></span> -->
           <i
@@ -77,25 +77,25 @@
           default: 0
         }
       },
-      data: function() {
+      data() {
         return {
           liClass: this.model.children.length !== 0 ? 'hasChild' : ''
         };
       },
       methods: {
-        menuChange: function(model) {
+        menuChange(model) {
           this.$emit('menu-change', model);
         },
-        lastChildNodeClick: function(model) {
+        lastChildNodeClick(model) {
           this.$emit('last-child-node-click', model);
         },
-        canMenuChange: function() {
+        canMenuChange() {
           var filterData = this.model.children.filter(function(item) {
             return item.active === true;
           });
           return this.model.children.length === 0 || (this.model.children.length !== 0 && this.model.url !== '' && this.model.url !== null && filterData.length === 0);
         },
-        menuActive: function() {
+        menuActive() {
           if (this.canMenuChange()) {
             if (this.model.active) {
               this.$emit('menu-change', this.model);
@@ -106,18 +106,18 @@
             this.$emit('last-child-node-click', this.model);
           }
         },
-        menuOpen: function() {
+        menuOpen() {
           this.$emit('emitopen', [this.model], this.model.open, 'outer');
         },
-        emitactive: function(modelArr, status) {
+        emitactive(modelArr, status) {
           var _arr = [this.model].concat(modelArr);
           this.$emit('emitactive', _arr, status);
         },
-        emitopen: function(modelArr, status) {
+        emitopen(modelArr, status) {
           var _arr = [this.model].concat(modelArr);
           this.$emit('emitopen', _arr, status, 'outer');
         },
-        changeClass: function() {
+        changeClass() {
           var _str = '';
           if (this.model.open) {
             _str = _str + ' open';
@@ -133,18 +133,18 @@
           }
           this.liClass = _str;
         },
-        contextmenu: function(model, e) {
+        contextmenu(model, e) {
           this.$emit('menu-contextmenu', model, e);
         }
       },
       watch: {
-        'model.open': function(val, oldVal) {
+        'model.open'(val, oldVal) {
           this.changeClass();
           if (val) {
             this.$emit('emitopen', [this.model], false, 'outer');
           }
         },
-        'model.active': function(val, oldVal) {
+        'model.active'(val, oldVal) {
           this.changeClass();
           if (val) {
             if (this.canMenuChange()) {
@@ -157,7 +157,7 @@
           }
         }
       },
-      created: function() {
+      created() {
         this.changeClass();
         if (this.model.open) {
           this.$emit('emitopen', [this.model], false, 'outer');

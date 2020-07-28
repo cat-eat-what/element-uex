@@ -64,7 +64,7 @@
       props: {
         data: {
           type: Object,
-          default: function() {
+          default() {
             return {};
           }
         },
@@ -81,7 +81,7 @@
               required: true
             }
           },
-          data: function() {
+          data() {
             return {};
           },
           render(h) {
@@ -96,7 +96,7 @@
         }
       },
 
-      data: function() {
+      data() {
         return {
           pos: {
             top: '0px',
@@ -106,7 +106,7 @@
         };
       },
       methods: {
-        getElementPosition: function(el) {
+        getElementPosition(el) {
           var x = 0;
           var y = 0;
           while (el != null) {
@@ -116,13 +116,13 @@
           }
           return { x: x, y: y };
         },
-        exec: function() {
+        exec() {
           this.$emit('action', this.data);
         },
-        action: function(data) {
+        action(data) {
           this.$emit('action', data);
         },
-        changeStyle: function() {
+        changeStyle() {
           var self = this;
           if (self.$el.childNodes[1]) {
             if (typeof self.$el.childNodes[1].tagName === 'string') {
@@ -144,17 +144,17 @@
             }
           }
         },
-        showChild: function() {
+        showChild() {
           this.visible = true;
         },
-        hideChild: function() {
+        hideChild() {
           this.visible = false;
           this.pos.top = '0px';
           this.pos.bottom = 'auto';
         }
       },
       watch: {
-        visible: function(val) {
+        visible(val) {
           if (val) {
             var self = this;
             this.$nextTick(function() {
@@ -163,9 +163,9 @@
           }
         }
       },
-      created: function() {
+      created() {
       },
-      mounted: function() {
+      mounted() {
         this.changeStyle();
       }
     };

@@ -469,13 +469,13 @@
       },
       value: {
         type: Object,
-        default: function() {
+        default() {
           return {};
         }
       },
       config: {
         type: Object,
-        default: function() {
+        default() {
           return {};
         }
       },
@@ -488,7 +488,7 @@
         default: ''
       }
     },
-    data: function() {
+    data() {
       return {
         currentValue: this.value,
         currentConfig: {
@@ -501,13 +501,13 @@
       };
     },
     methods: {
-      execFunc: function(val) {
+      execFunc(val) {
         console.log(val);
       },
-      getSelf: function() {
+      getSelf() {
         return this;
       },
-      setDefaultValue: function(obj, field) {
+      setDefaultValue(obj, field) {
         if (this.options.indexOf(field.type) > -1) {
           obj[field.name] = field.defaultValue ? field.defaultValue : [];
         } else if (this.objects.indexOf(field.type) > -1) {
@@ -519,7 +519,7 @@
         }
         return obj;
       },
-      setRelation: function() {
+      setRelation() {
         for (var i in this.currentConfig.fields) {
           if ('relatedItems' in this.currentConfig.fields[i]) {
             var _relatedItems = this.currentConfig.fields[i].relatedItems;
@@ -539,7 +539,7 @@
           }
         }
       },
-      setBindValue: function() {
+      setBindValue() {
         var _obj = JSON.parse(JSON.stringify(this.value));
         for (var i in this.currentConfig.fields) {
           if (!(this.currentConfig.fields[i].name in this.value) && 'name' in this.currentConfig.fields[i]) {
@@ -548,7 +548,7 @@
         }
         this.currentValue = _obj;
       },
-      validate: function() {
+      validate() {
         var _valid = true;
         var _self = this;
         this.$refs.elxForm.validate(function(valid) {
@@ -566,7 +566,7 @@
     watch: {
       value: {
         deep: true,
-        handler: function(val, oldVal) {
+        handler(val, oldVal) {
           if (JSON.stringify(this.currentValue) !== JSON.stringify(val)) {
             this.currentValue = this.value;
             this.setBindValue();
@@ -575,7 +575,7 @@
       },
       currentValue: {
         deep: true,
-        handler: function(val, oldVal) {
+        handler(val, oldVal) {
           if (typeof oldVal !== 'object') {
             return;
           }
@@ -587,7 +587,7 @@
       },
       config: {
         deep: true,
-        handler: function(val, oldVal) {
+        handler(val, oldVal) {
           if (this.currentConfig !== val) {
             this.currentConfig = {
               fields: val.fields || [],
@@ -599,17 +599,17 @@
         }
       }
     },
-    beforeCreate: function() {
+    beforeCreate() {
       this.$emit('before-get-fields', this);
     },
-    created: function() {
+    created() {
       this.setBindValue();
       this.$emit('before-render', this);
       if (this.config.beforeRender) {
         this.config.beforeRender(this);
       }
     },
-    mounted: function() {
+    mounted() {
       this.$emit('after-render', this);
       if (this.config.afterRender) {
         this.config.afterRender(this);

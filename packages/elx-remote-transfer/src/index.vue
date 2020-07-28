@@ -113,7 +113,7 @@
       },
       getRequestUrl: {
         type: Function,
-        default: function() {
+        default() {
           return '';
         }
       },
@@ -124,7 +124,7 @@
       },
       props: {
         type: Object,
-        default: function() {
+        default() {
           return {
             key: 'key',
             search: 'search'
@@ -133,12 +133,12 @@
       },
       column: {
         type: Object,
-        default: function() {
+        default() {
           return {};
         }
       }
     },
-    data: function() {
+    data() {
       return {
         transferLeftData: [],
         transferRightData: [],
@@ -162,13 +162,13 @@
       };
     },
     methods: {
-      testKeycode: function() {
+      testKeycode() {
         console.log('test-Keycode');
       },
-      testEnter: function() {
+      testEnter() {
         console.log('test-enter');
       },
-      getTransferLeftData: function() {
+      getTransferLeftData() {
         var self = this;
         var url;
         var filterData = Object.assign({}, self.transferLeftFilter);
@@ -202,7 +202,7 @@
           }
         });
       },
-      getTransferRightData: function() {
+      getTransferRightData() {
         var self = this;
         var filterData = this.currentTransferValue.filter(function(item) {
           if (Array.isArray(self.props.search)) {
@@ -221,7 +221,7 @@
         this.initMutltiData(this.transferRightData, this.transferRightSelected, 'rightMultipleTable', 'right');
         this.rightPageChange = false;
       },
-      initMutltiData: function(tableData, selectedData, tableRef, type) {
+      initMutltiData(tableData, selectedData, tableRef, type) {
         var self = this;
         var i;
         var filterData = tableData.filter(function(item) {
@@ -245,7 +245,7 @@
           }
         });
       },
-      getFilterData: function(tableData, selectedData) {
+      getFilterData(tableData, selectedData) {
         var self = this;
         var i;
         var filterData = selectedData.filter(function(item) {
@@ -258,7 +258,7 @@
         });
         return filterData;
       },
-      getExceptFilterData: function(tableData, selectedData) {
+      getExceptFilterData(tableData, selectedData) {
         var self = this;
         var i;
         var filterData = selectedData.filter(function(item) {
@@ -271,39 +271,39 @@
         });
         return filterData;
       },
-      handleLeftSizeChange: function(val) {
+      handleLeftSizeChange(val) {
         this.transferLeftFilter.pageSize = val;
         this.leftPageChange = true;
         this.getTransferLeftData();
       },
-      handleLeftCurrentChange: function(val) {
+      handleLeftCurrentChange(val) {
         this.transferLeftFilter.pageNum = val;
         this.leftPageChange = true;
         this.getTransferLeftData();
       },
-      handleRightSizeChange: function(val) {
+      handleRightSizeChange(val) {
         this.transferRightFilter.pageSize = val;
         this.rightPageChange = true;
         this.getTransferRightData();
       },
-      handleRightCurrentChange: function(val) {
+      handleRightCurrentChange(val) {
         this.transferRightFilter.pageNum = val;
         this.rightPageChange = true;
         this.getTransferRightData();
       },
-      handleLeftSelectionChange: function(val) {
+      handleLeftSelectionChange(val) {
         if (!this.leftPageChange) {
           var filterData = this.getFilterData(this.transferLeftData, this.transferLeftSelected);
           this.transferLeftSelected = filterData.concat(val);
         }
       },
-      handleRightSelectionChange: function(val) {
+      handleRightSelectionChange(val) {
         if (!this.rightPageChange) {
           var filterData = this.getFilterData(this.transferRightData, this.transferRightSelected);
           this.transferRightSelected = filterData.concat(val);
         }
       },
-      transferLeft: function() {
+      transferLeft() {
         var self = this;
         var i;
         var filterData = self.currentTransferValue.filter(function(item) {
@@ -319,7 +319,7 @@
         this.transferLeftSelected = [];
         this.getTransferRightData();
       },
-      transferRight: function() {
+      transferRight() {
         var self = this;
         this.currentTransferValue = this.currentTransferValue.concat(this.transferLeftSelected);
         this.getTransferRightData();
@@ -329,7 +329,7 @@
           self.transferLeftSelected = [];
         });
       },
-      leftSelectable: function(row, index) {
+      leftSelectable(row, index) {
         var i;
         for (i in this.currentTransferValue) {
           if (row[this.props.key] === this.currentTransferValue[i][this.props.key]) {
@@ -338,30 +338,29 @@
         }
         return true;
       },
-      transferLeftSearch: function() {
+      transferLeftSearch() {
         this.getTransferLeftData();
       },
-      transferRightSearch: function() {
+      transferRightSearch() {
         this.getTransferRightData();
       }
     },
     watch: {
-      'transferValue': function() {
+      'transferValue'() {
         if (JSON.stringify(this.currentTransferValue) !== JSON.stringify(this.transferValue)) {
           this.currentTransferValue = this.transferValue;
           this.getTransferLeftData();
           this.getTransferRightData();
         }
       },
-      'currentTransferValue': function() {
+      'currentTransferValue'() {
         this.$emit('update:transferValue', this.currentTransferValue);
         this.$emit('change', this.currentTransferValue);
       }
     },
-    created: function() {
+    created() {
       this.getTransferLeftData();
       this.getTransferRightData();
     }
   };
 </script>
-

@@ -137,7 +137,7 @@
       },
       itemClass: Function
     },
-    data: function() {
+    data() {
       return {
         pos: {
           x: 0,
@@ -168,7 +168,7 @@
       };
     },
     computed: {
-      isPaste: function() {
+      isPaste() {
         if (!this.activeData.isCopy && !this.activeData.isCut) {
           return false;
         } else if (this.copyData === null && this.cutData === null) {
@@ -179,21 +179,21 @@
       }
     },
     methods: {
-      getClass: function(item) {
+      getClass(item) {
         if (typeof this.itemClass === 'function') {
           return this.itemClass(item);
         } else {
           return '';
         }
       },
-      tranformStr: function(str) {
+      tranformStr(str) {
         var strArr = str.split('-');
         for (var i = 1; i < strArr.length; i++) {
           strArr[i] = strArr[i].charAt(0).toUpperCase() + strArr[i].substring(1);
         }
         return strArr.join('');
       },
-      getDomDetail: function(dom) {
+      getDomDetail(dom) {
         var dropDetail = {
           dom: dom,
           size: {width: dom.offsetWidth, height: dom.offsetHeight},
@@ -203,7 +203,7 @@
         };
         return dropDetail;
       },
-      createDropDomList: function(e) {
+      createDropDomList(e) {
         var self = this;
         var dropData = this.dropData;
         var dropDoms = this.dropDoms;
@@ -255,7 +255,7 @@
         }
         return null;
       },
-      getDropDomList: function(item, index, e) {
+      getDropDomList(item, index, e) {
         var self = this;
         var dropDom;
         this.dropDoms = [];
@@ -281,10 +281,10 @@
           this.dropDoms.push(dropDom);
         }
       },
-      handleMouseDown: function(item, index, e) {
+      handleMouseDown(item, index, e) {
         this.isMouseDown = true;
       },
-      handleMouseMove: function(item, index, e) {
+      handleMouseMove(item, index, e) {
         if (this.isMouseDown) {
           if (typeof DataTransfer.prototype.setDragImage !== 'function') {
             this.getDropDomList(item, index, e);
@@ -296,15 +296,15 @@
           }
         }
       },
-      handleDropDomMouseMove: function(item, index, e) {
+      handleDropDomMouseMove(item, index, e) {
       },
-      handleMouseUp: function(item, index, e) {
+      handleMouseUp(item, index, e) {
         this.isMouseDown = false;
       },
-      handleMouseLeave: function(item, index, e) {
+      handleMouseLeave(item, index, e) {
         this.isMouseDown = false;
       },
-      handleDragStart: function(item, index, e) {
+      handleDragStart(item, index, e) {
         this.dragging = true;
         e.dataTransfer.setData('text', 'data');
         e.dataTransfer.effectAllowed = 'copy';
@@ -317,7 +317,7 @@
         }
         this.$emit('drop-start', this.dropData);
       },
-      handleDragEnter: function(e) {
+      handleDragEnter(e) {
         if (!this.dragging) {
           return;
         }
@@ -329,7 +329,7 @@
         e.preventDefault();
         e.stopPropagation();
       },
-      handleDragOver: function(e) {
+      handleDragOver(e) {
         if (!this.dragging) {
           return;
         }
@@ -337,7 +337,7 @@
         e.preventDefault();
         e.stopPropagation();
       },
-      handleDrop: function(e) {
+      handleDrop(e) {
         if (!this.dragging) {
           return;
         }
@@ -354,7 +354,7 @@
           this.dropDomList.style.left = '-200px';
         }
       },
-      selectItems: function(items) {
+      selectItems(items) {
         for (var i in this.currentData) {
           this.currentData[i].selected = false;
         }
@@ -363,7 +363,7 @@
           this.currentData[_index].selected = true;
         }
       },
-      formatData: function() {
+      formatData() {
         var _fun = function(node) {
           node.isEdit = 'isEdit' in node ? node.isEdit : true;
           node.isDelete = 'isDelete' in node ? node.isDelete : true;
@@ -377,7 +377,7 @@
         }
         return _data;
       },
-      changePosY: function(ref, y) {
+      changePosY(ref, y) {
         var gap = 5;
         var bodyClientHeight = document.body.clientHeight;
         var bodyClientTop = document.body.clientTop;
@@ -389,12 +389,12 @@
         }
         return y;
       },
-      getEventPos: function(e) {
+      getEventPos(e) {
         var x = e.clientX;
         var y = e.clientY;
         return { 'x': x, 'y': y };
       },
-      blankRightClick: function(event) {
+      blankRightClick(event) {
         var e = event || window.event;
         var pos = this.getEventPos(e);
         var self = this;
@@ -412,7 +412,7 @@
         e.returnValue = false;
         return false;
       },
-      handleClick: function(item, index) {
+      handleClick(item, index) {
         this.activeData = item;
         if (!this.multiselect) {
           for (var i in this.currentData) {
@@ -424,7 +424,7 @@
         }
         this.$emit('click', this.data[index], this.activeData.selected);
       },
-      rightClick: function(item, event) {
+      rightClick(item, event) {
         var e = event || window.event;
         var pos = this.getEventPos(e);
         var self = this;
@@ -444,22 +444,22 @@
         e.returnValue = false;
         return false;
       },
-      dblclickItem: function(item) {
+      dblclickItem(item) {
         this.$emit('dblclick', item);
       },
-      editItem: function() {
+      editItem() {
         this.contentMenuShow = false;
         if (this.activeData.isEdit && this.activeData.isEdit !== 'disabled') {
           this.$emit('edit', this.activeData);
         }
       },
-      deleteItem: function() {
+      deleteItem() {
         this.contentMenuShow = false;
         if (this.activeData.isDelete && this.activeData.isDelete !== 'disabled') {
           this.$emit('delete', this.activeData);
         }
       },
-      copyItem: function() {
+      copyItem() {
         this.contentMenuShow = false;
         if (this.activeData.isCopy && this.activeData.isCopy !== 'disabled') {
           this.copyData = this.activeData;
@@ -467,7 +467,7 @@
           this.$emit('copy', this.activeData);
         }
       },
-      cutItem: function() {
+      cutItem() {
         this.contentMenuShow = false;
         if (this.activeData.isCut && this.activeData.isCut !== 'disabled') {
           this.copyData = null;
@@ -477,7 +477,7 @@
           this.$emit('cut', this.activeData);
         }
       },
-      pasteItem: function() {
+      pasteItem() {
         this.blankContentMenuShow = false;
         this.contentMenuShow = false;
         if (this.isPaste && this.activeData.isPaste !== 'disabled') {
@@ -495,11 +495,11 @@
           e.returnvalue = false;
         }
       },
-      parseFloat: function(val) {
+      parseFloat(val) {
         val = window.parseFloat(val);
         return window.isNaN(val) ? 0 : val;
       },
-      formatVal: function(realVal, offsetVal, gap) {
+      formatVal(realVal, offsetVal, gap) {
         realVal = this.parseFloat(realVal);
         if (realVal.toString().split('.').length > 1) {
           var point = this.parseFloat('0.' + realVal.toString().split('.')[1]);
@@ -512,7 +512,7 @@
         }
         return this.parseFloat(offsetVal);
       },
-      getCss: function(el) {
+      getCss(el) {
         var css;
         if (window.getComputedStyle) {
           css = window.getComputedStyle(el);
@@ -521,7 +521,7 @@
         }
         return css;
       },
-      getInnerWidth: function(el) {
+      getInnerWidth(el) {
         var innerWidth = 0;
         var css = this.getCss(el);
         innerWidth = this.formatVal(css.width, el.clientWidth, -1) -
@@ -531,7 +531,7 @@
           this.parseFloat(css.borderRightWidth);
         return innerWidth;
       },
-      computeNum: function() {
+      computeNum() {
         var _width = this.getInnerWidth(this.$el) - 1;
         var _num = window.parseInt(_width / this.itemWidth);
         for (var i = _num; i > -1; i--) {
@@ -543,7 +543,7 @@
           }
         }
       },
-      getCurLabel: function(str) {
+      getCurLabel(str) {
         var realLength = 0;
         if (typeof str !== 'string') {
           return '';
@@ -564,11 +564,11 @@
         }
         return sub !== -1 ? str.substring(0, sub) + '..' : str;
       },
-      hideMenu: function() {
+      hideMenu() {
         this.contentMenuShow = false;
         this.blankContentMenuShow = false;
       },
-      addEvent: function(element, type, handler) {
+      addEvent(element, type, handler) {
         if (element.addEventListener) {
           element.addEventListener(type, handler, false);
         } else if (element.attachEvent) {
@@ -579,21 +579,21 @@
           element['on' + type] = handler;
         }
       },
-      getTarget: function(event) {
+      getTarget(event) {
         return event.target || event.srcElement;
       },
-      dropEvent: function(e) {
+      dropEvent(e) {
         e.stopPropagation();
         e.preventDefault();
       },
-      dragendEvent: function(e) {
+      dragendEvent(e) {
         this.handleDrop(e);
         e.stopPropagation();
         e.preventDefault();
       }
     },
     watch: {
-      data: function(val, oldVal) {
+      data(val, oldVal) {
         this.blankContentMenuShow = false;
         this.contentMenuShow = false;
         this.currentData = this.formatData();
@@ -602,9 +602,9 @@
         }
         this.PreDataLength = val.length;
       },
-      currentData: function(val, oldVal) {
+      currentData(val, oldVal) {
       },
-      multiselect: function(val, oldVal) {
+      multiselect(val, oldVal) {
         if (!val) {
           for (var i in this.currentData) {
             this.currentData[i].selected = false;
@@ -612,11 +612,11 @@
         }
       }
     },
-    created: function() {
+    created() {
       this.currentData = this.formatData();
       this.PreDataLength = this.currentData.length;
     },
-    mounted: function() {
+    mounted() {
       var _self = this;
       this.$nextTick(function() {
         this.dropDomList = this.$refs['dropDomList'];
@@ -629,7 +629,7 @@
         document.body.addEventListener('dragend', _self.dragendEvent);
       });
     },
-    beforeDestroy: function() {
+    beforeDestroy() {
       window.removeEventListener('resize', this.computeNum);
       document.body.removeEventListener('click', this.hideMenu);
       document.body.removeEventListener('dragenter', this.handleDragEnter);

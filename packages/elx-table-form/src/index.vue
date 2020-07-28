@@ -151,7 +151,7 @@
     props: {
       value: {
         type: Array,
-        default: function() {
+        default() {
           return [];
         }
       },
@@ -160,7 +160,7 @@
         default: {}
       }
     },
-    data: function() {
+    data() {
       var options = ['operateParam', 'multipleSelect', 'checkbox', 'checkboxButton', 'tableForm'];
       var currentData = this.validateTableData(this.value) ? this.value : [];
       this.setConfigs(currentData);
@@ -188,7 +188,7 @@
       };
     },
     methods: {
-      judgeStr: function(fieldIndex, field) {
+      judgeStr(fieldIndex, field) {
         var type = field.type;
         var isStr = (type === 'string');
         if (this.config.editType === 'single') {
@@ -197,7 +197,7 @@
           return isStr || false;
         }
       },
-      judgeField: function(fieldIndex, field) {
+      judgeField(fieldIndex, field) {
         var type = field.type;
         var judgeType = (type !== 'string' && type !== 'index');
         if (this.config.editType === 'single') {
@@ -206,7 +206,7 @@
           return judgeType && true;
         }
       },
-      getCellText: function(row, rowIndex, fieldIndex, field) {
+      getCellText(row, rowIndex, fieldIndex, field) {
         var config = this.pageConfigs[fieldIndex];
         var enumObj = {};
         var val = row[field.name];
@@ -226,7 +226,7 @@
           }
         }
       },
-      getVisible: function(fieldIndex, field) {
+      getVisible(fieldIndex, field) {
         var type = field.type;
         var isStr = (type === 'string');
         if (this.config.editType === 'single') {
@@ -235,7 +235,7 @@
           return isStr || false;
         }
       },
-      getRules: function(fieldIndex) {
+      getRules(fieldIndex) {
         var pageConfig = this.pageConfigs[fieldIndex];
         if (pageConfig) {
           return pageConfig.rules;
@@ -243,14 +243,14 @@
           return this.config.rules;
         }
       },
-      getFormConfig: function(rowIndex, fieldIndex, field) {
+      getFormConfig(rowIndex, fieldIndex, field) {
         var pageConfig = this.pageConfigs[fieldIndex];
         return {
           fields: pageConfig ? [pageConfig.fields[rowIndex]] : [field],
           rules: pageConfig ? pageConfig.rules : this.config.rules
         };
       },
-      handleCurrentChange: function(val) {
+      handleCurrentChange(val) {
         var self = this;
         this.filter.pageNum = val;
         this.activeRowIndex = -1;
@@ -266,11 +266,11 @@
           });
         });
       },
-      rowClick: function(row, event, column) {
+      rowClick(row, event, column) {
         var index = this.pageData.indexOf(row);
         this.activeRowIndex = index;
       },
-      cellClick: function(row, column, cell, event) {
+      cellClick(row, column, cell, event) {
         var index = this.pageData.indexOf(row);
         var activeColumnKey = this.activeColumnKey;
         var activeRowIndex = this.activeRowIndex;
@@ -285,10 +285,10 @@
           }
         });
       },
-      defaultRowKey: function(row) {
+      defaultRowKey(row) {
         return this.currentData.indexOf(row);
       },
-      expandRow: function(row, expanded) {
+      expandRow(row, expanded) {
         if (this.validateRowKey()) {
           var key = this.config.rowKey(row);
           var index = this.expandRowKeys.indexOf(key);
@@ -303,7 +303,7 @@
           }
         }
       },
-      isOper: function(row) {
+      isOper(row) {
         if (this.config.unabledDeleteRowKeys && this.validateRowKey()) {
           var unabledDeleteRowKeys = this.config.unabledDeleteRowKeys;
           var rowKey = this.config.rowKey(row);
@@ -311,16 +311,16 @@
         }
         return true;
       },
-      validateRowKey: function() {
+      validateRowKey() {
         return this.config.rowKey && typeof this.config.rowKey === 'function';
       },
-      getRowByRowKey: function(rowKey) {
+      getRowByRowKey(rowKey) {
         var self = this;
         return this.currentData.filter(function(item) {
           return self.config.rowKey(item) === rowKey;
         });
       },
-      addData: function() {
+      addData() {
         var lastIndex = this.currentData.length;
         if (this.config.lastRowKey && this.validateRowKey()) {
           var lastRow = this.getRowByRowKey(this.config.lastRowKey);
@@ -337,7 +337,7 @@
         this.$emit('change', this.currentData, this);
         this.dispatch('ElFormItem', 'el.form.change', this.currentData);
       },
-      removeData: function(index) {
+      removeData(index) {
         var removeIdx = (this.filter.pageNum - 1) * this.pageSize + index;
         var row = this.currentData[removeIdx];
         this.currentData.splice(removeIdx, 1);
@@ -346,14 +346,14 @@
         this.dispatch('ElFormItem', 'el.form.change', this.currentData);
         this.$emit('remove', row);
       },
-      removeAllData: function() {
+      removeAllData() {
         this.currentData.splice(0, this.currentData.length);
         this.$emit('input', this.currentData);
         this.$emit('change', this.currentData, this);
         this.dispatch('ElFormItem', 'el.form.change', this.currentData);
         this.$emit('remove-all');
       },
-      validateTableData: function(data) {
+      validateTableData(data) {
         var judge = true;
         var i;
         for (i in data) {
@@ -363,7 +363,7 @@
         }
         return judge;
       },
-      validate: function() {
+      validate() {
         var _valid = true;
         var _itemValid = true;
         for (var i in this.config.fields) {
@@ -392,7 +392,7 @@
         }
         return _valid;
       },
-      setDefaultValue: function(obj, field, options) {
+      setDefaultValue(obj, field, options) {
         options = this.options || options;
         if (options.indexOf(field.type) > -1) {
           obj[field.name] = field.defaultValue ? field.defaultValue : [];
@@ -403,7 +403,7 @@
         }
         return obj;
       },
-      getDefaultRow: function(options) {
+      getDefaultRow(options) {
         var _obj = {};
         for (var i in this.config.fields) {
           if (!(this.config.fields[i].name in _obj) && 'name' in this.config.fields[i]) {
@@ -412,24 +412,24 @@
         }
         this.defaultRow = _obj;
       },
-      setFormData: function(formData, index) {
+      setFormData(formData, index) {
         this.pageData[index] = Object.assign(this.pageData[index], formData);
         this.formatData();
         this.$emit('input', this.currentData);
         this.$emit('change', this.currentData, this);
         this.dispatch('ElFormItem', 'el.form.change', this.currentData);
       },
-      formatData: function() {
+      formatData() {
         if (this.hasIndex) {
           this.setIndex();
         }
       },
-      setIndex: function() {
+      setIndex() {
         for (var i in this.currentData) {
           this.currentData[i][this.indexProp] = Number(i) + 1;
         }
       },
-      judgeIndex: function() {
+      judgeIndex() {
         for (var i in this.config.fields) {
           if (this.config.fields[i].type === 'index') {
             this.hasIndex = true;
@@ -438,7 +438,7 @@
           }
         }
       },
-      setConfigByIndex: function(currentIndex, currentData) {
+      setConfigByIndex(currentIndex, currentData) {
         var self = this;
         var enumObj = {};
         var config;
@@ -481,7 +481,7 @@
           return config;
         }
       },
-      setConfigs: function(currentData, callback) {
+      setConfigs(currentData, callback) {
         var self = this;
         var configs = [];
         var config;
@@ -511,14 +511,14 @@
           });
         }
       },
-      formatCurrentData: function(data) {
+      formatCurrentData(data) {
         var self = this;
         var currentData = data.map(function(item) {
           return Object.assign({}, self.defaultRow, item);
         });
         return currentData;
       },
-      getPage: function() {
+      getPage() {
         var self = this;
         this.filter.total = this.currentData.length;
         this.pageConfigs = this.configs.slice((this.filter.pageNum - 1) * this.pageSize, this.filter.pageNum * this.pageSize);
@@ -585,7 +585,7 @@
           this.getPage();
         }
       },
-      activeColumnKey: function(val, oldVal) {
+      activeColumnKey(val, oldVal) {
         if (!oldVal) {
           this.oldActiveColumnKey = val;
         } else {
@@ -593,7 +593,7 @@
         }
       }
     },
-    created: function() {
+    created() {
       var self = this;
       this.getDefaultRow();
       this.judgeIndex();
@@ -607,4 +607,3 @@
     }
   };
 </script>
-

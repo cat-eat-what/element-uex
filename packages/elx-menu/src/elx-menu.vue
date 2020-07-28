@@ -148,18 +148,18 @@
         },
         actionData: {
           type: Array,
-          default: function() {
+          default() {
             return [];
           }
         },
         menuTitle: {
           type: Object,
-          default: function() {
+          default() {
             return {};
           }
         }
       },
-      data: function() {
+      data() {
         return {
           currentMenuType: this.type,
           currentMenuData: [],
@@ -177,27 +177,27 @@
         };
       },
       methods: {
-        scroll: function(event) {
+        scroll(event) {
           if (this.currentMenuType === 'outer') {
             return;
           };
           this.scrollTop = this.$refs['narrowMenu'].scrollTop;
         },
-        scrollGuide: function(event) {
+        scrollGuide(event) {
           this.scroll();
         },
-        scrollStop: function() {
+        scrollStop() {
           this.scroll();
         },
-        menuChange: function(model) {
+        menuChange(model) {
           clearTimeout(this.menuAni);
           this.$emit('menu-change', model);
           this.$emit('update:menuActive', model.modelcode);
         },
-        lastChildNodeClick: function(model) {
+        lastChildNodeClick(model) {
           this.$emit('last-child-node-click', model);
         },
-        showMore: function(type) {
+        showMore(type) {
           var self = this;
           var _type = type;
           self.currentMenuType = _type;
@@ -221,7 +221,7 @@
             fun(this.currentMenuData[i]);
           }
         },
-        menuClose: function() {
+        menuClose() {
           var self = this;
           clearTimeout(this.menuAni);
           this.menuAni = setTimeout(function() {
@@ -230,7 +230,7 @@
             }
           }, this.timeOut);
         },
-        operateStatus: function(modelArr, type, status) {
+        operateStatus(modelArr, type, status) {
           var _index = 0;
           var _currentModel;
           var _cancelFun = function(node) {
@@ -270,11 +270,11 @@
           }
           _sureFun(_currentModel);
         },
-        emitactive: function(modelArr, status) {
+        emitactive(modelArr, status) {
           this.contextMenuShow = false;
           this.operateStatus(modelArr, 'active', status);
         },
-        emitopen: function(modelArr, status, type) {
+        emitopen(modelArr, status, type) {
           clearTimeout(this.menuAni);
           if (type === 'narrow') {
             var self = this;
@@ -285,7 +285,7 @@
             this.operateStatus(modelArr, 'open', status);
           }
         },
-        getFirstChild: function(node, modelcode) {
+        getFirstChild(node, modelcode) {
           var activeNode;
           var i;
           var fun = function(currentNode, modelcode) {
@@ -308,7 +308,7 @@
           fun(node, modelcode);
           return activeNode;
         },
-        operateMenu: function(type) {
+        operateMenu(type) {
           var self = this;
           var fun = function(node) {
             if (type === 'open') {
@@ -342,7 +342,7 @@
             fun(self.currentMenuData[i]);
           }
         },
-        changeMenuActive: function() {
+        changeMenuActive() {
           var self = this;
           var fun = function(node) {
             node.active = true;
@@ -358,12 +358,12 @@
             this.operateMenu('active');
           }
         },
-        postMessage: function() {
+        postMessage() {
           if (this.isPost) {
             cMessage.postMessage(this.message, this.locationOrigin, parent);
           }
         },
-        bindPostMessage: function() {
+        bindPostMessage() {
           var self = this;
           cMessage.receiveMessage(function(message) {
             if (typeof message.data === 'object' && !Array.isArray(message.data)) {
@@ -384,12 +384,12 @@
             self.$emit('receive-message', message);
           }, self.locationOrigin);
         },
-        getEventPos: function(e) {
+        getEventPos(e) {
           var x = e.clientX;
           var y = e.clientY;
           return { 'x': x, 'y': y };
         },
-        menuContextmenu: function(model, event) {
+        menuContextmenu(model, event) {
           if (this.actionData.length === 0) {
             return;
           }
@@ -406,7 +406,7 @@
           e.returnValue = false;
           return false;
         },
-        preventDefault: function(e) {
+        preventDefault(e) {
           e = e || window.event;
           if (e.preventDefault) {
             e.preventDefault();
@@ -414,11 +414,11 @@
             e.returnvalue = false;
           }
         },
-        action: function(data) {
+        action(data) {
           this.$emit('contextmenu-action', data, this.contextMenuData);
           this.contextMenuShow = false;
         },
-        formatData: function() {
+        formatData() {
           var self = this;
           var fun = function(node) {
             if (!('open' in node)) {
@@ -438,7 +438,7 @@
             fun(this.currentMenuData[i]);
           }
         },
-        getPrefixStyle: function(name, val) {
+        getPrefixStyle(name, val) {
           var prefixs = ['', '-moz-', '-webkit-', '-o-'];
           var str = '';
           prefixs.map(function(prefix) {
@@ -447,7 +447,7 @@
           });
           return str;
         },
-        addEvent: function(element, type, handler) {
+        addEvent(element, type, handler) {
           if (element.addEventListener) {
             element.addEventListener(type, handler, false);
           } else if (element.attachEvent) {
@@ -458,13 +458,13 @@
             element['on' + type] = handler;
           }
         },
-        doDestroy: function() {
+        doDestroy() {
           this.$refs.popper && this.$refs.popper.doDestroy();
         },
-        handleClose: function() {
+        handleClose() {
           this.currentGuideArrowShow = false;
         },
-        getElOffsetTop: function(el, parentEl) {
+        getElOffsetTop(el, parentEl) {
           var top = el.offsetTop;
           var fun = function(el) {
             if (window.getComputedStyle(el).position !== 'static') {
@@ -478,7 +478,7 @@
           fun(el.parentNode);
           return top;
         },
-        handleScroll: function(el, scrollHeight) {
+        handleScroll(el, scrollHeight) {
           if (el.scrollTo) {
             el.scrollTo(0, scrollHeight);
           } else {
@@ -487,31 +487,31 @@
         }
       },
       watch: {
-        currentGuideArrowShow: function(val, oldVal) {
+        currentGuideArrowShow(val, oldVal) {
           if (!val) {
             this.broadcast('GuideArrow', 'destroyPopper');
           } else {
             this.broadcast('GuideArrow', 'updatePopper');
           }
         },
-        'currentMenuData': function(val, oldVal) {
+        currentMenuData(val, oldVal) {
         },
-        'menuData': function(val, oldVal) {
+        menuData(val, oldVal) {
           this.currentMenuData = val;
           this.formatData();
           if (oldVal.length === 0 && val.length > 0) {
             this.changeMenuActive();
           }
         },
-        'menuTitle': function(val) {
+        menuTitle(val) {
           this.currentMenuTitle = val;
         },
-        'menuType': function(val, oldVal) {
+        menuType(val, oldVal) {
           if (val !== this.currentMenuType) {
             this.showMore(val);
           }
         },
-        'guideArrowShow': function(val, oldVal) {
+        guideArrowShow(val, oldVal) {
           if (val !== this.currentGuideArrowShow) {
             if (val) {
               if (this.$refs['popper'].referenceElm) {
@@ -522,10 +522,10 @@
             }
           }
         },
-        'menuActive': function(val, oldVal) {
+        menuActive(val, oldVal) {
           this.operateMenu('active');
         },
-        'menuOpen': function(val, oldVal) {
+        menuOpen(val, oldVal) {
           var self = this;
           clearTimeout(this.menuAni);
           this.menuAni = setTimeout(function() {
@@ -559,11 +559,11 @@
             }
           }, this.timeOut);
         },
-        'isPost': function(val, oldVal) {
+        isPost(val, oldVal) {
           this.postMessage();
         }
       },
-      created: function() {
+      created() {
         this.currentMenuData = this.menuData;
         this.currentMenuTitle = this.menuTitle;
         this.formatData();
@@ -609,7 +609,7 @@
           lastStyleDom.innerText = _text + text;
         }
       },
-      mounted: function() {
+      mounted() {
         var self = this;
         this.$nextTick(function() {
           this.addEvent(document.body, 'click', function() {

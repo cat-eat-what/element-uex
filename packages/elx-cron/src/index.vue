@@ -58,12 +58,12 @@
       },
       visibleTypes: {
         type: Array,
-        default: function() {
+        default() {
           return ['secondly', 'minutely', 'hourly', 'daily', 'monthly', 'weekly', 'yearly'];
         }
       }
     },
-    data: function() {
+    data() {
       return {
         currentValue: this.value,
         inputWidth: 0,
@@ -95,22 +95,22 @@
       doDestroy() {
         this.$refs.popper && this.$refs.popper.doDestroy();
       },
-      handleError: function(msg) {
+      handleError(msg) {
         console.log(msg);
       }
     },
     watch: {
-      visible: function(val, oldVal) {
+      visible(val, oldVal) {
         if (!val) {
           this.broadcast('cron', 'destroyPopper');
         } else {
           this.broadcast('cron', 'updatePopper');
         }
       },
-      value: function(val, oldVal) {
+      value(val, oldVal) {
         this.currentValue = val;
       },
-      currentValue: function(val, oldVal) {
+      currentValue(val, oldVal) {
         this.$emit('input', val);
         this.$emit('change', val);
         if (this.validateEvent) {
@@ -118,9 +118,9 @@
         }
       }
     },
-    created: function() {
+    created() {
     },
-    mounted: function() {
+    mounted() {
       addResizeListener(this.$el, this.handleResize);
     },
     destroyed() {

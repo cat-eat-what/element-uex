@@ -77,7 +77,7 @@
         default: true
       }
     },
-    data: function() {
+    data() {
       return {
         currentType: this.type,
         isPostChild: false,
@@ -85,20 +85,20 @@
       };
     },
     methods: {
-      'backHref': function() {
+      backHref() {
         this.currentType = 'list';
         this.$emit('back-href');
       },
-      'newPage': function() {
+      newPage() {
         this.currentType = 'create';
         this.$emit('create');
       }
     },
     watch: {
-      'type': function(val, oldVal) {
+      type(val, oldVal) {
         this.currentType = val;
       },
-      'currentType': function(val, oldVal) {
+      currentType(val, oldVal) {
         this.$emit('update:type', val);
         if (val === 'create') {
           document.querySelector('iframe.elx-sub-content').setAttribute('src', this.src);
@@ -110,7 +110,7 @@
         }
       }
     },
-    created: function() {
+    created() {
       var _self = this;
       cMessage.receiveMessage(function(message) {
         if (typeof message.data === 'object' && !Array.isArray(message.data)) {

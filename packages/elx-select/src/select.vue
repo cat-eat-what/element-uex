@@ -301,7 +301,7 @@
     },
 
     methods: {
-      changeValue: function() {
+      changeValue() {
         var val = this.value;
         if (this.valueChangeBySelected) {
           this.valueChangeBySelected = false;

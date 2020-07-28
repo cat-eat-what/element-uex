@@ -44,7 +44,7 @@
         default: 'multi'
       }
     },
-    data: function() {
+    data() {
       return {
         options: this.formatItem(),
         allSelected: false,
@@ -52,7 +52,7 @@
       };
     },
     methods: {
-      formatItem: function() {
+      formatItem() {
         var options = [];
         for (var i = 0; i < this.items.length; i++) {
           options.push({
@@ -63,7 +63,7 @@
         }
         return options;
       },
-      selectItems: function(items) {
+      selectItems(items) {
         this.values = [];
         var i, _index;
         for (i in this.options) {
@@ -88,7 +88,7 @@
           }
         }
       },
-      selectItem: function(item, index) {
+      selectItem(item, index) {
         var self = this;
         item.selected = !item.selected;
         if (this.selectType === 'multi') {
@@ -110,7 +110,7 @@
         }
         this.$emit('select-item', this.values);
       },
-      selectAll: function() {
+      selectAll() {
         this.allSelected = !this.allSelected;
         this.values = [];
         for (var i = 0; i < this.items.length; i++) {
@@ -123,7 +123,7 @@
       }
     },
     watch: {
-      items: function() {
+      items() {
         this.options = this.formatItem();
         this.values = [];
         this.allSelected = false;

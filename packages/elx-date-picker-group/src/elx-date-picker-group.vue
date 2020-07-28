@@ -72,23 +72,23 @@ export default {
     },
     operateType: {
       type: Array,
-      default: function() {
+      default() {
         return ['year', 'month', 'date', 'daterange'];
       }
     }
   },
-  data: function() {
+  data() {
     return {
       currentDate: this.value,
       currentActiveDate: this.activeDate,
       formatedTime: '',
       pickerOptions: {
-        disabledDate: function(time) {
+        disabledDate(time) {
           return time.getTime() >= Date.now();
         }
       },
       pickerMonthOptions: {
-        disabledDate: function(time) {
+        disabledDate(time) {
           var _date = new Date();
           var _judge = false;
           if (time.getFullYear() > _date.getFullYear()) {
@@ -102,7 +102,7 @@ export default {
         }
       },
       pickerYearOptions: {
-        disabledDate: function(time) {
+        disabledDate(time) {
           var _date = new Date();
           return time.getFullYear() > _date.getFullYear();
         }
@@ -110,7 +110,7 @@ export default {
     };
   },
   methods: {
-    formateDate: function(val) {
+    formateDate(val) {
       if ((val === '' || val === null) || (Array.isArray(val) && (val[0] === null || val[1] === null))) {
         return this.formatedTime;
       }
@@ -140,7 +140,7 @@ export default {
       }
       return date;
     },
-    operateTime: function(type, callType) {
+    operateTime(type, callType) {
       if (this.currentActiveDate !== type) {
         if (this.currentActiveDate === 'daterange') {
           this.currentDate = this.currentDate[0];
@@ -157,15 +157,15 @@ export default {
     }
   },
   watch: {
-    'currentDate': function(val, oldVal) {
+    currentDate(val, oldVal) {
       this.formatedTime = this.formateDate(val);
     },
-    'formatedTime': function(val, oldVal) {
+    formatedTime(val, oldVal) {
       this.$emit('change', this.formatedTime);
       this.$emit('input', this.formatedTime);
     }
   },
-  created: function() {
+  created() {
     this.formatedTime = this.formateDate(this.currentDate);
   }
 };

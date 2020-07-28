@@ -20,6 +20,24 @@
         <elx-checkbox :key="option.value" v-for="option in options" :label="option.value">{{option.label}}</elx-checkbox>
       </elx-checkbox-group>
     </el-form-item>
+    <el-form-item label="活动性质" prop="type">
+      <elx-checkbox-group v-model="ruleForm.type" size="medium">
+        <elx-checkbox disabled label="a">a</elx-checkbox>
+        <elx-checkbox :key="option.value" v-for="option in options" :label="option.value">{{option.label}}</elx-checkbox>
+      </elx-checkbox-group>
+    </el-form-item>
+    <el-form-item label="活动性质" prop="type">
+      <elx-checkbox-group v-model="ruleForm.type" size="small">
+        <elx-checkbox disabled label="a">a</elx-checkbox>
+        <elx-checkbox :key="option.value" v-for="option in options" :label="option.value">{{option.label}}</elx-checkbox>
+      </elx-checkbox-group>
+    </el-form-item>
+    <el-form-item label="活动性质" prop="type">
+      <elx-checkbox-group v-model="ruleForm.type" size="mini">
+        <elx-checkbox disabled label="a">a</elx-checkbox>
+        <elx-checkbox :key="option.value" v-for="option in options" :label="option.value">{{option.label}}</elx-checkbox>
+      </elx-checkbox-group>
+    </el-form-item>
   </el-form>
 </div>
 <script>

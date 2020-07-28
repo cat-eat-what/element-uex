@@ -84,7 +84,7 @@
       }
     },
     methods: {
-      cardDblclick: function(cardTitle) {
+      cardDblclick(cardTitle) {
         this.$emit('card-dblclick', cardTitle);
       }
     }

@@ -67,7 +67,7 @@
         default: ''
       }
     },
-    data: function() {
+    data() {
       var options = [];
 
       for (var i = 0; i < 60; i++) {
@@ -96,7 +96,7 @@
       };
     },
     methods: {
-      validate: function(val) {
+      validate(val) {
         var self = this;
         var valType;
         var regexp = [];
@@ -119,7 +119,7 @@
           return null;
         }
       },
-      updateValue: function() {
+      updateValue() {
         var val = this.valType;
         var currentVal;
         if (val === '1') {
@@ -134,7 +134,7 @@
         this.currentValue = currentVal;
         this.$emit('input', currentVal);
       },
-      initData: function() {
+      initData() {
         var valType;
         if (!this.value || this.value === '') {
           this.valType = '1';
@@ -173,23 +173,23 @@
       }
     },
     watch: {
-      'valType': function(val, oldVal) {
+      valType(val, oldVal) {
         this.updateValue();
       },
-      'valModel': {
+      valModel: {
         deep: true,
-        handler: function(val, oldVal) {
+        handler(val, oldVal) {
           this.updateValue();
         }
       },
-      'value': function() {
+      value() {
         this.initData();
       }
     },
-    created: function() {
+    created() {
       this.initData();
     },
-    mounted: function() {
+    mounted() {
     }
   };
 </script>

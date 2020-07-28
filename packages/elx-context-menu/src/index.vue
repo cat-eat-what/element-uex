@@ -43,7 +43,7 @@
       },
       data: {
         type: Array,
-        default: function() {
+        default() {
           return [];
         }
       },
@@ -56,17 +56,17 @@
         default: true
       }
     },
-    data: function() {
+    data() {
       return {
         currentX: 0,
         currentY: 0
       };
     },
     methods: {
-      action: function(data) {
+      action(data) {
         this.$emit('action', data);
       },
-      changePos: function() {
+      changePos() {
         var gap = 5;
         var bodyClientHeight = document.body.clientHeight;
         var bodyClientTop = document.body.clientTop;
@@ -77,12 +77,12 @@
           this.currentY = viewHeight - height - gap;
         }
       },
-      handleDisplay: function() {
+      handleDisplay() {
         this.contentMenuShow = false;
       }
     },
     watch: {
-      visible: function(val) {
+      visible(val) {
         if (val) {
           var self = this;
           self.$nextTick(function() {
@@ -90,23 +90,23 @@
           });
         }
       },
-      x: function(val) {
+      x(val) {
         this.currentX = val;
       },
-      y: function(val) {
+      y(val) {
         this.currentY = val;
         this.changePos();
       }
     },
-    created: function() {
+    created() {
       this.currentX = this.x;
       this.currentY = this.y;
     },
-    mounted: function() {
+    mounted() {
       this.changePos();
       window.addEventListener('resize', this.handleDisplay);
     },
-    beforeDestroy: function() {
+    beforeDestroy() {
       window.removeEventListener('resize', this.handleDisplay);
     }
   };

@@ -83,7 +83,7 @@
         default: ''
       }
     },
-    data: function() {
+    data() {
       return {
         currentData: [],
         currentNavOpen: this.navOpen,
@@ -92,7 +92,7 @@
       };
     },
     methods: {
-      getModelDetail: function(modelcode) {
+      getModelDetail(modelcode) {
         var i;
         var j;
         for (i in this.currentData) {
@@ -108,7 +108,7 @@
           }
         }
       },
-      isModelChildren: function(model) {
+      isModelChildren(model) {
         var self = this;
         var child = null;
         if (model.children.length > 0) {
@@ -125,7 +125,7 @@
         }
         return child;
       },
-      expandNav: function(model) {
+      expandNav(model) {
         this.currentNavOpen = model.modelcode;
         this.$emit('update:navOpen', this.currentNavOpen);
         this.changeOpen();
@@ -139,7 +139,7 @@
         }
         this.$emit('nav-expand', model);
       },
-      collapseNav: function(model) {
+      collapseNav(model) {
         for (var i in this.currentData) {
           this.currentData[i].open = false;
         }
@@ -147,12 +147,12 @@
         this.$emit('update:navOpen', this.currentNavOpen);
         this.$emit('nav-collapse', model);
       },
-      navClick: function(model) {
+      navClick(model) {
         this.currentNavActive = model.modelcode;
         this.$emit('update:navActive', this.currentNavActive);
         this.changeActive(model);
       },
-      calcStringPixelsCount: function(str) {
+      calcStringPixelsCount(str) {
         var elementPixelsLengthRuler = document.createElement('span');
         elementPixelsLengthRuler.style.fontSize = '12px';
         elementPixelsLengthRuler.style.visibility = 'hidden';
@@ -164,7 +164,7 @@
         document.body.removeChild(elementPixelsLengthRuler);
         return width;
       },
-      getChildrenListLengthArr: function() {
+      getChildrenListLengthArr() {
         var childrenListLengthObj = {};
         this.currentData.map(function(model) {
           var strArr = model.children.map(function(item) {
@@ -175,7 +175,7 @@
         });
         this.childrenListLengthObj = childrenListLengthObj;
       },
-      changeOpen: function() {
+      changeOpen() {
         for (var i in this.currentData) {
           if (this.currentData[i].modelcode === this.currentNavOpen) {
             this.currentData[i].open = true;
@@ -184,7 +184,7 @@
           }
         }
       },
-      changeActive: function() {
+      changeActive() {
         var model = this.getModelDetail(this.currentNavActive);
         if (model) {
           this.currentData.map(function(item) {
@@ -202,7 +202,7 @@
           this.$emit('nav-change', model.model);
         }
       },
-      formatData: function() {
+      formatData() {
         var self = this;
         var fun = function(node) {
           if (!('open' in node)) {
@@ -224,42 +224,42 @@
       }
     },
     watch: {
-      data: function(val, oldVal) {
+      data(val, oldVal) {
         if (JSON.stringify(this.data) !== JSON.stringify(this.currentData)) {
           this.currentData = this.data;
           this.formatData();
           this.getChildrenListLengthArr();
         }
       },
-      currentData: function(val, oldVal) {
+      currentData(val, oldVal) {
         if (JSON.stringify(this.data) !== JSON.stringify(this.currentData)) {
           this.$emit('update:data', JSON.parse(JSON.stringify(this.currentData)));
         }
       },
-      navActive: function(val, oldVal) {
+      navActive(val, oldVal) {
         if (this.currentNavActive !== val) {
           this.currentNavActive = val;
           this.changeActive();
         }
       },
-      navOpen: function(val, oldVal) {
+      navOpen(val, oldVal) {
         if (this.currentNavOpen !== val) {
           this.currentNavOpen = val;
           this.changeOpen();
         }
       },
-      currentNavActive: function(val, oldVal) {
+      currentNavActive(val, oldVal) {
         if (this.navActive !== val) {
           this.$emit('update:navActive', val);
         }
       },
-      currentNavOpen: function(val, oldVal) {
+      currentNavOpen(val, oldVal) {
         if (this.navOpen !== val) {
           this.$emit('update:navOpen', val);
         }
       }
     },
-    created: function() {
+    created() {
       this.currentData = this.data;
       this.formatData();
       this.getChildrenListLengthArr();
@@ -267,7 +267,7 @@
       this.changeOpen();
       this.changeActive();
     },
-    beforeDestroy: function() {
+    beforeDestroy() {
       window.removeEventListener('resize', this.getChildrenListLengthArr);
     }
   };

@@ -90,7 +90,7 @@
     props: ['params', 'columns', 'value', 'mainLabel', 'paramEn', 'paramZh'],
     template: '#param-form-template',
     replace: true,
-    data: function() {
+    data() {
       var _stepCfgValMap = this.value ? this.value : {};
       var _paramArr = [];
       var _params = this.params;
@@ -122,7 +122,7 @@
       })};
     },
     methods: {
-      changeSwitch: function(param) {
+      changeSwitch(param) {
         var _currentData;
         if (!param.isReturn) {
           _currentData = {
@@ -159,7 +159,7 @@
     watch: {
       paramsData: {
         deep: true,
-        handler: function(val, oldVal) {
+        handler(val, oldVal) {
           var _params = this.paramsData;
           var _obj = {};
           for (var i in _params) {

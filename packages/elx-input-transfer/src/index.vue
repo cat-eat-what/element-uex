@@ -58,7 +58,7 @@
       getOptionsUrl: Function,
       props: {
         type: Object,
-        default: function() {
+        default() {
           return {
             key: 'key',
             search: 'search'
@@ -67,7 +67,7 @@
       },
       optionProps: {
         type: Object,
-        default: function() {
+        default() {
           return {
             label: 'label',
             value: 'value'
@@ -76,14 +76,14 @@
       },
       column: {
         type: Object,
-        default: function() {
+        default() {
           return {};
         }
       },
       disabled: Boolean,
       editDisabled: Boolean
     },
-    data: function() {
+    data() {
       return {
         selected: null,
         dialogVisible: false,
@@ -92,7 +92,7 @@
       };
     },
     methods: {
-      getOptions: function() {
+      getOptions() {
         var self = this;
         var url;
         if (typeof this.getOptionsUrl() === 'string' && this.getOptionsUrl() !== '') {
@@ -111,16 +111,16 @@
           }
         });
       },
-      getTransfer: function() {
+      getTransfer() {
         this.currentTransferValue = this.transferValue;
         this.dialogVisible = true;
       },
-      saveTransfer: function() {
+      saveTransfer() {
         this.transferValue = this.currentTransferValue;
         this.setValueByTransfer();
         this.dialogVisible = false;
       },
-      judgeReq: function() {
+      judgeReq() {
         var judge = true;
         var valArr = this.value.split(this.split);
         var transferObj = {};
@@ -136,7 +136,7 @@
         }
         return judge;
       },
-      setSelectedByValue: function() {
+      setSelectedByValue() {
         var valArr = this.value.split(this.split);
         var selectedArr = [];
         var transferObj = {};
@@ -152,14 +152,14 @@
         }
         this.selected = selectedArr.join(',');
       },
-      setValueByTransfer: function() {
+      setValueByTransfer() {
         var strArr = [];
         for (var i in this.transferValue) {
           strArr.push(this.transferValue[i][this.optionProps.value]);
         }
         this.$emit('input', strArr.join(','));
       },
-      formaterValue: function() {
+      formaterValue() {
         if (this.judgeReq()) {
           this.setSelectedByValue();
         } else {
@@ -168,7 +168,7 @@
       }
     },
     watch: {
-      value: function(val) {
+      value(val) {
         if (typeof this.value === 'string') {
           this.formaterValue();
           this.$emit('change', val);
@@ -176,7 +176,7 @@
         }
       }
     },
-    created: function() {
+    created() {
       if (typeof this.value === 'string') {
         this.formaterValue();
       }

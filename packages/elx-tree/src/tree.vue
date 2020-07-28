@@ -99,7 +99,7 @@
       allowDrag: Function,
       allowDrop: Function
     },
-    data: function() {
+    data() {
       return {
         store: {},
         id: 1000,
@@ -124,28 +124,28 @@
       insertAfter(data, refNode) {
         this.$refs['elxTreeChild'].insertAfter(data, refNode);
       },
-      handleDragStart: function(node, e) {
+      handleDragStart(node, e) {
         this.$emit('node-drag-start', node, e);
       },
-      handleDragEnter: function(draggingNode, dropNode, e) {
+      handleDragEnter(draggingNode, dropNode, e) {
         this.$emit('node-drag-enter', draggingNode, dropNode, e);
       },
-      handleDragLeave: function(draggingNode, dropNode, e) {
+      handleDragLeave(draggingNode, dropNode, e) {
         this.$emit('node-drag-leave', draggingNode, dropNode, e);
       },
-      handleDragOver: function(draggingNode, dropNode, e) {
+      handleDragOver(draggingNode, dropNode, e) {
         this.$emit('node-drag-over', draggingNode, dropNode, e);
       },
-      handleDragEnd: function(draggingNode, dropNode, dropType, e) {
+      handleDragEnd(draggingNode, dropNode, dropType, e) {
         this.$emit('node-drag-end', draggingNode, dropNode, dropType, e);
       },
-      handleDrop: function(draggingNode, dropNode, dropType, e) {
+      handleDrop(draggingNode, dropNode, dropType, e) {
         this.$emit('node-drop', draggingNode, dropNode, dropType, e);
       },
-      hasText: function(label, value) {
+      hasText(label, value) {
         return (String(label).toLowerCase().indexOf(String(value).toLowerCase()) !== -1);
       },
-      childNodesHasText: function(item) {
+      childNodesHasText(item) {
         var judge = false;
         var self = this;
         var func = function(node) {
@@ -193,7 +193,7 @@
         });
         return isVal || isParentVal;
       },
-      expandNode: function(key) {
+      expandNode(key) {
         var _fun = function(node) {
           if (!Array.isArray(node.children)) {
             return;
@@ -212,7 +212,7 @@
           _fun(this.currentTreeData[i]);
         }
       },
-      formatData: function() {
+      formatData() {
         var _fun = function(node) {
           node.isExpand = 'isExpand' in node ? node.isExpand : false;
           node.rename = 'rename' in node ? node.rename : false;
@@ -243,28 +243,28 @@
         }
         return _data;
       },
-      nodeExpand: function(data, node, obj) {
+      nodeExpand(data, node, obj) {
         data.isExpand = true;
       },
-      nodeCollapse: function(data, node, obj) {
+      nodeCollapse(data, node, obj) {
         data.isExpand = false;
       },
-      treeNodeClick: function(data, node, obj, event) {
+      treeNodeClick(data, node, obj, event) {
         this.contentMenuShow = false;
         this.$emit('node-click', node, event);
         this.renameFalse(event, node === this.activeNode);
       },
-      nodeDblClick: function(data, node, obj, event) {
+      nodeDblClick(data, node, obj, event) {
         this.contentMenuShow = false;
         this.$emit('node-dblclick', node, event);
         this.renameFalse(event, node === this.activeNode);
       },
-      getEventPos: function(e) {
+      getEventPos(e) {
         var x = e.clientX;
         var y = e.clientY;
         return { 'x': x, 'y': y };
       },
-      nodeClick: function(node, data, store, event) {
+      nodeClick(node, data, store, event) {
         var e = event || window.event;
         var pos = this.getEventPos(e);
         if (e.which === 3) {
@@ -282,11 +282,11 @@
         e.returnValue = false;
         return false;
       },
-      changeLabel: function(data, event) {
+      changeLabel(data, event) {
         var e = event || window.event;
         data.label = e.target.value;
       },
-      append: function() {
+      append() {
         var _self = this;
         this.activeData.children.push({ id: this.id++, rename: false, isExpand: false, hasExtraAction: false, isEdit: true, isAdd: true, isDelete: true, label: '新增', children: [] });
         this.contentMenuShow = false;
@@ -296,7 +296,7 @@
           _self.$emit('add', _self.activeNode);
         });
       },
-      remove: function() {
+      remove() {
         var _self = this;
         var _index;
         if ('children' in this.activeNode.parent.data) {
@@ -314,17 +314,17 @@
           _self.$emit('remove', _self.activeNode);
         });
       },
-      rename: function() {
+      rename() {
         this.activeData.rename = true;
         this.contentMenuShow = false;
       },
-      renameEmit: function() {
+      renameEmit() {
         var _self = this;
         this.$nextTick(function() {
           _self.$emit('rename', _self.activeNode);
         });
       },
-      getDisabled: function() {
+      getDisabled() {
         return false;
       },
       preventDefault(e) {
@@ -335,10 +335,10 @@
           e.returnvalue = false;
         }
       },
-      changeRename: function(data) {
+      changeRename(data) {
         data.rename = true;
       },
-      renameFalse: function(event, judge) {
+      renameFalse(event, judge) {
         var e = event || window.event;
         if (e) {
           if (e.target.localName === 'input' && !('disabled' in e.target.attributes)) {
@@ -365,7 +365,7 @@
           _fun(this.currentTreeData[i]);
         }
       },
-      renderContent: function(h, { node, data, store }) {
+      renderContent(h, { node, data, store }) {
         this.store = store;
         var self = this;
         var nodeClass = 'node level-' + node.level + ' child-' + node.childNodes.length;
@@ -423,7 +423,7 @@
           </div>
         );
       },
-      initTree: function() {
+      initTree() {
         for (var i in this.defaultExpandedKeys) {
           this.expandNode(this.defaultExpandedKeys[i]);
         }
@@ -431,7 +431,7 @@
           this.$emit('node-click', this.store.currentNode);
         }
       },
-      addEvent: function(element, type, handler) {
+      addEvent(element, type, handler) {
         if (element.addEventListener) {
           element.addEventListener(type, handler, false);
         } else if (element.attachEvent) {
@@ -442,13 +442,13 @@
           element['on' + type] = handler;
         }
       },
-      docClick: function(event) {
+      docClick(event) {
         this.contentMenuShow = false;
         this.renameFalse(event);
       }
     },
     watch: {
-      data: function(val, oldVal) {
+      data(val, oldVal) {
         this.currentTreeData = this.formatData();
         if (Array.isArray(oldVal)) {
           if (oldVal.length === 0) {
@@ -456,26 +456,25 @@
           }
         }
       },
-      currentTreeData: function(val, oldVal) {
+      currentTreeData(val, oldVal) {
         this.$emit('update:data', val);
       },
-      filterText: function(val) {
+      filterText(val) {
         this.$refs.elxTreeChild.filter(val);
       }
     },
-    mounted: function() {
+    mounted() {
       var _self = this;
       this.$nextTick(function() {
         document.body.addEventListener('click', this.docClick);
         _self.initTree();
       });
     },
-    beforeDestroy: function() {
+    beforeDestroy() {
       document.body.removeEventListener('click', this.docClick);
     },
-    created: function() {
+    created() {
       this.currentTreeData = this.formatData();
     }
   };
 </script>
-

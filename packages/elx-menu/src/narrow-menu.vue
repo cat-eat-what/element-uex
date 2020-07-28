@@ -100,14 +100,14 @@
           default: 0
         }
       },
-      data: function() {
+      data() {
         return {
           top: 0,
           bottom: ''
         };
       },
       methods: {
-        getCurLabel: function(str) {
+        getCurLabel(str) {
           var realLength = 0;
           if (typeof str !== 'string') {
             return '';
@@ -128,28 +128,28 @@
           }
           return sub !== -1 ? str.substring(0, sub) + '..' : str;
         },
-        canMenuChange: function() {
+        canMenuChange() {
           var filterData = this.model.children.filter(function(item) {
             return item.active === true;
           });
           return this.model.children.length === 0 || (this.model.children.length !== 0 && this.model.url !== '' && this.model.url !== null && filterData.length === 0);
         },
-        menuChange: function(model) {
+        menuChange(model) {
           this.$emit('menu-change', model);
         },
-        lastChildNodeClick: function(model) {
+        lastChildNodeClick(model) {
           this.$emit('last-child-node-click', model);
         },
-        emitactive: function(modelArr, status) {
+        emitactive(modelArr, status) {
           var _arr = [this.model].concat(modelArr);
           console.log('_arr', _arr);
           this.$emit('emitactive', _arr, status);
         },
-        emitopen: function(modelArr, status) {
+        emitopen(modelArr, status) {
           var _arr = [this.model].concat(modelArr);
           this.$emit('emitopen', _arr, status, 'narrow');
         },
-        menuActive: function() {
+        menuActive() {
           if (this.canMenuChange()) {
             if (this.model.active) {
               this.$emit('menu-change', this.model);
@@ -160,7 +160,7 @@
             this.$emit('last-child-node-click', this.model);
           }
         },
-        subMenuOpen: function() {
+        subMenuOpen() {
           var _arr = [this.model];
           if (this.model.active) {
             var fun = function(node) {
@@ -184,7 +184,7 @@
             }
           }
         },
-        getElOffsetTop: function(el, parentEl) {
+        getElOffsetTop(el, parentEl) {
           var top = el.offsetTop;
           var fun = function(el) {
             if (window.getComputedStyle(el).position !== 'static') {
@@ -198,7 +198,7 @@
           fun(el.parentNode);
           return top;
         },
-        menuOpen: function(event) {
+        menuOpen(event) {
           this.$emit('emitopen', [this.model], false, 'narrow');
           var _e = event || window.event;
           var _target = _e.currentTarget;
@@ -214,10 +214,10 @@
             this.top = 40;
           }
         },
-        menuClose: function() {
+        menuClose() {
           this.$emit('emitopen', [this.model], true, 'narrow');
         },
-        contextmenu: function(model, e) {
+        contextmenu(model, e) {
           this.$emit('menu-contextmenu', model, e);
         }
       }

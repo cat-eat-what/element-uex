@@ -42,19 +42,19 @@
         default: []
       }
     },
-    data: function() {
+    data() {
       return {
         currentNavData: []
       };
     },
     methods: {
-      mouseenter: function(item) {
+      mouseenter(item) {
         item.open = true;
       },
-      mouseleave: function(item) {
+      mouseleave(item) {
         item.open = false;
       },
-      formatData: function() {
+      formatData() {
         var self = this;
         var fun = function(node) {
           if (!('open' in node)) {
@@ -76,12 +76,12 @@
       }
     },
     watch: {
-      navData: function(val) {
+      navData(val) {
         this.currentNavData = val;
         this.formatData();
       }
     },
-    created: function() {
+    created() {
       this.currentNavData = this.navData;
       this.formatData();
     }

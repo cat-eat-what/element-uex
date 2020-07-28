@@ -73,14 +73,14 @@
       },
       visible: Boolean
     },
-    data: function() {
+    data() {
       return {
         referenceElm: null,
         popperElm: null
       };
     },
     methods: {
-      addEvent: function(element, type, handler) {
+      addEvent(element, type, handler) {
         if (element.addEventListener) {
           element.addEventListener(type, handler, false);
         } else if (element.attachEvent) {
@@ -91,11 +91,11 @@
           element['on' + type] = handler;
         }
       },
-      setReferenceElm: function(el) {
+      setReferenceElm(el) {
         this.referenceElm = el;
       }
     },
-    created: function() {
+    created() {
     },
     mounted() {
       this.$parent.popperElm = this.popperElm = this.$el;

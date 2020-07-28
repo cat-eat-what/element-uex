@@ -41,14 +41,14 @@ export default {
     editType: {},
     type: {}
   },
-  data: function() {
+  data() {
     return {
       isError: false,
       errorMsg: ''
     };
   },
   methods: {
-    validData: function(data, rules) {
+    validData(data, rules) {
       var self = this;
       var judge = true;
       const validator = new AsyncValidator(rules);
@@ -64,7 +64,7 @@ export default {
       });
       return judge;
     },
-    validate: function() {
+    validate() {
       var fieldIndex = this.fieldIndex;
       var activeRowIndex = this.activeRowIndex;
       var activeColumnKey = this.activeColumnKey;
@@ -93,11 +93,11 @@ export default {
     }
   },
   watch: {
-    cellText: function(val, oldVal) {
+    cellText(val, oldVal) {
       this.validate();
     }
   },
-  created: function() {
+  created() {
   }
 };
 </script>

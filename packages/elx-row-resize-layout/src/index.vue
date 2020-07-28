@@ -68,7 +68,7 @@
         default: 'wide'
       }
     },
-    data: function() {
+    data() {
       var splitW = this.splitType === 'wide' ? 12 : 1;
       return {
         test: null,
@@ -80,20 +80,20 @@
       };
     },
     computed: {
-      splitW: function() {
+      splitW() {
         return this.splitType === 'wide' ? 12 : 1;
       },
-      single: function() {
+      single() {
         return (!this.topVisible && this.bottomVisible && this.splitVisible) || (this.topVisible && !this.bottomVisible && this.splitVisible);
       },
-      resizeSplitTop: function() {
+      resizeSplitTop() {
         var top = this.splitTop;
         if (this.mouseEnter && this.splitType === 'narrow') {
           top = top - 5;
         }
         return top + 'px';
       },
-      resizeSplitBottom: function() {
+      resizeSplitBottom() {
         var bottom = this.currentHeight - this.splitTop - this.splitW;
         if (this.mouseEnter && this.splitType === 'narrow') {
           bottom = bottom - 5;
@@ -102,7 +102,7 @@
       }
     },
     methods: {
-      splitDown: function(e) {
+      splitDown(e) {
         this.addEvent(document.body, 'mousedown', this.preventSelect);
         this.addCursorStyle();
         this.addBodyEvent();
@@ -110,7 +110,7 @@
         this.prePageY = e.pageY;
         this.mouseDown = true;
       },
-      splitMove: function(e) {
+      splitMove(e) {
         if (this.originPageY !== 0 || (this.mouseDown && (e.pageY - this.prePageY > 0))) {
           this.$emit('drag-start', this.currentHeight, this.splitTop);
           var gap = e.pageY - this.originPageY;
@@ -141,7 +141,7 @@
         }
         this.prePageY = e.pageY;
       },
-      splitUp: function(e) {
+      splitUp(e) {
         this.removeEvent(document.body, 'mousedown', this.preventSelect);
         this.removeCursorStyle();
         this.removeBodyEvent();
@@ -149,7 +149,7 @@
         this.originPageY = 0;
         this.mouseDown = false;
       },
-      splitLeave: function(e) {
+      splitLeave(e) {
         if (this.single) {
           this.splitMove(e);
         } else {
@@ -162,7 +162,7 @@
         }
         e.preventDefault();
       },
-      resizeByVisible: function() {
+      resizeByVisible() {
         if (!this.topVisible) {
           this.splitTop = 0;
         }
@@ -170,7 +170,7 @@
           this.splitTop = this.splitVisible ? this.currentHeight - this.splitW : this.currentHeight;
         }
       },
-      addEvent: function(element, type, handler) {
+      addEvent(element, type, handler) {
         if (element.addEventListener) {
           element.addEventListener(type, handler, false);
         } else if (element.attachEvent) {
@@ -181,7 +181,7 @@
           element['on' + type] = handler;
         }
       },
-      removeEvent: function(element, type, handler) {
+      removeEvent(element, type, handler) {
         if (element.removeEventListener) {
           element.removeEventListener(type, handler, false);
         } else if (element.detachEvent) {
@@ -190,40 +190,40 @@
           element['on' + type] = null;
         }
       },
-      preventSelect: function(e) {
+      preventSelect(e) {
         e.preventDefault();
         return false;
       },
-      addCursorStyle: function() {
+      addCursorStyle() {
         document.body.style.cursor = 'row-resize';
       },
-      removeCursorStyle: function() {
+      removeCursorStyle() {
         document.body.style.cursor = 'auto';
       },
-      addBodyEvent: function() {
+      addBodyEvent() {
         if (this.single) {
           this.addEvent(document.body, 'mouseup', this.splitUp);
           this.addEvent(document.body, 'mousemove', this.splitLeave);
           this.addEvent(document.body, 'mouseleave', this.splitUp);
         }
       },
-      removeBodyEvent: function() {
+      removeBodyEvent() {
         this.removeEvent(document.body, 'mouseup', this.splitUp);
         this.removeEvent(document.body, 'mousemove', this.splitLeave);
         this.removeEvent(document.body, 'mouseleave', this.splitUp);
       },
-      splitMouseEnter: function() {
+      splitMouseEnter() {
         this.mouseEnter = true;
       },
-      splitMouseLeave: function() {
+      splitMouseLeave() {
         this.mouseEnter = false;
       }
     },
     watch: {
-      splitTop: function(val, oldVal) {
+      splitTop(val, oldVal) {
         this.$emit('resize', this.currentHeight, this.splitTop);
       },
-      height: function(val, oldVal) {
+      height(val, oldVal) {
         this.currentHeight = val;
         if ((!this.topVisible || !this.bottomVisible)) {
           this.resizeByVisible();
@@ -236,16 +236,16 @@
         }
         this.$emit('resize', this.currentHeight, this.splitTop);
       },
-      currentHeight: function(val) {
+      currentHeight(val) {
         this.$emit('update:height', val);
       },
-      topVisible: function(val, oldVal) {
+      topVisible(val, oldVal) {
         this.resizeByVisible();
       },
-      bottomVisible: function(val, oldVal) {
+      bottomVisible(val, oldVal) {
         this.resizeByVisible();
       },
-      splitVisible: function(val, oldVal) {
+      splitVisible(val, oldVal) {
         if (!oldVal) {
           if (this.topVisible && this.bottomVisible && val) {
             this.splitTop = this.defaultTop || window.parseInt((this.currentHeight - this.splitW) * 0.5);
@@ -253,15 +253,14 @@
         }
       }
     },
-    created: function() {
+    created() {
       this.resizeByVisible();
     },
-    mounted: function() {
+    mounted() {
     },
-    beforeDestroy: function() {
+    beforeDestroy() {
       this.removeBodyEvent();
       this.removeEvent(document.body, 'mousedown', this.preventSelect);
     }
   };
 </script>
-
