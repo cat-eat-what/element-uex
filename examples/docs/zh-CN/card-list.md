@@ -15,19 +15,46 @@
   :card-creator="data.cardCreator"
   :card-state="data.cardState"
   :base-data="data.baseData">
-  <div slot="cardOperate" class="operate-group">
-    <el-tooltip class="item" effect="light" content="编辑" placement="top">
-        <span class="key" ><i class="uex-icon-edit"></i></span>
+  <div
+    slot="cardOperate"
+    class="operate-group">
+    <el-tooltip
+      class="item"
+      effect="light"
+      content="编辑"
+      placement="top">
+        <span class="key">
+          <i class="uex-icon-edit"></i>
+        </span>
     </el-tooltip>
-    <el-tooltip class="item" effect="light" content="查看" placement="top">
-        <span ><i class="uex-icon-view"></i></span>
+    <el-tooltip
+      class="item"
+      effect="light"
+      content="查看"
+      placement="top">
+        <span>
+          <i class="uex-icon-view"></i>
+        </span>
     </el-tooltip>
-    <el-tooltip class="item" effect="light" content="删除" placement="top">
-        <span><a target="_blank"><i class="uex-icon-delete"></i></a></span>
+    <el-tooltip
+      class="item"
+      effect="light"
+      content="删除"
+      placement="top">
+        <span>
+          <a target="_blank">
+            <i class="uex-icon-delete"></i>
+          </a>
+        </span>
     </el-tooltip>
   </div>
-  <template slot="cardState" slot-scope="props">
-      <span class="circle-icon" v-html="props.state" ></span>
+  <template
+    slot="cardState"
+    slot-scope="props">
+      <span
+        class="circle-icon"
+        v-html="props.state">
+      </span>
   </template>
 </elx-card-list>
 <script>

@@ -7,14 +7,24 @@
 ::: demo 列移动
 ```html
 <div class="main-demo">
-  <div :style="{width: leftWidth + 'px', height: '100%', float: 'left'}"></div>
+  <div
+    :style="{
+      width: leftWidth + 'px',
+      height: '100%',
+      float: 'left'
+    }">
+  </div>
   <elx-col-resize-layout
     style="float:left"
     :width.sync="fullWidth1"
     :max-width="maxWidth1"
     :left-visible="false"
     @resize="resize">
-    <div class="lay-right" slot="right" style="float:left"></div>
+    <div
+      class="lay-right"
+      slot="right"
+      style="float:left">
+    </div>
   </elx-col-resize-layout>
 </div>
 <script>

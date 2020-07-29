@@ -93,14 +93,12 @@
     },
     methods: {
       getModelDetail(modelcode) {
-        var i;
-        var j;
-        for (i in this.currentData) {
+        for (let i in this.currentData) {
           if (this.currentData[i].modelcode === modelcode) {
             return {model: this.currentData[i], lvl: 0, parent: null};
           }
           if (this.currentData[i].children.length > 0) {
-            for (j in this.currentData[i].children) {
+            for (let j in this.currentData[i].children) {
               if (this.currentData[i].children[j].modelcode === modelcode) {
                 return {model: this.currentData[i].children[j], lvl: 1, parent: this.currentData[i]};
               }
@@ -109,11 +107,11 @@
         }
       },
       isModelChildren(model) {
-        var self = this;
-        var child = null;
+        const self = this;
+        let child = null;
         if (model.children.length > 0) {
-          var func = function(item) {
-            for (var i in item.children) {
+          const func = function(item) {
+            for (let i in item.children) {
               if (item.children[i].modelcode === self.currentNavActive) {
                 child = item.children[i];
               } else {
@@ -129,7 +127,7 @@
         this.currentNavOpen = model.modelcode;
         this.$emit('update:navOpen', this.currentNavOpen);
         this.changeOpen();
-        var activeModel = this.isModelChildren(model);
+        const activeModel = this.isModelChildren(model);
         if (!activeModel) {
           if (model.children.length > 0) {
             this.currentNavActive = model.children[0].modelcode;
@@ -140,7 +138,7 @@
         this.$emit('nav-expand', model);
       },
       collapseNav(model) {
-        for (var i in this.currentData) {
+        for (let i in this.currentData) {
           this.currentData[i].open = false;
         }
         this.currentNavOpen = '';
@@ -153,21 +151,21 @@
         this.changeActive(model);
       },
       calcStringPixelsCount(str) {
-        var elementPixelsLengthRuler = document.createElement('span');
+        const elementPixelsLengthRuler = document.createElement('span');
         elementPixelsLengthRuler.style.fontSize = '12px';
         elementPixelsLengthRuler.style.visibility = 'hidden';
         elementPixelsLengthRuler.style.display = 'inline-block';
         elementPixelsLengthRuler.style.wordBreak = 'break-all !important';
         document.body.appendChild(elementPixelsLengthRuler);
         elementPixelsLengthRuler.innerHTML = str;
-        var width = elementPixelsLengthRuler.offsetWidth;
+        const width = elementPixelsLengthRuler.offsetWidth;
         document.body.removeChild(elementPixelsLengthRuler);
         return width;
       },
       getChildrenListLengthArr() {
-        var childrenListLengthObj = {};
+        const childrenListLengthObj = {};
         this.currentData.map(function(model) {
-          var strArr = model.children.map(function(item) {
+          const strArr = model.children.map(function(item) {
             return typeof item.modelname === 'string' ? item.modelname : '';
           });
           childrenListLengthObj[model.modelcode] = 75 * strArr.length;
@@ -176,7 +174,7 @@
         this.childrenListLengthObj = childrenListLengthObj;
       },
       changeOpen() {
-        for (var i in this.currentData) {
+        for (let i in this.currentData) {
           if (this.currentData[i].modelcode === this.currentNavOpen) {
             this.currentData[i].open = true;
           } else {
@@ -185,7 +183,7 @@
         }
       },
       changeActive() {
-        var model = this.getModelDetail(this.currentNavActive);
+        const model = this.getModelDetail(this.currentNavActive);
         if (model) {
           this.currentData.map(function(item) {
             if (model.lvl === 1) {
@@ -203,8 +201,8 @@
         }
       },
       formatData() {
-        var self = this;
-        var fun = function(node) {
+        const self = this;
+        const fun = function(node) {
           if (!('open' in node)) {
             self.$set(node, 'open', false);
           }
@@ -214,11 +212,11 @@
           if (node.children.length === 0) {
             return;
           }
-          for (var i = 0; i < node.children.length; i++) {
+          for (let i = 0; i < node.children.length; i++) {
             fun(node.children[i]);
           }
         };
-        for (var i = 0;i < this.currentData.length; i++) {
+        for (let i = 0;i < this.currentData.length; i++) {
           fun(this.currentData[i]);
         }
       }

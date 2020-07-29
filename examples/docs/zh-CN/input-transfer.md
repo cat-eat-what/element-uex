@@ -7,13 +7,6 @@
 
 ::: demo 远程穿梭框
 ```html
-<style>
-.main-demo{
-  height:348px;
-  background-color: white
-}
-</style>
-
 <div class="main-demo">
   <elx-input-transfer
     v-model="value"

@@ -27,7 +27,9 @@
   <div class="openDemo">
     选择open菜单
     <br/><br/>
-    <el-select v-model="openValue" placeholder="请选择" >
+    <el-select
+      v-model="openValue"
+      placeholder="请选择" >
       <el-option
         v-for="(item, index) in options"
         :key="index"
@@ -39,7 +41,9 @@
   <div class="activeDemo">
     选择active菜单
     <br/><br/>
-    <el-select v-model="activeValue" placeholder="请选择" >
+    <el-select
+      v-model="activeValue"
+      placeholder="请选择" >
       <el-option
         v-for="(item, index) in options"
         :key="index"

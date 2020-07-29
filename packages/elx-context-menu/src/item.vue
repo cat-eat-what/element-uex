@@ -107,8 +107,8 @@
       },
       methods: {
         getElementPosition(el) {
-          var x = 0;
-          var y = 0;
+          let x = 0;
+          let y = 0;
           while (el != null) {
             x += el.offsetLeft;
             y += el.offsetTop;
@@ -123,16 +123,16 @@
           this.$emit('action', data);
         },
         changeStyle() {
-          var self = this;
+          const self = this;
           if (self.$el.childNodes[1]) {
             if (typeof self.$el.childNodes[1].tagName === 'string') {
               if (self.$el.childNodes[1].tagName.toLowerCase() === 'ul') {
-                var bodyClientHeight = document.body.clientHeight;
-                var bodyClientTop = document.body.clientTop;
-                var viewHeight = bodyClientHeight + bodyClientTop;
-                var clientTop = this.getElementPosition(self.$el.childNodes[1]).y;
-                var height = self.$el.childNodes[1].clientHeight;
-                var elBottom = height + clientTop;
+                const bodyClientHeight = document.body.clientHeight;
+                const bodyClientTop = document.body.clientTop;
+                const viewHeight = bodyClientHeight + bodyClientTop;
+                const clientTop = this.getElementPosition(self.$el.childNodes[1]).y;
+                const height = self.$el.childNodes[1].clientHeight;
+                const elBottom = height + clientTop;
                 if (viewHeight < elBottom) {
                   this.pos.top = 'auto';
                   this.pos.bottom = '0px';
@@ -156,7 +156,7 @@
       watch: {
         visible(val) {
           if (val) {
-            var self = this;
+            const self = this;
             this.$nextTick(function() {
               self.changeStyle();
             });

@@ -42,7 +42,7 @@
     },
     methods: {
       resize() {
-        var self = this;
+        const self = this;
         if (typeof self.$children === 'object') {
           self.$children.map(function(item) {
             if (typeof item.resize === 'function') {
@@ -57,7 +57,7 @@
         this.currentFullscreenLoading = val;
       },
       currentFullscreenLoading(val, oldVal) {
-        var self = this;
+        const self = this;
         this.$emit('update:fullscreenLoading', val);
         if (!val) {
           this.$nextTick(function() {
@@ -67,7 +67,7 @@
       }
     },
     mounted() {
-      var self = this;
+      const self = this;
       window.addEventListener('resize', this.resize);
       this.$nextTick(function() {
         setTimeout(function() {

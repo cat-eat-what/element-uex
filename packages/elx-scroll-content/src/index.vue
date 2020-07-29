@@ -54,7 +54,7 @@
         return window.isNaN(val) ? 0 : val;
       },
       getCss(el) {
-        var css;
+        let css;
         if (window.getComputedStyle) {
           css = window.getComputedStyle(el);
         } else {
@@ -63,15 +63,15 @@
         return css;
       },
       judgeElLocation(el) {
-        var css = this.getCss(el);
+        let css = this.getCss(el);
         if (css.position === 'fixed' || css.position === 'absolute') {
           return false;
         }
         return true;
       },
       getRealHeight(el, height) {
-        var realHeight = 0;
-        var css = this.getCss(el);
+        let realHeight = 0;
+        const css = this.getCss(el);
         if (css.boxSizing === 'border-box') {
           realHeight = this.parseFloat(height) -
             this.parseFloat(css.marginTop) -
@@ -88,8 +88,8 @@
         return realHeight;
       },
       getInnerHeight(el) {
-        var innerHeight = 0;
-        var css = this.getCss(el);
+        let innerHeight = 0;
+        const css = this.getCss(el);
         innerHeight = this.formatVal(css.height, el.offsetHeight, -1) -
           this.parseFloat(css.paddingTop) -
           this.parseFloat(css.paddingBottom) -
@@ -98,16 +98,16 @@
         return innerHeight;
       },
       getOuterHeight(el) {
-        var outerHeight = 0;
-        var css = this.getCss(el);
+        let outerHeight = 0;
+        const css = this.getCss(el);
         outerHeight = this.parseFloat(css.marginTop) +
           this.formatVal(css.height, el.offsetHeight, 1) +
           this.parseFloat(css.marginBottom);
         return outerHeight;
       },
       getRealWidth(el, width) {
-        var realWidth = 0;
-        var css = this.getCss(el);
+        let realWidth = 0;
+        const css = this.getCss(el);
         if (css.boxSizing === 'border-box') {
           realWidth = this.parseFloat(width) -
             this.parseFloat(css.marginLeft) -
@@ -124,14 +124,14 @@
         return realWidth;
       },
       getOffsetWidth(el, type) {
-        var rect = el.getBoundingClientRect();
-        var xOffsetWidth = Math.round(rect.right - rect.left);
-        var offsetWidth = el.offsetWidth;
+        const rect = el.getBoundingClientRect();
+        const xOffsetWidth = Math.round(rect.right - rect.left);
+        const offsetWidth = el.offsetWidth;
         return type === 'inner' ? Math.min(xOffsetWidth, offsetWidth) : Math.max(xOffsetWidth, offsetWidth);
       },
       getInnerWidth(el) {
-        var innerWidth = 0;
-        var css = this.getCss(el);
+        let innerWidth = 0;
+        const css = this.getCss(el);
         innerWidth = this.formatVal(css.width, this.getOffsetWidth(el, 'inner'), -1) -
           this.parseFloat(css.paddingLeft) -
           this.parseFloat(css.paddingRight) -
@@ -141,8 +141,8 @@
       },
 
       getOuterWidth(el) {
-        var outerWidth = 0;
-        var css = this.getCss(el);
+        let outerWidth = 0;
+        const css = this.getCss(el);
         outerWidth = this.parseFloat(css.marginLeft) +
           this.formatVal(css.width, this.getOffsetWidth(el, 'outer'), 1) +
           this.parseFloat(css.marginRight);
@@ -151,7 +151,7 @@
       formatVal(realVal, offsetVal, gap) {
         realVal = this.parseFloat(realVal);
         if (realVal.toString().split('.').length > 1) {
-          var point = this.parseFloat('0.' + realVal.toString().split('.')[1]);
+          const point = this.parseFloat('0.' + realVal.toString().split('.')[1]);
           if (point >= 0.5) {
             offsetVal = offsetVal - 1 + point;
           } else {
@@ -162,18 +162,18 @@
         return this.parseFloat(offsetVal);
       },
       refreshHeight() {
-        var self = this;
-        var parentEl = this.$el.parentNode;
+        const self = this;
+        const parentEl = this.$el.parentNode;
         if (!parentEl) {
           return;
         }
-        var childNodes = parentEl.childNodes;
-        var childHeightTotal = 0;
-        var parentElWidth = self.getInnerWidth(parentEl);
-        var parentElHeight = self.getInnerHeight(parentEl);
-        var filterItems = [];
+        const childNodes = parentEl.childNodes;
+        let childHeightTotal = 0;
+        const parentElWidth = self.getInnerWidth(parentEl);
+        const parentElHeight = self.getInnerHeight(parentEl);
+        const filterItems = [];
         Object.keys(childNodes).forEach(function(key) {
-          var node = childNodes[key];
+          const node = childNodes[key];
           if (typeof node.className !== 'string') {
             return false;
           }
@@ -195,18 +195,18 @@
         }
       },
       refreshWidth() {
-        var self = this;
-        var parentEl = this.$el.parentNode;
+        const self = this;
+        const parentEl = this.$el.parentNode;
         if (!parentEl) {
           return;
         }
-        var childNodes = parentEl.childNodes;
-        var childWidthTotal = 0;
-        var parentElWidth = self.getInnerWidth(parentEl);
-        var parentElHeight = self.getInnerHeight(parentEl);
-        var filterItems = [];
+        const childNodes = parentEl.childNodes;
+        let childWidthTotal = 0;
+        const parentElWidth = self.getInnerWidth(parentEl);
+        const parentElHeight = self.getInnerHeight(parentEl);
+        const filterItems = [];
         Object.keys(childNodes).forEach(function(key) {
-          var node = childNodes[key];
+          const node = childNodes[key];
           if (typeof node.className !== 'string') {
             return false;
           }
@@ -228,9 +228,9 @@
         }
       },
       resize() {
-        var self = this;
+        const self = this;
         this.overflow = 'hidden';
-        var parentEl = this.$el.parentNode;
+        const parentEl = this.$el.parentNode;
         if (!parentEl) {
           return;
         } else {

@@ -91,9 +91,9 @@
         item.open = !item.open;
       },
       selectMenu(item) {
-        for (var i in this.currentMenu) {
-          var _children = this.currentMenu[i].children;
-          for (var j in _children) {
+        for (let i in this.currentMenu) {
+          const _children = this.currentMenu[i].children;
+          for (let j in _children) {
             _children[j].active = false;
             if (_children[j].modelcode === item.modelcode) {
               this.currentMenu[i].active = true;
@@ -105,7 +105,7 @@
       },
       expandAll() {
         if (this.expand) {
-          for (var i in this.currentMenu) {
+          for (let i in this.currentMenu) {
             this.currentMenu[i].open = true;
           }
         }
@@ -116,7 +116,7 @@
         }
       },
       bindPostMessage() {
-        var _self = this;
+        const _self = this;
         cMessage.receiveMessage(function(message) {
           if (typeof message.data === 'object' && !Array.isArray(message.data)) {
             if ('menuType' in message.data) {
@@ -131,7 +131,7 @@
         }, _self.locationOrigin);
       },
       getClass(item) {
-        var _class = '';
+        let _class = '';
         if (item.open) {
           _class = _class + 'open ';
         }
@@ -141,8 +141,8 @@
         return _class;
       },
       formatData() {
-        var self = this;
-        var fun = function(node) {
+        const self = this;
+        const fun = function(node) {
           if (!('open' in node)) {
             self.$set(node, 'open', false);
           }
@@ -152,11 +152,11 @@
           if (node.children.length === 0) {
             return;
           }
-          for (var i = 0; i < node.children.length; i++) {
+          for (let i = 0; i < node.children.length; i++) {
             fun(node.children[i]);
           }
         };
-        for (var i = 0;i < this.currentMenu.length; i++) {
+        for (let i = 0;i < this.currentMenu.length; i++) {
           fun(this.currentMenu[i]);
         }
       }

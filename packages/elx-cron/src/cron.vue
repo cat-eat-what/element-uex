@@ -246,18 +246,18 @@
         if (!this.runTimeUrl) {
           return;
         }
-        var str = '';
-        var self = this;
-        var split = this.expressionModel.expressionSplit;
+        let str = '';
+        const self = this;
+        const split = this.expressionModel.expressionSplit;
         Object.keys(split).forEach(function(key) {
-          var val = split[key];
+          const val = split[key];
           str = str === '' ? val : str + ' ' + val;
         });
         axios.get(this.runTimeUrl, {
           params: {cron: str}
         })
           .then(function(response) {
-            var data = response.data;
+            const data = response.data;
             if (!data.state) {
             } else {
               if (Array.isArray(data.date)) {
@@ -267,7 +267,7 @@
           });
       },
       validate(split) {
-        var judge = true;
+        let judge = true;
         if (!this.$refs['second']) {
           return false;
         }
@@ -295,11 +295,11 @@
         return Boolean(judge);
       },
       formatExpression() {
-        var self = this;
+        const self = this;
         this.errorMessage = '';
         this.expressionModel.expression = '';
         this.cronTypeMap.map(function(type, index) {
-          var val = self.expressionModel.expressionSplit[type];
+          const val = self.expressionModel.expressionSplit[type];
           if (self.expressionModel.expression === '') {
             self.expressionModel.expression = val;
           } else {
@@ -311,9 +311,9 @@
         this.$emit('input', self.expressionModel.expression);
       },
       getExpressionSplit() {
-        var self = this;
+        const self = this;
         this.errorMessage = '';
-        var ExpressionArr = this.expressionModel.expression.split(' ');
+        const ExpressionArr = this.expressionModel.expression.split(' ');
         this.cronTypeMap.map(function(type, index) {
           if (ExpressionArr[index]) {
             if (self.visible) {
@@ -345,10 +345,10 @@
         }
       },
       setExpression(type) {
-        var self = this;
-        var expressionArr = this.expressionModel.expression.split(' ');
+        const self = this;
+        const expressionArr = this.expressionModel.expression.split(' ');
         this.expressionModel.expression = '';
-        var index = this.cronTypeMap.indexOf(type);
+        const index = this.cronTypeMap.indexOf(type);
         this.cronTypeMap.map(function(type, i) {
           if (i !== index && expressionArr[i]) {
             self.expressionModel.expression = self.expressionModel.expression + expressionArr[i] + ' ';

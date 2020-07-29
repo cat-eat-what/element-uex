@@ -93,15 +93,15 @@
     },
     methods: {
       getOptions() {
-        var self = this;
-        var url;
+        const self = this;
+        let url;
         if (typeof this.getOptionsUrl() === 'string' && this.getOptionsUrl() !== '') {
           url = this.getOptionsUrl();
         } else {
           url = this.optionsUrl;
         }
         axios.get(url).then(function(response) {
-          var data = response.data;
+          const data = response.data;
           if (data) {
             self.transferValue = data;
             if (!Array.isArray(data)) {
@@ -121,15 +121,13 @@
         this.dialogVisible = false;
       },
       judgeReq() {
-        var judge = true;
-        var valArr = this.value.split(this.split);
-        var transferObj = {};
-        var i;
-        var j;
-        for (i in this.transferValue) {
+        let judge = true;
+        const valArr = this.value.split(this.split);
+        const transferObj = {};
+        for (let i in this.transferValue) {
           transferObj[this.transferValue[i][this.optionProps.value]] = this.transferValue[i];
         }
-        for (j in valArr) {
+        for (let j in valArr) {
           if (!(valArr[j] in transferObj)) {
             judge = false;
           }
@@ -137,15 +135,13 @@
         return judge;
       },
       setSelectedByValue() {
-        var valArr = this.value.split(this.split);
-        var selectedArr = [];
-        var transferObj = {};
-        var i;
-        var j;
-        for (i in this.transferValue) {
+        const valArr = this.value.split(this.split);
+        const selectedArr = [];
+        const transferObj = {};
+        for (let i in this.transferValue) {
           transferObj[this.transferValue[i][this.optionProps.value]] = this.transferValue[i];
         }
-        for (j in valArr) {
+        for (let j in valArr) {
           if (transferObj[valArr[j]]) {
             selectedArr.push(transferObj[valArr[j]][this.optionProps.label]);
           }
@@ -153,8 +149,8 @@
         this.selected = selectedArr.join(',');
       },
       setValueByTransfer() {
-        var strArr = [];
-        for (var i in this.transferValue) {
+        const strArr = [];
+        for (let i in this.transferValue) {
           strArr.push(this.transferValue[i][this.optionProps.value]);
         }
         this.$emit('input', strArr.join(','));

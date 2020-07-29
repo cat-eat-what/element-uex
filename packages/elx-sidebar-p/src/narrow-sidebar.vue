@@ -44,7 +44,7 @@
           this.$emit('menu-change', this.model);
         },
         changeClass() {
-          var _str = '';
+          let _str = '';
           if (this.model.open) {
             _str = _str + ' open';
           }

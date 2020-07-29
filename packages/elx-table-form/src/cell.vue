@@ -49,8 +49,8 @@ export default {
   },
   methods: {
     validData(data, rules) {
-      var self = this;
-      var judge = true;
+      const self = this;
+      let judge = true;
       const validator = new AsyncValidator(rules);
       validator.validate(data, { firstFields: true }, function(errors, invalidFields) {
         if (errors === null) {
@@ -65,13 +65,13 @@ export default {
       return judge;
     },
     validate() {
-      var fieldIndex = this.fieldIndex;
-      var activeRowIndex = this.activeRowIndex;
-      var activeColumnKey = this.activeColumnKey;
-      var editType = this.editType;
-      var type = this.type;
-      var isStr = (type === 'string');
-      var visible;
+      const fieldIndex = this.fieldIndex;
+      const activeRowIndex = this.activeRowIndex;
+      const activeColumnKey = this.activeColumnKey;
+      const editType = this.editType;
+      const type = this.type;
+      const isStr = (type === 'string');
+      let visible;
       if (editType === 'single') {
         visible = isStr || (!isStr && type !== 'index' && (fieldIndex !== activeRowIndex || this.field !== activeColumnKey));
       } else {
@@ -81,9 +81,9 @@ export default {
       if (this.fieldShow && visible) {
         if (this.rules) {
           if (this.field in this.rules) {
-            var data = {};
+            const data = {};
             data[this.field] = this.cellData[this.field];
-            var rules = {};
+            const rules = {};
             rules[this.field] = this.rules[this.field];
             return this.validData(data, rules);
           }

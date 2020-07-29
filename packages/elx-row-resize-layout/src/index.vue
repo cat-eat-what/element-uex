@@ -69,7 +69,7 @@
       }
     },
     data() {
-      var splitW = this.splitType === 'wide' ? 12 : 1;
+      const splitW = this.splitType === 'wide' ? 12 : 1;
       return {
         test: null,
         currentHeight: this.height,
@@ -87,14 +87,14 @@
         return (!this.topVisible && this.bottomVisible && this.splitVisible) || (this.topVisible && !this.bottomVisible && this.splitVisible);
       },
       resizeSplitTop() {
-        var top = this.splitTop;
+        let top = this.splitTop;
         if (this.mouseEnter && this.splitType === 'narrow') {
           top = top - 5;
         }
         return top + 'px';
       },
       resizeSplitBottom() {
-        var bottom = this.currentHeight - this.splitTop - this.splitW;
+        let bottom = this.currentHeight - this.splitTop - this.splitW;
         if (this.mouseEnter && this.splitType === 'narrow') {
           bottom = bottom - 5;
         }
@@ -113,8 +113,8 @@
       splitMove(e) {
         if (this.originPageY !== 0 || (this.mouseDown && (e.pageY - this.prePageY > 0))) {
           this.$emit('drag-start', this.currentHeight, this.splitTop);
-          var gap = e.pageY - this.originPageY;
-          var top = this.splitTop + gap;
+          let gap = e.pageY - this.originPageY;
+          const top = this.splitTop + gap;
           if (this.single) {
             gap = this.topVisible ? gap : -gap;
             if (this.currentHeight + gap <= this.splitW) {

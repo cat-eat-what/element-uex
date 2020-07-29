@@ -15,7 +15,10 @@
     @drag-start="dragStart"
     @drag-end="dragEnd"
     @resize="resize">
-    <div class="lay-bottom" slot="bottom"></div>
+    <div
+      class="lay-bottom"
+      slot="bottom">
+    </div>
   </elx-row-resize-layout>
 </div>
 <script>

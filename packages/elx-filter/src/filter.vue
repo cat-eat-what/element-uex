@@ -45,7 +45,7 @@
     },
     methods: {
       refreshHeight() {
-        var el = document.querySelector('.elx-filter .dacp-menu-content');
+        const el = document.querySelector('.elx-filter .dacp-menu-content');
         if (el) {
           this.height = window.parseInt(el.clientHeight);
         }

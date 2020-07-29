@@ -108,10 +108,10 @@
       getLiMaxHeight() {
         this.getLineNum();
         this.liMaxHeight = [];
-        for (var i = 0; i <= this.lineNum; i++) {
-          var lineHeight = 0;
-          for (var j = i * this.eveLineNum; j < this.eveLineNum * (i + 1) && j < this.currentMenuData.length; j++) {
-            var height = (this.currentMenuData[j].children.length + 1) * 40;
+        for (let i = 0; i <= this.lineNum; i++) {
+          let lineHeight = 0;
+          for (let j = i * this.eveLineNum; j < this.eveLineNum * (i + 1) && j < this.currentMenuData.length; j++) {
+            const height = (this.currentMenuData[j].children.length + 1) * 40;
             if (lineHeight === 0 || height > lineHeight) {
               lineHeight = height;
             }
@@ -120,17 +120,17 @@
         }
       },
       getLineNum() {
-        // var w = document.body.clientWidth;
+        // const w = document.body.clientWidth;
         this.eveLineNum = parseInt((this.menuWidth - 40) / 240, 10);
         this.lineNum = parseInt(this.currentMenuData.length / this.eveLineNum, 10);
       },
       changeMenu(item, index, child) {
-        var menuData = this.menuData[index];
+        const menuData = this.menuData[index];
         this.$emit('change-menu', menuData, child);
         this.isOpen = false;
       },
       transMenuData(data) {
-        for (var i in data) {
+        for (let i in data) {
           if (data[i].children.length > 4) {
             data[i].children = data[i].children.slice(0, 4);
           }
@@ -138,7 +138,7 @@
         this.currentMenuData = data;
       },
       getUlMargin() {
-        // var w = document.body.clientWidth;
+        // const w = document.body.clientWidth;
         this.getLineNum();
         this.ulMargin = parseInt((this.menuWidth - 240 * this.eveLineNum) / (this.eveLineNum + 1), 10);
       }

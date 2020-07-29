@@ -64,7 +64,7 @@
     },
     methods: {
       add() {
-        var obj = {paramId: '', paramValue: ''};
+        const obj = {paramId: '', paramValue: ''};
         this.currentData.push(obj);
       },
       remove(index) {

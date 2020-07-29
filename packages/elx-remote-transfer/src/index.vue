@@ -162,16 +162,10 @@
       };
     },
     methods: {
-      testKeycode() {
-        console.log('test-Keycode');
-      },
-      testEnter() {
-        console.log('test-enter');
-      },
       getTransferLeftData() {
-        var self = this;
-        var url;
-        var filterData = Object.assign({}, self.transferLeftFilter);
+        const self = this;
+        let url;
+        const filterData = Object.assign({}, self.transferLeftFilter);
         if (self.props.search) {
           if (Array.isArray(self.props.search)) {
             self.props.search.map(function(field) {
@@ -190,7 +184,7 @@
         axios.get(url, {
           params: filterData
         }).then(function(response) {
-          var data = response.data;
+          let data = response.data;
           if (data) {
             if (typeof self.processData === 'function') {
               data = self.processData(data);
@@ -203,10 +197,10 @@
         });
       },
       getTransferRightData() {
-        var self = this;
-        var filterData = this.currentTransferValue.filter(function(item) {
+        const self = this;
+        const filterData = this.currentTransferValue.filter(function(item) {
           if (Array.isArray(self.props.search)) {
-            var judge = false;
+            let judge = false;
             self.props.search.map(function(field) {
               judge = judge || (String(item[field]).toLowerCase().indexOf(String(self.transferRightFilter.search).toLowerCase()) > -1);
             });
@@ -215,16 +209,16 @@
             return String(item[self.props.search]).toLowerCase().indexOf(String(self.transferRightFilter.search).toLowerCase()) > -1;
           }
         });
-        var arr = filterData.slice((this.transferRightFilter.pageNum - 1) * this.transferRightFilter.pageSize, this.transferRightFilter.pageNum * this.transferRightFilter.pageSize);
+        const arr = filterData.slice((this.transferRightFilter.pageNum - 1) * this.transferRightFilter.pageSize, this.transferRightFilter.pageNum * this.transferRightFilter.pageSize);
         this.transferRightData = arr;
         this.transferRightFilter.total = filterData.length;
         this.initMutltiData(this.transferRightData, this.transferRightSelected, 'rightMultipleTable', 'right');
         this.rightPageChange = false;
       },
       initMutltiData(tableData, selectedData, tableRef, type) {
-        var self = this;
-        var i;
-        var filterData = tableData.filter(function(item) {
+        const self = this;
+        let i;
+        const filterData = tableData.filter(function(item) {
           if (type === 'left') {
             for (i in self.currentTransferValue) {
               if (self.currentTransferValue[i][self.props.key] === item[self.props.key]) {
@@ -246,10 +240,9 @@
         });
       },
       getFilterData(tableData, selectedData) {
-        var self = this;
-        var i;
-        var filterData = selectedData.filter(function(item) {
-          for (i in tableData) {
+        const self = this;
+        const filterData = selectedData.filter(function(item) {
+          for (let i in tableData) {
             if (tableData[i][self.props.key] === item[self.props.key]) {
               return false;
             }
@@ -259,10 +252,9 @@
         return filterData;
       },
       getExceptFilterData(tableData, selectedData) {
-        var self = this;
-        var i;
-        var filterData = selectedData.filter(function(item) {
-          for (i in tableData) {
+        const self = this;
+        const filterData = selectedData.filter(function(item) {
+          for (let i in tableData) {
             if (tableData[i][self.props.key] === item[self.props.key]) {
               return true;
             }
@@ -293,21 +285,20 @@
       },
       handleLeftSelectionChange(val) {
         if (!this.leftPageChange) {
-          var filterData = this.getFilterData(this.transferLeftData, this.transferLeftSelected);
+          const filterData = this.getFilterData(this.transferLeftData, this.transferLeftSelected);
           this.transferLeftSelected = filterData.concat(val);
         }
       },
       handleRightSelectionChange(val) {
         if (!this.rightPageChange) {
-          var filterData = this.getFilterData(this.transferRightData, this.transferRightSelected);
+          const filterData = this.getFilterData(this.transferRightData, this.transferRightSelected);
           this.transferRightSelected = filterData.concat(val);
         }
       },
       transferLeft() {
-        var self = this;
-        var i;
-        var filterData = self.currentTransferValue.filter(function(item) {
-          for (i in self.transferRightSelected) {
+        const self = this;
+        const filterData = self.currentTransferValue.filter(function(item) {
+          for (let i in self.transferRightSelected) {
             if (self.transferRightSelected[i][self.props.key] === item[self.props.key]) {
               return false;
             }
@@ -320,7 +311,7 @@
         this.getTransferRightData();
       },
       transferRight() {
-        var self = this;
+        const self = this;
         this.currentTransferValue = this.currentTransferValue.concat(this.transferLeftSelected);
         this.getTransferRightData();
         this.$refs['leftMultipleTable'].clearSelection();
@@ -330,8 +321,7 @@
         });
       },
       leftSelectable(row, index) {
-        var i;
-        for (i in this.currentTransferValue) {
+        for (let i in this.currentTransferValue) {
           if (row[this.props.key] === this.currentTransferValue[i][this.props.key]) {
             return false;
           }

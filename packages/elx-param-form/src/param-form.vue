@@ -91,18 +91,18 @@
     template: '#param-form-template',
     replace: true,
     data() {
-      var _stepCfgValMap = this.value ? this.value : {};
-      var _paramArr = [];
-      var _params = this.params;
-      var _currentData;
-      for (var i = 0; _params && i < _params.length; i++) {
+      const _stepCfgValMap = this.value ? this.value : {};
+      const _paramArr = [];
+      const _params = this.params;
+      let _currentData;
+      for (let i = 0; _params && i < _params.length; i++) {
         _params[i] = JSON.parse(JSON.stringify(_params[i]));
-        var _param = this.paramEn in _stepCfgValMap ? _stepCfgValMap[_params[i][this.paramEn]] : {};
+        const _param = this.paramEn in _stepCfgValMap ? _stepCfgValMap[_params[i][this.paramEn]] : {};
         _params[i].isReturn = this.paramEn in _stepCfgValMap;
-        var _isStringLen = 'stringLen' in _param;
-        var _isEnumVal = 'enumVal' in _param;
-        var _isRegExp = 'regExp' in _param;
-        var _isCryptType = 'cryptType' in _param;
+        const _isStringLen = 'stringLen' in _param;
+        const _isEnumVal = 'enumVal' in _param;
+        const _isRegExp = 'regExp' in _param;
+        const _isCryptType = 'cryptType' in _param;
         _currentData = {
           is_stringLenCheck: _isStringLen,
           is_enumValCheck: _isEnumVal,
@@ -123,7 +123,7 @@
     },
     methods: {
       changeSwitch(param) {
-        var _currentData;
+        let _currentData;
         if (!param.isReturn) {
           _currentData = {
             is_stringLenCheck: false,
@@ -160,11 +160,11 @@
       paramsData: {
         deep: true,
         handler(val, oldVal) {
-          var _params = this.paramsData;
-          var _obj = {};
-          for (var i in _params) {
+          const _params = this.paramsData;
+          const _obj = {};
+          for (let i in _params) {
             if (_params[i].isReturn) {
-              var _field = _params[i][this.paramEn];
+              const _field = _params[i][this.paramEn];
               _obj[_field] = {};
               if (_params[i].is_cryptTypeCheck) {
                 _obj[_field].cryptType = _params[i].cryptType;

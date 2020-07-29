@@ -127,11 +127,11 @@
     },
     methods: {
       getCurDesc(str) {
-        var realLength = 0;
-        var len = str.length;
-        var charCode = -1;
-        var sub = -1;
-        for (var i = 0; i < len; i++) {
+        let realLength = 0;
+        const len = str.length;
+        let charCode = -1;
+        let sub = -1;
+        for (let i = 0; i < len; i++) {
           charCode = str.charCodeAt(i);
           if (charCode > 0 && charCode < 129) {
             realLength += 1;
@@ -149,7 +149,7 @@
         this.$emit('update:menuActive', model.modelcode);
       },
       operateSidebar(judge) {
-        var _self = this;
+        const _self = this;
         this.currentShow = typeof judge === 'boolean' ? judge : !this.currentShow;
         setTimeout(function() {
           _self.changeSidebarHeight();
@@ -162,7 +162,7 @@
         }
       },
       bindPostMessage() {
-        var _self = this;
+        const _self = this;
         cMessage.receiveMessage(function(message) {
           if (typeof message.data === 'object' && !Array.isArray(message.data)) {
             if ('menuType' in message.data) {
@@ -180,8 +180,8 @@
         }, _self.locationOrigin);
       },
       changeSidebarHeight() {
-        var el = document.querySelector('.elx-siderbar-p');
-        var introEl = document.querySelector('.elx-siderbar-p .elx-sidebar-intro');
+        const el = document.querySelector('.elx-siderbar-p');
+        const introEl = document.querySelector('.elx-siderbar-p .elx-sidebar-intro');
         this.height = (window.parseFloat(el.offsetHeight) - window.parseFloat(introEl.offsetHeight) - 10) + 'px';
       },
       contextmenuAction(action, model) {

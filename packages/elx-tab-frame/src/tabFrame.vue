@@ -76,11 +76,11 @@
         this.$emit('tab-add');
       },
       removeTab(name) {
-        var _self = this;
+        const _self = this;
         this.currentTabData = this.currentTabData.filter(function(tab) {
           if (tab.name === name) {
-            var _index = _self.currentTabData.indexOf(tab);
-            var _nextTab = _self.currentTabData[_index + 1] || _self.currentTabData[_index - 1];
+            const _index = _self.currentTabData.indexOf(tab);
+            const _nextTab = _self.currentTabData[_index + 1] || _self.currentTabData[_index - 1];
             _self.currentActiveIndex = _nextTab ? _nextTab.name : null;
           }
           return tab.name !== name;
@@ -88,9 +88,9 @@
         this.$emit('tab-remove', name);
       },
       handleNodeClick(data) {
-        var _self = this;
+        const _self = this;
         if (data.children.length === 0) {
-          var _filterTabData = this.currentTabData.filter(function(tab) {
+          const _filterTabData = this.currentTabData.filter(function(tab) {
             return tab.name === data.name;
           });
           if (_filterTabData.length === 0) {

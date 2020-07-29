@@ -520,11 +520,11 @@
         return obj;
       },
       setRelation() {
-        for (var i in this.currentConfig.fields) {
+        for (let i in this.currentConfig.fields) {
           if ('relatedItems' in this.currentConfig.fields[i]) {
-            var _relatedItems = this.currentConfig.fields[i].relatedItems;
-            var _relatedValue = this.currentValue[this.currentConfig.fields[i].name];
-            for (var j in this.currentConfig.fields) {
+            const _relatedItems = this.currentConfig.fields[i].relatedItems;
+            const _relatedValue = this.currentValue[this.currentConfig.fields[i].name];
+            for (let j in this.currentConfig.fields) {
               if (_relatedItems.indexOf(this.currentConfig.fields[j].name) >= 0) {
                 if (this.currentConfig.fields[j].dependVal.indexOf(_relatedValue) >= 0) {
                   if (!this.currentConfig.fields[j].isShow) {
@@ -540,8 +540,8 @@
         }
       },
       setBindValue() {
-        var _obj = JSON.parse(JSON.stringify(this.value));
-        for (var i in this.currentConfig.fields) {
+        let _obj = JSON.parse(JSON.stringify(this.value));
+        for (let i in this.currentConfig.fields) {
           if (!(this.currentConfig.fields[i].name in this.value) && 'name' in this.currentConfig.fields[i]) {
             _obj = this.setDefaultValue(_obj, this.currentConfig.fields[i]);
           }
@@ -549,12 +549,12 @@
         this.currentValue = _obj;
       },
       validate() {
-        var _valid = true;
-        var _self = this;
+        let _valid = true;
+        const _self = this;
         this.$refs.elxForm.validate(function(valid) {
           _valid = valid;
-          for (var i in _self.config.fields) {
-            var customComponent = ['tableForm', 'formGroup', 'cardForm', 'component'];
+          for (let i in _self.config.fields) {
+            const customComponent = ['tableForm', 'formGroup', 'cardForm', 'component'];
             if (customComponent.indexOf(_self.config.fields[i].type) > -1) {
               _valid = _self.$refs[_self.config.fields[i].type + i][0].validate() && _valid;
             }

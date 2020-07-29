@@ -81,8 +81,8 @@
       }
     },
     data() {
-      var options = [];
-      for (var i = 1; i < 8; i++) {
+      const options = [];
+      for (let i = 1; i < 8; i++) {
         if (i < 10) {
           options.push({value: '' + i, label: '0' + i});
         } else {
@@ -125,21 +125,21 @@
         if (!this.value) {
           return;
         }
-        var currentVal = this.value;
-        for (var i in this.replaceOption) {
+        let currentVal = this.value;
+        for (let i in this.replaceOption) {
           currentVal = currentVal.replace(i, this.replaceOption[i]);
         }
         this.$emit('input', currentVal);
         return currentVal;
       },
       validate(val) {
-        var self = this;
-        var valType;
-        var regexp = [];
+        const self = this;
+        let valType;
+        const regexp = [];
         Object.keys(this.regexp).forEach(function(key) {
-          var item = self.regexp[key];
-          var testRegExp = new RegExp(item, 'g');
-          var judge = testRegExp.test(val);
+          const item = self.regexp[key];
+          const testRegExp = new RegExp(item, 'g');
+          const judge = testRegExp.test(val);
           if (judge) {
             valType = key;
           }
@@ -156,8 +156,8 @@
         }
       },
       updateValue() {
-        var val = this.valType;
-        var currentVal;
+        const val = this.valType;
+        let currentVal;
         if (val === '1' || val === '2') {
           currentVal = this.valModel[val];
         } else if (val === '3') {
@@ -173,7 +173,7 @@
         this.$emit('input', currentVal);
       },
       initData() {
-        var valType;
+        let valType;
         if (!this.value || this.value === '') {
           this.valType = '1';
           this.$emit('input', this.valModel['1']);
@@ -184,11 +184,11 @@
         }
         this.formatValue();
         valType = this.validate(this.value);
-        var regexp = this.regexp[valType];
+        const regexp = this.regexp[valType];
         if (valType) {
           this.valType = valType;
-          var x = 0;
-          var y = 0;
+          let x = 0;
+          let y = 0;
           this.value.replace(new RegExp(regexp, 'g'), function(a, b, c, d, e) {
             x = b;
             y = c;

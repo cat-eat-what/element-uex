@@ -90,7 +90,7 @@
           this.$emit('last-child-node-click', model);
         },
         canMenuChange() {
-          var filterData = this.model.children.filter(function(item) {
+          const filterData = this.model.children.filter(function(item) {
             return item.active === true;
           });
           return this.model.children.length === 0 || (this.model.children.length !== 0 && this.model.url !== '' && this.model.url !== null && filterData.length === 0);
@@ -110,15 +110,15 @@
           this.$emit('emitopen', [this.model], this.model.open, 'outer');
         },
         emitactive(modelArr, status) {
-          var _arr = [this.model].concat(modelArr);
+          const _arr = [this.model].concat(modelArr);
           this.$emit('emitactive', _arr, status);
         },
         emitopen(modelArr, status) {
-          var _arr = [this.model].concat(modelArr);
+          const _arr = [this.model].concat(modelArr);
           this.$emit('emitopen', _arr, status, 'outer');
         },
         changeClass() {
-          var _str = '';
+          let _str = '';
           if (this.model.open) {
             _str = _str + ' open';
           }

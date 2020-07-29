@@ -187,14 +187,14 @@
         }
       },
       tranformStr(str) {
-        var strArr = str.split('-');
-        for (var i = 1; i < strArr.length; i++) {
+        const strArr = str.split('-');
+        for (let i = 1; i < strArr.length; i++) {
           strArr[i] = strArr[i].charAt(0).toUpperCase() + strArr[i].substring(1);
         }
         return strArr.join('');
       },
       getDomDetail(dom) {
-        var dropDetail = {
+        const dropDetail = {
           dom: dom,
           size: {width: dom.offsetWidth, height: dom.offsetHeight},
           innerHTML: dom.innerHTML,
@@ -204,12 +204,12 @@
         return dropDetail;
       },
       createDropDomList(e) {
-        var self = this;
-        var dropData = this.dropData;
-        var dropDoms = this.dropDoms;
-        var li;
+        const self = this;
+        const dropData = this.dropData;
+        const dropDoms = this.dropDoms;
+        let li;
         if (dropData.length > 0) {
-          var ul = document.createElement('ul');
+          const ul = document.createElement('ul');
           ul.setAttribute('class', 'drop-dom-list');
           ul.setAttribute('style', 'position: fixed; pointer-events: none; width: 120px; height: 135px');
           if (typeof DataTransfer.prototype.setDragImage === 'function') {
@@ -219,8 +219,8 @@
             ul.style.top = e.clientY - 10 + 'px';
             ul.style.left = e.clientX - 20 + 'px';
           }
-          var compatible = ['-webkit-', '-moz-', '-o-', '-ms-', ''];
-          var transform = '';
+          const compatible = ['-webkit-', '-moz-', '-o-', '-ms-', ''];
+          let transform = '';
           dropDoms.map(function(dom, index) {
             li = document.createElement('li');
             transform = '';
@@ -232,7 +232,7 @@
             li.innerHTML = dom.innerHTML;
             ul.appendChild(li);
           });
-          var numLi = document.createElement('li');
+          const numLi = document.createElement('li');
           numLi.setAttribute('class', 'drop-dom-num');
           numLi.setAttribute('style', 'position: absolute; top: 2px; left: 5px');
           numLi.innerHTML = dropData.length;
@@ -256,8 +256,8 @@
         return null;
       },
       getDropDomList(item, index, e) {
-        var self = this;
-        var dropDom;
+        const self = this;
+        let dropDom;
         this.dropDoms = [];
         this.dropData = [];
         this.originPos = {
@@ -265,8 +265,8 @@
           y: e.clientY
         };
         this.dropMousePos = {x: e.clientX, y: e.clientY};
-        var selectedIdxArr = [];
-        var childNodes = e.currentTarget.parentNode.childNodes;
+        const selectedIdxArr = [];
+        const childNodes = e.currentTarget.parentNode.childNodes;
         this.currentData.map(function(d, i) {
           if (d.selected && index !== i) {
             selectedIdxArr.push(i);
@@ -288,7 +288,7 @@
         if (this.isMouseDown) {
           if (typeof DataTransfer.prototype.setDragImage !== 'function') {
             this.getDropDomList(item, index, e);
-            var node = this.createDropDomList(e);
+            const node = this.createDropDomList(e);
             if (node) {
               node.dragDrop();
             }
@@ -310,7 +310,7 @@
         e.dataTransfer.effectAllowed = 'copy';
         if (typeof DataTransfer.prototype.setDragImage === 'function') {
           this.getDropDomList(item, index, e);
-          var node = this.createDropDomList(e);
+          const node = this.createDropDomList(e);
           if (node) {
             e.dataTransfer.setDragImage(node, -20, -20, e.currentTarget);
           }
@@ -355,49 +355,49 @@
         }
       },
       selectItems(items) {
-        for (var i in this.currentData) {
+        for (let i in this.currentData) {
           this.currentData[i].selected = false;
         }
-        for (var j in items) {
-          var _index = this.data.indexOf(items[j]);
+        for (let j in items) {
+          const _index = this.data.indexOf(items[j]);
           this.currentData[_index].selected = true;
         }
       },
       formatData() {
-        var _fun = function(node) {
+        const _fun = function(node) {
           node.isEdit = 'isEdit' in node ? node.isEdit : true;
           node.isDelete = 'isDelete' in node ? node.isDelete : true;
           node.isCopy = 'isCopy' in node ? node.isCopy : true;
           node.isCut = 'isCut' in node ? node.isCut : true;
           node.selected = 'selected' in node ? node.selected : false;
         };
-        var _data = Array.isArray(this.data) ? JSON.parse(JSON.stringify(this.data)) : [];
-        for (var i = 0;i < _data.length;i++) {
+        const _data = Array.isArray(this.data) ? JSON.parse(JSON.stringify(this.data)) : [];
+        for (let i = 0;i < _data.length;i++) {
           _fun(_data[i]);
         }
         return _data;
       },
       changePosY(ref, y) {
-        var gap = 5;
-        var bodyClientHeight = document.body.clientHeight;
-        var bodyClientTop = document.body.clientTop;
-        var height = this.$refs[ref].clientHeight;
-        var elBottom = height + y;
-        var viewHeight = bodyClientHeight + bodyClientTop;
+        const gap = 5;
+        const bodyClientHeight = document.body.clientHeight;
+        const bodyClientTop = document.body.clientTop;
+        const height = this.$refs[ref].clientHeight;
+        const elBottom = height + y;
+        const viewHeight = bodyClientHeight + bodyClientTop;
         if (viewHeight < elBottom) {
           y = viewHeight - height - gap;
         }
         return y;
       },
       getEventPos(e) {
-        var x = e.clientX;
-        var y = e.clientY;
+        const x = e.clientX;
+        const y = e.clientY;
         return { 'x': x, 'y': y };
       },
       blankRightClick(event) {
-        var e = event || window.event;
-        var pos = this.getEventPos(e);
-        var self = this;
+        const e = event || window.event;
+        const pos = this.getEventPos(e);
+        const self = this;
         if (e.which === 3) {
           this.contentMenuShow = false;
           this.blankContentMenuShow = false;
@@ -415,7 +415,7 @@
       handleClick(item, index) {
         this.activeData = item;
         if (!this.multiselect) {
-          for (var i in this.currentData) {
+          for (let i in this.currentData) {
             this.currentData[i].selected = false;
           }
           this.activeData.selected = !this.activeData.selected;
@@ -425,9 +425,9 @@
         this.$emit('click', this.data[index], this.activeData.selected);
       },
       rightClick(item, event) {
-        var e = event || window.event;
-        var pos = this.getEventPos(e);
-        var self = this;
+        const e = event || window.event;
+        const pos = this.getEventPos(e);
+        const self = this;
         if (e.which === 3) {
           this.$emit('right-click', item);
           this.blankContentMenuShow = false;
@@ -472,7 +472,7 @@
         if (this.activeData.isCut && this.activeData.isCut !== 'disabled') {
           this.copyData = null;
           this.cutData = this.activeData;
-          var _index = this.currentData.indexOf(this.activeData);
+          const _index = this.currentData.indexOf(this.activeData);
           this.currentData.splice(_index, 1);
           this.$emit('cut', this.activeData);
         }
@@ -481,7 +481,7 @@
         this.blankContentMenuShow = false;
         this.contentMenuShow = false;
         if (this.isPaste && this.activeData.isPaste !== 'disabled') {
-          var _data = this.cutData !== null ? this.cutData : this.copyData;
+          const _data = this.cutData !== null ? this.cutData : this.copyData;
           this.form = JSON.parse(JSON.stringify(_data));
           this.$emit('paste', this.form);
           this.cutData = null;
@@ -502,7 +502,7 @@
       formatVal(realVal, offsetVal, gap) {
         realVal = this.parseFloat(realVal);
         if (realVal.toString().split('.').length > 1) {
-          var point = this.parseFloat('0.' + realVal.toString().split('.')[1]);
+          const point = this.parseFloat('0.' + realVal.toString().split('.')[1]);
           if (point >= 0.5) {
             offsetVal = offsetVal - 1 + point;
           } else {
@@ -513,7 +513,7 @@
         return this.parseFloat(offsetVal);
       },
       getCss(el) {
-        var css;
+        let css;
         if (window.getComputedStyle) {
           css = window.getComputedStyle(el);
         } else {
@@ -522,8 +522,8 @@
         return css;
       },
       getInnerWidth(el) {
-        var innerWidth = 0;
-        var css = this.getCss(el);
+        let innerWidth = 0;
+        const css = this.getCss(el);
         innerWidth = this.formatVal(css.width, el.clientWidth, -1) -
           this.parseFloat(css.paddingLeft) -
           this.parseFloat(css.paddingRight) -
@@ -532,10 +532,10 @@
         return innerWidth;
       },
       computeNum() {
-        var _width = this.getInnerWidth(this.$el) - 1;
-        var _num = window.parseInt(_width / this.itemWidth);
-        for (var i = _num; i > -1; i--) {
-          var _margin = window.parseInt((_width - i * this.itemWidth) / (i + 1));
+        const _width = this.getInnerWidth(this.$el) - 1;
+        const _num = window.parseInt(_width / this.itemWidth);
+        for (let i = _num; i > -1; i--) {
+          const _margin = window.parseInt((_width - i * this.itemWidth) / (i + 1));
           if (_margin > 9) {
             this.itemMargin = _margin;
             this.lineNum = i;
@@ -544,14 +544,14 @@
         }
       },
       getCurLabel(str) {
-        var realLength = 0;
+        let realLength = 0;
         if (typeof str !== 'string') {
           return '';
         }
-        var len = str.length;
-        var charCode = -1;
-        var sub = -1;
-        for (var i = 0; i < len; i++) {
+        const len = str.length;
+        let charCode = -1;
+        let sub = -1;
+        for (let i = 0; i < len; i++) {
           charCode = str.charCodeAt(i);
           if (charCode > 0 && charCode < 129) {
             realLength += 1;
@@ -606,7 +606,7 @@
       },
       multiselect(val, oldVal) {
         if (!val) {
-          for (var i in this.currentData) {
+          for (let i in this.currentData) {
             this.currentData[i].selected = false;
           }
         }
@@ -617,7 +617,7 @@
       this.PreDataLength = this.currentData.length;
     },
     mounted() {
-      var _self = this;
+      const _self = this;
       this.$nextTick(function() {
         this.dropDomList = this.$refs['dropDomList'];
         _self.computeNum();

@@ -6,12 +6,28 @@ context-menu
 
 ::: demo context-menu
 ```html
-<div id="main" class="main-demo">
+<div
+  id="main"
+  class="main-demo">
   <elx-main>
-    <div id="content" class="layout">
-      <el-table :data="tableData" border style="width: 100%" @row-contextmenu="rowContextmenu1">
-        <el-table-column prop="stepInst" label="指令" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="stepType" label="所属区域" show-overflow-tooltip></el-table-column>
+    <div
+      id="content"
+      class="layout">
+      <el-table
+        :data="tableData"
+        border
+        style="width: 100%"
+        @row-contextmenu="rowContextmenu1">
+        <el-table-column
+          prop="stepInst"
+          label="指令"
+          show-overflow-tooltip>
+        </el-table-column>
+        <el-table-column
+          prop="stepType"
+          label="所属区域"
+          show-overflow-tooltip>
+        </el-table-column>
       </el-table>
       <elx-context-menu
         @action="action"

@@ -67,7 +67,7 @@
       }
     },
     data() {
-      var splitW = this.splitType === 'wide' ? 10 : 1;
+      const splitW = this.splitType === 'wide' ? 10 : 1;
       return {
         currentWidth: this.width,
         splitLeft: this.defaultLeft || window.parseInt((this.width - splitW) * 0.5),
@@ -84,14 +84,14 @@
         return (!this.leftVisible && this.rightVisible && this.splitVisible) || (this.leftVisible && !this.rightVisible && this.splitVisible);
       },
       resizeSplitLeft() {
-        var left = this.splitLeft;
+        let left = this.splitLeft;
         if (this.mouseEnter && this.splitType === 'narrow') {
           left = left - 5;
         }
         return left + 'px';
       },
       resizeSplitRight() {
-        var right = this.currentWidth - this.splitLeft - this.splitW;
+        let right = this.currentWidth - this.splitLeft - this.splitW;
         if (this.mouseEnter && this.splitType === 'narrow') {
           right = right - 5;
         }
@@ -109,8 +109,8 @@
       },
       splitMove(e) {
         if (this.originPageX !== 0) {
-          var gap = e.pageX - this.originPageX;
-          var left = this.splitLeft + gap;
+          let gap = e.pageX - this.originPageX;
+          const left = this.splitLeft + gap;
           if (this.single) {
             gap = this.leftVisible ? gap : -gap;
             if (this.currentWidth + gap <= this.splitW) {

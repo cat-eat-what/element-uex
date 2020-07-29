@@ -89,8 +89,8 @@ export default {
       },
       pickerMonthOptions: {
         disabledDate(time) {
-          var _date = new Date();
-          var _judge = false;
+          const _date = new Date();
+          let _judge = false;
           if (time.getFullYear() > _date.getFullYear()) {
             _judge = true;
           } else if (time.getFullYear() === _date.getFullYear()) {
@@ -103,7 +103,7 @@ export default {
       },
       pickerYearOptions: {
         disabledDate(time) {
-          var _date = new Date();
+          const _date = new Date();
           return time.getFullYear() > _date.getFullYear();
         }
       }
@@ -114,18 +114,18 @@ export default {
       if ((val === '' || val === null) || (Array.isArray(val) && (val[0] === null || val[1] === null))) {
         return this.formatedTime;
       }
-      var _separate = this.separate;
-      var _date;
-      var date = [];
-      var _arr = [];
+      const _separate = this.separate;
+      let _date;
+      const date = [];
+      let _arr = [];
       if (Array.isArray(val)) {
         _arr = val;
       } else {
         _arr.push(val);
       }
-      for (var i in _arr) {
-        var _year = _arr[i].getFullYear();
-        var _month = _arr[i].getMonth() + 1;
+      for (let i in _arr) {
+        const _year = _arr[i].getFullYear();
+        let _month = _arr[i].getMonth() + 1;
         _month = _month < 10 ? '0' + _month : _month;
         _date = _arr[i].getDate() < 10 ? '0' + _arr[i].getDate() : _arr[i].getDate();
         if (this.currentActiveDate === 'date') {

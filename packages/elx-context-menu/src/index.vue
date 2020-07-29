@@ -67,12 +67,12 @@
         this.$emit('action', data);
       },
       changePos() {
-        var gap = 5;
-        var bodyClientHeight = document.body.clientHeight;
-        var bodyClientTop = document.body.clientTop;
-        var height = this.$el.clientHeight;
-        var elBottom = height + this.currentY;
-        var viewHeight = bodyClientHeight + bodyClientTop;
+        const gap = 5;
+        const bodyClientHeight = document.body.clientHeight;
+        const bodyClientTop = document.body.clientTop;
+        const height = this.$el.clientHeight;
+        const elBottom = height + this.currentY;
+        const viewHeight = bodyClientHeight + bodyClientTop;
         if (viewHeight < elBottom) {
           this.currentY = viewHeight - height - gap;
         }
@@ -84,7 +84,7 @@
     watch: {
       visible(val) {
         if (val) {
-          var self = this;
+          const self = this;
           self.$nextTick(function() {
             self.changePos();
           });

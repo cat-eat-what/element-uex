@@ -7,16 +7,29 @@
 
 ::: demo 可收缩按钮组
 ```html
-<elx-operate-button ref="test1" :operate-show="true">
+<elx-operate-button
+  ref="test1"
+  :operate-show="true">
   <elx-operate-expand-item>
-    <el-button slot="operate-button" @click="test($event)" :class="{'active': formShow1}">
+    <el-button
+      slot="operate-button"
+      @click="test($event)"
+      :class="{'active': formShow1}">
       <span class="uex-icon uex-icon-tick"></span>
       提交提交提交提交
     </el-button>
-    <div slot="operate-expand" v-show="formShow1">
-      <el-form ref="form" :model="form">
+    <div
+      slot="operate-expand"
+      v-show="formShow1">
+      <el-form
+        ref="form"
+        :model="form">
         <el-form-item label="请输入内容">
-          <el-input type="textarea" v-model="form.name" placeholder="请输入内容"></el-input>
+          <el-input
+            type="textarea"
+            v-model="form.name"
+            placeholder="请输入内容">
+          </el-input>
         </el-form-item>
         <el-form-item>
            <el-button @click="test($event)">测试</el-button>
@@ -25,14 +38,24 @@
     </div>
   </elx-operate-expand-item>
   <elx-operate-expand-item>
-    <el-button slot="operate-button" @click="test2($event)" :class="{'active': formShow2}">
+    <el-button
+      slot="operate-button"
+      @click="test2($event)"
+      :class="{'active': formShow2}">
       <span class="uex-icon uex-icon-tick"></span>
       下一步
     </el-button>
-    <div slot="operate-expand" v-show="formShow2">
-      <el-form ref="form" :model="form">
+    <div
+      slot="operate-expand"
+      v-show="formShow2">
+      <el-form
+        ref="form"
+        :model="form">
         <el-form-item label="">
-          <el-select v-model="form.name1" multiple placeholder="请选择">
+          <el-select
+            v-model="form.name1"
+            multiple
+            placeholder="请选择">
             <el-option
               v-for="item in options"
               :key="item.value"

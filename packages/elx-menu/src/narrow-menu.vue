@@ -108,14 +108,14 @@
       },
       methods: {
         getCurLabel(str) {
-          var realLength = 0;
+          let realLength = 0;
           if (typeof str !== 'string') {
             return '';
           }
-          var len = str.length;
-          var charCode = -1;
-          var sub = -1;
-          for (var i = 0; i < len; i++) {
+          const len = str.length;
+          let charCode = -1;
+          let sub = -1;
+          for (let i = 0; i < len; i++) {
             charCode = str.charCodeAt(i);
             if (charCode > 0 && charCode < 129) {
               realLength += 1;
@@ -129,7 +129,7 @@
           return sub !== -1 ? str.substring(0, sub) + '..' : str;
         },
         canMenuChange() {
-          var filterData = this.model.children.filter(function(item) {
+          const filterData = this.model.children.filter(function(item) {
             return item.active === true;
           });
           return this.model.children.length === 0 || (this.model.children.length !== 0 && this.model.url !== '' && this.model.url !== null && filterData.length === 0);
@@ -141,12 +141,11 @@
           this.$emit('last-child-node-click', model);
         },
         emitactive(modelArr, status) {
-          var _arr = [this.model].concat(modelArr);
-          console.log('_arr', _arr);
+          const _arr = [this.model].concat(modelArr);
           this.$emit('emitactive', _arr, status);
         },
         emitopen(modelArr, status) {
-          var _arr = [this.model].concat(modelArr);
+          const _arr = [this.model].concat(modelArr);
           this.$emit('emitopen', _arr, status, 'narrow');
         },
         menuActive() {
@@ -161,21 +160,21 @@
           }
         },
         subMenuOpen() {
-          var _arr = [this.model];
+          const _arr = [this.model];
           if (this.model.active) {
-            var fun = function(node) {
+            const fun = function(node) {
               if (node.active) {
                 _arr.push(node);
               }
               if (node.children.length === 0) {
                 return;
               }
-              for (var i = 0;i < node.children.length;i++) {
+              for (let i = 0;i < node.children.length;i++) {
                 fun(node.children[i]);
               }
             };
             if (this.model.children.length > 0) {
-              for (var i = 0;i < this.model.children.length;i++) {
+              for (let i = 0;i < this.model.children.length;i++) {
                 if (this.model.children[i].active) {
                   fun(this.model.children[i]);
                 }
@@ -185,8 +184,8 @@
           }
         },
         getElOffsetTop(el, parentEl) {
-          var top = el.offsetTop;
-          var fun = function(el) {
+          let top = el.offsetTop;
+          const fun = function(el) {
             if (window.getComputedStyle(el).position !== 'static') {
               top = top + el.offsetTop;
             }
@@ -200,10 +199,10 @@
         },
         menuOpen(event) {
           this.$emit('emitopen', [this.model], false, 'narrow');
-          var _e = event || window.event;
-          var _target = _e.currentTarget;
-          var top = this.getElOffsetTop(_target, document.body);
-          var _bottom = document.body.offsetHeight -
+          const _e = event || window.event;
+          const _target = _e.currentTarget;
+          const top = this.getElOffsetTop(_target, document.body);
+          const _bottom = document.body.offsetHeight -
             this.getElOffsetTop(_target, document.body) -
             40 + window.pageYOffset;
           if (top > _bottom && _bottom < this.model.children.length * 36) {

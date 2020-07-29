@@ -1,8 +1,8 @@
 export const cMessage = (function(event) {
-  var interval_id;
-  var last_hash;
-  var cache_bust = 1;
-  var attached_callback;
+  let interval_id;
+  let last_hash;
+  let cache_bust = 1;
+  let attached_callback;
   return {
     postMessage: function(message, target_url, target) {
       if (!target_url) {
@@ -35,8 +35,8 @@ export const cMessage = (function(event) {
         interval_id = null;
         if (callback) {
           interval_id = setInterval(function() {
-            var hash = document.location.hash;
-            var re = /^#?\d+&/;
+            const hash = document.location.hash;
+            const re = /^#?\d+&/;
             if (hash !== last_hash && re.test(hash)) {
               last_hash = hash;
               callback({data: hash.replace(re, '')});
@@ -46,8 +46,8 @@ export const cMessage = (function(event) {
       }
     },
     bindReceiveMessage: function(attr) {
-      var isExecFunc = null;
-      var base = {};
+      let isExecFunc = null;
+      let base = {};
       if (typeof attr === 'object' && !Array.isArray(attr)) {
         isExecFunc = attr.isExecFunc;
         base = attr.base;

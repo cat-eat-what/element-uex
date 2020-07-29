@@ -111,7 +111,7 @@
       }
     },
     created() {
-      var _self = this;
+      const _self = this;
       cMessage.receiveMessage(function(message) {
         if (typeof message.data === 'object' && !Array.isArray(message.data)) {
           if (message.data.director === 'backToList') {

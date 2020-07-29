@@ -55,8 +55,8 @@
         item.open = false;
       },
       formatData() {
-        var self = this;
-        var fun = function(node) {
+        const self = this;
+        const fun = function(node) {
           if (!('open' in node)) {
             self.$set(node, 'open', false);
           }
@@ -66,11 +66,11 @@
           if (node.children.length === 0) {
             return;
           }
-          for (var i = 0; i < node.children.length; i++) {
+          for (let i = 0; i < node.children.length; i++) {
             fun(node.children[i]);
           }
         };
-        for (var i = 0;i < this.currentNavData.length; i++) {
+        for (let i = 0;i < this.currentNavData.length; i++) {
           fun(this.currentNavData[i]);
         }
       }

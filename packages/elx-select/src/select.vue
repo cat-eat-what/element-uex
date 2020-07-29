@@ -302,7 +302,7 @@
 
     methods: {
       changeValue() {
-        var val = this.value;
+        let val = this.value;
         if (this.valueChangeBySelected) {
           this.valueChangeBySelected = false;
           return;
@@ -436,7 +436,7 @@
 
       toggleMenu(event) {
         if (event.target.tagName !== 'INPUT') {
-          var tagClass = event.target.getAttribute('class');
+          const tagClass = event.target.getAttribute('class');
           if (tagClass.indexOf('circle-close') > -1) {
             this.deleteSelected(event);
             return;
