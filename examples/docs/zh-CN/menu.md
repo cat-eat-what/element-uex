@@ -28,22 +28,43 @@
   <div class="openDemo">
       选择open菜单
       <br/><br/>
-    <el-select v-model="openValue" placeholder="请选择" >
-      <el-option v-for="(item, index) in options" :key="index" :label="item.label" :value="item.value"></el-option>
+    <el-select
+      v-model="openValue"
+      placeholder="请选择" >
+      <el-option
+        v-for="(item, index) in options"
+        :key="index"
+        :label="item.label"
+        :value="item.value">
+      </el-option>
     </el-select>
   </div>
   <div class="activeDemo">
       选择active菜单
       <br/><br/>
-    <el-select v-model="activeValue" placeholder="请选择" >
-      <el-option v-for="(item, index) in options" :key="index" :label="item.label" :value="item.value"></el-option>
+    <el-select
+      v-model="activeValue"
+      placeholder="请选择" >
+      <el-option
+        v-for="(item, index) in options"
+        :key="index"
+        :label="item.label"
+        :value="item.value">
+      </el-option>
     </el-select>
   </div>
   <div class="showDemo">
       show
       <br/><br/>
-    <el-select v-model="menuType" placeholder="请选择" >
-      <el-option v-for="(item, index) in showOptions" :key="index" :label="item.label" :value="item.value"></el-option>
+    <el-select
+      v-model="menuType"
+      placeholder="请选择" >
+      <el-option
+        v-for="(item, index) in showOptions"
+        :key="index"
+        :label="item.label"
+        :value="item.value">
+      </el-option>
     </el-select>
   </div>
   <div class="guideDemo">

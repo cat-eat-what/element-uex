@@ -469,13 +469,13 @@
       },
       value: {
         type: Object,
-        default: function() {
+        default() {
           return {};
         }
       },
       config: {
         type: Object,
-        default: function() {
+        default() {
           return {};
         }
       },
@@ -488,7 +488,7 @@
         default: ''
       }
     },
-    data: function() {
+    data() {
       return {
         currentValue: this.value,
         currentConfig: {
@@ -501,13 +501,13 @@
       };
     },
     methods: {
-      execFunc: function(val) {
+      execFunc(val) {
         console.log(val);
       },
-      getSelf: function() {
+      getSelf() {
         return this;
       },
-      setDefaultValue: function(obj, field) {
+      setDefaultValue(obj, field) {
         if (this.options.indexOf(field.type) > -1) {
           obj[field.name] = field.defaultValue ? field.defaultValue : [];
         } else if (this.objects.indexOf(field.type) > -1) {
@@ -519,12 +519,12 @@
         }
         return obj;
       },
-      setRelation: function() {
-        for (var i in this.currentConfig.fields) {
+      setRelation() {
+        for (let i in this.currentConfig.fields) {
           if ('relatedItems' in this.currentConfig.fields[i]) {
-            var _relatedItems = this.currentConfig.fields[i].relatedItems;
-            var _relatedValue = this.currentValue[this.currentConfig.fields[i].name];
-            for (var j in this.currentConfig.fields) {
+            const _relatedItems = this.currentConfig.fields[i].relatedItems;
+            const _relatedValue = this.currentValue[this.currentConfig.fields[i].name];
+            for (let j in this.currentConfig.fields) {
               if (_relatedItems.indexOf(this.currentConfig.fields[j].name) >= 0) {
                 if (this.currentConfig.fields[j].dependVal.indexOf(_relatedValue) >= 0) {
                   if (!this.currentConfig.fields[j].isShow) {
@@ -539,22 +539,22 @@
           }
         }
       },
-      setBindValue: function() {
-        var _obj = JSON.parse(JSON.stringify(this.value));
-        for (var i in this.currentConfig.fields) {
+      setBindValue() {
+        let _obj = JSON.parse(JSON.stringify(this.value));
+        for (let i in this.currentConfig.fields) {
           if (!(this.currentConfig.fields[i].name in this.value) && 'name' in this.currentConfig.fields[i]) {
             _obj = this.setDefaultValue(_obj, this.currentConfig.fields[i]);
           }
         }
         this.currentValue = _obj;
       },
-      validate: function() {
-        var _valid = true;
-        var _self = this;
+      validate() {
+        let _valid = true;
+        const _self = this;
         this.$refs.elxForm.validate(function(valid) {
           _valid = valid;
-          for (var i in _self.config.fields) {
-            var customComponent = ['tableForm', 'formGroup', 'cardForm', 'component'];
+          for (let i in _self.config.fields) {
+            const customComponent = ['tableForm', 'formGroup', 'cardForm', 'component'];
             if (customComponent.indexOf(_self.config.fields[i].type) > -1) {
               _valid = _self.$refs[_self.config.fields[i].type + i][0].validate() && _valid;
             }
@@ -566,7 +566,7 @@
     watch: {
       value: {
         deep: true,
-        handler: function(val, oldVal) {
+        handler(val, oldVal) {
           if (JSON.stringify(this.currentValue) !== JSON.stringify(val)) {
             this.currentValue = this.value;
             this.setBindValue();
@@ -575,7 +575,7 @@
       },
       currentValue: {
         deep: true,
-        handler: function(val, oldVal) {
+        handler(val, oldVal) {
           if (typeof oldVal !== 'object') {
             return;
           }
@@ -587,7 +587,7 @@
       },
       config: {
         deep: true,
-        handler: function(val, oldVal) {
+        handler(val, oldVal) {
           if (this.currentConfig !== val) {
             this.currentConfig = {
               fields: val.fields || [],
@@ -599,17 +599,17 @@
         }
       }
     },
-    beforeCreate: function() {
+    beforeCreate() {
       this.$emit('before-get-fields', this);
     },
-    created: function() {
+    created() {
       this.setBindValue();
       this.$emit('before-render', this);
       if (this.config.beforeRender) {
         this.config.beforeRender(this);
       }
     },
-    mounted: function() {
+    mounted() {
       this.$emit('after-render', this);
       if (this.config.afterRender) {
         this.config.afterRender(this);

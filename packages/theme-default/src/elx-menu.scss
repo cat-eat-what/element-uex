@@ -19,6 +19,9 @@
         background-color: $--menu-bg-color;
         &.active{
             z-index:10;
+            >ul>li.active.hasChild>a:first-child{
+                font-weight: 500;
+            }
         }
         a {
             width: 100%;

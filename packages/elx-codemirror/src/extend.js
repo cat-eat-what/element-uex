@@ -39,8 +39,8 @@ import CodeMirror from 'codemirror';
 
   // Comment/uncomment the specified range
   CodeMirror.defineExtension('commentRange', function(isComment, from, to) {
-    var cm = this;
-    var curMode = CodeMirror.innerMode(cm.getMode(), cm.getTokenAt(from).state).mode;
+    const cm = this;
+    const curMode = CodeMirror.innerMode(cm.getMode(), cm.getTokenAt(from).state).mode;
     cm.operation(function() {
       if (isComment) { // Comment range
         cm.replaceRange(curMode.commentEnd, to);
@@ -49,9 +49,9 @@ import CodeMirror from 'codemirror';
           cm.setCursor(from.line, from.ch + curMode.commentStart.length); // An empty comment inserted - put cursor inside
         }
       } else { // Uncomment range
-        var selText = cm.getRange(from, to);
-        var startIndex = selText.indexOf(curMode.commentStart);
-        var endIndex = selText.lastIndexOf(curMode.commentEnd);
+        let selText = cm.getRange(from, to);
+        const startIndex = selText.indexOf(curMode.commentStart);
+        const endIndex = selText.lastIndexOf(curMode.commentEnd);
         if (startIndex > -1 && endIndex > -1 && endIndex > startIndex) {
           // Take string till comment start
           selText = selText.substr(0, startIndex) +
@@ -67,9 +67,9 @@ import CodeMirror from 'codemirror';
 
   // Applies automatic mode-aware indentation to the specified range
   CodeMirror.defineExtension('autoIndentRange', function(from, to) {
-    var cmInstance = this;
+    const cmInstance = this;
     this.operation(function() {
-      for (var i = from.line; i <= to.line; i++) {
+      for (let i = from.line; i <= to.line; i++) {
         cmInstance.indentLine(i, 'smart');
       }
     });
@@ -77,26 +77,26 @@ import CodeMirror from 'codemirror';
 
   // Applies automatic formatting to the specified range
   CodeMirror.defineExtension('autoFormatRange', function(from, to) {
-    var cm = this;
-    var outer = cm.getMode();
-    var text = cm.getRange(from, to).split('\n');
-    var state = CodeMirror.copyState(outer, cm.getTokenAt(from).state);
-    var tabSize = cm.getOption('tabSize');
-    var out = '';
-    var lines = 0;
-    var atSol = from.ch === 0;
+    const cm = this;
+    const outer = cm.getMode();
+    const text = cm.getRange(from, to).split('\n');
+    const state = CodeMirror.copyState(outer, cm.getTokenAt(from).state);
+    const tabSize = cm.getOption('tabSize');
+    let out = '';
+    let lines = 0;
+    let atSol = from.ch === 0;
     function newline() {
       out += '\n';
       atSol = true;
       ++lines;
     }
 
-    for (var i = 0; i < text.length; ++i) {
-      var stream = new CodeMirror.StringStream(text[i], tabSize);
+    for (let i = 0; i < text.length; ++i) {
+      const stream = new CodeMirror.StringStream(text[i], tabSize);
       while (!stream.eol()) {
-        var inner = CodeMirror.innerMode(outer, state);
-        var style = outer.token(stream, state);
-        var cur = stream.current();
+        const inner = CodeMirror.innerMode(outer, state);
+        const style = outer.token(stream, state);
+        const cur = stream.current();
         stream.start = stream.pos;
         if (!atSol || /\S/.test(cur)) {
           out += cur;
@@ -116,7 +116,7 @@ import CodeMirror from 'codemirror';
 
     cm.operation(function() {
       cm.replaceRange(out, from, to);
-      for (var cur = from.line + 1, end = from.line + lines; cur <= end; ++cur) {
+      for (let cur = from.line + 1, end = from.line + lines; cur <= end; ++cur) {
         cm.indentLine(cur, 'smart');
       }
       cm.setSelection(from, cm.getCursor(false));
@@ -130,7 +130,7 @@ import CodeMirror from 'codemirror';
     }
     return {token: function(stream) {
       query.lastIndex = stream.pos;
-      var match = query.exec(stream.string);
+      const match = query.exec(stream.string);
       if (match && match.index === stream.pos) {
         stream.pos += match[0].length || 1;
         return 'searching';
@@ -173,7 +173,7 @@ import CodeMirror from 'codemirror';
   }
 
   function parseQuery(query) {
-    var isRE = query.match(/^\/(.*)\/([a-z]*)$/);
+    const isRE = query.match(/^\/(.*)\/([a-z]*)$/);
     if (isRE) {
       try {
         query = new RegExp(isRE[1], isRE[2].indexOf('i') === -1 ? '' : 'i');
@@ -200,15 +200,15 @@ import CodeMirror from 'codemirror';
   }
 
   function doSearch(cm, data, cmd, rev, persistent, immediate) {
-    var state = getSearchState(cm);
-    var query = data.search;
+    const state = getSearchState(cm);
+    const query = data.search;
     if (state.query) return findNext(cm, rev);
-    var q = cm.getSelection() || state.lastQuery;
+    let q = cm.getSelection() || state.lastQuery;
     if (q instanceof RegExp && q.source === 'x^') {
       q = null;
     }
     if (persistent && cm.openDialog) {
-      var searchNext = function(query, event) {
+      const searchNext = function(query, event) {
         if (!query) return;
         if (query !== state.queryText) {
           startSearch(cm, state, query);
@@ -238,8 +238,8 @@ import CodeMirror from 'codemirror';
 
   function findNext(cm, rev, callback) {
     cm.operation(function() {
-      var state = getSearchState(cm);
-      var cursor = getSearchCursor(cm, state.query, rev ? state.posFrom : state.posTo);
+      const state = getSearchState(cm);
+      let cursor = getSearchCursor(cm, state.query, rev ? state.posFrom : state.posTo);
       if (!cursor.find(rev)) {
         cursor = getSearchCursor(cm, state.query, rev ? CodeMirror.Pos(cm.lastLine()) : CodeMirror.Pos(cm.firstLine(), 0));
         if (!cursor.find(rev)) return;
@@ -255,7 +255,7 @@ import CodeMirror from 'codemirror';
 
   function clearSearch(cm) {
     cm.operation(function() {
-      var state = getSearchState(cm);
+      const state = getSearchState(cm);
       state.lastQuery = state.query;
       if (!state.query) {
         return;
@@ -270,12 +270,12 @@ import CodeMirror from 'codemirror';
   }
 
   function replaceAll(cm, data) {
-    var query = data.search;
-    var text = data.replace;
+    const query = data.search;
+    const text = data.replace;
     cm.operation(function() {
-      for (var cursor = getSearchCursor(cm, query); cursor.findNext();) {
+      for (let cursor = getSearchCursor(cm, query); cursor.findNext();) {
         if (typeof query !== 'string') {
-          var match = cm.getRange(cursor.from(), cursor.to()).match(query);
+          const match = cm.getRange(cursor.from(), cursor.to()).match(query);
           cursor.replace(text.replace(/\$(\d)/g, function(_, i) {return match[i];}));
         } else cursor.replace(text);
       }
@@ -286,13 +286,13 @@ import CodeMirror from 'codemirror';
     if (cm.getOption('readOnly')) {
       return;
     }
-    var query = parseQuery(data.search);
-    var text = parseString(data.replace);
+    const query = parseQuery(data.search);
+    const text = parseString(data.replace);
     clearSearch(cm);
-    var cursor = getSearchCursor(cm, query, cm.getCursor('from'));
-    var cursorPointer = function() {
-      var start = cursor.from();
-      var match;
+    let cursor = getSearchCursor(cm, query, cm.getCursor('from'));
+    const cursorPointer = function() {
+      const start = cursor.from();
+      let match;
       if (!(match = cursor.findNext())) {
         cursor = getSearchCursor(cm, query);
         if (!(match = cursor.findNext()) || (start && cursor.from().line === start.line && cursor.from().ch === start.ch)) {
@@ -303,12 +303,12 @@ import CodeMirror from 'codemirror';
       cm.scrollIntoView({from: cursor.from(), to: cursor.to()});
       return match;
     };
-    var advance = function() {
-      var match = cursorPointer();
+    const advance = function() {
+      const match = cursorPointer();
       doReplace(match);
       cursorPointer();
     };
-    var doReplace = function(match) {
+    const doReplace = function(match) {
       cursor.replace(typeof query === 'string' ? text : text.replace(/\$(\d)/g, function(_, i) {return match[i];}));
     };
     advance();
@@ -323,7 +323,7 @@ import CodeMirror from 'codemirror';
   CodeMirror.extends.clearSearch = function(cm) {clearSearch(cm);};
   CodeMirror.extends.replace = function(cm, data, cmd) {replace(cm, data);};
   CodeMirror.extends.replaceAll = function(cm, data, cmd) {replaceAll(cm, data, cmd, true);};
-  var define = define;
+  const define = define;
   if (typeof define === 'function' && define.amd) {
     define('CodeMirror', [], function() {
       return CodeMirror;

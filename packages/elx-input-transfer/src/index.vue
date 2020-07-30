@@ -58,7 +58,7 @@
       getOptionsUrl: Function,
       props: {
         type: Object,
-        default: function() {
+        default() {
           return {
             key: 'key',
             search: 'search'
@@ -67,7 +67,7 @@
       },
       optionProps: {
         type: Object,
-        default: function() {
+        default() {
           return {
             label: 'label',
             value: 'value'
@@ -76,14 +76,14 @@
       },
       column: {
         type: Object,
-        default: function() {
+        default() {
           return {};
         }
       },
       disabled: Boolean,
       editDisabled: Boolean
     },
-    data: function() {
+    data() {
       return {
         selected: null,
         dialogVisible: false,
@@ -92,16 +92,16 @@
       };
     },
     methods: {
-      getOptions: function() {
-        var self = this;
-        var url;
+      getOptions() {
+        const self = this;
+        let url;
         if (typeof this.getOptionsUrl() === 'string' && this.getOptionsUrl() !== '') {
           url = this.getOptionsUrl();
         } else {
           url = this.optionsUrl;
         }
         axios.get(url).then(function(response) {
-          var data = response.data;
+          const data = response.data;
           if (data) {
             self.transferValue = data;
             if (!Array.isArray(data)) {
@@ -111,55 +111,51 @@
           }
         });
       },
-      getTransfer: function() {
+      getTransfer() {
         this.currentTransferValue = this.transferValue;
         this.dialogVisible = true;
       },
-      saveTransfer: function() {
+      saveTransfer() {
         this.transferValue = this.currentTransferValue;
         this.setValueByTransfer();
         this.dialogVisible = false;
       },
-      judgeReq: function() {
-        var judge = true;
-        var valArr = this.value.split(this.split);
-        var transferObj = {};
-        var i;
-        var j;
-        for (i in this.transferValue) {
+      judgeReq() {
+        let judge = true;
+        const valArr = this.value.split(this.split);
+        const transferObj = {};
+        for (let i in this.transferValue) {
           transferObj[this.transferValue[i][this.optionProps.value]] = this.transferValue[i];
         }
-        for (j in valArr) {
+        for (let j in valArr) {
           if (!(valArr[j] in transferObj)) {
             judge = false;
           }
         }
         return judge;
       },
-      setSelectedByValue: function() {
-        var valArr = this.value.split(this.split);
-        var selectedArr = [];
-        var transferObj = {};
-        var i;
-        var j;
-        for (i in this.transferValue) {
+      setSelectedByValue() {
+        const valArr = this.value.split(this.split);
+        const selectedArr = [];
+        const transferObj = {};
+        for (let i in this.transferValue) {
           transferObj[this.transferValue[i][this.optionProps.value]] = this.transferValue[i];
         }
-        for (j in valArr) {
+        for (let j in valArr) {
           if (transferObj[valArr[j]]) {
             selectedArr.push(transferObj[valArr[j]][this.optionProps.label]);
           }
         }
         this.selected = selectedArr.join(',');
       },
-      setValueByTransfer: function() {
-        var strArr = [];
-        for (var i in this.transferValue) {
+      setValueByTransfer() {
+        const strArr = [];
+        for (let i in this.transferValue) {
           strArr.push(this.transferValue[i][this.optionProps.value]);
         }
         this.$emit('input', strArr.join(','));
       },
-      formaterValue: function() {
+      formaterValue() {
         if (this.judgeReq()) {
           this.setSelectedByValue();
         } else {
@@ -168,7 +164,7 @@
       }
     },
     watch: {
-      value: function(val) {
+      value(val) {
         if (typeof this.value === 'string') {
           this.formaterValue();
           this.$emit('change', val);
@@ -176,7 +172,7 @@
         }
       }
     },
-    created: function() {
+    created() {
       if (typeof this.value === 'string') {
         this.formaterValue();
       }

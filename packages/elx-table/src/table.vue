@@ -396,7 +396,7 @@
     },
 
     mounted() {
-      var _self = this;
+      const _self = this;
       this.doLayout();
       this.$nextTick(function() {
         _self.bindEvents();

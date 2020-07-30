@@ -155,18 +155,18 @@ export default {
       if (!el) return;
       const data = this.store.states.data;
       const expandRows = this.store.states.expandRows;
-      var expandIndexArr = [];
+      let expandIndexArr = [];
       expandRows.map(function(expandRow) {
         expandIndexArr.push(data.indexOf(expandRow));
       });
       expandIndexArr = expandIndexArr.sort((a, b) => a > b ? 1 : -1);
       const rows = el.querySelectorAll('.table-drag-area > tr');
-      var oldRowIndex = data.indexOf(oldVal);
-      var oldRowFilter = expandIndexArr.filter(function(index) {
+      const oldRowIndex = data.indexOf(oldVal);
+      const oldRowFilter = expandIndexArr.filter(function(index) {
         return index < oldRowIndex;
       });
-      var newRowIndex = data.indexOf(newVal);
-      var newRowFilter = expandIndexArr.filter(function(index) {
+      const newRowIndex = data.indexOf(newVal);
+      const newRowFilter = expandIndexArr.filter(function(index) {
         return index < newRowIndex;
       });
       const oldRow = rows[oldRowIndex + oldRowFilter.length];
@@ -270,14 +270,14 @@ export default {
     getRowByIndex: function(index, nodes, e) {
       const data = this.store.states.data;
       const expandRows = this.store.states.expandRows;
-      var expandIndexArr = [];
+      let expandIndexArr = [];
       expandRows.map(function(expandRow) {
         expandIndexArr.push(data.indexOf(expandRow));
       });
       expandIndexArr = expandIndexArr.sort((a, b) => a > b ? 1 : -1);
       const rows = nodes;
-      var rowIndex = index;
-      var rowFilter = expandIndexArr.filter(function(index) {
+      const rowIndex = index;
+      const rowFilter = expandIndexArr.filter(function(index) {
         return index < rowIndex;
       });
       const row = rows[rowIndex + rowFilter.length];
@@ -288,14 +288,14 @@ export default {
       }
     },
     tranformStr: function(str) {
-      var strArr = str.split('-');
-      for (var i = 1; i < strArr.length; i++) {
+      const strArr = str.split('-');
+      for (let i = 1; i < strArr.length; i++) {
         strArr[i] = strArr[i].charAt(0).toUpperCase() + strArr[i].substring(1);
       }
       return strArr.join('');
     },
     getDomDetail: function(dom, e) {
-      var dropDetail = {
+      const dropDetail = {
         dom: dom,
         size: {width: dom.offsetWidth, height: dom.offsetHeight},
         innerHTML: dom.innerHTML,
@@ -305,15 +305,15 @@ export default {
       return dropDetail;
     },
     createDropDomList: function(e) {
-      var self = this;
-      var dropData = this.dropData;
-      var dropDoms = this.dropDoms;
-      var table;
-      var colgroup;
-      var col;
-      var tr;
+      const self = this;
+      const dropData = this.dropData;
+      const dropDoms = this.dropDoms;
+      let table;
+      let colgroup;
+      let col;
+      let tr;
       if (dropData.length > 0) {
-        var div = document.createElement('div');
+        const div = document.createElement('div');
         div.setAttribute('class', 'drop-dom-list');
         div.setAttribute('style', 'position: fixed; pointer-events: none; width: ' + this.dropDoms[0].size.width + 'px; height: 120px');
         if (typeof DataTransfer.prototype.setDragImage === 'function') {
@@ -323,8 +323,8 @@ export default {
           div.style.top = e.clientY - 10 + 'px';
           div.style.left = e.clientX - 20 + 'px';
         }
-        var compatible = ['-webkit-', '-moz-', '-o-', '-ms-', ''];
-        var transform = '';
+        const compatible = ['-webkit-', '-moz-', '-o-', '-ms-', ''];
+        let transform = '';
 
         dropDoms.map(function(dom, index) {
           table = document.createElement('table');
@@ -353,7 +353,7 @@ export default {
 
           div.appendChild(table);
         });
-        var numDiv = document.createElement('div');
+        const numDiv = document.createElement('div');
         numDiv.setAttribute('class', 'drop-dom-num');
         numDiv.setAttribute('style', 'position: absolute; top: 2px; left: 5px');
         numDiv.innerHTML = dropData.length;
@@ -379,9 +379,9 @@ export default {
       return null;
     },
     getDropDomList: function(item, index, e) {
-      var self = this;
-      var dropDoms;
-      var pos = {
+      const self = this;
+      let dropDoms;
+      const pos = {
         x: e.clientX,
         y: e.clientY
       };
@@ -389,8 +389,8 @@ export default {
       this.dropDoms = [];
       this.dropData = [];
       this.originPos = pos;
-      var selectedIdxArr = [];
-      var childNodes = e.currentTarget.parentNode.childNodes;
+      const selectedIdxArr = [];
+      const childNodes = e.currentTarget.parentNode.childNodes;
       this.store.states.selection.map(function(d, i) {
         i = self.data.indexOf(d);
         if (index !== i) {
@@ -414,7 +414,7 @@ export default {
       if (this.isMouseDown) {
         if (typeof DataTransfer.prototype.setDragImage !== 'function') {
           this.getDropDomList(item, index, e);
-          var node = this.createDropDomList(e);
+          const node = this.createDropDomList(e);
           if (node) {
             node.dragDrop();
           }
@@ -433,7 +433,7 @@ export default {
       e.dataTransfer.effectAllowed = 'copy';
       if (typeof DataTransfer.prototype.setDragImage === 'function') {
         this.getDropDomList(item, index, e);
-        var node = this.createDropDomList(e);
+        const node = this.createDropDomList(e);
         if (node) {
           e.dataTransfer.setDragImage(node, -20, -20, e.currentTarget);
         }
@@ -513,7 +513,7 @@ export default {
       return classes.join(' ');
     },
     validateRowKey: function(row) {
-      var rowKey = this.getKeyOfRow(row);
+      const rowKey = this.getKeyOfRow(row);
       if (this.firstRowKey) {
         if (rowKey === this.firstRowKey) {
           return false;
@@ -535,7 +535,7 @@ export default {
         this.dragIndex = index;
         this.dragItem = event.currentTarget.parentNode;
         this.isDrag = true;
-        var _top = this.dragItem.offsetTop - this.dragItem.parentNode.offsetTop;
+        const _top = this.dragItem.offsetTop - this.dragItem.parentNode.offsetTop;
         this.dragTop = _top + 'px';
         this.preventDefault(event);
       }
@@ -561,8 +561,8 @@ export default {
       this.mousePos.y = event.pageY;
       if (this.isDrag) {
         this.preventDefault(event);
-        var _top = window.parseInt(document.querySelector('.elx-drag-item').offsetTop) + this.mousePosGap.y;
-        var _trTop = this.dragItem.offsetTop - this.dragItem.parentNode.offsetTop;
+        const _top = window.parseInt(document.querySelector('.elx-drag-item').offsetTop) + this.mousePosGap.y;
+        const _trTop = this.dragItem.offsetTop - this.dragItem.parentNode.offsetTop;
         if (_top < _trTop - this.dragItem.offsetHeight / 2) {
           if (this.dragIndex - 1 < 0) {
             return;

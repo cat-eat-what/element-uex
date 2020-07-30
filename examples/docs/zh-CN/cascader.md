@@ -7,11 +7,18 @@
 
 ::: demo 级联
 ```html
-<el-form :model="form" ref="ruleForm" label-width="80px">
-  <el-form-item label="a" prop="a">
+<el-form
+  :model="form"
+  ref="ruleForm"
+  label-width="80px">
+  <el-form-item
+    label="a"
+    prop="a">
     <el-input v-model="form.a"></el-input>
   </el-form-item>
-  <el-form-item label="b" prop="b">
+  <el-form-item
+    label="b"
+    prop="b">
     <elx-cascader
       ref="cascader"
       v-model="form.b"

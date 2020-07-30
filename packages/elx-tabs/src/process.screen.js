@@ -1,6 +1,6 @@
-var getBrowser = function() {
-  var userAgent = navigator.userAgent;
-  var isOpera = userAgent.indexOf('Opera') > -1;
+const getBrowser = function() {
+  const userAgent = navigator.userAgent;
+  const isOpera = userAgent.indexOf('Opera') > -1;
   if (isOpera) {
     return 'Opera';
   };
@@ -17,7 +17,7 @@ var getBrowser = function() {
     return 'IE';
   };
 };
-var handleFullScreen = function(element) {
+const handleFullScreen = function(element) {
   if (element.requestFullScreen) {
     element.requestFullScreen();
   } else if (element.webkitRequestFullScreen) {
@@ -28,7 +28,7 @@ var handleFullScreen = function(element) {
     element.msRequestFullscreen();
   }
 };
-var handleExitFullscreen = function() {
+const handleExitFullscreen = function() {
   if (document.exitFullscreen) {
     document.exitFullscreen();
   } else if (document.mozCancelFullScreen) {
@@ -39,11 +39,11 @@ var handleExitFullscreen = function() {
     document.msExitFullscreen();
   }
 };
-var originStyle = {
+const originStyle = {
   fullScreen: {},
   maximize: {}
 };
-var setOriginStyle = function(dom, iframe, type) {
+const setOriginStyle = function(dom, iframe, type) {
   originStyle[type] = {
     position: dom.style.position,
     top: dom.style.top,
@@ -77,7 +77,7 @@ export const restore = function(dom, iframe, type) {
   if (getBrowser() === 'Chrome') {
     handleExitFullscreen();
   }
-  var oldStyle = originStyle[type];
+  const oldStyle = originStyle[type];
   dom.style.position = oldStyle.position;
   dom.style.zIndex = oldStyle.zIndex;
   dom.style.top = oldStyle.top;

@@ -2,8 +2,8 @@
 @import "./common/var";
 
 .elx-radio {
-    height: 30px;
-    line-height: 28px;
+    height: $--height;
+    line-height: $--line-height;
     display: inline-block;
     border: 1px solid $--color-zxb-15;
     color: $--color-font;
@@ -30,7 +30,7 @@
     }
     .el-icon-check {
         position: absolute;
-        top: calc(30px - 1.58em);
+        top: $--height - 1.58 * $--font-size-small;
         right: 1.45em;
         font-size: 12px;
         &:before {

@@ -42,21 +42,21 @@
         default: []
       }
     },
-    data: function() {
+    data() {
       return {
         currentNavData: []
       };
     },
     methods: {
-      mouseenter: function(item) {
+      mouseenter(item) {
         item.open = true;
       },
-      mouseleave: function(item) {
+      mouseleave(item) {
         item.open = false;
       },
-      formatData: function() {
-        var self = this;
-        var fun = function(node) {
+      formatData() {
+        const self = this;
+        const fun = function(node) {
           if (!('open' in node)) {
             self.$set(node, 'open', false);
           }
@@ -66,22 +66,22 @@
           if (node.children.length === 0) {
             return;
           }
-          for (var i = 0; i < node.children.length; i++) {
+          for (let i = 0; i < node.children.length; i++) {
             fun(node.children[i]);
           }
         };
-        for (var i = 0;i < this.currentNavData.length; i++) {
+        for (let i = 0;i < this.currentNavData.length; i++) {
           fun(this.currentNavData[i]);
         }
       }
     },
     watch: {
-      navData: function(val) {
+      navData(val) {
         this.currentNavData = val;
         this.formatData();
       }
     },
-    created: function() {
+    created() {
       this.currentNavData = this.navData;
       this.formatData();
     }

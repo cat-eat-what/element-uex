@@ -79,16 +79,17 @@
 </template>
 
 <script>
-  var CodeMirror = require('codemirror');
-  var sqlFormatter = require('sql-formatter');
-  var beautify = require('js-beautify');
-  var js_beautify;
-  var css_beautify;
-  var html_beautify;
   import emitter from 'element-uex/src/mixins/emitter';
   import Migrating from 'element-uex/src/mixins/migrating';
 
   import './extend.js';
+
+  const CodeMirror = require('codemirror');
+  const sqlFormatter = require('sql-formatter');
+  const beautify = require('js-beautify');
+  let js_beautify;
+  let css_beautify;
+  let html_beautify;
 
   export default {
     name: 'ElxCodemirror',
@@ -109,7 +110,7 @@
       },
       option: {
         type: Object,
-        default: function() {
+        default() {
           return {};
         }
       },
@@ -123,7 +124,7 @@
       },
       actionData: {
         type: Array,
-        default: function() {
+        default() {
           return [];
         }
       },
@@ -131,8 +132,7 @@
       beforeRender: Function,
       afterRender: Function
     },
-    data: function() {
-      var self = this;
+    data() {
       return {
         codemirror: null,
         defaultOption: {
@@ -142,19 +142,19 @@
           foldGutter: true,
           gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
           extraKeys: {
-            'Ctrl-F11': function(cm) {
+            'Ctrl-F11'(cm) {
               cm.setOption('fullScreen', !cm.getOption('fullScreen'));
             },
-            'Esc': function(cm) {
+            'Esc'(cm) {
               if (cm.getOption('fullScreen')) {
                 cm.setOption('fullScreen', false);
               }
             },
-            'Ctrl-Q': function(cm) {
+            'Ctrl-Q'(cm) {
               cm.foldCode(cm.getCursor());
             },
-            'Shift-Space': function(cm) {
-              self.$emit('show-hint', cm);
+            'Shift-Space': (cm) => {
+              this.$emit('show-hint', cm);
               cm.showHint();
             }
           }
@@ -189,15 +189,15 @@
       };
     },
     methods: {
-      getEventPos: function(e) {
-        var x = e.clientX;
-        var y = e.clientY;
+      getEventPos(e) {
+        const x = e.clientX;
+        const y = e.clientY;
         return { 'x': x, 'y': y };
       },
-      contextmenu: function(event) {
+      contextmenu(event) {
         this.$emit('right-click', this.codemirror);
-        var e = event || window.event;
-        var pos = this.getEventPos(e);
+        const e = event || window.event;
+        const pos = this.getEventPos(e);
         if (e.which === 3) {
           this.contentMenuShow = false;
           this.pos.x = pos.x;
@@ -208,7 +208,7 @@
         e.returnValue = false;
         return false;
       },
-      preventDefault: function(e) {
+      preventDefault(e) {
         e = e || window.event;
         if (e.preventDefault) {
           e.preventDefault();
@@ -216,7 +216,7 @@
           e.returnvalue = false;
         }
       },
-      action: function(data) {
+      action(data) {
         if (typeof data.action === 'function') {
           data.action(this);
         } else if (typeof this[data.action] === 'function') {
@@ -224,15 +224,15 @@
         }
         this.contentMenuShow = false;
       },
-      getSelectedRange: function() {
+      getSelectedRange() {
         return { from: this.codemirror.getCursor(true), to: this.codemirror.getCursor(false) };
       },
-      codeMirrorFormat: function() {
-        var range = this.getSelectedRange();
-        var cm = this.codemirror;
-        var from = range.from;
-        var to = range.to;
-        var out;
+      codeMirrorFormat() {
+        const range = this.getSelectedRange();
+        const cm = this.codemirror;
+        const from = range.from;
+        const to = range.to;
+        let out;
         if (this.codemirror.getMode().name === 'sql') {
           if (sqlFormatter) {
             out = sqlFormatter.format(cm.getRange(from, to));
@@ -259,41 +259,41 @@
           this.codemirror.autoFormatRange(from, to);
         }
       },
-      codeMirrorSearch: function() {
+      codeMirrorSearch() {
         this.replaceVisible = false;
         this.searchVisible = true;
       },
-      codeMirrorReplace: function() {
+      codeMirrorReplace() {
         this.searchVisible = false;
         this.replaceVisible = true;
       },
-      searchNext: function() {
+      searchNext() {
         CodeMirror.extends.find(this.codemirror, this.searchData);
       },
-      replace: function() {
+      replace() {
         CodeMirror.extends.replace(this.codemirror, this.searchData);
       },
-      replaceAll: function() {
+      replaceAll() {
         CodeMirror.extends.replaceAll(this.codemirror, this.searchData);
       },
-      searchCancel: function() {
+      searchCancel() {
         this.searchVisible = false;
         CodeMirror.extends.clearSearch(this.codemirror);
       },
-      replaceCancel: function() {
+      replaceCancel() {
         this.replaceVisible = false;
         CodeMirror.extends.clearSearch(this.codemirror);
       },
-      iGetInnerText: function(testStr) {
-        var resultStr = testStr.replace(/\ +/g, '');
+      iGetInnerText(testStr) {
+        let resultStr = testStr.replace(/\ +/g, '');
         resultStr = testStr.replace(/[ ]/g, '');
         resultStr = testStr.replace(/[\r\n]/g, '');
         resultStr = testStr.replace(/\s+/g, ' ');
         return resultStr;
       },
-      renderCodemirror: function() {
-        var self = this;
-        var option = Object.assign({}, this.defaultOption, this.option);
+      renderCodemirror() {
+        const self = this;
+        const option = Object.assign({}, this.defaultOption, this.option);
         this.codemirror = CodeMirror.fromTextArea(this.$refs['elxCodemirror'].children[0], option);
         if (typeof this.beforeRender === 'function') {
           this.beforeRender(CodeMirror);
@@ -304,22 +304,22 @@
         }
         if (typeof this.inputRead === 'function') {
           this.codemirror.on('inputRead', function(cm, range) {
-            var val = self.iGetInnerText(self.codemirror.getValue());
+            const val = self.iGetInnerText(self.codemirror.getValue());
             self.inputRead(cm, range, val);
           });
         }
         this.codemirror.on('change', function() {
           self.$emit('input', this.codemirror.getValue());
           if (self.value !== this.codemirror.getValue()) {
-            var startPos = {ch: 0, line: 0};
-            var endPos = this.codemirror.getCursor();
-            var range = this.codemirror.getRange(startPos, endPos);
-            var innerText = self.iGetInnerText(range);
-            var strArr = innerText.split(' ');
-            var lastStr = strArr[strArr.length - 1];
-            var regExp = /\w\.$/g;
+            const startPos = {ch: 0, line: 0};
+            const endPos = this.codemirror.getCursor();
+            const range = this.codemirror.getRange(startPos, endPos);
+            const innerText = self.iGetInnerText(range);
+            const strArr = innerText.split(' ');
+            const lastStr = strArr[strArr.length - 1];
+            const regExp = /\w\.$/g;
             if (regExp.test(lastStr)) {
-              var table = lastStr.slice(0, lastStr.length - 1);
+              const table = lastStr.slice(0, lastStr.length - 1);
               self.hintResult = table;
               self.$emit('show-hint', self.codemirror, table);
               self.codemirror.showHint();
@@ -334,27 +334,27 @@
           }
         }.bind(this));
       },
-      setActionData: function() {
+      setActionData() {
         this.currentActionData = this.actionData ? (this.defaultActionData).concat(this.actionData) : this.defaultActionData;
       },
-      handleDisplay: function() {
+      handleDisplay() {
         this.contentMenuShow = false;
       }
     },
     watch: {
-      value: function() {
+      value() {
         if (this.codemirror.getValue() !== this.value) {
           this.codemirror.setValue(this.value || '');
         }
       },
-      option: function() {
+      option() {
         this.renderCodemirror();
       },
-      actionData: function() {
+      actionData() {
         this.setActionData();
       }
     },
-    created: function() {
+    created() {
       js_beautify = window.js_beautify;
       css_beautify = window.css_beautify;
       html_beautify = window.html_beautify;
@@ -368,14 +368,14 @@
         html_beautify = beautify ? beautify['html_beautify'] : null;
       }
     },
-    mounted: function() {
+    mounted() {
       this.renderCodemirror();
       this.$nextTick(function() {
         document.body.addEventListener('click', this.handleDisplay);
       });
       this.setActionData();
     },
-    beforeDestroy: function() {
+    beforeDestroy() {
       document.body.removeEventListener('click', this.handleDisplay);
       this.codemirror.toTextArea();
     }

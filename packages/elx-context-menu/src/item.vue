@@ -64,7 +64,7 @@
       props: {
         data: {
           type: Object,
-          default: function() {
+          default() {
             return {};
           }
         },
@@ -81,7 +81,7 @@
               required: true
             }
           },
-          data: function() {
+          data() {
             return {};
           },
           render(h) {
@@ -96,7 +96,7 @@
         }
       },
 
-      data: function() {
+      data() {
         return {
           pos: {
             top: '0px',
@@ -106,9 +106,9 @@
         };
       },
       methods: {
-        getElementPosition: function(el) {
-          var x = 0;
-          var y = 0;
+        getElementPosition(el) {
+          let x = 0;
+          let y = 0;
           while (el != null) {
             x += el.offsetLeft;
             y += el.offsetTop;
@@ -116,23 +116,23 @@
           }
           return { x: x, y: y };
         },
-        exec: function() {
+        exec() {
           this.$emit('action', this.data);
         },
-        action: function(data) {
+        action(data) {
           this.$emit('action', data);
         },
-        changeStyle: function() {
-          var self = this;
+        changeStyle() {
+          const self = this;
           if (self.$el.childNodes[1]) {
             if (typeof self.$el.childNodes[1].tagName === 'string') {
               if (self.$el.childNodes[1].tagName.toLowerCase() === 'ul') {
-                var bodyClientHeight = document.body.clientHeight;
-                var bodyClientTop = document.body.clientTop;
-                var viewHeight = bodyClientHeight + bodyClientTop;
-                var clientTop = this.getElementPosition(self.$el.childNodes[1]).y;
-                var height = self.$el.childNodes[1].clientHeight;
-                var elBottom = height + clientTop;
+                const bodyClientHeight = document.body.clientHeight;
+                const bodyClientTop = document.body.clientTop;
+                const viewHeight = bodyClientHeight + bodyClientTop;
+                const clientTop = this.getElementPosition(self.$el.childNodes[1]).y;
+                const height = self.$el.childNodes[1].clientHeight;
+                const elBottom = height + clientTop;
                 if (viewHeight < elBottom) {
                   this.pos.top = 'auto';
                   this.pos.bottom = '0px';
@@ -144,28 +144,28 @@
             }
           }
         },
-        showChild: function() {
+        showChild() {
           this.visible = true;
         },
-        hideChild: function() {
+        hideChild() {
           this.visible = false;
           this.pos.top = '0px';
           this.pos.bottom = 'auto';
         }
       },
       watch: {
-        visible: function(val) {
+        visible(val) {
           if (val) {
-            var self = this;
+            const self = this;
             this.$nextTick(function() {
               self.changeStyle();
             });
           }
         }
       },
-      created: function() {
+      created() {
       },
-      mounted: function() {
+      mounted() {
         this.changeStyle();
       }
     };

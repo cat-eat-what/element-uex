@@ -23,12 +23,17 @@
       </div>
       <transition name="menuFade">
         <div
+          ref="menuDiv"
           class="treeview-menu"
-          v-show="isOpen">
+          v-show="isOpen"> 
+        <!-- <div
+          ref="menuDiv"
+          :class="isOpen?'treeview-menu show':'treeview-menu'"
+          > -->
         <!-- <div class="treeview-menu"> -->
-          <ul :style="'padding-left:'+ulMargin+'px'">
+          <ul >
             <li
-              :style="'height:'+liMaxHeight[parseInt(index/eveLineNum)]+'px'"
+              :style="'height:'+liMaxHeight[parseInt(index/eveLineNum)]+'px;margin-left:'+ulMargin+'px'"
               v-for="(item,index) in currentMenuData"
               class="firstTitle"
               >
@@ -37,13 +42,12 @@
                     <span
                       :class="item.menuIcon==''||item.menuIcon==null?'uex-icon-gather':item.menuIcon" style="margin-right: 10px;">
                     </span>
-                    {{item.menuName}}
+                    <span>{{item.menuName}}</span>
                   </dt>
                   <dd
                     v-for="(child,idx) in item.children"
                     :key="idx"
                     @click="changeMenu(child,index,child)">
-                    {{child.menuName}}
                     <svg
                       id="selectLine"
                       class="selectLine"
@@ -57,6 +61,7 @@
                         height="40"
                         style="fill:none;stroke-width: 1px;stroke:#495465;"/>
                     </svg>
+                    <span>{{child.menuName}}</span>
                   </dd>
               </dl>
             </li>
@@ -77,29 +82,36 @@
         default: []
       }
     },
-    data: function() {
+    data() {
       return {
         currentMenuData: [],
         isOpen: false,
         liMaxHeight: [200],
         lineNum: 0,
-        eveLineNum: 1
+        eveLineNum: 1,
+        menuWidth: 0,
+        ulMargin: 0
       };
     },
     methods: {
-      openMenu: function() {
+      openMenu() {
         this.isOpen = !this.isOpen;
+        setTimeout(()=>{
+          this.menuWidth = this.$refs.menuDiv.clientWidth;
+          console.log('menuWidth', this.menuWidth);
+          this.getUlMargin();
+        }, 50);
       },
-      closeMenu: function() {
+      closeMenu() {
         this.isOpen = false;
       },
-      getLiMaxHeight: function() {
+      getLiMaxHeight() {
         this.getLineNum();
         this.liMaxHeight = [];
-        for (var i = 0; i <= this.lineNum; i++) {
-          var lineHeight = 0;
-          for (var j = i * this.eveLineNum; j < this.eveLineNum * (i + 1) && j < this.currentMenuData.length; j++) {
-            var height = (this.currentMenuData[j].children.length + 1) * 40;
+        for (let i = 0; i <= this.lineNum; i++) {
+          let lineHeight = 0;
+          for (let j = i * this.eveLineNum; j < this.eveLineNum * (i + 1) && j < this.currentMenuData.length; j++) {
+            const height = (this.currentMenuData[j].children.length + 1) * 40;
             if (lineHeight === 0 || height > lineHeight) {
               lineHeight = height;
             }
@@ -107,39 +119,38 @@
           this.liMaxHeight.push(lineHeight);
         }
       },
-      getLineNum: function() {
-        var w = document.body.clientWidth;
-        this.eveLineNum = parseInt((w - 40) / 240, 10);
+      getLineNum() {
+        // const w = document.body.clientWidth;
+        this.eveLineNum = parseInt((this.menuWidth - 40) / 240, 10);
         this.lineNum = parseInt(this.currentMenuData.length / this.eveLineNum, 10);
       },
-      changeMenu: function(item, index, child) {
-        var menuData = this.menuData[index];
+      changeMenu(item, index, child) {
+        const menuData = this.menuData[index];
         this.$emit('change-menu', menuData, child);
         this.isOpen = false;
       },
-      transMenuData: function(data) {
-        for (var i in data) {
+      transMenuData(data) {
+        for (let i in data) {
           if (data[i].children.length > 4) {
             data[i].children = data[i].children.slice(0, 4);
           }
         }
         this.currentMenuData = data;
       },
-      getUlMargin: function() {
-        var w = document.body.clientWidth;
+      getUlMargin() {
+        // const w = document.body.clientWidth;
         this.getLineNum();
-        this.ulMargin = parseInt((w - 240 * this.eveLineNum) / 2, 10);
+        this.ulMargin = parseInt((this.menuWidth - 240 * this.eveLineNum) / (this.eveLineNum + 1), 10);
       }
     },
     watch: {
-      menuData: function(val) {
+      menuData(val) {
         this.transMenuData(val);
         // this.getLiMaxHeight();
       }
     },
-    created: function() {
+    created() {
       this.transMenuData(this.menuData);
-      this.getUlMargin();
       // this.getLiMaxHeight();
     }
   };

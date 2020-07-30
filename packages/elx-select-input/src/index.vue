@@ -82,25 +82,25 @@
         default: 'select'
       }
     },
-    data: function() {
+    data() {
       return {
         currentValue: '',
         currentType: ''
       };
     },
     methods: {
-      change: function(val) {
+      change(val) {
       },
-      visibleChange: function(val) {
+      visibleChange(val) {
         this.$emit('visible-change', val);
       },
-      changeType: function() {
+      changeType() {
         this.currentType = this.currentType === 'select' ? 'input' : 'select';
         this.$emit('update:type', this.currentType);
       }
     },
     watch: {
-      value: function(val, oldVal) {
+      value(val, oldVal) {
         this.currentValue = val;
         if (Array.isArray(val)) {
           if (JSON.stringify(val) !== JSON.stringify(oldVal)) {
@@ -112,18 +112,18 @@
         this.$emit('change', val);
         this.dispatch('ElFormItem', 'el.form.change', val);
       },
-      currentValue: function(val, oldVal) {
+      currentValue(val, oldVal) {
         this.$emit('input', val);
       },
-      type: function() {
+      type() {
         this.currentType = this.type;
       }
     },
-    created: function() {
+    created() {
       this.currentValue = this.value;
       this.currentType = this.type;
     },
-    mounted: function() {
+    mounted() {
     }
   };
 </script>

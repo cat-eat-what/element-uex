@@ -8,7 +8,10 @@
 ::: demo 菜单
 ```html
 <div class="nav-demo">
-  <elx-top-menu @change-menu="changeMenu" :menu-data="testMenuData"></elx-top-menu>
+  <elx-top-menu
+    @change-menu="changeMenu"
+    :menu-data="testMenuData">
+  </elx-top-menu>
 </div>
 <script>
 var testMenuData = require('examples/assets/topMenu.json');

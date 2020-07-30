@@ -34,15 +34,15 @@
         default: 'row'
       }
     },
-    data: function() {
+    data() {
       return {
         currentFullscreenLoading: this.fullscreenLoading,
         overflow: 'hidden'
       };
     },
     methods: {
-      resize: function() {
-        var self = this;
+      resize() {
+        const self = this;
         if (typeof self.$children === 'object') {
           self.$children.map(function(item) {
             if (typeof item.resize === 'function') {
@@ -53,11 +53,11 @@
       }
     },
     watch: {
-      fullscreenLoading: function(val, oldVal) {
+      fullscreenLoading(val, oldVal) {
         this.currentFullscreenLoading = val;
       },
-      currentFullscreenLoading: function(val, oldVal) {
-        var self = this;
+      currentFullscreenLoading(val, oldVal) {
+        const self = this;
         this.$emit('update:fullscreenLoading', val);
         if (!val) {
           this.$nextTick(function() {
@@ -66,8 +66,8 @@
         }
       }
     },
-    mounted: function() {
-      var self = this;
+    mounted() {
+      const self = this;
       window.addEventListener('resize', this.resize);
       this.$nextTick(function() {
         setTimeout(function() {
@@ -77,7 +77,7 @@
         }, 800);
       });
     },
-    beforeDestroy: function() {
+    beforeDestroy() {
       window.removeEventListener('resize', this.resize);
     }
   };

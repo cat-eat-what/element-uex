@@ -100,22 +100,22 @@
           default: 0
         }
       },
-      data: function() {
+      data() {
         return {
           top: 0,
           bottom: ''
         };
       },
       methods: {
-        getCurLabel: function(str) {
-          var realLength = 0;
+        getCurLabel(str) {
+          let realLength = 0;
           if (typeof str !== 'string') {
             return '';
           }
-          var len = str.length;
-          var charCode = -1;
-          var sub = -1;
-          for (var i = 0; i < len; i++) {
+          const len = str.length;
+          let charCode = -1;
+          let sub = -1;
+          for (let i = 0; i < len; i++) {
             charCode = str.charCodeAt(i);
             if (charCode > 0 && charCode < 129) {
               realLength += 1;
@@ -128,28 +128,27 @@
           }
           return sub !== -1 ? str.substring(0, sub) + '..' : str;
         },
-        canMenuChange: function() {
-          var filterData = this.model.children.filter(function(item) {
+        canMenuChange() {
+          const filterData = this.model.children.filter(function(item) {
             return item.active === true;
           });
           return this.model.children.length === 0 || (this.model.children.length !== 0 && this.model.url !== '' && this.model.url !== null && filterData.length === 0);
         },
-        menuChange: function(model) {
+        menuChange(model) {
           this.$emit('menu-change', model);
         },
-        lastChildNodeClick: function(model) {
+        lastChildNodeClick(model) {
           this.$emit('last-child-node-click', model);
         },
-        emitactive: function(modelArr, status) {
-          var _arr = [this.model].concat(modelArr);
-          console.log('_arr', _arr);
+        emitactive(modelArr, status) {
+          const _arr = [this.model].concat(modelArr);
           this.$emit('emitactive', _arr, status);
         },
-        emitopen: function(modelArr, status) {
-          var _arr = [this.model].concat(modelArr);
+        emitopen(modelArr, status) {
+          const _arr = [this.model].concat(modelArr);
           this.$emit('emitopen', _arr, status, 'narrow');
         },
-        menuActive: function() {
+        menuActive() {
           if (this.canMenuChange()) {
             if (this.model.active) {
               this.$emit('menu-change', this.model);
@@ -160,22 +159,22 @@
             this.$emit('last-child-node-click', this.model);
           }
         },
-        subMenuOpen: function() {
-          var _arr = [this.model];
+        subMenuOpen() {
+          const _arr = [this.model];
           if (this.model.active) {
-            var fun = function(node) {
+            const fun = function(node) {
               if (node.active) {
                 _arr.push(node);
               }
               if (node.children.length === 0) {
                 return;
               }
-              for (var i = 0;i < node.children.length;i++) {
+              for (let i = 0;i < node.children.length;i++) {
                 fun(node.children[i]);
               }
             };
             if (this.model.children.length > 0) {
-              for (var i = 0;i < this.model.children.length;i++) {
+              for (let i = 0;i < this.model.children.length;i++) {
                 if (this.model.children[i].active) {
                   fun(this.model.children[i]);
                 }
@@ -184,9 +183,9 @@
             }
           }
         },
-        getElOffsetTop: function(el, parentEl) {
-          var top = el.offsetTop;
-          var fun = function(el) {
+        getElOffsetTop(el, parentEl) {
+          let top = el.offsetTop;
+          const fun = function(el) {
             if (window.getComputedStyle(el).position !== 'static') {
               top = top + el.offsetTop;
             }
@@ -198,12 +197,12 @@
           fun(el.parentNode);
           return top;
         },
-        menuOpen: function(event) {
+        menuOpen(event) {
           this.$emit('emitopen', [this.model], false, 'narrow');
-          var _e = event || window.event;
-          var _target = _e.currentTarget;
-          var top = this.getElOffsetTop(_target, document.body);
-          var _bottom = document.body.offsetHeight -
+          const _e = event || window.event;
+          const _target = _e.currentTarget;
+          const top = this.getElOffsetTop(_target, document.body);
+          const _bottom = document.body.offsetHeight -
             this.getElOffsetTop(_target, document.body) -
             40 + window.pageYOffset;
           if (top > _bottom && _bottom < this.model.children.length * 36) {
@@ -214,10 +213,10 @@
             this.top = 40;
           }
         },
-        menuClose: function() {
+        menuClose() {
           this.$emit('emitopen', [this.model], true, 'narrow');
         },
-        contextmenu: function(model, e) {
+        contextmenu(model, e) {
           this.$emit('menu-contextmenu', model, e);
         }
       }

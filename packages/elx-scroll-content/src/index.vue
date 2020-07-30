@@ -25,7 +25,7 @@
         default: 'row'
       }
     },
-    data: function() {
+    data() {
       return {
         width: 0,
         height: 0,
@@ -35,7 +35,7 @@
       };
     },
     computed: {
-      size: function() {
+      size() {
         return {
           width: this.width,
           height: this.height,
@@ -45,16 +45,16 @@
       }
     },
     methods: {
-      parseInt: function(val) {
+      parseInt(val) {
         val = window.parseInt(val);
         return window.isNaN(val) ? 0 : val;
       },
-      parseFloat: function(val) {
+      parseFloat(val) {
         val = window.parseFloat(val);
         return window.isNaN(val) ? 0 : val;
       },
-      getCss: function(el) {
-        var css;
+      getCss(el) {
+        let css;
         if (window.getComputedStyle) {
           css = window.getComputedStyle(el);
         } else {
@@ -62,16 +62,16 @@
         }
         return css;
       },
-      judgeElLocation: function(el) {
-        var css = this.getCss(el);
+      judgeElLocation(el) {
+        let css = this.getCss(el);
         if (css.position === 'fixed' || css.position === 'absolute') {
           return false;
         }
         return true;
       },
-      getRealHeight: function(el, height) {
-        var realHeight = 0;
-        var css = this.getCss(el);
+      getRealHeight(el, height) {
+        let realHeight = 0;
+        const css = this.getCss(el);
         if (css.boxSizing === 'border-box') {
           realHeight = this.parseFloat(height) -
             this.parseFloat(css.marginTop) -
@@ -87,9 +87,9 @@
         }
         return realHeight;
       },
-      getInnerHeight: function(el) {
-        var innerHeight = 0;
-        var css = this.getCss(el);
+      getInnerHeight(el) {
+        let innerHeight = 0;
+        const css = this.getCss(el);
         innerHeight = this.formatVal(css.height, el.offsetHeight, -1) -
           this.parseFloat(css.paddingTop) -
           this.parseFloat(css.paddingBottom) -
@@ -97,17 +97,17 @@
           this.parseFloat(css.borderBottomWidth);
         return innerHeight;
       },
-      getOuterHeight: function(el) {
-        var outerHeight = 0;
-        var css = this.getCss(el);
+      getOuterHeight(el) {
+        let outerHeight = 0;
+        const css = this.getCss(el);
         outerHeight = this.parseFloat(css.marginTop) +
           this.formatVal(css.height, el.offsetHeight, 1) +
           this.parseFloat(css.marginBottom);
         return outerHeight;
       },
-      getRealWidth: function(el, width) {
-        var realWidth = 0;
-        var css = this.getCss(el);
+      getRealWidth(el, width) {
+        let realWidth = 0;
+        const css = this.getCss(el);
         if (css.boxSizing === 'border-box') {
           realWidth = this.parseFloat(width) -
             this.parseFloat(css.marginLeft) -
@@ -123,15 +123,15 @@
         }
         return realWidth;
       },
-      getOffsetWidth: function(el, type) {
-        var rect = el.getBoundingClientRect();
-        var xOffsetWidth = Math.round(rect.right - rect.left);
-        var offsetWidth = el.offsetWidth;
+      getOffsetWidth(el, type) {
+        const rect = el.getBoundingClientRect();
+        const xOffsetWidth = Math.round(rect.right - rect.left);
+        const offsetWidth = el.offsetWidth;
         return type === 'inner' ? Math.min(xOffsetWidth, offsetWidth) : Math.max(xOffsetWidth, offsetWidth);
       },
-      getInnerWidth: function(el) {
-        var innerWidth = 0;
-        var css = this.getCss(el);
+      getInnerWidth(el) {
+        let innerWidth = 0;
+        const css = this.getCss(el);
         innerWidth = this.formatVal(css.width, this.getOffsetWidth(el, 'inner'), -1) -
           this.parseFloat(css.paddingLeft) -
           this.parseFloat(css.paddingRight) -
@@ -140,18 +140,18 @@
         return innerWidth;
       },
 
-      getOuterWidth: function(el) {
-        var outerWidth = 0;
-        var css = this.getCss(el);
+      getOuterWidth(el) {
+        let outerWidth = 0;
+        const css = this.getCss(el);
         outerWidth = this.parseFloat(css.marginLeft) +
           this.formatVal(css.width, this.getOffsetWidth(el, 'outer'), 1) +
           this.parseFloat(css.marginRight);
         return outerWidth;
       },
-      formatVal: function(realVal, offsetVal, gap) {
+      formatVal(realVal, offsetVal, gap) {
         realVal = this.parseFloat(realVal);
         if (realVal.toString().split('.').length > 1) {
-          var point = this.parseFloat('0.' + realVal.toString().split('.')[1]);
+          const point = this.parseFloat('0.' + realVal.toString().split('.')[1]);
           if (point >= 0.5) {
             offsetVal = offsetVal - 1 + point;
           } else {
@@ -161,19 +161,19 @@
         }
         return this.parseFloat(offsetVal);
       },
-      refreshHeight: function() {
-        var self = this;
-        var parentEl = this.$el.parentNode;
+      refreshHeight() {
+        const self = this;
+        const parentEl = this.$el.parentNode;
         if (!parentEl) {
           return;
         }
-        var childNodes = parentEl.childNodes;
-        var childHeightTotal = 0;
-        var parentElWidth = self.getInnerWidth(parentEl);
-        var parentElHeight = self.getInnerHeight(parentEl);
-        var filterItems = [];
+        const childNodes = parentEl.childNodes;
+        let childHeightTotal = 0;
+        const parentElWidth = self.getInnerWidth(parentEl);
+        const parentElHeight = self.getInnerHeight(parentEl);
+        const filterItems = [];
         Object.keys(childNodes).forEach(function(key) {
-          var node = childNodes[key];
+          const node = childNodes[key];
           if (typeof node.className !== 'string') {
             return false;
           }
@@ -194,19 +194,19 @@
           });
         }
       },
-      refreshWidth: function() {
-        var self = this;
-        var parentEl = this.$el.parentNode;
+      refreshWidth() {
+        const self = this;
+        const parentEl = this.$el.parentNode;
         if (!parentEl) {
           return;
         }
-        var childNodes = parentEl.childNodes;
-        var childWidthTotal = 0;
-        var parentElWidth = self.getInnerWidth(parentEl);
-        var parentElHeight = self.getInnerHeight(parentEl);
-        var filterItems = [];
+        const childNodes = parentEl.childNodes;
+        let childWidthTotal = 0;
+        const parentElWidth = self.getInnerWidth(parentEl);
+        const parentElHeight = self.getInnerHeight(parentEl);
+        const filterItems = [];
         Object.keys(childNodes).forEach(function(key) {
-          var node = childNodes[key];
+          const node = childNodes[key];
           if (typeof node.className !== 'string') {
             return false;
           }
@@ -227,10 +227,10 @@
           });
         }
       },
-      resize: function() {
-        var self = this;
+      resize() {
+        const self = this;
         this.overflow = 'hidden';
-        var parentEl = this.$el.parentNode;
+        const parentEl = this.$el.parentNode;
         if (!parentEl) {
           return;
         } else {
@@ -255,14 +255,14 @@
       }
     },
     watch: {
-      size: function() {
+      size() {
         this.$emit('resize', this.size);
       }
     },
-    mounted: function() {
+    mounted() {
       window.addEventListener('resize', this.resize);
     },
-    beforeDestroy: function() {
+    beforeDestroy() {
       window.removeEventListener('resize', this.resize);
     }
   };

@@ -19,15 +19,15 @@
       };
     },
     methods: {
-      parseInt: function(val) {
+      parseInt(val) {
         val = window.parseInt(val);
         return window.isNaN(val) ? 0 : val;
       },
-      parseFloat: function(val) {
+      parseFloat(val) {
         val = window.parseFloat(val);
         return window.isNaN(val) ? 0 : val;
       },
-      getCss: function(el) {
+      getCss(el) {
         let css;
         if (window.getComputedStyle) {
           css = window.getComputedStyle(el);
@@ -36,14 +36,14 @@
         }
         return css;
       },
-      judgeElLocation: function(el) {
+      judgeElLocation(el) {
         const css = this.getCss(el);
         if (css.position === 'fixed' || css.position === 'absolute') {
           return false;
         }
         return true;
       },
-      getRealHeight: function(el, height) {
+      getRealHeight(el, height) {
         let realHeight = 0;
         const css = this.getCss(el);
         if (css.boxSizing === 'border-box') {
@@ -61,7 +61,7 @@
         }
         return realHeight;
       },
-      getInnerHeight: function(el) {
+      getInnerHeight(el) {
         let innerHeight = 0;
         const css = this.getCss(el);
         innerHeight = this.formatVal(css.height, el.offsetHeight, -1) -
@@ -71,7 +71,7 @@
           this.parseFloat(css.borderBottomWidth);
         return innerHeight;
       },
-      formatVal: function(realVal, offsetVal, gap) {
+      formatVal(realVal, offsetVal, gap) {
         realVal = this.parseFloat(realVal);
         if (realVal.toString().split('.').length > 1) {
           const point = this.parseFloat('0.' + realVal.toString().split('.')[1]);
@@ -84,7 +84,7 @@
         }
         return this.parseFloat(offsetVal);
       },
-      resize: function() {
+      resize() {
         const parentEl = this.$el.parentNode;
         if (!parentEl) {
           return;
@@ -94,11 +94,11 @@
     },
     watch: {
     },
-    mounted: function() {
+    mounted() {
       this.resize();
       window.addEventListener('resize', this.resize);
     },
-    beforeDestroy: function() {
+    beforeDestroy() {
       window.removeEventListener('resize', this.resize);
     }
   };

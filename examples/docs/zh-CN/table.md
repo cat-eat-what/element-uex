@@ -17,8 +17,14 @@
   height="120"
   style="width: 100%"
   border>
-  <el-table-column type="selection" width="50"></el-table-column>
-  <el-table-column type="index" width="80" label="序号">
+  <el-table-column
+    type="selection"
+    width="50">
+    </el-table-column>
+  <el-table-column
+    type="index"
+    width="80"
+    label="序号">
     <template slot-scope="props">
       {{props.$index!=null?props.$index+1:''}}
     </template>
@@ -28,7 +34,7 @@
       label="日期"
       width="180">
       <template slot-scope="props">
-      <el-input v-model = "props.row.date"></el-input>
+        <el-input v-model = "props.row.date"></el-input>
       </template>
     </el-table-column>
   </template>
