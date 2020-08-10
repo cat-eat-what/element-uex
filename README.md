@@ -31,8 +31,8 @@ npm run dist
 ```
 ## Icon 图标
 
-[图标Icon演示](https://cat-eat-what.github.io/element-uex/)
+[图标Icon演示](https://cat-eat-what.github.io/element-uex/#/zh-CN/component/icon)
 
 ## API文档及demo演示地址
 
-[API文档及demo演示地址](https://cat-eat-what.github.io/element-uex/)
+[API文档及demo演示地址](https://cat-eat-what.github.io/element-uex/#/zh-CN/component/scroll-content)
