@@ -18,6 +18,8 @@
 
 <script>
   import Locale from 'element-uex/src/mixins/locale';
+  import ResizeObserver from 'resize-observer-polyfill';
+
   export default {
     mixins: [Locale],
     name: 'ElxMain',
@@ -37,7 +39,8 @@
     data() {
       return {
         currentFullscreenLoading: this.fullscreenLoading,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        ro: null
       };
     },
     methods: {
@@ -68,7 +71,11 @@
     },
     mounted() {
       const self = this;
-      window.addEventListener('resize', this.resize);
+      this.ro = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          this.resize(entry);
+        }
+      });
       this.$nextTick(function() {
         setTimeout(function() {
           if (!self.controlByParent) {
@@ -78,7 +85,7 @@
       });
     },
     beforeDestroy() {
-      window.removeEventListener('resize', this.resize);
+      this.ro.unobserve(this.$el.parentNode);
     }
   };
 </script>

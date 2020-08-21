@@ -7,6 +7,8 @@
 </template>
 
 <script>
+  import ResizeObserver from 'resize-observer-polyfill';
+
   export default {
     name: 'ElxAside',
     componentName: 'ElxAside',
@@ -15,7 +17,8 @@
     },
     data: function() {
       return {
-        height: 0
+        height: 0,
+        ro: null
       };
     },
     methods: {
@@ -96,10 +99,17 @@
     },
     mounted() {
       this.resize();
-      window.addEventListener('resize', this.resize);
+
+      this.ro = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          this.resize(entry);
+        }
+      });
+
+      this.ro.observe(this.$el.parentNode);
     },
     beforeDestroy() {
-      window.removeEventListener('resize', this.resize);
+      this.ro.unobserve(this.$el.parentNode);
     }
   };
 </script>

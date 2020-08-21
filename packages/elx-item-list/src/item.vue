@@ -109,6 +109,7 @@
 
 <script>
   import Locale from 'element-uex/src/mixins/locale';
+  import ResizeObserver from 'resize-observer-polyfill';
 
   export default {
     mixins: [Locale],
@@ -164,7 +165,8 @@
         browser: null,
         dropDomList: null,
         isMouseDown: false,
-        dragging: false
+        dragging: false,
+        ro: null
       };
     },
     computed: {
@@ -619,9 +621,15 @@
     mounted() {
       const _self = this;
       this.$nextTick(function() {
-        this.dropDomList = this.$refs['dropDomList'];
+        _self.dropDomList = this.$refs['dropDomList'];
         _self.computeNum();
-        window.addEventListener('resize', _self.computeNum);
+        _self.ro = new ResizeObserver((entries) => {
+          for (const entry of entries) {
+            _self.computeNum(entry);
+          }
+        });
+
+        _self.ro.observe(this.$el.parentNode);
         document.body.addEventListener('click', _self.hideMenu);
         document.body.addEventListener('dragenter', _self.handleDragEnter);
         document.body.addEventListener('dragover', _self.handleDragOver);
@@ -630,7 +638,7 @@
       });
     },
     beforeDestroy() {
-      window.removeEventListener('resize', this.computeNum);
+      this.ro.unobserve(this.$el.parentNode);
       document.body.removeEventListener('click', this.hideMenu);
       document.body.removeEventListener('dragenter', this.handleDragEnter);
       document.body.removeEventListener('dragover', this.handleDragOver);
