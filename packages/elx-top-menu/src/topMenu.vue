@@ -1,5 +1,5 @@
 <template>
-  <div class="elx-top-menu">
+  <div class="elx-top-menu" v-clickoutside="closeMenu">
       <div
         :class="isOpen?'menuTitle open' : 'menuTitle'"
         @click="openMenu()">
@@ -72,10 +72,11 @@
 </template>
 
 <script>
+  import Clickoutside from 'element-uex/src/utils/clickoutside';
   export default {
     name: 'ElxTopMenu',
     componentName: 'ElxTopMenu',
-
+    directives: { Clickoutside },
     props: {
       menuData: {
         type: Array,
