@@ -40,11 +40,14 @@
                 opacity: 0;
             }
         }
+        .treeview-menu>li{
+            font-weight: 400;
+            &>a{
+                transition: color 50ms linear, padding-left 200ms linear;
+            }
+        }
         .treeview-menu.menu-open>li{
             position: relative;
-        }
-        .treeview-menu>li>a{
-            transition: color 50ms linear, padding-left 200ms linear;
         }
         .treeview-menu.menu-open>li>a{
             position:relative;
@@ -377,6 +380,7 @@
     li.active>.list>a>i {
         color: $--menu-active-font-color;
     }
+
     .outer-menu i.uex-icon-arrow-right {
         line-height: inherit;
         float: right;
@@ -424,7 +428,7 @@
         position: relative;
         z-index: 300;
         font-weight:500;
-        font-size:$--font-size-large;
+        font-size:$--font-size-base;
         background-color: $--menu-show-more;
         border-bottom:1px solid $--menu-show-line;
         color: $--color-text-primary;
@@ -510,23 +514,6 @@
     .elx-menu .outer-menu.active,
     .elx-menu.outerActive,
     .narrow-menu>div>ul>li.open>.list>a {
-        width:150px;
-        position: relative;
-    }
-    .guide-arrow {
-        left: 150px;
-    }
-    .elx-menu .narrow-menu .treeview-menu.menu-open>li{
-        width: 97px;
-    }
-    .narrow-menu ul.treeview-menu ul.treeview-menu {
-        left: 97px
-    }
-}
-@media (min-width: 980px) {
-    .elx-menu .outer-menu.active,
-    .elx-menu.outerActive,
-    .narrow-menu>div>ul>li.open>.list>a {
         width:160px;
         position: relative;
     }
@@ -534,14 +521,13 @@
         left: 160px;
     }
     .elx-menu .narrow-menu .treeview-menu.menu-open>li{
-        width: 107px;
+        width: 105px;
     }
     .narrow-menu ul.treeview-menu ul.treeview-menu {
-        left: 107px
+        left: 105px
     }
 }
-
-@media (min-width: 1200px) {
+@media (min-width: 980px) {
     .elx-menu .outer-menu.active,
     .elx-menu.outerActive,
     .narrow-menu>div>ul>li.open>.list>a {
@@ -552,9 +538,27 @@
         left: 180px;
     }
     .elx-menu .narrow-menu .treeview-menu.menu-open>li{
-        width: 127px;
+        width: 115px;
     }
     .narrow-menu ul.treeview-menu ul.treeview-menu {
-        left: 127px
+        left: 115px
+    }
+}
+
+@media (min-width: 1200px) {
+    .elx-menu .outer-menu.active,
+    .elx-menu.outerActive,
+    .narrow-menu>div>ul>li.open>.list>a {
+        width:200px !important;
+        position: relative;
+    }
+    .guide-arrow {
+        left: 200px;
+    }
+    .elx-menu .narrow-menu .treeview-menu.menu-open>li{
+        width: 140px;
+    }
+    .narrow-menu ul.treeview-menu ul.treeview-menu {
+        left: 140px
     }
 }

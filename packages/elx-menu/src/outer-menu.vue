@@ -10,7 +10,7 @@
       :content="model.modelname">
       <a
         href="javascript:;"
-        :style="{'padding-left': lvl == 0 ? '17px' : 44 + (lvl - 1) * 20 + 'px'}"
+        :style="{'padding-left': lvl == 0 ? '17px' : 50 + (lvl - 1) * 20 + 'px'}"
         @contextmenu.prevent.stop="contextmenu(model, $event)"
         @click.prevent="menuActive">
           <span
