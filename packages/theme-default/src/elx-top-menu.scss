@@ -56,6 +56,57 @@
         &.show{
             visibility:visible;
         }
+        >div{
+            &.menuCol{
+                float: left;
+                >div{
+                    &.firstMenu{
+                        width:240px;
+                        padding:0 30px;
+                        margin-bottom: 20px;
+                        z-index:9999;
+                        line-height: 40px;
+                        >dl{
+                            >dt{
+                                margin-left:15px;
+                                color:$--color-text-primary !important;
+                                font-weight:500;
+                                >span {
+                                    color:$--color-text-regular !important;
+                                }
+                            }
+
+                            >dt:hover{
+                                cursor: pointer;
+                            }
+                            >dd{
+                                color:$--color-text-regular !important;
+                                font-weight:400;
+                                margin-left:0;
+                                text-align:left;
+                                padding-left: 30px;
+                                >span {
+                                    margin-left: 10px;
+                                }
+                                .selectLine{
+                                    opacity: 0;
+                                }
+                            }
+
+                            >dd:hover  {
+                                color:$--color-text-primary !important;
+                                font-weight:500;
+                                cursor: pointer;
+                                .selectLine{
+                                    opacity: 1;
+                                }
+                            }
+                         }
+                    }
+                } 
+            }
+        }
+                               
     }
     li {
         line-height: 40px;
@@ -111,6 +162,7 @@
         }
 
     }
+
     .menuLine{
         opacity: 0;
     }

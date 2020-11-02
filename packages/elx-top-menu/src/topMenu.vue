@@ -31,7 +31,7 @@
           :class="isOpen?'treeview-menu show':'treeview-menu'"
           > -->
         <!-- <div class="treeview-menu"> -->
-          <ul >
+          <!-- <ul >
             <li
               :style="'height:'+liMaxHeight[parseInt(index/eveLineNum)]+'px;margin-left:'+ulMargin+'px'"
               v-for="(item,index) in currentMenuData"
@@ -42,7 +42,7 @@
                     <span
                       :class="item.menuIcon==''||item.menuIcon==null?'uex-icon-gather':item.menuIcon" style="margin-right: 10px;">
                     </span>
-                    <span>{{item.menuName}}</span>
+                    <span class="menuName">{{item.menuName}}</span>
                   </dt>
                   <dd
                     v-for="(child,idx) in item.children"
@@ -65,7 +65,38 @@
                   </dd>
               </dl>
             </li>
-          </ul>
+          </ul>  -->
+          <div v-for="(menu,index) in sliceMenuData" class="menuCol" :style="'margin-left:'+ulMargin+'px'">
+            <div v-for="(item,index) in menu" class="firstMenu">
+              <dl>
+                    <dt @click="changeMenu(item,index)" :style="item.url?'cursor: pointer':'cursor: default'">
+                      <span
+                        :class="item.menuIcon==''||item.menuIcon==null?'uex-icon-gather':item.menuIcon" style="margin-right: 10px;">
+                      </span>
+                      <span class="menuName">{{item.menuName}}</span>
+                    </dt>
+                    <dd
+                      v-for="(child,idx) in item.children"
+                      :key="idx"
+                      @click="changeMenu(child,index,child)">
+                      <svg
+                        id="selectLine"
+                        class="selectLine"
+                        width="124px"
+                        height="40px"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="position: absolute;">
+                        <rect
+                          width="100%"
+                          height="40"
+                          style="fill:none;stroke-width: 1px;stroke:#495465;"/>
+                      </svg> 
+                      <span>{{child.menuName}}</span>
+                    </dd>
+                </dl>
+            </div>
+          </div>
       </div>
     </transition>
   </div>
@@ -91,7 +122,9 @@
         lineNum: 0,
         eveLineNum: 1,
         menuWidth: 0,
-        ulMargin: 0
+        ulMargin: 0,
+        sliceMenuData: [],
+        colHeight: 0
       };
     },
     methods: {
@@ -101,6 +134,9 @@
           this.menuWidth = this.$refs.menuDiv.clientWidth;
           console.log('menuWidth', this.menuWidth);
           this.getUlMargin();
+          this.getColheight();
+          // this.sliceMenuData = this.sliceMenu(this.currentMenuData, this.eveLineNum);
+          this.sliceMenuData = this.sliceMenuByHeight(this.currentMenuData);
         }, 50);
       },
       closeMenu() {
@@ -137,11 +173,67 @@
           }
         }
         this.currentMenuData = data;
+        this.getUlMargin();
+        console.log('transMenuData-sliceMenu', this.currentMenuData, this.eveLineNum);
+        this.sliceMenuData = this.sliceMenu(this.currentMenuData, this.eveLineNum);
+        console.log('transMenuData-sliceMenuData', this.sliceMenuData);
+
       },
       getUlMargin() {
         // const w = document.body.clientWidth;
         this.getLineNum();
         this.ulMargin = parseInt((this.menuWidth - 240 * this.eveLineNum) / (this.eveLineNum + 1), 10);
+      },
+      getColheight: function() {
+        let totalHeight = 0;
+        for (var i = 0; i < this.currentMenuData.length; i++) {
+          totalHeight += 14 * 2 + 40 + this.currentMenuData[i].children.length * 40;
+        }
+        this.colHeight = totalHeight / this.eveLineNum;
+        console.log('colHeight', this.colHeight);
+      },
+      sliceMenuByHeight: function(arr, size) {
+        let result = [];
+        let height = 0;
+        let colArr = [];
+        let allArr = [];
+        for (let i = 0; i < arr.length ; i++) {
+          height += 14 * 2 + 40 + arr[i].children.length * 40;
+          if (height > this.colHeight) {
+            height = 14 * 2 + 40 + arr[i].children.length * 40;
+            result.push(colArr);
+            allArr.push.apply(allArr, colArr);
+            colArr = [];
+          }
+          colArr.push(arr[i]);
+        }
+
+        let newArray = [];
+        arr.forEach(item => {
+          if (!allArr.includes(item)) {
+            newArray.push(item);
+          }
+        });
+
+        if (newArray.length > 0) {
+          if (result.length < size) {
+            result.push(newArray);
+          } else {
+            result[result.length - 1].concat(newArray);
+          }
+        }
+
+        return result;
+      },
+      sliceMenu: function(arr, size) {
+        let result = [];
+        for (let i = 0; i < Math.ceil(arr.length / size) ; i++) {
+          let start = i * size;
+          let end = start + size;
+          result.push(arr.slice(start, end));
+        }
+        console.log('sliceMenu', result);
+        return result;
       }
     },
     watch: {
