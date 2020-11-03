@@ -73,6 +73,11 @@
                                 font-weight:500;
                                 >span {
                                     color:$--color-text-regular !important;
+                                    &.menuIcon {
+                                        margin-right: 10px;
+                                        display: inline-block; 
+                                        width: 14px;
+                                    }
                                 }
                             }
 

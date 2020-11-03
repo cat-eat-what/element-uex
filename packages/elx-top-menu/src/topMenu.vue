@@ -71,7 +71,7 @@
               <dl>
                     <dt @click="changeMenu(item,index)" :style="item.url?'cursor: pointer':'cursor: default'">
                       <span
-                        :class="item.menuIcon==''||item.menuIcon==null?'uex-icon-gather':item.menuIcon" style="margin-right: 10px;">
+                        :class="item.menuIcon==''||item.menuIcon==null?'uex-icon-gather':item.menuIcon + ' menuIcon'" style="">
                       </span>
                       <span class="menuName">{{item.menuName}}</span>
                     </dt>
@@ -112,6 +112,10 @@
       menuData: {
         type: Array,
         default: []
+      },
+      menuLength: {
+        type: Number,
+        default: 4
       }
     },
     data() {
@@ -132,11 +136,12 @@
         this.isOpen = !this.isOpen;
         setTimeout(()=>{
           this.menuWidth = this.$refs.menuDiv.clientWidth;
-          console.log('menuWidth', this.menuWidth);
           this.getUlMargin();
-          this.getColheight();
+          console.log('menuWidth', this.menuWidth);
+          console.log('eveLineNum', this.eveLineNum);
           // this.sliceMenuData = this.sliceMenu(this.currentMenuData, this.eveLineNum);
-          this.sliceMenuData = this.sliceMenuByHeight(this.currentMenuData);
+          this.sliceMenuData = this.sliceMenuByHeight(this.currentMenuData, this.eveLineNum);
+          console.log('sliceMenuData', this.sliceMenuData);
         }, 50);
       },
       closeMenu() {
@@ -166,60 +171,73 @@
         this.$emit('change-menu', menuData, child);
         this.isOpen = false;
       },
-      transMenuData(data) {
-        for (let i in data) {
-          if (data[i].children.length > 4) {
-            data[i].children = data[i].children.slice(0, 4);
+      transMenuData: function(data, length) {
+        for (var i in data) {
+          if (data[i].children.length > length) {
+            data[i].children = data[i].children.slice(0, length);
           }
         }
         this.currentMenuData = data;
-        this.getUlMargin();
-        console.log('transMenuData-sliceMenu', this.currentMenuData, this.eveLineNum);
-        this.sliceMenuData = this.sliceMenu(this.currentMenuData, this.eveLineNum);
-        console.log('transMenuData-sliceMenuData', this.sliceMenuData);
-
+        console.log('transMenuData--currentMenuData', this.currentMenuData);
       },
       getUlMargin() {
         // const w = document.body.clientWidth;
         this.getLineNum();
         this.ulMargin = parseInt((this.menuWidth - 240 * this.eveLineNum) / (this.eveLineNum + 1), 10);
       },
-      getColheight: function() {
+      getColheight: function(arr, size) {
         let totalHeight = 0;
-        for (var i = 0; i < this.currentMenuData.length; i++) {
-          totalHeight += 14 * 2 + 40 + this.currentMenuData[i].children.length * 40;
+        let colHeight = 0;
+        for (var i = 0; i < arr.length; i++) {
+          totalHeight += 14 * 2 + 40 + arr[i].children.length * 40;
         }
-        this.colHeight = totalHeight / this.eveLineNum;
-        console.log('colHeight', this.colHeight);
+        colHeight = totalHeight / size;
+        console.log('colHeight', colHeight);
+        return colHeight;
       },
       sliceMenuByHeight: function(arr, size) {
         let result = [];
         let height = 0;
         let colArr = [];
         let allArr = [];
-        let minHeight = 14 * 2 + 40 * 2;
+        let index = 0;
+        let minHeight = 14 * 2 + 40 * 4;
         let isPush = false;
+        let colHeight = this.getColheight(arr, size);
+        let cnt = 0;
         for (let i = 0; i < arr.length ; i++) {
-          if (height <= minHeight) {
-            colArr.push(arr[i]);
-            isPush = true;
-          }
-          height += 14 * 2 + 40 + arr[i].children.length * 40;
-          if (height > this.colHeight) {
-            height = 14 * 2 + 40 + arr[i].children.length * 40;
-            if (isPush) {
-              height = 0;
+          if (cnt === size - 1) {
+            if (!isPush) {
+              colArr.push(arr[i]);
             }
-            result.push(colArr);
-            allArr.push.apply(allArr, colArr);
-            colArr = [];
-          }
-          if (!isPush) {
-            colArr.push(arr[i]);
+            if (i === arr.length - 1) {
+              result.push(colArr);
+            }
+          } else {
+            if (height <= minHeight) {
+              colArr.push(arr[i]);
+              isPush = true;
+            }
+            height += 14 * 2 + 40 + arr[i].children.length * 40;
+            if (height > colHeight) {
+              height = 14 * 2 + 40 + arr[i].children.length * 40;
+              index = i - 1;
+              if (isPush) {
+                height = 0;
+                index = i;
+              }
+              result.push(colArr);
+              allArr.push.apply(allArr, colArr);
+              colArr = [];
+              cnt++;
+              colHeight = this.getColheight(arr.slice(index), size - cnt);
+            }
+            if (!isPush) {
+              colArr.push(arr[i]);
+            }
           }
           isPush = false;
         }
-
         let newArray = [];
         arr.forEach(item => {
           if (!allArr.includes(item)) {
@@ -234,7 +252,6 @@
             result[result.length - 1].concat(newArray);
           }
         }
-
         return result;
       },
       sliceMenu: function(arr, size) {
@@ -249,13 +266,16 @@
       }
     },
     watch: {
-      menuData(val) {
-        this.transMenuData(val);
+      menuData: function(val) {
+        console.log('watch-menuData', val);
+        this.transMenuData(val, this.menuLength);
         // this.getLiMaxHeight();
       }
     },
-    created() {
-      this.transMenuData(this.menuData);
+    created: function() {
+      console.log('menuLength', this.menuLength);
+      console.log('menuData', this.menuData);
+      this.transMenuData(this.menuData, this.menuLength);
       // this.getLiMaxHeight();
     }
   };
