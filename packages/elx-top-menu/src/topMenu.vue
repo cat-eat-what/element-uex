@@ -71,7 +71,7 @@
               <dl>
                     <dt @click="changeMenu(item,index)" :style="item.url?'cursor: pointer':'cursor: default'">
                       <span
-                        :class="item.menuIcon==''||item.menuIcon==null?'uex-icon-gather':item.menuIcon + ' menuIcon'" style="">
+                        :class="item.menuIcon==''||item.menuIcon==null?'uex-icon-gather menuIcon':item.menuIcon + ' menuIcon'">
                       </span>
                       <span class="menuName">{{item.menuName}}</span>
                     </dt>

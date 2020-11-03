@@ -1,13 +1,13 @@
 [{
     "menuId": "a1",
     "menuName": "内容管理",
-    "menuIcon": "uex-icon-task",
+    "menuIcon": "",
     "url": "aaaaaaaaa",
     "children": []
 }, {
     "menuId": "a2",
     "menuName": "用户管理",
-    "menuIcon": "uex-icon-review-yes",
+    "menuIcon": "",
     "url": "",
     "children": []
 }, {

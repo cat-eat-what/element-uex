@@ -8,7 +8,7 @@
 ::: demo 菜单
 ```html
 <div class="nav-demo">
-  <elx-top-menu @change-menu="changeMenu" :menu-data="testMenuData"></elx-top-menu>
+  <elx-top-menu @change-menu="changeMenu" :menu-length="menuLength" :menu-data="testMenuData"></elx-top-menu>
 </div>
 <script>
 var testMenuData = require('examples/assets/topMenu.json');
@@ -26,6 +26,7 @@ var testMenuData = require('examples/assets/topMenu.json');
         searchFocus: false,
         guideArrowShow: false,
         refresh: 0,
+        menuLength: 4,
         options: [
           {value: 'api_catalog_1_1', label: 'API目录_1_1'},
           {value: 'cert_mgr', label: '证书管理'},
