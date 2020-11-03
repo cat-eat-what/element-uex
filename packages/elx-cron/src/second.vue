@@ -67,10 +67,10 @@
         default: ''
       }
     },
-    data: function() {
-      var options = [];
+    data() {
+      const options = [];
 
-      for (var i = 0; i < 60; i++) {
+      for (let i = 0; i < 60; i++) {
         if (i < 10) {
           options.push({value: '' + i, label: '0' + i});
         } else {
@@ -96,14 +96,14 @@
       };
     },
     methods: {
-      validate: function(val) {
-        var self = this;
-        var valType;
-        var regexp = [];
+      validate(val) {
+        const self = this;
+        let valType;
+        const regexp = [];
         Object.keys(this.regexp).forEach(function(key) {
-          var item = self.regexp[key];
-          var testRegExp = new RegExp(item, 'g');
-          var judge = testRegExp.test(val);
+          const item = self.regexp[key];
+          const testRegExp = new RegExp(item, 'g');
+          const judge = testRegExp.test(val);
           if (judge) {
             valType = key;
           }
@@ -119,9 +119,9 @@
           return null;
         }
       },
-      updateValue: function() {
-        var val = this.valType;
-        var currentVal;
+      updateValue() {
+        const val = this.valType;
+        let currentVal;
         if (val === '1') {
           currentVal = this.valModel[val];
         } else if (val === '2') {
@@ -134,8 +134,8 @@
         this.currentValue = currentVal;
         this.$emit('input', currentVal);
       },
-      initData: function() {
-        var valType;
+      initData() {
+        let valType;
         if (!this.value || this.value === '') {
           this.valType = '1';
           this.$emit('input', this.valModel['1']);
@@ -145,11 +145,11 @@
           return false;
         }
         valType = this.validate(this.value);
-        var regexp = this.regexp[valType];
+        const regexp = this.regexp[valType];
         if (valType) {
           this.valType = valType;
-          var x = 0;
-          var y = 0;
+          let x = 0;
+          let y = 0;
           this.value.replace(new RegExp(regexp, 'g'), function(a, b, c, d, e) {
             x = b;
             y = c;
@@ -173,23 +173,23 @@
       }
     },
     watch: {
-      'valType': function(val, oldVal) {
+      valType(val, oldVal) {
         this.updateValue();
       },
-      'valModel': {
+      valModel: {
         deep: true,
-        handler: function(val, oldVal) {
+        handler(val, oldVal) {
           this.updateValue();
         }
       },
-      'value': function() {
+      value() {
         this.initData();
       }
     },
-    created: function() {
+    created() {
       this.initData();
     },
-    mounted: function() {
+    mounted() {
     }
   };
 </script>

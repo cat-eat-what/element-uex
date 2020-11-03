@@ -24,6 +24,51 @@
         </elx-radio>
       </elx-radio-group>
     </el-form-item>
+    <el-form-item prop="test">
+      <elx-radio-group v-model="testForm.test" size="medium">
+        <elx-radio
+          disabled
+          label="a">
+          a
+        </elx-radio>
+        <elx-radio
+          v-for="option in options"
+          :key="option.value"
+          :label="option.value">
+          {{option.label}}
+        </elx-radio>
+      </elx-radio-group>
+    </el-form-item>
+    <el-form-item prop="test">
+      <elx-radio-group v-model="testForm.test" size="small">
+        <elx-radio
+          disabled
+          label="a">
+          a
+        </elx-radio>
+        <elx-radio
+          v-for="option in options"
+          :key="option.value"
+          :label="option.value">
+          {{option.label}}
+        </elx-radio>
+      </elx-radio-group>
+    </el-form-item>
+    <el-form-item prop="test">
+      <elx-radio-group v-model="testForm.test" size="mini">
+        <elx-radio
+          disabled
+          label="a">
+          a
+        </elx-radio>
+        <elx-radio
+          v-for="option in options"
+          :key="option.value"
+          :label="option.value">
+          {{option.label}}
+        </elx-radio>
+      </elx-radio-group>
+    </el-form-item>
   </el-form>
 </div>
 <script>

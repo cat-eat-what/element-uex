@@ -33,7 +33,7 @@
         default: true
       }
     },
-    data: function() {
+    data() {
       return {
         button: {
           icon: 'uex-icon-arrow-down'
@@ -44,34 +44,34 @@
       };
     },
     methods: {
-      refreshHeight: function() {
-        var el = document.querySelector('.elx-filter .dacp-menu-content');
+      refreshHeight() {
+        const el = document.querySelector('.elx-filter .dacp-menu-content');
         if (el) {
           this.height = window.parseInt(el.clientHeight);
         }
       },
-      handleClick: function() {
+      handleClick() {
         this.currentShow = !this.currentShow;
         this.$emit('expand', this.currentShow);
       },
-      changeButton: function(show) {
+      changeButton(show) {
         this.button.icon = show ? 'uex-icon-arrow-up' : 'uex-icon-arrow-down';
       }
     },
     watch: {
-      show: function(val, oldVal) {
+      show(val, oldVal) {
         this.currentShow = val;
       },
-      currentShow: function(val, oldVal) {
+      currentShow(val, oldVal) {
         this.changeButton(val);
         this.refreshHeight();
         this.$emit('update:show', val);
       }
     },
-    created: function() {
+    created() {
       this.changeButton(this.show);
     },
-    mounted: function() {
+    mounted() {
       this.refreshHeight();
     }
   };

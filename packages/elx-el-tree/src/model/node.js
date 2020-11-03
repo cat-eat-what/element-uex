@@ -170,8 +170,8 @@ export default class Node {
   }
 
   get childNodesVisible() {
-    var childNodes = this.childNodes;
-    for (var i = 0; i < childNodes.length; i++) {
+    const childNodes = this.childNodes;
+    for (let i = 0; i < childNodes.length; i++) {
       if (childNodes[i].visible) {
         return true;
       }
@@ -184,7 +184,7 @@ export default class Node {
     if (parent) {
       const index = parent.childNodes.indexOf(this);
       if (index > -1) {
-        for (var i = index + 1; i < parent.childNodes.length; i++) {
+        for (let i = index + 1; i < parent.childNodes.length; i++) {
           if (parent.childNodes[i].visible) {
             return true;
           }
@@ -199,7 +199,7 @@ export default class Node {
     if (parent) {
       const index = parent.childNodes.indexOf(this);
       if (index < parent.childNodes.length) {
-        for (var i = 0; i < index; i++) {
+        for (let i = 0; i < index; i++) {
           if (parent.childNodes[i].visible) {
             return true;
           }

@@ -1,0 +1,35 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.elx-checkbox-group {
+	&.medium {
+		font-size: $--font-size-medium;
+		.elx-checkbox {
+			height: $--medium-height;
+    		line-height: $--medium-line-height;
+    		.el-icon-check {
+		        top: $--medium-height - 1.58 * $--font-size-small;
+		    }
+		}
+	}
+	&.small {
+		font-size: $--font-size-small;
+		.elx-checkbox {
+			height: $--small-height;
+    		line-height: $--small-line-height;
+    		.el-icon-check {
+		        top: $--small-height - 1.58 * $--font-size-small;
+		    }
+		}
+	}
+	&.mini {
+		font-size: $--font-size-extra-small;
+		.elx-checkbox {
+			height: $--mini-height;
+    		line-height: $--mini-line-height;
+    		.el-icon-check {
+		        top: $--mini-height - 1.58 * $--font-size-small;
+		    }
+		}
+	}
+}

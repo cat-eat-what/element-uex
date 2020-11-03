@@ -62,7 +62,7 @@ exports.install = Vue => {
           vnode.componentInstance.$emit('exec-contextmenu', el, vnode);
 
           e = e || window.event;
-          var pos = getEventPos(e);
+          const pos = getEventPos(e);
           if (e.which === 3) {
             mask.visible = false;
             mask.x = pos.x;

@@ -18,6 +18,8 @@
 
 <script>
   import Locale from 'element-uex/src/mixins/locale';
+  import ResizeObserver from 'resize-observer-polyfill';
+
   export default {
     mixins: [Locale],
     name: 'ElxMain',
@@ -34,15 +36,16 @@
         default: 'row'
       }
     },
-    data: function() {
+    data() {
       return {
         currentFullscreenLoading: this.fullscreenLoading,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        ro: null
       };
     },
     methods: {
-      resize: function() {
-        var self = this;
+      resize() {
+        const self = this;
         if (typeof self.$children === 'object') {
           self.$children.map(function(item) {
             if (typeof item.resize === 'function') {
@@ -53,11 +56,11 @@
       }
     },
     watch: {
-      fullscreenLoading: function(val, oldVal) {
+      fullscreenLoading(val, oldVal) {
         this.currentFullscreenLoading = val;
       },
-      currentFullscreenLoading: function(val, oldVal) {
-        var self = this;
+      currentFullscreenLoading(val, oldVal) {
+        const self = this;
         this.$emit('update:fullscreenLoading', val);
         if (!val) {
           this.$nextTick(function() {
@@ -66,9 +69,13 @@
         }
       }
     },
-    mounted: function() {
-      var self = this;
-      window.addEventListener('resize', this.resize);
+    mounted() {
+      const self = this;
+      this.ro = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          this.resize(entry);
+        }
+      });
       this.$nextTick(function() {
         setTimeout(function() {
           if (!self.controlByParent) {
@@ -77,8 +84,8 @@
         }, 800);
       });
     },
-    beforeDestroy: function() {
-      window.removeEventListener('resize', this.resize);
+    beforeDestroy() {
+      this.ro.unobserve(this.$el.parentNode);
     }
   };
 </script>

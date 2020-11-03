@@ -27,13 +27,13 @@
         default: true
       }
     },
-    data: function() {
+    data() {
       return {
         currentOperateShow: this.operateShow
       };
     },
     methods: {
-      groupOperate: function() {
+      groupOperate() {
         this.currentOperateShow = !this.currentOperateShow;
       }
     }

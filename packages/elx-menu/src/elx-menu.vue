@@ -148,18 +148,18 @@
         },
         actionData: {
           type: Array,
-          default: function() {
+          default() {
             return [];
           }
         },
         menuTitle: {
           type: Object,
-          default: function() {
+          default() {
             return {};
           }
         }
       },
-      data: function() {
+      data() {
         return {
           currentMenuType: this.type,
           currentMenuData: [],
@@ -177,29 +177,29 @@
         };
       },
       methods: {
-        scroll: function(event) {
+        scroll(event) {
           if (this.currentMenuType === 'outer') {
             return;
           };
           this.scrollTop = this.$refs['narrowMenu'].scrollTop;
         },
-        scrollGuide: function(event) {
+        scrollGuide(event) {
           this.scroll();
         },
-        scrollStop: function() {
+        scrollStop() {
           this.scroll();
         },
-        menuChange: function(model) {
+        menuChange(model) {
           clearTimeout(this.menuAni);
           this.$emit('menu-change', model);
           this.$emit('update:menuActive', model.modelcode);
         },
-        lastChildNodeClick: function(model) {
+        lastChildNodeClick(model) {
           this.$emit('last-child-node-click', model);
         },
-        showMore: function(type) {
-          var self = this;
-          var _type = type;
+        showMore(type) {
+          const self = this;
+          const _type = type;
           self.currentMenuType = _type;
           this.contextMenuShow = false;
           this.$emit('sidebar-open', this.currentMenuType);
@@ -207,38 +207,38 @@
           } else {
             self.currentGuideArrowShow = false;
           }
-          var fun = function(node) {
+          const fun = function(node) {
             node.open = false;
             if (node.children.length === 0) {
               return;
             }
-            for (var i = 0;i < node.children.length;i++) {
+            for (let i = 0;i < node.children.length;i++) {
               fun(node.children[i]);
             }
           };
-          for (var i = 0;i < this.currentMenuData.length;i++) {
+          for (let i = 0;i < this.currentMenuData.length;i++) {
             this.currentMenuData[i].open = false;
             fun(this.currentMenuData[i]);
           }
         },
-        menuClose: function() {
-          var self = this;
+        menuClose() {
+          const self = this;
           clearTimeout(this.menuAni);
           this.menuAni = setTimeout(function() {
-            for (var i in self.currentMenuData) {
+            for (let i in self.currentMenuData) {
               self.operateStatus([self.currentMenuData[i]], 'open', true);
             }
           }, this.timeOut);
         },
-        operateStatus: function(modelArr, type, status) {
-          var _index = 0;
-          var _currentModel;
-          var _cancelFun = function(node) {
+        operateStatus(modelArr, type, status) {
+          let _index = 0;
+          let _currentModel;
+          const _cancelFun = function(node) {
             node[type] = false;
             if (node.children.length === 0) {
               return false;
             }
-            for (var i = 0;i < node.children.length;i++) {
+            for (let i = 0;i < node.children.length;i++) {
               _cancelFun(node.children[i]);
             }
           };
@@ -246,13 +246,13 @@
             _cancelFun(modelArr[modelArr.length - 1]);
             return;
           }
-          var _sureFun = function(node) {
+          const _sureFun = function(node) {
             _index++;
             node[type] = true;
             if (node.children.length === 0 || _index === modelArr.length) {
               return false;
             }
-            for (var i = 0;i < node.children.length;i++) {
+            for (let i = 0;i < node.children.length;i++) {
               if (node.children[i].modelcode === modelArr[_index].modelcode) {
                 _currentModel = node.children[i];
               } else {
@@ -261,7 +261,7 @@
             }
             _sureFun(_currentModel);
           };
-          for (var i = 0;i < this.currentMenuData.length;i++) {
+          for (let i = 0;i < this.currentMenuData.length;i++) {
             if (this.currentMenuData[i].modelcode === modelArr[_index].modelcode) {
               _currentModel = this.currentMenuData[i];
             } else {
@@ -270,14 +270,14 @@
           }
           _sureFun(_currentModel);
         },
-        emitactive: function(modelArr, status) {
+        emitactive(modelArr, status) {
           this.contextMenuShow = false;
           this.operateStatus(modelArr, 'active', status);
         },
-        emitopen: function(modelArr, status, type) {
+        emitopen(modelArr, status, type) {
           clearTimeout(this.menuAni);
           if (type === 'narrow') {
-            var self = this;
+            const self = this;
             this.menuAni = setTimeout(function() {
               self.operateStatus(modelArr, 'open', status);
             }, this.timeOut);
@@ -285,10 +285,10 @@
             this.operateStatus(modelArr, 'open', status);
           }
         },
-        getFirstChild: function(node, modelcode) {
-          var activeNode;
-          var i;
-          var fun = function(currentNode, modelcode) {
+        getFirstChild(node, modelcode) {
+          let activeNode;
+          let i;
+          const fun = function(currentNode, modelcode) {
             if (currentNode.modelcode === modelcode) {
               if (currentNode.url || currentNode.children.length === 0) {
                 activeNode = currentNode;
@@ -308,9 +308,9 @@
           fun(node, modelcode);
           return activeNode;
         },
-        operateMenu: function(type) {
-          var self = this;
-          var fun = function(node) {
+        operateMenu(type) {
+          const self = this;
+          const fun = function(node) {
             if (type === 'open') {
               if (node.modelcode === self.menuOpen) {
                 node.open = self.currentMenuType === 'outer';
@@ -323,7 +323,7 @@
                   node.active = true ;
                   node.open = self.currentMenuType === 'outer';
                 } else if (node.children.length !== 0 && !node.url) {
-                  var activeNode = self.getFirstChild(node, node.children[0].modelcode);
+                  const activeNode = self.getFirstChild(node, node.children[0].modelcode);
                   activeNode.active = true ;
                   activeNode.open = self.currentMenuType === 'outer';
                 }
@@ -333,18 +333,18 @@
             if (node.children.length === 0) {
               return;
             }
-            for (var i = 0;i < node.children.length;i++) {
+            for (let i = 0;i < node.children.length;i++) {
               fun(node.children[i]);
             }
             return;
           };
-          for (var i = 0;i < self.currentMenuData.length;i++) {
+          for (let i = 0;i < self.currentMenuData.length;i++) {
             fun(self.currentMenuData[i]);
           }
         },
-        changeMenuActive: function() {
-          var self = this;
-          var fun = function(node) {
+        changeMenuActive() {
+          const self = this;
+          const fun = function(node) {
             node.active = true;
             node.open = self.currentMenuType === 'outer';
             if (node.children.length > 0) {
@@ -358,13 +358,13 @@
             this.operateMenu('active');
           }
         },
-        postMessage: function() {
+        postMessage() {
           if (this.isPost) {
             cMessage.postMessage(this.message, this.locationOrigin, parent);
           }
         },
-        bindPostMessage: function() {
-          var self = this;
+        bindPostMessage() {
+          const self = this;
           cMessage.receiveMessage(function(message) {
             if (typeof message.data === 'object' && !Array.isArray(message.data)) {
               if ('menuType' in message.data) {
@@ -384,17 +384,17 @@
             self.$emit('receive-message', message);
           }, self.locationOrigin);
         },
-        getEventPos: function(e) {
-          var x = e.clientX;
-          var y = e.clientY;
+        getEventPos(e) {
+          const x = e.clientX;
+          const y = e.clientY;
           return { 'x': x, 'y': y };
         },
-        menuContextmenu: function(model, event) {
+        menuContextmenu(model, event) {
           if (this.actionData.length === 0) {
             return;
           }
-          var e = event || window.event;
-          var pos = this.getEventPos(e);
+          const e = event || window.event;
+          const pos = this.getEventPos(e);
           if (e.which === 3) {
             this.contextMenuShow = false;
             this.pos.x = pos.x;
@@ -406,7 +406,7 @@
           e.returnValue = false;
           return false;
         },
-        preventDefault: function(e) {
+        preventDefault(e) {
           e = e || window.event;
           if (e.preventDefault) {
             e.preventDefault();
@@ -414,13 +414,13 @@
             e.returnvalue = false;
           }
         },
-        action: function(data) {
+        action(data) {
           this.$emit('contextmenu-action', data, this.contextMenuData);
           this.contextMenuShow = false;
         },
-        formatData: function() {
-          var self = this;
-          var fun = function(node) {
+        formatData() {
+          const self = this;
+          const fun = function(node) {
             if (!('open' in node)) {
               self.$set(node, 'open', false);
             }
@@ -430,24 +430,24 @@
             if (node.children.length === 0) {
               return;
             }
-            for (var i = 0; i < node.children.length; i++) {
+            for (let i = 0; i < node.children.length; i++) {
               fun(node.children[i]);
             }
           };
-          for (var i = 0;i < this.currentMenuData.length; i++) {
+          for (let i = 0;i < this.currentMenuData.length; i++) {
             fun(this.currentMenuData[i]);
           }
         },
-        getPrefixStyle: function(name, val) {
-          var prefixs = ['', '-moz-', '-webkit-', '-o-'];
-          var str = '';
+        getPrefixStyle(name, val) {
+          const prefixs = ['', '-moz-', '-webkit-', '-o-'];
+          let str = '';
           prefixs.map(function(prefix) {
             str = str + prefix + name + ': ' + val + ';';
             return;
           });
           return str;
         },
-        addEvent: function(element, type, handler) {
+        addEvent(element, type, handler) {
           if (element.addEventListener) {
             element.addEventListener(type, handler, false);
           } else if (element.attachEvent) {
@@ -458,15 +458,15 @@
             element['on' + type] = handler;
           }
         },
-        doDestroy: function() {
+        doDestroy() {
           this.$refs.popper && this.$refs.popper.doDestroy();
         },
-        handleClose: function() {
+        handleClose() {
           this.currentGuideArrowShow = false;
         },
-        getElOffsetTop: function(el, parentEl) {
-          var top = el.offsetTop;
-          var fun = function(el) {
+        getElOffsetTop(el, parentEl) {
+          let top = el.offsetTop;
+          const fun = function(el) {
             if (window.getComputedStyle(el).position !== 'static') {
               top = top + el.offsetTop;
             }
@@ -478,7 +478,7 @@
           fun(el.parentNode);
           return top;
         },
-        handleScroll: function(el, scrollHeight) {
+        handleScroll(el, scrollHeight) {
           if (el.scrollTo) {
             el.scrollTo(0, scrollHeight);
           } else {
@@ -487,31 +487,31 @@
         }
       },
       watch: {
-        currentGuideArrowShow: function(val, oldVal) {
+        currentGuideArrowShow(val, oldVal) {
           if (!val) {
             this.broadcast('GuideArrow', 'destroyPopper');
           } else {
             this.broadcast('GuideArrow', 'updatePopper');
           }
         },
-        'currentMenuData': function(val, oldVal) {
+        currentMenuData(val, oldVal) {
         },
-        'menuData': function(val, oldVal) {
+        menuData(val, oldVal) {
           this.currentMenuData = val;
           this.formatData();
           if (oldVal.length === 0 && val.length > 0) {
             this.changeMenuActive();
           }
         },
-        'menuTitle': function(val) {
+        menuTitle(val) {
           this.currentMenuTitle = val;
         },
-        'menuType': function(val, oldVal) {
+        menuType(val, oldVal) {
           if (val !== this.currentMenuType) {
             this.showMore(val);
           }
         },
-        'guideArrowShow': function(val, oldVal) {
+        guideArrowShow(val, oldVal) {
           if (val !== this.currentGuideArrowShow) {
             if (val) {
               if (this.$refs['popper'].referenceElm) {
@@ -522,30 +522,30 @@
             }
           }
         },
-        'menuActive': function(val, oldVal) {
+        menuActive(val, oldVal) {
           this.operateMenu('active');
         },
-        'menuOpen': function(val, oldVal) {
-          var self = this;
+        menuOpen(val, oldVal) {
+          const self = this;
           clearTimeout(this.menuAni);
           this.menuAni = setTimeout(function() {
             self.operateMenu('open');
             if (self.currentMenuType === 'outer') {
               if (self.guideArrowShow) {
                 self.$nextTick(function() {
-                  var time = 0;
-                  var interval = setInterval(function() {
+                  let time = 0;
+                  const interval = setInterval(function() {
                     if (time > 500) {
                       clearInterval(interval);
                       self.currentGuideArrowShow = true;
                     }
                     time = time + 20;
-                    var openDoms = document.querySelectorAll('.open');
-                    var el = openDoms[openDoms.length - 1];
-                    var parentEl = self.$refs['outerMenu'];
+                    const openDoms = document.querySelectorAll('.open');
+                    const el = openDoms[openDoms.length - 1];
+                    const parentEl = self.$refs['outerMenu'];
                     self.handleScroll(parentEl, 0);
-                    var top = self.getElOffsetTop(el, parentEl);
-                    var scrollHeight;
+                    const top = self.getElOffsetTop(el, parentEl);
+                    let scrollHeight;
                     if (parentEl.offsetHeight + parentEl.scrollTop < top || parentEl.scrollTop > top) {
                       scrollHeight = top - parentEl.offsetHeight * 3 / 4;
                       self.handleScroll(parentEl, scrollHeight);
@@ -559,11 +559,11 @@
             }
           }, this.timeOut);
         },
-        'isPost': function(val, oldVal) {
+        isPost(val, oldVal) {
           this.postMessage();
         }
       },
-      created: function() {
+      created() {
         this.currentMenuData = this.menuData;
         this.currentMenuTitle = this.menuTitle;
         this.formatData();
@@ -573,9 +573,9 @@
         if (this.currentMenuData.length > 0) {
           this.changeMenuActive();
         }
-        var text = '';
-        var _text;
-        for (var i = 1;i < 30;i++) {
+        let text = '';
+        let _text;
+        for (let i = 1;i < 30;i++) {
           text = text +
             '.treeview-menu.menu-open li:nth-child(' + i + '){' +
             this.getPrefixStyle(
@@ -602,15 +602,15 @@
             ) +
           '}';
         }
-        var styleDoms = document.querySelectorAll('style');
-        var lastStyleDom = styleDoms[styleDoms.length - 1];
+        const styleDoms = document.querySelectorAll('style');
+        const lastStyleDom = styleDoms[styleDoms.length - 1];
         if (lastStyleDom) {
           _text = lastStyleDom.innerText;
           lastStyleDom.innerText = _text + text;
         }
       },
-      mounted: function() {
-        var self = this;
+      mounted() {
+        const self = this;
         this.$nextTick(function() {
           this.addEvent(document.body, 'click', function() {
             self.contextMenuShow = false;

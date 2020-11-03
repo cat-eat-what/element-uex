@@ -70,13 +70,13 @@ export default {
   },
 
   watch: {
-    value: function(val, oldVal) {
+    value(val, oldVal) {
       this.getValueText(this.value, []);
     }
   },
 
   methods: {
-    'handleChange': function(val) {
+    handleChange(val) {
       if (val.length > 0) {
         this.$emit('input', val[val.length - 1]);
         this.$emit('change', val[val.length - 1]);
@@ -85,16 +85,15 @@ export default {
         this.$emit('change', null);
       }
     },
-    'getValueText': function(value, arr) {
-      var currentNode = {};
-      var judge = false;
-      var _self = this;
-      var _func = function(node, parentNode) {
-        if (node[_self.props.value] === value) {
+    getValueText(value, arr) {
+      let currentNode = {};
+      let judge = false;
+      const _func = (node, parentNode) => {
+        if (node[this.props.value] === value) {
           currentNode = node;
-          _self.currentValue = [node[_self.props.value]].concat(arr);
+          this.currentValue = [node[this.props.value]].concat(arr);
           if (!Array.isArray(parentNode) && parentNode !== {}) {
-            _self.getValueText(parentNode[_self.props.value], JSON.parse(JSON.stringify(_self.currentValue)));
+            this.getValueText(parentNode[this.props.value], JSON.parse(JSON.stringify(this.currentValue)));
           }
           judge = true;
           return;
@@ -104,14 +103,14 @@ export default {
         } else if (node.children.length === 0) {
           return;
         }
-        for (var i in node.children) {
+        for (let i in node.children) {
           if (judge) {
             break;
           }
           _func(node.children[i], node);
         }
       };
-      for (var i in this.options) {
+      for (let i in this.options) {
         if (judge) {
           break;
         }
@@ -123,7 +122,7 @@ export default {
       return currentNode;
     }
   },
-  created: function() {
+  created() {
     this.getValueText(this.value, []);
   }
 };

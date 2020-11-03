@@ -11,13 +11,13 @@
 
     props: {
     },
-    data: function() {
+    data() {
       return {
       };
     },
     watch: {
     },
-    mounted: function() {
+    mounted() {
     }
   };
 </script>

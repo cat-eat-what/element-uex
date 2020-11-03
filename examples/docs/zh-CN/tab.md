@@ -17,12 +17,20 @@ tab标签页
       @tab-contextmenu="handleTabContextmenu"
       @tab-remove="removeTab">
       <!-- 页面标题 -->
-      <div class="title" slot="title" @click="backMain">
+      <div
+        class="title"
+        slot="title"
+        @click="backMain">
         <span class="uex-icon-topic"></span>
-        <span class="text" v-html="title"></span>
+        <span
+          class="text"
+          v-html="title">
+        </span>
       </div>
 
-      <div class="extra" slot="extra">
+      <div
+        class="extra"
+        slot="extra">
         <el-button class="black">
             <span class="uex-icon-add"></span>
             <span class="text">新建</span>
@@ -35,7 +43,10 @@ tab标签页
             <span v-text="item.name"></span>
             <span v-text="item.label"></span>
             <span v-text="item.url"></span>
-            <span class="uex-icon-edit" @click="editItem(item)"></span>
+            <span
+              class="uex-icon-edit"
+              @click="editItem(item)">
+            </span>
           </li>
         </ul>
       </div>

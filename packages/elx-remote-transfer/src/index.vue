@@ -113,7 +113,7 @@
       },
       getRequestUrl: {
         type: Function,
-        default: function() {
+        default() {
           return '';
         }
       },
@@ -124,7 +124,7 @@
       },
       props: {
         type: Object,
-        default: function() {
+        default() {
           return {
             key: 'key',
             search: 'search'
@@ -133,12 +133,12 @@
       },
       column: {
         type: Object,
-        default: function() {
+        default() {
           return {};
         }
       }
     },
-    data: function() {
+    data() {
       return {
         transferLeftData: [],
         transferRightData: [],
@@ -162,16 +162,10 @@
       };
     },
     methods: {
-      testKeycode: function() {
-        console.log('test-Keycode');
-      },
-      testEnter: function() {
-        console.log('test-enter');
-      },
-      getTransferLeftData: function() {
-        var self = this;
-        var url;
-        var filterData = Object.assign({}, self.transferLeftFilter);
+      getTransferLeftData() {
+        const self = this;
+        let url;
+        const filterData = Object.assign({}, self.transferLeftFilter);
         if (self.props.search) {
           if (Array.isArray(self.props.search)) {
             self.props.search.map(function(field) {
@@ -190,7 +184,7 @@
         axios.get(url, {
           params: filterData
         }).then(function(response) {
-          var data = response.data;
+          let data = response.data;
           if (data) {
             if (typeof self.processData === 'function') {
               data = self.processData(data);
@@ -202,11 +196,11 @@
           }
         });
       },
-      getTransferRightData: function() {
-        var self = this;
-        var filterData = this.currentTransferValue.filter(function(item) {
+      getTransferRightData() {
+        const self = this;
+        const filterData = this.currentTransferValue.filter(function(item) {
           if (Array.isArray(self.props.search)) {
-            var judge = false;
+            let judge = false;
             self.props.search.map(function(field) {
               judge = judge || (String(item[field]).toLowerCase().indexOf(String(self.transferRightFilter.search).toLowerCase()) > -1);
             });
@@ -215,16 +209,16 @@
             return String(item[self.props.search]).toLowerCase().indexOf(String(self.transferRightFilter.search).toLowerCase()) > -1;
           }
         });
-        var arr = filterData.slice((this.transferRightFilter.pageNum - 1) * this.transferRightFilter.pageSize, this.transferRightFilter.pageNum * this.transferRightFilter.pageSize);
+        const arr = filterData.slice((this.transferRightFilter.pageNum - 1) * this.transferRightFilter.pageSize, this.transferRightFilter.pageNum * this.transferRightFilter.pageSize);
         this.transferRightData = arr;
         this.transferRightFilter.total = filterData.length;
         this.initMutltiData(this.transferRightData, this.transferRightSelected, 'rightMultipleTable', 'right');
         this.rightPageChange = false;
       },
-      initMutltiData: function(tableData, selectedData, tableRef, type) {
-        var self = this;
-        var i;
-        var filterData = tableData.filter(function(item) {
+      initMutltiData(tableData, selectedData, tableRef, type) {
+        const self = this;
+        let i;
+        const filterData = tableData.filter(function(item) {
           if (type === 'left') {
             for (i in self.currentTransferValue) {
               if (self.currentTransferValue[i][self.props.key] === item[self.props.key]) {
@@ -245,11 +239,10 @@
           }
         });
       },
-      getFilterData: function(tableData, selectedData) {
-        var self = this;
-        var i;
-        var filterData = selectedData.filter(function(item) {
-          for (i in tableData) {
+      getFilterData(tableData, selectedData) {
+        const self = this;
+        const filterData = selectedData.filter(function(item) {
+          for (let i in tableData) {
             if (tableData[i][self.props.key] === item[self.props.key]) {
               return false;
             }
@@ -258,11 +251,10 @@
         });
         return filterData;
       },
-      getExceptFilterData: function(tableData, selectedData) {
-        var self = this;
-        var i;
-        var filterData = selectedData.filter(function(item) {
-          for (i in tableData) {
+      getExceptFilterData(tableData, selectedData) {
+        const self = this;
+        const filterData = selectedData.filter(function(item) {
+          for (let i in tableData) {
             if (tableData[i][self.props.key] === item[self.props.key]) {
               return true;
             }
@@ -271,43 +263,42 @@
         });
         return filterData;
       },
-      handleLeftSizeChange: function(val) {
+      handleLeftSizeChange(val) {
         this.transferLeftFilter.pageSize = val;
         this.leftPageChange = true;
         this.getTransferLeftData();
       },
-      handleLeftCurrentChange: function(val) {
+      handleLeftCurrentChange(val) {
         this.transferLeftFilter.pageNum = val;
         this.leftPageChange = true;
         this.getTransferLeftData();
       },
-      handleRightSizeChange: function(val) {
+      handleRightSizeChange(val) {
         this.transferRightFilter.pageSize = val;
         this.rightPageChange = true;
         this.getTransferRightData();
       },
-      handleRightCurrentChange: function(val) {
+      handleRightCurrentChange(val) {
         this.transferRightFilter.pageNum = val;
         this.rightPageChange = true;
         this.getTransferRightData();
       },
-      handleLeftSelectionChange: function(val) {
+      handleLeftSelectionChange(val) {
         if (!this.leftPageChange) {
-          var filterData = this.getFilterData(this.transferLeftData, this.transferLeftSelected);
+          const filterData = this.getFilterData(this.transferLeftData, this.transferLeftSelected);
           this.transferLeftSelected = filterData.concat(val);
         }
       },
-      handleRightSelectionChange: function(val) {
+      handleRightSelectionChange(val) {
         if (!this.rightPageChange) {
-          var filterData = this.getFilterData(this.transferRightData, this.transferRightSelected);
+          const filterData = this.getFilterData(this.transferRightData, this.transferRightSelected);
           this.transferRightSelected = filterData.concat(val);
         }
       },
-      transferLeft: function() {
-        var self = this;
-        var i;
-        var filterData = self.currentTransferValue.filter(function(item) {
-          for (i in self.transferRightSelected) {
+      transferLeft() {
+        const self = this;
+        const filterData = self.currentTransferValue.filter(function(item) {
+          for (let i in self.transferRightSelected) {
             if (self.transferRightSelected[i][self.props.key] === item[self.props.key]) {
               return false;
             }
@@ -319,8 +310,8 @@
         this.transferLeftSelected = [];
         this.getTransferRightData();
       },
-      transferRight: function() {
-        var self = this;
+      transferRight() {
+        const self = this;
         this.currentTransferValue = this.currentTransferValue.concat(this.transferLeftSelected);
         this.getTransferRightData();
         this.$refs['leftMultipleTable'].clearSelection();
@@ -329,39 +320,37 @@
           self.transferLeftSelected = [];
         });
       },
-      leftSelectable: function(row, index) {
-        var i;
-        for (i in this.currentTransferValue) {
+      leftSelectable(row, index) {
+        for (let i in this.currentTransferValue) {
           if (row[this.props.key] === this.currentTransferValue[i][this.props.key]) {
             return false;
           }
         }
         return true;
       },
-      transferLeftSearch: function() {
+      transferLeftSearch() {
         this.getTransferLeftData();
       },
-      transferRightSearch: function() {
+      transferRightSearch() {
         this.getTransferRightData();
       }
     },
     watch: {
-      'transferValue': function() {
+      'transferValue'() {
         if (JSON.stringify(this.currentTransferValue) !== JSON.stringify(this.transferValue)) {
           this.currentTransferValue = this.transferValue;
           this.getTransferLeftData();
           this.getTransferRightData();
         }
       },
-      'currentTransferValue': function() {
+      'currentTransferValue'() {
         this.$emit('update:transferValue', this.currentTransferValue);
         this.$emit('change', this.currentTransferValue);
       }
     },
-    created: function() {
+    created() {
       this.getTransferLeftData();
       this.getTransferRightData();
     }
   };
 </script>
-
