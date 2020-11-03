@@ -66,10 +66,10 @@
               </dl>
             </li>
           </ul>  -->
-          <div v-for="(menu,index) in sliceMenuData" class="menuCol" :style="'margin-left:'+ulMargin+'px'">
+          <div v-for="(menu,divIndex) in sliceMenuData" class="menuCol" :style="'margin-left:'+ulMargin+'px'">
             <div v-for="(item,index) in menu" class="firstMenu">
               <dl>
-                    <dt @click="changeMenu(item,index)" :style="item.url?'cursor: pointer':'cursor: default'">
+                    <dt @click="changeMenu(item, divIndex, index)" :style="item.url?'cursor: pointer':'cursor: default'">
                       <span
                         :class="item.menuIcon==''||item.menuIcon==null?'uex-icon-gather menuIcon':item.menuIcon + ' menuIcon'">
                       </span>
@@ -78,7 +78,7 @@
                     <dd
                       v-for="(child,idx) in item.children"
                       :key="idx"
-                      @click="changeMenu(child,index,child)">
+                      @click="changeMenu(item, divIndex, index, child)">
                       <svg
                         id="selectLine"
                         class="selectLine"
@@ -166,8 +166,10 @@
         this.eveLineNum = parseInt((this.menuWidth - 40) / 240, 10);
         this.lineNum = parseInt(this.currentMenuData.length / this.eveLineNum, 10);
       },
-      changeMenu: function(item, index, child) {
-        var menuData = this.menuData[index];
+      changeMenu: function(item, divIndex, index, child) {
+        console.log('changeMenu', item, divIndex, index, child);
+        // var menuData = this.menuData[index];
+        var menuData = this.sliceMenuData[divIndex][index];
         this.$emit('change-menu', menuData, child);
         this.isOpen = false;
       },
@@ -192,7 +194,6 @@
           totalHeight += 14 * 2 + 40 + arr[i].children.length * 40;
         }
         colHeight = totalHeight / size;
-        console.log('colHeight', colHeight);
         return colHeight;
       },
       sliceMenuByHeight: function(arr, size) {
