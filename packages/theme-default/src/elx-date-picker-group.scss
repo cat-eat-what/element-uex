@@ -8,20 +8,5 @@
   }
   button.el-button {
     width: auto;
-    padding: 0px 11px;
-    line-height: 30px;
-  }
-  button.el-button:hover {
-    background-color: #82cafb;
-    border-color: #82cafb;
-    color:white
-  }
-  button.el-button.active {
-    background-color: $--color-primary;
-    border-color: $--color-primary;
-    color:white
-  }
-  button.el-button.active+.el-button {
-    border-left-color: $--color-primary;
   }
 }

@@ -35,27 +35,27 @@
         default: 0
       }
     },
-    data: function() {
+    data() {
       return {
         menuActiveArr: []
       };
     },
     methods: {
-      formatData: function() {
-        var self = this;
-        self.menuActiveArr.splice(0, self.menuActiveArr.length);
-        var fun = function(node) {
+      formatData() {
+        const self = this;
+        this.menuActiveArr.splice(0, this.menuActiveArr.length);
+        const fun = function(node) {
           self.menuActiveArr.push(node);
           if (node.children.length === 0) {
             return;
           }
-          for (var i = 0; i < node.children.length; i++) {
+          for (let i = 0; i < node.children.length; i++) {
             if (node.children[i].active) {
               fun(node.children[i]);
             }
           }
         };
-        for (var i = 0; i < self.menuData.length; i++) {
+        for (let i = 0; i < self.menuData.length; i++) {
           if (self.menuData[i].active) {
             fun(self.menuData[i]);
           }

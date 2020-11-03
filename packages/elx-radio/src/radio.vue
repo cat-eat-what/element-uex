@@ -26,17 +26,17 @@
       label: {},
       disabled: Boolean
     },
-    data: function() {
+    data() {
       return {
       };
     },
     computed: {
-      focus: function() {
+      focus() {
         return this.$parent.value === this.label;
       }
     },
     methods: {
-      select: function() {
+      select() {
         this.$parent.$emit('input', this.label);
       }
     }

@@ -111,6 +111,7 @@
 | request-url | [左栏]数据请求地址(该地址需支持传参，具体看下表，返回数据格式，具体看下表) | String |  | ' |
 | get-request-url | [左栏]数据请求地址的回调方法（可不配置） | Function |  |  |
 | transfer-value | 远程穿梭框的value | Array |  | [] |
+| process-data | 处理成组件要求的数据方法 | Function |  |  |
 | props | 配置选项，具体看下表 | object | — | — |
 | column | 所需展示的表格字段以及表头中文名对象（举例：{stepInst: '指令',stepInstLabel: '指令名称'}） | Object |  | {} |
 

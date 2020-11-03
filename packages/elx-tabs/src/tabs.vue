@@ -172,7 +172,7 @@
       cMessage.receiveMessage(function(message) {
         if (typeof message.data === 'object' && !Array.isArray(message.data)) {
           if ('screen' in message.data) {
-            var frame = message.source.frameElement;
+            const frame = message.source.frameElement;
             if (message.data.screen === 'fullScreen') {
               fullScreen(frame, frame);
             } else if (message.data.screen === 'maximize') {

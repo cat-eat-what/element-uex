@@ -216,7 +216,7 @@
       cycle: String,
       visibleTypes: Array
     },
-    data: function() {
+    data() {
       return {
         minWidth: '',
         maxWidth: '',
@@ -242,22 +242,22 @@
       };
     },
     methods: {
-      getRunTimes: function() {
+      getRunTimes() {
         if (!this.runTimeUrl) {
           return;
         }
-        var str = '';
-        var self = this;
-        var split = this.expressionModel.expressionSplit;
+        let str = '';
+        const self = this;
+        const split = this.expressionModel.expressionSplit;
         Object.keys(split).forEach(function(key) {
-          var val = split[key];
+          const val = split[key];
           str = str === '' ? val : str + ' ' + val;
         });
         axios.get(this.runTimeUrl, {
           params: {cron: str}
         })
           .then(function(response) {
-            var data = response.data;
+            const data = response.data;
             if (!data.state) {
             } else {
               if (Array.isArray(data.date)) {
@@ -266,8 +266,8 @@
             }
           });
       },
-      validate: function(split) {
-        var judge = true;
+      validate(split) {
+        let judge = true;
         if (!this.$refs['second']) {
           return false;
         }
@@ -294,12 +294,12 @@
         }
         return Boolean(judge);
       },
-      formatExpression: function() {
-        var self = this;
+      formatExpression() {
+        const self = this;
         this.errorMessage = '';
         this.expressionModel.expression = '';
         this.cronTypeMap.map(function(type, index) {
-          var val = self.expressionModel.expressionSplit[type];
+          const val = self.expressionModel.expressionSplit[type];
           if (self.expressionModel.expression === '') {
             self.expressionModel.expression = val;
           } else {
@@ -310,10 +310,10 @@
         });
         this.$emit('input', self.expressionModel.expression);
       },
-      getExpressionSplit: function() {
-        var self = this;
+      getExpressionSplit() {
+        const self = this;
         this.errorMessage = '';
-        var ExpressionArr = this.expressionModel.expression.split(' ');
+        const ExpressionArr = this.expressionModel.expression.split(' ');
         this.cronTypeMap.map(function(type, index) {
           if (ExpressionArr[index]) {
             if (self.visible) {
@@ -332,11 +332,11 @@
           }
         });
       },
-      handleError: function(msg) {
+      handleError(msg) {
         this.errorMessage = this.errorMessage === '' ? msg : this.errorMessage + ';' + msg;
         this.$emit('error', this.errorMessage);
       },
-      focus: function() {
+      focus() {
         if (this.valueChange) {
           this.errorMessage = '';
           this.valueChange = false;
@@ -344,11 +344,11 @@
           this.getExpressionSplit();
         }
       },
-      setExpression: function(type) {
-        var self = this;
-        var expressionArr = this.expressionModel.expression.split(' ');
+      setExpression(type) {
+        const self = this;
+        const expressionArr = this.expressionModel.expression.split(' ');
         this.expressionModel.expression = '';
-        var index = this.cronTypeMap.indexOf(type);
+        const index = this.cronTypeMap.indexOf(type);
         this.cronTypeMap.map(function(type, i) {
           if (i !== index && expressionArr[i]) {
             self.expressionModel.expression = self.expressionModel.expression + expressionArr[i] + ' ';
@@ -359,21 +359,21 @@
           }
         });
       },
-      resetExpression: function() {
+      resetExpression() {
         this.expressionModel.expression = typeof this.originVal === 'string' ? this.originVal : '';
         this.getExpressionSplit();
         this.errorMessage = '';
         this.$emit('input', this.expressionModel.expression);
       },
-      saveExpression: function() {
+      saveExpression() {
         this.errorMessage = '';
         this.$emit('input', this.expressionModel.expression);
         this.$emit('update:visible', false);
       },
-      getValue: function() {
+      getValue() {
         return typeof this.value === 'string' ? this.value : '';
       },
-      addEvent: function(element, type, handler) {
+      addEvent(element, type, handler) {
         if (element.addEventListener) {
           element.addEventListener(type, handler, false);
         } else if (element.attachEvent) {
@@ -384,37 +384,37 @@
           element['on' + type] = handler;
         }
       },
-      resizeCron: function() {
+      resizeCron() {
         this.maxWidth = (document.body.offsetWidth / 2) + 'px';
         this.maxHeight = (document.body.offsetHeight * 8 / 10) + 'px';
       }
     },
     watch: {
-      'value': function(val) {
+      value(val) {
         this.valueChange = true;
       },
-      'expressionModel.expressionSplit.second': function(val) {
+      'expressionModel.expressionSplit.second'(val) {
         this.setExpression('second');
       },
-      'expressionModel.expressionSplit.minute': function(val) {
+      'expressionModel.expressionSplit.minute'(val) {
         this.setExpression('minute');
       },
-      'expressionModel.expressionSplit.hour': function(val) {
+      'expressionModel.expressionSplit.hour'(val) {
         this.setExpression('hour');
       },
-      'expressionModel.expressionSplit.day': function(val) {
+      'expressionModel.expressionSplit.day'(val) {
         this.setExpression('day');
       },
-      'expressionModel.expressionSplit.month': function(val) {
+      'expressionModel.expressionSplit.month'(val) {
         this.setExpression('month');
       },
-      'expressionModel.expressionSplit.week': function(val) {
+      'expressionModel.expressionSplit.week'(val) {
         this.setExpression('week');
       },
-      'expressionModel.expressionSplit.year': function(val) {
+      'expressionModel.expressionSplit.year'(val) {
         this.setExpression('year');
       },
-      'visible': function(val, oldVal) {
+      'visible'(val, oldVal) {
         if (val) {
           this.originVal = this.value;
           this.activeTabName = this.cycle;
@@ -425,9 +425,9 @@
         this.getExpressionSplit();
         this.runTimes = [];
       },
-      errorMessage: function(val, oldVal) {
+      errorMessage(val, oldVal) {
       },
-      'expressionModel.expression': function(val, oldVal) {
+      'expressionModel.expression'(val, oldVal) {
         this.getRunTimes();
       },
       '$parent.inputWidth'() {
@@ -435,7 +435,7 @@
         this.resizeCron();
       }
     },
-    created: function() {
+    created() {
     },
     mounted() {
       this.referenceElm = this.$parent.$refs.reference.$el;

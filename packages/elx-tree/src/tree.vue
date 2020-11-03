@@ -99,7 +99,7 @@
       allowDrag: Function,
       allowDrop: Function
     },
-    data: function() {
+    data() {
       return {
         store: {},
         id: 1000,
@@ -124,34 +124,34 @@
       insertAfter(data, refNode) {
         this.$refs['elxTreeChild'].insertAfter(data, refNode);
       },
-      handleDragStart: function(node, e) {
+      handleDragStart(node, e) {
         this.$emit('node-drag-start', node, e);
       },
-      handleDragEnter: function(draggingNode, dropNode, e) {
+      handleDragEnter(draggingNode, dropNode, e) {
         this.$emit('node-drag-enter', draggingNode, dropNode, e);
       },
-      handleDragLeave: function(draggingNode, dropNode, e) {
+      handleDragLeave(draggingNode, dropNode, e) {
         this.$emit('node-drag-leave', draggingNode, dropNode, e);
       },
-      handleDragOver: function(draggingNode, dropNode, e) {
+      handleDragOver(draggingNode, dropNode, e) {
         this.$emit('node-drag-over', draggingNode, dropNode, e);
       },
-      handleDragEnd: function(draggingNode, dropNode, dropType, e) {
+      handleDragEnd(draggingNode, dropNode, dropType, e) {
         this.$emit('node-drag-end', draggingNode, dropNode, dropType, e);
       },
-      handleDrop: function(draggingNode, dropNode, dropType, e) {
+      handleDrop(draggingNode, dropNode, dropType, e) {
         this.$emit('node-drop', draggingNode, dropNode, dropType, e);
       },
-      hasText: function(label, value) {
+      hasText(label, value) {
         return (String(label).toLowerCase().indexOf(String(value).toLowerCase()) !== -1);
       },
-      childNodesHasText: function(item) {
-        var judge = false;
-        var self = this;
-        var func = function(node) {
+      childNodesHasText(item) {
+        let judge = false;
+        const self = this;
+        const func = function(node) {
           if (Array.isArray(node.childNodes)) {
-            var childNodes = node.childNodes;
-            for (var i = 0; i < childNodes.length; i++) {
+            const childNodes = node.childNodes;
+            for (let i = 0; i < childNodes.length; i++) {
               if (self.hasText(childNodes[i].data.label, self.filterText)) {
                 judge = true;
                 return;
@@ -165,10 +165,10 @@
       },
       filterNode(value, data, node) {
         if (!value) return true;
-        var isParentVal = false;
-        var parentNodes = [];
-        var self = this;
-        var getParent = function(node) {
+        let isParentVal = false;
+        const parentNodes = [];
+        const self = this;
+        const getParent = function(node) {
           if (node.parent) {
             parentNodes.push(node.parent);
             isParentVal = isParentVal || self.hasText(node.parent.data.label, value);
@@ -176,7 +176,7 @@
           }
         };
         getParent(node);
-        var isVal = this.hasText(data.label, value);
+        const isVal = this.hasText(data.label, value);
         if (isVal) {
           node.hasText = true;
         } else {
@@ -193,8 +193,8 @@
         });
         return isVal || isParentVal;
       },
-      expandNode: function(key) {
-        var _fun = function(node) {
+      expandNode(key) {
+        const _fun = function(node) {
           if (!Array.isArray(node.children)) {
             return;
           }
@@ -204,16 +204,16 @@
           if (node.id === key && node.children.length !== 0) {
             node.isExpand = true;
           }
-          for (var i = 0; i < node.children.length; i++) {
+          for (let i = 0; i < node.children.length; i++) {
             _fun(node.children[i]);
           }
         };
-        for (var i = 0;i < this.currentTreeData.length;i++) {
+        for (let i = 0;i < this.currentTreeData.length;i++) {
           _fun(this.currentTreeData[i]);
         }
       },
-      formatData: function() {
-        var _fun = function(node) {
+      formatData() {
+        const _fun = function(node) {
           node.isExpand = 'isExpand' in node ? node.isExpand : false;
           node.rename = 'rename' in node ? node.rename : false;
           node.isAdd = 'isAdd' in node ? node.isAdd : true;
@@ -233,40 +233,40 @@
             node.children = [];
             return;
           }
-          for (var i = 0; i < node.children.length; i++) {
+          for (let i = 0; i < node.children.length; i++) {
             _fun(node.children[i]);
           }
         };
-        var _data = JSON.parse(JSON.stringify(this.data));
-        for (var i = 0;i < _data.length;i++) {
+        const _data = JSON.parse(JSON.stringify(this.data));
+        for (let i = 0;i < _data.length;i++) {
           _fun(_data[i]);
         }
         return _data;
       },
-      nodeExpand: function(data, node, obj) {
+      nodeExpand(data, node, obj) {
         data.isExpand = true;
       },
-      nodeCollapse: function(data, node, obj) {
+      nodeCollapse(data, node, obj) {
         data.isExpand = false;
       },
-      treeNodeClick: function(data, node, obj, event) {
+      treeNodeClick(data, node, obj, event) {
         this.contentMenuShow = false;
         this.$emit('node-click', node, event);
         this.renameFalse(event, node === this.activeNode);
       },
-      nodeDblClick: function(data, node, obj, event) {
+      nodeDblClick(data, node, obj, event) {
         this.contentMenuShow = false;
         this.$emit('node-dblclick', node, event);
         this.renameFalse(event, node === this.activeNode);
       },
-      getEventPos: function(e) {
-        var x = e.clientX;
-        var y = e.clientY;
+      getEventPos(e) {
+        const x = e.clientX;
+        const y = e.clientY;
         return { 'x': x, 'y': y };
       },
-      nodeClick: function(node, data, store, event) {
-        var e = event || window.event;
-        var pos = this.getEventPos(e);
+      nodeClick(node, data, store, event) {
+        const e = event || window.event;
+        const pos = this.getEventPos(e);
         if (e.which === 3) {
           this.$emit('right-click', node, event);
           this.contentMenuShow = false;
@@ -282,12 +282,12 @@
         e.returnValue = false;
         return false;
       },
-      changeLabel: function(data, event) {
-        var e = event || window.event;
+      changeLabel(data, event) {
+        const e = event || window.event;
         data.label = e.target.value;
       },
-      append: function() {
-        var _self = this;
+      append() {
+        const _self = this;
         this.activeData.children.push({ id: this.id++, rename: false, isExpand: false, hasExtraAction: false, isEdit: true, isAdd: true, isDelete: true, label: '新增', children: [] });
         this.contentMenuShow = false;
         this.$nextTick(function() {
@@ -296,13 +296,13 @@
           _self.$emit('add', _self.activeNode);
         });
       },
-      remove: function() {
-        var _self = this;
-        var _index;
+      remove() {
+        const _self = this;
+        let _index;
         if ('children' in this.activeNode.parent.data) {
           _index = this.activeNode.parent.data.children.indexOf(this.activeData);
           this.activeNode.parent.data.children.splice(_index, 1);
-          var _length = this.activeNode.parent.data.children.length;
+          const _length = this.activeNode.parent.data.children.length;
           this.activeNode.parent.data.isExpand = _length !== 0;
         } else {
           _index = this.activeNode.parent.data.indexOf(this.activeData);
@@ -314,17 +314,17 @@
           _self.$emit('remove', _self.activeNode);
         });
       },
-      rename: function() {
+      rename() {
         this.activeData.rename = true;
         this.contentMenuShow = false;
       },
-      renameEmit: function() {
-        var _self = this;
+      renameEmit() {
+        const _self = this;
         this.$nextTick(function() {
           _self.$emit('rename', _self.activeNode);
         });
       },
-      getDisabled: function() {
+      getDisabled() {
         return false;
       },
       preventDefault(e) {
@@ -335,11 +335,11 @@
           e.returnvalue = false;
         }
       },
-      changeRename: function(data) {
+      changeRename(data) {
         data.rename = true;
       },
-      renameFalse: function(event, judge) {
-        var e = event || window.event;
+      renameFalse(event, judge) {
+        const e = event || window.event;
         if (e) {
           if (e.target.localName === 'input' && !('disabled' in e.target.attributes)) {
             return;
@@ -349,7 +349,7 @@
             return;
           }
         }
-        var _fun = function(node) {
+        const _fun = function(node) {
           node.rename = false;
           if (!Array.isArray(node.children)) {
             return;
@@ -357,21 +357,21 @@
           if (node.children.length === 0) {
             return;
           }
-          for (var i = 0; i < node.children.length; i++) {
+          for (let i = 0; i < node.children.length; i++) {
             _fun(node.children[i]);
           }
         };
-        for (var i = 0;i < this.currentTreeData.length;i++) {
+        for (let i = 0;i < this.currentTreeData.length;i++) {
           _fun(this.currentTreeData[i]);
         }
       },
-      renderContent: function(h, { node, data, store }) {
+      renderContent(h, { node, data, store }) {
         this.store = store;
-        var self = this;
-        var nodeClass = 'node level-' + node.level + ' child-' + node.childNodes.length;
-        var level = this.data.length > 1 ? node.level : node.level - 2;
-        var parentNodes = [];
-        var getParent = function(node) {
+        const self = this;
+        let nodeClass = 'node level-' + node.level + ' child-' + node.childNodes.length;
+        const level = this.data.length > 1 ? node.level : node.level - 2;
+        const parentNodes = [];
+        const getParent = function(node) {
           if (node.parent) {
             parentNodes.push(node.parent);
             getParent(node.parent);
@@ -383,20 +383,20 @@
         nodeClass = node.preNodesVisible ? nodeClass + ' has-pre' : nodeClass;
         nodeClass = node.parent ? (node.parent.parent ? nodeClass + ' has-parent' : nodeClass) : nodeClass;
         nodeClass = !node.isLeaf ? nodeClass + ' is-not-leaf' : nodeClass;
-        var texts = [(<span>{data.label}</span>)];
+        let texts = [(<span>{data.label}</span>)];
         if (this.filterText) {
           if (node.hasText) {
-            var indexs = [];
-            var regexp = new RegExp(this.filterText, 'gi');
-            var filterLength = this.filterText.length;
+            const indexs = [];
+            const regexp = new RegExp(this.filterText, 'gi');
+            const filterLength = this.filterText.length;
             data.label.replace(regexp, function(t, index, label) {
               indexs.push(index);
             });
             if (indexs.length > 0) {
               texts = [];
-              var i = 0;
+              let i = 0;
               indexs.map(function(index, pos) {
-                var sliceText = data.label.slice(i, index);
+                const sliceText = data.label.slice(i, index);
                 texts.push((<span>{sliceText}</span>));
                 texts.push((<span class="filter">{self.filterText}</span>));
                 i = index + filterLength;
@@ -423,15 +423,15 @@
           </div>
         );
       },
-      initTree: function() {
-        for (var i in this.defaultExpandedKeys) {
+      initTree() {
+        for (let i in this.defaultExpandedKeys) {
           this.expandNode(this.defaultExpandedKeys[i]);
         }
         if (this.store.currentNode) {
           this.$emit('node-click', this.store.currentNode);
         }
       },
-      addEvent: function(element, type, handler) {
+      addEvent(element, type, handler) {
         if (element.addEventListener) {
           element.addEventListener(type, handler, false);
         } else if (element.attachEvent) {
@@ -442,13 +442,13 @@
           element['on' + type] = handler;
         }
       },
-      docClick: function(event) {
+      docClick(event) {
         this.contentMenuShow = false;
         this.renameFalse(event);
       }
     },
     watch: {
-      data: function(val, oldVal) {
+      data(val, oldVal) {
         this.currentTreeData = this.formatData();
         if (Array.isArray(oldVal)) {
           if (oldVal.length === 0) {
@@ -456,26 +456,25 @@
           }
         }
       },
-      currentTreeData: function(val, oldVal) {
+      currentTreeData(val, oldVal) {
         this.$emit('update:data', val);
       },
-      filterText: function(val) {
+      filterText(val) {
         this.$refs.elxTreeChild.filter(val);
       }
     },
-    mounted: function() {
-      var _self = this;
+    mounted() {
+      const _self = this;
       this.$nextTick(function() {
         document.body.addEventListener('click', this.docClick);
         _self.initTree();
       });
     },
-    beforeDestroy: function() {
+    beforeDestroy() {
       document.body.removeEventListener('click', this.docClick);
     },
-    created: function() {
+    created() {
       this.currentTreeData = this.formatData();
     }
   };
 </script>
-

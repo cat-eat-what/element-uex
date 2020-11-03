@@ -17,7 +17,7 @@
     props: {
       value: {
         type: Object,
-        default: function() {
+        default() {
           return {};
         }
       },
@@ -26,13 +26,13 @@
         default: {}
       }
     },
-    data: function() {
+    data() {
       return {
         currentValue: this.value
       };
     },
     methods: {
-      validate: function() {
+      validate() {
         return this.$refs.elxFormGroup.validate();
       }
     },
@@ -53,7 +53,7 @@
         }
       }
     },
-    created: function() {
+    created() {
     }
   };
 </script>

@@ -57,31 +57,31 @@
         default: false
       }
     },
-    data: function() {
+    data() {
       return {
         currentData: this.value
       };
     },
     methods: {
-      add: function() {
-        var obj = {paramId: '', paramValue: ''};
+      add() {
+        const obj = {paramId: '', paramValue: ''};
         this.currentData.push(obj);
       },
-      remove: function(index) {
+      remove(index) {
         this.currentData.splice(index, 1);
       }
     },
     watch: {
       currentData: {
         deep: true,
-        handler: function(val, oldVal) {
+        handler(val, oldVal) {
           this.$emit('input', val);
           this.$emit('change', val);
         }
       },
       value: {
         deep: true,
-        handler: function(val, oldVal) {
+        handler(val, oldVal) {
           this.currentData = val;
         }
       }

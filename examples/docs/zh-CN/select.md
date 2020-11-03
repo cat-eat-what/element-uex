@@ -10,12 +10,14 @@
 
 :::demo 为`elx-select`添加`filterable`属性即可启用搜索功能。默认情况下，Select 会找出所有`label`属性包含输入值的选项。如果希望使用其他的搜索逻辑，可以通过传入一个`filter-method`来实现。`filter-method`为一个`Function`，它会在输入值发生变化时调用，参数为当前输入值。
 ```html
-<style>
-  .demo-select .el-select {
-    width: 400px;
-  }
-</style>
-<elx-select v-model="value1" type="card" multiple clearable filterable placeholder="请选择" @change="change">
+<elx-select
+  v-model="value1"
+  type="card"
+  multiple
+  clearable
+  filterable
+  placeholder="请选择"
+  @change="change">
   <elx-option
     style="width: calc((100% - 60px) / 5); margin-left: 10px;"
     v-for="(item, index) in options"
@@ -27,7 +29,12 @@
   </elx-option>
 </elx-select>
 <br/>
-<elx-select v-model="value" clearable filterable placeholder="请选择" @change="change">
+<elx-select
+  v-model="value"
+  clearable
+  filterable
+  placeholder="请选择"
+  @change="change">
   <elx-option
     v-for="(item, index) in options"
     :render-content="renderOption"

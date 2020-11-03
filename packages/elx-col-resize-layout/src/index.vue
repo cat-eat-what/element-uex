@@ -66,8 +66,8 @@
         default: 'wide'
       }
     },
-    data: function() {
-      var splitW = this.splitType === 'wide' ? 10 : 1;
+    data() {
+      const splitW = this.splitType === 'wide' ? 10 : 1;
       return {
         currentWidth: this.width,
         splitLeft: this.defaultLeft || window.parseInt((this.width - splitW) * 0.5),
@@ -77,21 +77,21 @@
       };
     },
     computed: {
-      splitW: function() {
+      splitW() {
         return this.splitType === 'wide' ? 10 : 1;
       },
-      single: function() {
+      single() {
         return (!this.leftVisible && this.rightVisible && this.splitVisible) || (this.leftVisible && !this.rightVisible && this.splitVisible);
       },
-      resizeSplitLeft: function() {
-        var left = this.splitLeft;
+      resizeSplitLeft() {
+        let left = this.splitLeft;
         if (this.mouseEnter && this.splitType === 'narrow') {
           left = left - 5;
         }
         return left + 'px';
       },
-      resizeSplitRight: function() {
-        var right = this.currentWidth - this.splitLeft - this.splitW;
+      resizeSplitRight() {
+        let right = this.currentWidth - this.splitLeft - this.splitW;
         if (this.mouseEnter && this.splitType === 'narrow') {
           right = right - 5;
         }
@@ -99,7 +99,7 @@
       }
     },
     methods: {
-      splitDown: function(e) {
+      splitDown(e) {
         document.body.addEventListener('mousedown', this.preventSelect);
         this.addCursorStyle();
         this.addBodyEvent();
@@ -107,10 +107,10 @@
         this.$emit('drag-start', e);
         this.mouseDown = true;
       },
-      splitMove: function(e) {
+      splitMove(e) {
         if (this.originPageX !== 0) {
-          var gap = e.pageX - this.originPageX;
-          var left = this.splitLeft + gap;
+          let gap = e.pageX - this.originPageX;
+          const left = this.splitLeft + gap;
           if (this.single) {
             gap = this.leftVisible ? gap : -gap;
             if (this.currentWidth + gap <= this.splitW) {
@@ -137,7 +137,7 @@
         }
         this.prePageX = e.pageX;
       },
-      splitUp: function(e) {
+      splitUp(e) {
         document.body.removeEventListener('mousedown', this.preventSelect);
         this.removeCursorStyle();
         this.removeBodyEvent();
@@ -145,7 +145,7 @@
         this.$emit('drag-end', e);
         this.mouseDown = false;
       },
-      splitLeave: function(e) {
+      splitLeave(e) {
         if (this.single) {
           this.splitMove(e);
         } else {
@@ -158,7 +158,7 @@
         }
         e.preventDefault();
       },
-      resizeByVisible: function() {
+      resizeByVisible() {
         if (!this.leftVisible) {
           this.splitLeft = 0;
         }
@@ -166,40 +166,40 @@
           this.splitLeft = this.splitVisible ? this.currentWidth - this.splitW : this.currentWidth;
         }
       },
-      preventSelect: function(e) {
+      preventSelect(e) {
         e.preventDefault();
         return false;
       },
-      addCursorStyle: function() {
+      addCursorStyle() {
         document.body.style.cursor = 'col-resize';
       },
-      removeCursorStyle: function() {
+      removeCursorStyle() {
         document.body.style.cursor = 'auto';
       },
-      addBodyEvent: function() {
+      addBodyEvent() {
         if (this.single) {
           document.body.addEventListener('mouseup', this.splitUp);
           document.body.addEventListener('mousemove', this.splitLeave);
           document.body.addEventListener('mouseleave', this.splitUp);
         }
       },
-      removeBodyEvent: function() {
+      removeBodyEvent() {
         document.body.removeEventListener('mouseup', this.splitUp);
         document.body.removeEventListener('mousemove', this.splitLeave);
         document.body.removeEventListener('mouseleave', this.splitUp);
       },
-      splitMouseEnter: function() {
+      splitMouseEnter() {
         this.mouseEnter = true;
       },
-      splitMouseLeave: function() {
+      splitMouseLeave() {
         this.mouseEnter = false;
       }
     },
     watch: {
-      splitLeft: function(val, oldVal) {
+      splitLeft(val, oldVal) {
         this.$emit('resize', this.currentWidth, this.splitLeft);
       },
-      width: function(val, oldVal) {
+      width(val, oldVal) {
         this.currentWidth = val;
         if ((!this.leftVisible || !this.rightVisible)) {
           this.resizeByVisible();
@@ -212,16 +212,16 @@
         }
         this.$emit('resize', this.currentWidth, this.splitLeft);
       },
-      currentWidth: function(val) {
+      currentWidth(val) {
         this.$emit('update:width', val);
       },
-      leftVisible: function(val, oldVal) {
+      leftVisible(val, oldVal) {
         this.resizeByVisible();
       },
-      rightVisible: function(val, oldVal) {
+      rightVisible(val, oldVal) {
         this.resizeByVisible();
       },
-      splitVisible: function(val, oldVal) {
+      splitVisible(val, oldVal) {
         if (!oldVal) {
           if (this.leftVisible && this.rightVisible && val) {
             this.splitLeft = this.defaultLeft || window.parseInt((this.currentWidth - this.splitW) * 0.5);
@@ -229,12 +229,12 @@
         }
       }
     },
-    created: function() {
+    created() {
       this.resizeByVisible();
     },
-    mounted: function() {
+    mounted() {
     },
-    beforeDestroy: function() {
+    beforeDestroy() {
       this.removeBodyEvent();
       document.body.removeEventListener('mousedown', this.preventSelect);
     }

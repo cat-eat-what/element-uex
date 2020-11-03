@@ -1,5 +1,7 @@
 <template>
-  <div class="elx-radio-group">
+  <div
+    class="elx-radio-group"
+    :class="size">
     <slot></slot>
   </div>
 </template>
@@ -23,12 +25,13 @@
 
     props: {
       value: {},
+      size: String,
       validateEvent: {
         type: Boolean,
         default: true
       }
     },
-    data: function() {
+    data() {
       return {
       };
     },

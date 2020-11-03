@@ -2,8 +2,8 @@
 @import "./common/var";
 
 .elx-checkbox {
-    height: 30px;
-    line-height: 30px;
+    height: $--height;
+    line-height: $--line-height;
     display: inline-block;
     border: 1px solid $--color-zxb-15;
     color: $--color-font;
@@ -12,7 +12,6 @@
     white-space: nowrap;
     background: white;
     margin-right: 10px;
-    margin-bottom: 5px;
     &.active {
         color: $--color-font;
         border: 1px solid  $--color-primary;
@@ -30,7 +29,7 @@
     }
     .el-icon-check {
         position: absolute;
-        top: calc(30px - 1.58em);
+        top: $--height - 1.58 * $--font-size-small;
         right: 1.45em;
         font-size: 12px;
     }

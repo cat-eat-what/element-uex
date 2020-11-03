@@ -40,7 +40,7 @@
     props: {
       value: {
         type: Array,
-        default: function() {
+        default() {
           return [];
         }
       },
@@ -49,7 +49,7 @@
         default: {}
       }
     },
-    data: function() {
+    data() {
       return {
         currentData: [],
         defaultRow: {},
@@ -57,35 +57,34 @@
       };
     },
     methods: {
-      addData: function() {
+      addData() {
         this.currentData.push(Object.assign({}, this.defaultRow));
       },
-      removeData: function(index) {
+      removeData(index) {
         this.currentData.splice(index, 1);
       },
-      validateTableData: function(data) {
-        var judge = true;
-        var i;
-        for (i in data) {
+      validateTableData(data) {
+        let judge = true;
+        for (let i in data) {
           if (typeof data[i] !== 'object') {
             judge = false;
           }
         }
         return judge;
       },
-      validate: function() {
-        var _valid = true;
-        var _itemValid = true;
-        for (var i in this.currentData) {
-          var _ref = 'elxForm' + i;
-          if (this.$refs[_ref].length > 0) {
-            _itemValid = this.$refs[_ref][0].validate();
-            _valid = _valid && _itemValid;
+      validate() {
+        let valid = true;
+        let itemValid = true;
+        for (let i in this.currentData) {
+          const ref = 'elxForm' + i;
+          if (this.$refs[ref].length > 0) {
+            itemValid = this.$refs[ref][0].validate();
+            valid = valid && itemValid;
           }
         }
-        return _valid;
+        return valid;
       },
-      setDefaultValue: function(obj, field) {
+      setDefaultValue(obj, field) {
         if (this.options.indexOf(field.type) > -1) {
           obj[field.name] = field.defaultValue ? field.defaultValue : [];
         } else if (field.type === 'switch') {
@@ -95,14 +94,14 @@
         }
         return obj;
       },
-      getDefaultRow: function() {
-        var _obj = {};
-        for (var i in this.config.fields) {
-          if (!(this.config.fields[i].name in _obj) && 'name' in this.config.fields[i]) {
-            _obj = this.setDefaultValue(_obj, this.config.fields[i]);
+      getDefaultRow() {
+        let obj = {};
+        for (let i in this.config.fields) {
+          if (!(this.config.fields[i].name in obj) && 'name' in this.config.fields[i]) {
+            obj = this.setDefaultValue(obj, this.config.fields[i]);
           }
         }
-        this.defaultRow = _obj;
+        this.defaultRow = obj;
       }
     },
     watch: {
@@ -113,7 +112,7 @@
         }
       }
     },
-    created: function() {
+    created() {
       this.getDefaultRow();
       this.currentData = this.validateTableData(this.value) ? this.value : [];
     }

@@ -72,25 +72,25 @@ export default {
     },
     operateType: {
       type: Array,
-      default: function() {
+      default() {
         return ['year', 'month', 'date', 'daterange'];
       }
     }
   },
-  data: function() {
+  data() {
     return {
       currentDate: this.value,
       currentActiveDate: this.activeDate,
       formatedTime: '',
       pickerOptions: {
-        disabledDate: function(time) {
+        disabledDate(time) {
           return time.getTime() >= Date.now();
         }
       },
       pickerMonthOptions: {
-        disabledDate: function(time) {
-          var _date = new Date();
-          var _judge = false;
+        disabledDate(time) {
+          const _date = new Date();
+          let _judge = false;
           if (time.getFullYear() > _date.getFullYear()) {
             _judge = true;
           } else if (time.getFullYear() === _date.getFullYear()) {
@@ -102,30 +102,30 @@ export default {
         }
       },
       pickerYearOptions: {
-        disabledDate: function(time) {
-          var _date = new Date();
+        disabledDate(time) {
+          const _date = new Date();
           return time.getFullYear() > _date.getFullYear();
         }
       }
     };
   },
   methods: {
-    formateDate: function(val) {
+    formateDate(val) {
       if ((val === '' || val === null) || (Array.isArray(val) && (val[0] === null || val[1] === null))) {
         return this.formatedTime;
       }
-      var _separate = this.separate;
-      var _date;
-      var date = [];
-      var _arr = [];
+      const _separate = this.separate;
+      let _date;
+      const date = [];
+      let _arr = [];
       if (Array.isArray(val)) {
         _arr = val;
       } else {
         _arr.push(val);
       }
-      for (var i in _arr) {
-        var _year = _arr[i].getFullYear();
-        var _month = _arr[i].getMonth() + 1;
+      for (let i in _arr) {
+        const _year = _arr[i].getFullYear();
+        let _month = _arr[i].getMonth() + 1;
         _month = _month < 10 ? '0' + _month : _month;
         _date = _arr[i].getDate() < 10 ? '0' + _arr[i].getDate() : _arr[i].getDate();
         if (this.currentActiveDate === 'date') {
@@ -140,7 +140,7 @@ export default {
       }
       return date;
     },
-    operateTime: function(type, callType) {
+    operateTime(type, callType) {
       if (this.currentActiveDate !== type) {
         if (this.currentActiveDate === 'daterange') {
           this.currentDate = this.currentDate[0];
@@ -157,15 +157,15 @@ export default {
     }
   },
   watch: {
-    'currentDate': function(val, oldVal) {
+    currentDate(val, oldVal) {
       this.formatedTime = this.formateDate(val);
     },
-    'formatedTime': function(val, oldVal) {
+    formatedTime(val, oldVal) {
       this.$emit('change', this.formatedTime);
       this.$emit('input', this.formatedTime);
     }
   },
-  created: function() {
+  created() {
     this.formatedTime = this.formateDate(this.currentDate);
   }
 };

@@ -80,20 +80,20 @@
         default: true
       }
     },
-    data: function() {
+    data() {
       return {
         menuAni: null,
         currentMenu: []
       };
     },
     methods: {
-      openMenu: function(item) {
+      openMenu(item) {
         item.open = !item.open;
       },
-      selectMenu: function(item) {
-        for (var i in this.currentMenu) {
-          var _children = this.currentMenu[i].children;
-          for (var j in _children) {
+      selectMenu(item) {
+        for (let i in this.currentMenu) {
+          const _children = this.currentMenu[i].children;
+          for (let j in _children) {
             _children[j].active = false;
             if (_children[j].modelcode === item.modelcode) {
               this.currentMenu[i].active = true;
@@ -103,20 +103,20 @@
         item.active = true;
         this.$emit('menu-change', item);
       },
-      expandAll: function() {
+      expandAll() {
         if (this.expand) {
-          for (var i in this.currentMenu) {
+          for (let i in this.currentMenu) {
             this.currentMenu[i].open = true;
           }
         }
       },
-      postMessage: function() {
+      postMessage() {
         if (this.isPost) {
           cMessage.postMessage(this.message, this.locationOrigin, parent);
         }
       },
-      bindPostMessage: function() {
-        var _self = this;
+      bindPostMessage() {
+        const _self = this;
         cMessage.receiveMessage(function(message) {
           if (typeof message.data === 'object' && !Array.isArray(message.data)) {
             if ('menuType' in message.data) {
@@ -130,8 +130,8 @@
           _self.$emit('receive-message', message);
         }, _self.locationOrigin);
       },
-      getClass: function(item) {
-        var _class = '';
+      getClass(item) {
+        let _class = '';
         if (item.open) {
           _class = _class + 'open ';
         }
@@ -140,9 +140,9 @@
         }
         return _class;
       },
-      formatData: function() {
-        var self = this;
-        var fun = function(node) {
+      formatData() {
+        const self = this;
+        const fun = function(node) {
           if (!('open' in node)) {
             self.$set(node, 'open', false);
           }
@@ -152,31 +152,31 @@
           if (node.children.length === 0) {
             return;
           }
-          for (var i = 0; i < node.children.length; i++) {
+          for (let i = 0; i < node.children.length; i++) {
             fun(node.children[i]);
           }
         };
-        for (var i = 0;i < this.currentMenu.length; i++) {
+        for (let i = 0;i < this.currentMenu.length; i++) {
           fun(this.currentMenu[i]);
         }
       }
     },
     watch: {
-      'isPost': function(val, oldVal) {
+      'isPost'(val, oldVal) {
         this.postMessage();
       },
-      'menuData': function(val, oldVal) {
+      'menuData'(val, oldVal) {
         this.currentMenu = val;
         this.formatData();
       },
-      'currentMenu': function(val, oldVal) {
+      'currentMenu'(val, oldVal) {
         this.$emit('updata:menuData', val);
       },
-      'expand': function(val, oldVal) {
+      'expand'(val, oldVal) {
         this.expandAll();
       }
     },
-    created: function() {
+    created() {
       this.currentMenu = this.menuData;
       this.formatData();
       this.postMessage();
