@@ -197,15 +197,27 @@
         let height = 0;
         let colArr = [];
         let allArr = [];
+        let minHeight = 14 * 2 + 40 * 2;
+        let isPush = false;
         for (let i = 0; i < arr.length ; i++) {
+          if (height <= minHeight) {
+            colArr.push(arr[i]);
+            isPush = true;
+          }
           height += 14 * 2 + 40 + arr[i].children.length * 40;
           if (height > this.colHeight) {
             height = 14 * 2 + 40 + arr[i].children.length * 40;
+            if (isPush) {
+              height = 0;
+            }
             result.push(colArr);
             allArr.push.apply(allArr, colArr);
             colArr = [];
           }
-          colArr.push(arr[i]);
+          if (!isPush) {
+            colArr.push(arr[i]);
+          }
+          isPush = false;
         }
 
         let newArray = [];
