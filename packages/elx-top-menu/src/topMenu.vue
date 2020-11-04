@@ -164,10 +164,10 @@
       getLiMaxHeight: function() {
         this.getLineNum();
         this.liMaxHeight = [];
-        for (var i = 0; i <= this.lineNum; i++) {
-          var lineHeight = 0;
-          for (var j = i * this.eveLineNum; j < this.eveLineNum * (i + 1) && j < this.currentMenuData.length; j++) {
-            var height = (this.currentMenuData[j].children.length + 1) * 40;
+        for (let i = 0; i <= this.lineNum; i++) {
+          let lineHeight = 0;
+          for (let j = i * this.eveLineNum; j < this.eveLineNum * (i + 1) && j < this.currentMenuData.length; j++) {
+            let height = (this.currentMenuData[j].children.length + 1) * 40;
             if (lineHeight === 0 || height > lineHeight) {
               lineHeight = height;
             }
@@ -176,23 +176,23 @@
         }
       },
       getLineNum: function() {
-        // var w = document.body.clientWidth;
+        // let w = document.body.clientWidth;
         this.eveLineNum = parseInt((this.menuWidth - 40) / 240, 10);
         this.lineNum = parseInt(this.currentMenuData.length / this.eveLineNum, 10);
       },
       changeMenu: function(item, divIndex, index, child) {
         console.log('changeMenu', item, divIndex, index, child);
-        // var menuData = this.menuData[index];
-        var menuData = this.sliceMenuData[divIndex][index];
+        // lef menuData = this.menuData[index];
+        let menuData = this.sliceMenuData[divIndex][index];
         this.$emit('change-menu', menuData, child);
         this.isOpen = false;
       },
       transMenuData: function(data, length) {
-        for (var i in data) {
+        for (let i in data) {
           if (data[i].children.length > length) {
             data[i].children = data[i].children.slice(0, length);
           }
-          for (var j = 0; j < data[i].children.length; j++) {
+          for (let j = 0; j < data[i].children.length; j++) {
             let strLength = this.getStrLength(data[i].children[j].menuName);
             data[i].children[j].menuNameShow = data[i].children[j].menuName;
             data[i].children[j].tipShow = false;
@@ -213,14 +213,14 @@
         console.log('transMenuData--currentMenuData', this.currentMenuData);
       },
       getUlMargin: function() {
-        // var w = document.body.clientWidth;
+        // let w = document.body.clientWidth;
         this.getLineNum();
         this.ulMargin = parseInt((this.menuWidth - 240 * this.eveLineNum) / (this.eveLineNum + 1), 10);
       },
       getColheight: function(arr, size) {
         let totalHeight = 0;
         let colHeight = 0;
-        for (var i = 0; i < arr.length; i++) {
+        for (let i = 0; i < arr.length; i++) {
           totalHeight += 14 * 2 + 40 + arr[i].children.length * 30;
         }
         colHeight = totalHeight / size;
