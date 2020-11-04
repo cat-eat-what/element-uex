@@ -26,7 +26,7 @@ var testMenuData = require('examples/assets/topMenu.json');
         searchFocus: false,
         guideArrowShow: false,
         refresh: 0,
-        menuLength: 4,
+        menuLength: 999,
         options: [
           {value: 'api_catalog_1_1', label: 'API目录_1_1'},
           {value: 'cert_mgr', label: '证书管理'},

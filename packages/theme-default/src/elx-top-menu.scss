@@ -72,11 +72,11 @@
                                 color:$--color-text-primary !important;
                                 font-weight:500;
                                 >span {
-                                    color:$--color-text-regular !important;
                                     &.menuIcon {
                                         margin-right: 10px;
                                         display: inline-block; 
                                         width: 14px;
+                                        color:$--color-text-regular !important;
                                     }
                                 }
                             }
@@ -84,26 +84,35 @@
                             >dt:hover{
                                 cursor: pointer;
                             }
-                            >dd{
-                                color:$--color-text-regular !important;
-                                font-weight:400;
-                                margin-left:0;
-                                text-align:left;
-                                padding-left: 30px;
-                                >span {
-                                    margin-left: 10px;
+                            >div{
+                                >dd{
+                                    color:$--color-text-regular !important;
+                                    font-weight:400;
+                                    margin-left:0;
+                                    text-align:left;
+                                    padding-left: 30px;
+                                    line-height: 30px;
+                                    >span {
+                                        margin-left: 10px;
+                                    }
+                                    .selectLine{
+                                        opacity: 0;
+                                    }
+                                    .outerIcon{
+                                        font-size: 12px;
+                                        margin: revert;
+                                        padding: 2px 0px 0px 5px;
+                                        color: $--color-text-ignore !important;
+                                        position: relative;
+                                    }
                                 }
-                                .selectLine{
-                                    opacity: 0;
-                                }
-                            }
-
-                            >dd:hover  {
-                                color:$--color-text-primary !important;
-                                font-weight:500;
-                                cursor: pointer;
-                                .selectLine{
-                                    opacity: 1;
+                                >dd:hover  {
+                                    color:$--color-text-primary !important;
+                                    font-weight:500;
+                                    cursor: pointer;
+                                    .selectLine{
+                                        opacity: 1;
+                                    }
                                 }
                             }
                          }
@@ -195,4 +204,3 @@
         transition: all 0.5s ease;
     }
 }
-

@@ -16,17 +16,23 @@
           <span
             v-if="lvl == 0"
             :class="model.images != '' && model.images && model.images != null ? model.images : 'uex-icon-default'"></span>
-          <span
+          <!-- <span
             :class="'name lvl' + lvl"
             :style="{
               'width': lvl <= 1 ? (model.children.length > 0 ? 'calc(100% - 24px - 26px)' : 'calc(100% - 28px)') :  (model.children.length > 0 ? 'calc(100% - 26px)' : 'calc(100%)'),
               'margin-right': model.open ? (lvl < 1 ? '-24px' : '-14px') : '0px'
             }"
             v-text="model.modelname">
+          </span> -->
+          <span
+            :class="'name lvl' + lvl"
+            style="width:auto"
+            v-text="model.modelname">
           </span>
-          <!-- <span class="exportWin"
+          <span class="exportWin uex-icon-new-wins" v-if="model.isOuter"></span>
+            <!-- <span class="exportWin"
             v-if="lvl > 0"
-            :class="model.images != '' && model.images && model.images != null ? model.images : 'uex-icon-export'"></span> -->
+            :class="model.images != '' && model.images && model.images != null ? model.images : 'uex-icon-new-wins'"></span> -->
           <i
             v-if="model.children.length > 0"
             class="uex-icon-arrow-right">

@@ -302,35 +302,35 @@
         color: $--color-white;
         background-color: $--menu-active-bg-color;
     }
-    .outer-menu .treeview-menu > li.isOuter > a:before{
-        content: "";
-        border: 12px solid transparent;
-        border-bottom: 12px solid $--tree-line-color;
-        transform: rotate(45deg);
-        position: absolute;
-        top: -12px;
-        right: -12px;
-    }
+    // .outer-menu .treeview-menu > li.isOuter > a:before{
+    //     content: "";
+    //     border: 12px solid transparent;
+    //     border-bottom: 12px solid $--tree-line-color;
+    //     transform: rotate(45deg);
+    //     position: absolute;
+    //     top: -12px;
+    //     right: -12px;
+    // }
 
-    .outer-menu .treeview-menu > li.isOuter > a:after{
-        content: "\e93a";
-        font-family: 'uex-icon' !important;
-        speak: none;
-        font-style: normal;
-        font-weight: normal;
-        font-variant: normal;
-        text-transform: none;
-        line-height: 1;
-        vertical-align: baseline;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        font-size:10px;
-        color:$--icon-color;
-        transform:scale(0.6)
-    }
+    // .outer-menu .treeview-menu > li.isOuter > a:after{
+    //     content: "\e93a";
+    //     font-family: 'uex-icon' !important;
+    //     speak: none;
+    //     font-style: normal;
+    //     font-weight: normal;
+    //     font-variant: normal;
+    //     text-transform: none;
+    //     line-height: 1;
+    //     vertical-align: baseline;
+    //     -webkit-font-smoothing: antialiased;
+    //     -moz-osx-font-smoothing: grayscale;
+    //     position: absolute;
+    //     top: 0px;
+    //     right: 0px;
+    //     font-size:10px;
+    //     color:$--icon-color;
+    //     transform:scale(0.6)
+    // }
 
     .narrow-menu>div>ul>li.active>.list,
     .narrow-menu>div>ul>li.active>.list>a{
@@ -356,7 +356,7 @@
         right: -12px;
     }
     .narrow-menu .treeview-menu > li.isOuter >div > a:after{
-        content: "\e93a";
+        content: "\e93b";
         font-family: 'uex-icon' !important;
         speak: none;
         font-style: normal;
@@ -421,6 +421,8 @@
     }
     a > span.exportWin {
         color:$--color-text-ignore;
+        margin-left: 10px;
+        font-size: 12px;
     }
     .show-title {
         height: 50px;
