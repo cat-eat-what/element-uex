@@ -75,25 +75,28 @@
                       </span>
                       <span class="menuName">{{item.menuName}}</span>
                     </dt>
-                    <dd
-                      v-for="(child,idx) in item.children"
-                      :key="idx"
-                      @click="changeMenu(item, divIndex, index, child)">
-                      <svg
-                        id="selectLine"
-                        class="selectLine"
-                        width="124px"
-                        height="40px"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        style="position: absolute;">
-                        <rect
-                          width="100%"
-                          height="40"
-                          style="fill:none;stroke-width: 1px;stroke:#495465;"/>
-                      </svg> 
-                      <span>{{child.menuName}}</span>
-                    </dd>
+                    <div v-for="(child,idx) in item.children"
+                        :key="idx">
+                      <el-tooltip :disabled="!child.tipShow" :content="child.menuName" placement="top" effect="light" open-delay="500">
+                        <dd @click="changeMenu(item, divIndex, index, child)">
+                            <svg
+                              id="selectLine"
+                              class="selectLine"
+                              width="124px"
+                              height="30px"
+                              version="1.1"
+                              xmlns="http://www.w3.org/2000/svg"
+                              style="position: absolute;">
+                              <rect
+                                width="100%"
+                                height="30"
+                                style="fill:none;stroke-width: 1px;stroke:#495465;z-index:-1"/>
+                            </svg>
+                            <span class="secMenu">{{child.menuNameShow}}</span>
+                            <span :class="child.isOuter?'uex-icon-new-wins outerIcon':'outerIcon'"></span>
+                        </dd>
+                      </el-tooltip>
+                    </div>
                 </dl>
             </div>
           </div>
@@ -118,7 +121,7 @@
         default: 4
       }
     },
-    data() {
+    data: function() {
       return {
         currentMenuData: [],
         isOpen: false,
@@ -132,7 +135,7 @@
       };
     },
     methods: {
-      openMenu() {
+      openMenu: function() {
         this.isOpen = !this.isOpen;
         setTimeout(()=>{
           this.menuWidth = this.$refs.menuDiv.clientWidth;
@@ -144,16 +147,27 @@
           console.log('sliceMenuData', this.sliceMenuData);
         }, 50);
       },
-      closeMenu() {
+      closeMenu: function() {
         this.isOpen = false;
       },
-      getLiMaxHeight() {
+      getStrLength: function(val) {
+        let len = 0;
+        for (let i = 0; i < val.length; i++) {
+          if (val.charCodeAt(i) > 127 || val.charCodeAt(i) === 94) {
+            len += 2;
+          } else {
+            len++;
+          }
+        }
+        return len;
+      },
+      getLiMaxHeight: function() {
         this.getLineNum();
         this.liMaxHeight = [];
-        for (let i = 0; i <= this.lineNum; i++) {
-          let lineHeight = 0;
-          for (let j = i * this.eveLineNum; j < this.eveLineNum * (i + 1) && j < this.currentMenuData.length; j++) {
-            const height = (this.currentMenuData[j].children.length + 1) * 40;
+        for (var i = 0; i <= this.lineNum; i++) {
+          var lineHeight = 0;
+          for (var j = i * this.eveLineNum; j < this.eveLineNum * (i + 1) && j < this.currentMenuData.length; j++) {
+            var height = (this.currentMenuData[j].children.length + 1) * 40;
             if (lineHeight === 0 || height > lineHeight) {
               lineHeight = height;
             }
@@ -161,8 +175,8 @@
           this.liMaxHeight.push(lineHeight);
         }
       },
-      getLineNum() {
-        // const w = document.body.clientWidth;
+      getLineNum: function() {
+        // var w = document.body.clientWidth;
         this.eveLineNum = parseInt((this.menuWidth - 40) / 240, 10);
         this.lineNum = parseInt(this.currentMenuData.length / this.eveLineNum, 10);
       },
@@ -178,12 +192,28 @@
           if (data[i].children.length > length) {
             data[i].children = data[i].children.slice(0, length);
           }
+          for (var j = 0; j < data[i].children.length; j++) {
+            let strLength = this.getStrLength(data[i].children[j].menuName);
+            data[i].children[j].menuNameShow = data[i].children[j].menuName;
+            data[i].children[j].tipShow = false;
+            if (data[i].children[j].isOuter) {
+              if (strLength >= 12) {
+                data[i].children[j].menuNameShow = data[i].children[j].menuName.substring(0, 5) + '...';
+                data[i].children[j].tipShow = true;
+              }
+            } else {
+              if (strLength >= 13) {
+                data[i].children[j].menuNameShow = data[i].children[j].menuName.substring(0, 6) + '...';
+                data[i].children[j].tipShow = true;
+              }
+            }
+          }
         }
         this.currentMenuData = data;
         console.log('transMenuData--currentMenuData', this.currentMenuData);
       },
-      getUlMargin() {
-        // const w = document.body.clientWidth;
+      getUlMargin: function() {
+        // var w = document.body.clientWidth;
         this.getLineNum();
         this.ulMargin = parseInt((this.menuWidth - 240 * this.eveLineNum) / (this.eveLineNum + 1), 10);
       },
@@ -191,7 +221,7 @@
         let totalHeight = 0;
         let colHeight = 0;
         for (var i = 0; i < arr.length; i++) {
-          totalHeight += 14 * 2 + 40 + arr[i].children.length * 40;
+          totalHeight += 14 * 2 + 40 + arr[i].children.length * 30;
         }
         colHeight = totalHeight / size;
         return colHeight;
@@ -202,7 +232,7 @@
         let colArr = [];
         let allArr = [];
         let index = 0;
-        let minHeight = 14 * 2 + 40 * 4;
+        let minHeight = 14 * 2 + 40 + 30 * 3;
         let isPush = false;
         let colHeight = this.getColheight(arr, size);
         let cnt = 0;
@@ -219,9 +249,9 @@
               colArr.push(arr[i]);
               isPush = true;
             }
-            height += 14 * 2 + 40 + arr[i].children.length * 40;
+            height += 14 * 2 + 40 + arr[i].children.length * 30;
             if (height > colHeight) {
-              height = 14 * 2 + 40 + arr[i].children.length * 40;
+              height = 14 * 2 + 40 + arr[i].children.length * 30;
               index = i - 1;
               if (isPush) {
                 height = 0;
@@ -281,4 +311,3 @@
     }
   };
 </script>
-
