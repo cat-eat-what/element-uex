@@ -1,6 +1,6 @@
 {
   "name": "element-uex",
-  "version": "2.0.4",
+  "version": "2.0.11",
   "description": "A Component Library for Vue.js.",
   "main": "lib/element-uex.common.js",
   "files": [

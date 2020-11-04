@@ -449,6 +449,9 @@
     },
     watch: {
       data(val, oldVal) {
+        if (JSON.stringify(val) === JSON.stringify(oldVal)) {
+          return;
+        }
         this.currentTreeData = this.formatData();
         if (Array.isArray(oldVal)) {
           if (oldVal.length === 0) {
