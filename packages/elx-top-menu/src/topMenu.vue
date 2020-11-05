@@ -77,7 +77,7 @@
                     </dt>
                     <div v-for="(child,idx) in item.children"
                         :key="idx">
-                      <el-tooltip :disabled="!child.tipShow" :content="child.menuName" placement="top" effect="light" open-delay="500">
+                      <el-tooltip :disabled="!child.tipShow" :content="child.menuName" placement="top" effect="light" :open-delay="delayTime">
                         <dd @click="changeMenu(item, divIndex, index, child)">
                             <svg
                               id="selectLine"
@@ -131,7 +131,8 @@
         menuWidth: 0,
         ulMargin: 0,
         sliceMenuData: [],
-        colHeight: 0
+        colHeight: 0,
+        delayTime: 500
       };
     },
     methods: {
