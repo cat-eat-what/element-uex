@@ -39,6 +39,7 @@
     </elx-el-tree>
     <transition name="fade">
       <div
+        ref="elxContentMenu"
         class="elx-content-menu"
         v-show="contentMenuShow && (activeData.isDelete || activeData.isAdd || activeData.isEdit || activeData.hasExtraAction)"
         :style="{
@@ -277,10 +278,24 @@
           this.store = store;
           this.activeNode = node;
           this.contentMenuShow = true;
+          this.$nextTick(() => {
+            this.changePos();
+          });
         }
         this.preventDefault(e);
         e.returnValue = false;
         return false;
+      },
+      changePos() {
+        const gap = 5;
+        const bodyClientHeight = document.body.clientHeight;
+        const bodyClientTop = document.body.clientTop;
+        const height = this.$refs.elxContentMenu.clientHeight;
+        const elBottom = height + Number(this.pos.y.split('px')[0]);
+        const viewHeight = bodyClientHeight + bodyClientTop;
+        if (viewHeight < elBottom) {
+          this.pos.y = viewHeight - height - gap + 'px';
+        }
       },
       changeLabel(data, event) {
         const e = event || window.event;
@@ -464,6 +479,13 @@
       },
       filterText(val) {
         this.$refs.elxTreeChild.filter(val);
+      },
+      contentMenuShow(val) {
+        if (val) {
+          this.$nextTick(() => {
+            this.changePos();
+          });
+        }
       }
     },
     mounted() {

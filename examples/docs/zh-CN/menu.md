@@ -90,7 +90,7 @@
         },
         refresh:0,
         focusMenu: '',
-        menuActive: 'table-demo',
+        menuActive: 'sys-mgr',
         menuOpen: '',
         menuType: 'outer',
         filter: null,

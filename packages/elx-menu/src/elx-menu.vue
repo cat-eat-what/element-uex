@@ -287,7 +287,6 @@
         },
         getFirstChild(node, modelcode) {
           let activeNode;
-          let i;
           const fun = function(currentNode, modelcode) {
             if (currentNode.modelcode === modelcode) {
               if (currentNode.url || currentNode.children.length === 0) {
@@ -301,7 +300,7 @@
             if (currentNode.children.length === 0) {
               return;
             }
-            for (i = 0;i < currentNode.children.length;i++) {
+            for (let i = 0;i < currentNode.children.length;i++) {
               fun(currentNode.children[i], modelcode);
             }
           };

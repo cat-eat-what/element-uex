@@ -141,11 +141,8 @@
         setTimeout(()=>{
           this.menuWidth = this.$refs.menuDiv.clientWidth;
           this.getUlMargin();
-          console.log('menuWidth', this.menuWidth);
-          console.log('eveLineNum', this.eveLineNum);
           // this.sliceMenuData = this.sliceMenu(this.currentMenuData, this.eveLineNum);
           this.sliceMenuData = this.sliceMenuByHeight(this.currentMenuData, this.eveLineNum);
-          console.log('sliceMenuData', this.sliceMenuData);
         }, 50);
       },
       closeMenu: function() {
@@ -182,7 +179,6 @@
         this.lineNum = parseInt(this.currentMenuData.length / this.eveLineNum, 10);
       },
       changeMenu: function(item, divIndex, index, child) {
-        console.log('changeMenu', item, divIndex, index, child);
         // lef menuData = this.menuData[index];
         let menuData = this.sliceMenuData[divIndex][index];
         this.$emit('change-menu', menuData, child);
@@ -211,7 +207,6 @@
           }
         }
         this.currentMenuData = data;
-        console.log('transMenuData--currentMenuData', this.currentMenuData);
       },
       getUlMargin: function() {
         // let w = document.body.clientWidth;
@@ -293,20 +288,16 @@
           let end = start + size;
           result.push(arr.slice(start, end));
         }
-        console.log('sliceMenu', result);
         return result;
       }
     },
     watch: {
       menuData: function(val) {
-        console.log('watch-menuData', val);
         this.transMenuData(val, this.menuLength);
         // this.getLiMaxHeight();
       }
     },
     created: function() {
-      console.log('menuLength', this.menuLength);
-      console.log('menuData', this.menuData);
       this.transMenuData(this.menuData, this.menuLength);
       // this.getLiMaxHeight();
     }

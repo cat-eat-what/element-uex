@@ -217,16 +217,15 @@
       },
       initMutltiData(tableData, selectedData, tableRef, type) {
         const self = this;
-        let i;
         const filterData = tableData.filter(function(item) {
           if (type === 'left') {
-            for (i in self.currentTransferValue) {
+            for (let i in self.currentTransferValue) {
               if (self.currentTransferValue[i][self.props.key] === item[self.props.key]) {
                 return false;
               }
             }
           }
-          for (i in selectedData) {
+          for (let i in selectedData) {
             if (selectedData[i][self.props.key] === item[self.props.key]) {
               return true;
             }
@@ -234,7 +233,7 @@
           return false;
         });
         this.$nextTick(function() {
-          for (i in filterData) {
+          for (let i in filterData) {
             this.$refs[tableRef].toggleRowSelection(filterData[i]);
           }
         });
