@@ -140,9 +140,16 @@
         this.isOpen = !this.isOpen;
         setTimeout(()=>{
           this.menuWidth = this.$refs.menuDiv.clientWidth;
-          this.getUlMargin();
+          this.getLineNum();
+          console.log('menuWidth', this.menuWidth);
+          console.log('eveLineNum', this.eveLineNum);
           // this.sliceMenuData = this.sliceMenu(this.currentMenuData, this.eveLineNum);
           this.sliceMenuData = this.sliceMenuByHeight(this.currentMenuData, this.eveLineNum);
+          console.log('sliceMenuData', this.sliceMenuData);
+          if (this.sliceMenuData.length !== this.eveLineNum) {
+            this.eveLineNum = this.sliceMenuData.length;
+          }
+          this.getUlMargin();
         }, 50);
       },
       closeMenu: function() {
@@ -210,7 +217,6 @@
       },
       getUlMargin: function() {
         // let w = document.body.clientWidth;
-        this.getLineNum();
         this.ulMargin = parseInt((this.menuWidth - 240 * this.eveLineNum) / (this.eveLineNum + 1), 10);
       },
       getColheight: function(arr, size) {
