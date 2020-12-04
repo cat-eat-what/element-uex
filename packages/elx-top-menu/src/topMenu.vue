@@ -74,6 +74,7 @@
                         :class="item.menuIcon==''||item.menuIcon==null?'uex-icon-gather menuIcon':item.menuIcon + ' menuIcon'">
                       </span>
                       <span class="menuName">{{item.menuName}}</span>
+                      <span :class="item.isOuter?'uex-icon-new-wins outerIcon':'outerIcon'"></span>
                     </dt>
                     <div v-for="(child,idx) in item.children"
                         :key="idx">
@@ -141,11 +142,8 @@
         setTimeout(()=>{
           this.menuWidth = this.$refs.menuDiv.clientWidth;
           this.getLineNum();
-          console.log('menuWidth', this.menuWidth);
-          console.log('eveLineNum', this.eveLineNum);
           // this.sliceMenuData = this.sliceMenu(this.currentMenuData, this.eveLineNum);
           this.sliceMenuData = this.sliceMenuByHeight(this.currentMenuData, this.eveLineNum);
-          console.log('sliceMenuData', this.sliceMenuData);
           if (this.sliceMenuData.length !== this.eveLineNum) {
             this.eveLineNum = this.sliceMenuData.length;
           }

@@ -79,6 +79,13 @@
                                         color:$--color-text-regular !important;
                                     }
                                 }
+                                .outerIcon{
+                                    font-size: 12px;
+                                    margin: revert;
+                                    padding: 2px 0px 0px 5px;
+                                    color: $--color-text-ignore !important;
+                                    position: relative;
+                                }
                             }
 
                             >dt:hover{
