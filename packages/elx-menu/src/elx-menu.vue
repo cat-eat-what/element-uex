@@ -26,7 +26,7 @@
         class="list"
         @click="showMore(currentMenuType === 'narrow' ? 'outer' : 'narrow')">
         <a href="javascript:;">
-          <span :class="currentMenuType == 'narrow' ? 'uex-icon-menu-column' : 'uex-icon-menu-column'"></span>
+          <span :class="currentMenuType == 'narrow' ? 'uex-icon-menu-row' : 'uex-icon-menu-column'"></span>
         </a>
       </div>
     </div>

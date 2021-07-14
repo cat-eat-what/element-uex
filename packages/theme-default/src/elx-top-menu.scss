@@ -4,12 +4,12 @@
 .elx-top-menu{
     display: inline-block;
     float:left;
-    height:50px;
+    height:40px;
     .menuTitle{
         width:131px;
-        height:48px;
+        height:38px;
         cursor: pointer;
-        line-height:50px;
+        line-height:40px;
         text-align:center;
         color:$--color-text-primary;
         font-size:$--font-size-medium;
@@ -38,8 +38,8 @@
         overflow:auto;
         overflow-x:hidden;
         position: absolute;
-        width:100%;
-        top: 50px;
+        width:1040px;
+        top: 40px;
         left: 0px;
         padding: 10px 0 20px 0;
         background-color: $--color-white;
@@ -68,7 +68,10 @@
                         line-height: 40px;
                         >dl{
                             >dt{
+                                line-height: 36px;
+                                margin-bottom: 6px;
                                 margin-left:15px;
+                                border-bottom: 1px solid #DADFE6;
                                 color:$--color-text-primary !important;
                                 font-weight:500;
                                 >span {
@@ -98,9 +101,10 @@
                                     margin-left:0;
                                     text-align:left;
                                     padding-left: 30px;
-                                    line-height: 30px;
+                                    line-height: 24px;
                                     >span {
                                         margin-left: 10px;
+                                        font-size: 12px;
                                     }
                                     .selectLine{
                                         opacity: 0;

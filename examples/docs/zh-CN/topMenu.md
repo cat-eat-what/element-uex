@@ -8,7 +8,7 @@
 ::: demo 菜单
 ```html
 <div class="nav-demo">
-  <elx-top-menu @change-menu="changeMenu" :menu-length="menuLength" :menu-data="testMenuData"></elx-top-menu>
+  <elx-top-menu menu-title="功能导航" @change-menu="changeMenu" :menu-length="menuLength" :menu-data="testMenuData"></elx-top-menu>
 </div>
 <script>
 var testMenuData = require('examples/assets/topMenu.json');

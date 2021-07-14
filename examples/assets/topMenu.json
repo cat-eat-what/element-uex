@@ -1,9 +1,62 @@
 [{
     "menuId": "a1",
-    "menuName": "数据目录",
+    "menuName": "数据资产",
     "menuIcon": "",
     "url": "aaaaaaaaa",
-    "children": []
+    "children": [{
+        "menuId": "a1-1",
+        "menuName": "数据资产目录",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    },
+    {
+        "menuId": "a1-2",
+        "menuName": "数据共享目录",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    },
+    {
+        "menuId": "a1-3",
+        "menuName": "数据资源目录",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    },
+    {
+        "menuId": "a1-4",
+        "menuName": "数据地图",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }]
+}, {
+    "menuId": "a9",
+    "menuName": "数据集成",
+    "menuIcon": "",
+    "url": "aaaaaaaaa",
+    "children": [{
+        "menuId": "a9-1",
+        "menuName": "采集接口管理",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    },
+    {
+        "menuId": "a9-2",
+        "menuName": "采集接口监控",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    },
+    {
+        "menuId": "a9-3",
+        "menuName": "采集集群管理",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }]
 }, {
     "menuId": "a2",
     "menuName": "数据开发",
@@ -11,13 +64,13 @@
     "url": "",
     "children": [{
         "menuId": "a3-1",
-        "menuName": "数据开发",
+        "menuName": "模型设计",
         "menuIcon": "",
         "url": "",
         "children": []
     },{
         "menuId": "a3-1",
-        "menuName": "开发者中心",
+        "menuName": "数据开发",
         "menuIcon": "",
         "url": "",
         "children": []
@@ -29,86 +82,85 @@
         "children": []
     },{
         "menuId": "a3-1",
-        "menuName": "任务调度",
+        "menuName": "指标管理",
         "menuIcon": "",
         "url": "",
         "children": []
     },{
         "menuId": "a3-1",
-        "menuName": "任务管理",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    },{
-        "menuId": "a3-1",
-        "menuName": "程序管理",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    },{
-        "menuId": "a3-1",
-        "menuName": "质量指标",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    },{
-        "menuId": "a3-1",
-        "menuName": "我的团队",
+        "menuName": "开发者中心",
         "menuIcon": "",
         "url": "",
         "children": []
     }]
 }, {
     "menuId": "a3",
-    "menuName": "数据采集",
+    "menuName": "运维管理",
     "menuIcon": "uex-icon-share",
     "url": "",
     "children": [{
         "menuId": "a3-1",
-        "menuName": "采集单元管理",
-        "menuIcon": "",
-        "url": "",
-        "isOuter": true,
-        "children": []
-    }]
-}, {
-    "menuId": "a3",
-    "menuName": "任务调度",
-    "menuIcon": "uex-icon-share",
-    "url": "",
-    "children": [{
-        "menuId": "a3-1",
-        "menuName": "任务监控",
+        "menuName": "调度监控",
         "menuIcon": "",
         "url": "",
         "children": []
     },{
         "menuId": "a3-1",
-        "menuName": "配置管理",
+        "menuName": "资源监控",
         "menuIcon": "",
         "url": "",
         "children": []
     },{
         "menuId": "a3-1",
-        "menuName": "资源诊断",
+        "menuName": "服务监控",
         "menuIcon": "",
         "url": "",
         "children": []
     }]
 }, {
     "menuId": "a3",
-    "menuName": "数据交换",
+    "menuName": "数据服务",
     "menuIcon": "uex-icon-share",
     "url": "",
     "children": [{
         "menuId": "a3-1",
-        "menuName": "数据单元管理",
+        "menuName": "服务目录",
         "menuIcon": "",
         "url": "",
         "children": []
     }, {
         "menuId": "a3-2",
-        "menuName": "集群管理",
+        "menuName": "服务管理",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }, {
+        "menuId": "a3-2",
+        "menuName": "服务授权",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }, {
+        "menuId": "a3-2",
+        "menuName": "运营管理",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }]
+}, {
+    "menuId": "a3",
+    "menuName": "数据分析",
+    "menuIcon": "uex-icon-share",
+    "url": "",
+    "children": [{
+        "menuId": "a3-1",
+        "menuName": "数据探索",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }, {
+        "menuId": "a3-2",
+        "menuName": "数据挖掘",
         "menuIcon": "",
         "url": "",
         "children": []
@@ -120,25 +172,25 @@
     "url": "",
     "children": [{
         "menuId": "a3-1",
-        "menuName": "数据质量",
+        "menuName": "数据规划",
         "menuIcon": "",
         "url": "",
         "children": []
     }, {
         "menuId": "a3-2",
-        "menuName": "数据资产管理",
+        "menuName": "元数据治理",
         "menuIcon": "",
         "url": "",
         "children": []
     }, {
         "menuId": "a3-3",
-        "menuName": "模型超市",
+        "menuName": "数据标准",
         "menuIcon": "",
         "url": "",
         "children": []
     },{
         "menuId": "a3-3",
-        "menuName": "数据地图",
+        "menuName": "存储周期",
         "menuIcon": "",
         "url": "",
         "children": []
@@ -150,43 +202,55 @@
         "children": []
     }, {
         "menuId": "a3-3",
-        "menuName": "数据标准",
+        "menuName": "数据评估",
         "menuIcon": "",
         "url": "",
         "children": []
     }, {
         "menuId": "a3-3",
-        "menuName": "元数据治理",
+        "menuName": "开发质量",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }]
+}, {
+    "menuId": "a3",
+    "menuName": "数据安全",
+    "menuIcon": "uex-icon-share",
+    "url": "",
+    "children": [{
+        "menuId": "a3-1",
+        "menuName": "安全规范",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }, {
+        "menuId": "a3-2",
+        "menuName": "安全评估",
         "menuIcon": "",
         "url": "",
         "children": []
     }, {
         "menuId": "a3-3",
-        "menuName": "存储周期",
+        "menuName": "安全策略",
         "menuIcon": "",
         "url": "",
         "children": []
     }, {
-        "menuId": "a3-3",
-        "menuName": "架构设计",
+        "menuId": "a3-4",
+        "menuName": "敏感数据",
         "menuIcon": "",
         "url": "",
         "children": []
     }, {
-        "menuId": "a3-3",
-        "menuName": "数据资源管理",
+        "menuId": "a3-5",
+        "menuName": "安全网关",
         "menuIcon": "",
         "url": "",
         "children": []
     }, {
-        "menuId": "a3-3",
-        "menuName": "数据运营",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }, {
-        "menuId": "a3-3",
-        "menuName": "TD数据地图",
+        "menuId": "a3-6",
+        "menuName": "安全组件",
         "menuIcon": "",
         "url": "",
         "children": []
@@ -198,12 +262,6 @@
     "url": "",
     "children": [{
         "menuId": "a3-1",
-        "menuName": "数据安全管理",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }, {
-        "menuId": "a3-2",
         "menuName": "团队管理",
         "menuIcon": "",
         "url": "",
@@ -215,104 +273,20 @@
         "url": "",
         "children": []
     }, {
-        "menuId": "a3-2",
+        "menuId": "a3-3",
+        "menuName": "告警中心",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }, {
+        "menuId": "a3-4",
+        "menuName": "在线帮助",
+        "menuIcon": "",
+        "url": "",
+        "children": []
+    }, {
+        "menuId": "a3-5",
         "menuName": "系统管理",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }, {
-        "menuId": "a3-2",
-        "menuName": "流程管理",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }]
-}, {
-    "menuId": "a3",
-    "menuName": "测试菜单",
-    "menuIcon": "uex-icon-share",
-    "url": "",
-    "children": [{
-        "menuId": "a3-1",
-        "menuName": "数据源",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }, {
-        "menuId": "a3-2",
-        "menuName": "用户管理",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }, {
-        "menuId": "a3-2",
-        "menuName": "DATAEX",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }, {
-        "menuId": "a3-2",
-        "menuName": "DATAFLOW",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }, {
-        "menuId": "a3-2",
-        "menuName": "DATAGE",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }, {
-        "menuId": "a3-2",
-        "menuName": "DATAMS",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }, {
-        "menuId": "a3-2",
-        "menuName": "DATAPS",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }, {
-        "menuId": "a3-2",
-        "menuName": "DATASTASH",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }, {
-        "menuId": "a3-2",
-        "menuName": "KPI",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }, {
-        "menuId": "a3-2",
-        "menuName": "团队管理",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }, {
-        "menuId": "a3-2",
-        "menuName": "团队角色管理",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }, {
-        "menuId": "a3-2",
-        "menuName": "菜单管理",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }, {
-        "menuId": "a3-2",
-        "menuName": "角色管理",
-        "menuIcon": "",
-        "url": "",
-        "children": []
-    }, {
-        "menuId": "a3-2",
-        "menuName": "测试",
         "menuIcon": "",
         "url": "",
         "children": []

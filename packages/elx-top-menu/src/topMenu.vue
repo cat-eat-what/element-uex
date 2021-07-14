@@ -6,7 +6,7 @@
         <span
           class="uex-icon-menu-card"
           style="margin-right: 10px"></span>
-        <span>产品与服务</span>
+        <span class="menu-title" v-text="menuTitle"></span>
         <svg
           id="menuLine"
           :class="isOpen?'menuLine show' : 'menuLine'"
@@ -84,13 +84,13 @@
                               id="selectLine"
                               class="selectLine"
                               width="124px"
-                              height="30px"
+                              height="24px"
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
                               style="position: absolute;">
                               <rect
                                 width="100%"
-                                height="30"
+                                height="24"
                                 style="fill:none;stroke-width: 1px;stroke:#495465;z-index:-1"/>
                             </svg>
                             <span class="secMenu">{{child.menuNameShow}}</span>
@@ -113,6 +113,10 @@
     componentName: 'ElxTopMenu',
     directives: { Clickoutside },
     props: {
+      menuTitle: {
+        type: String,
+        default: '产品与服务'
+      },
       menuData: {
         type: Array,
         default: []
@@ -221,7 +225,7 @@
         let totalHeight = 0;
         let colHeight = 0;
         for (let i = 0; i < arr.length; i++) {
-          totalHeight += 14 * 2 + 40 + arr[i].children.length * 30;
+          totalHeight += 14 * 2 + 40 + arr[i].children.length * 24;
         }
         colHeight = totalHeight / size;
         return colHeight;
@@ -232,7 +236,7 @@
         let colArr = [];
         let allArr = [];
         let index = 0;
-        let minHeight = 14 * 2 + 40 + 30 * 3;
+        let minHeight = 14 * 2 + 40 + 24 * 3;
         let isPush = false;
         let colHeight = this.getColheight(arr, size);
         let cnt = 0;
@@ -249,9 +253,9 @@
               colArr.push(arr[i]);
               isPush = true;
             }
-            height += 14 * 2 + 40 + arr[i].children.length * 30;
-            if (height > colHeight) {
-              height = 14 * 2 + 40 + arr[i].children.length * 30;
+            height += 14 * 2 + 40 + arr[i].children.length * 24;
+            if (height > colHeight + 120) {
+              height = 14 * 2 + 40 + arr[i].children.length * 24;
               index = i - 1;
               if (isPush) {
                 height = 0;

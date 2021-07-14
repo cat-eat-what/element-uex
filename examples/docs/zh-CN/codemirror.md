@@ -16,6 +16,7 @@ codemirror
   :action-data="actionData"
   :option="option"
   @show-hint="showHint"
+  @keyup.tab.prevent
   @right-click="rightClick">
 </elx-codemirror>
 <script>
